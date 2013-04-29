@@ -14,3 +14,8 @@ end
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.0.1'
+
+# auth
+gem 'devise'
+# gem 'devise-scrypt' TODO: Switch to scrypt, gem needs updating
+gem 'cancan'
