@@ -16,5 +16,16 @@ describe Metadata do
         metadata.keywords.should be_a(Array)
       end
     end
+
+    describe "#fetch_from_exif" do
+      let(:exif) { {"WibblePT" => 100, "Wobbledave" => "Yes"} }
+
+      it "returns an underscore-keyed array of matching keys" do
+        hash = metadata.send(:fetch_from_exif, exif, [:wibble_pt])
+        hash.should eq({
+          wibble_pt: 100
+        })
+      end
+    end
   end
 end

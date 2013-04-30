@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130430092117) do
+ActiveRecord::Schema.define(version: 20130430214425) do
 
   create_table "metadata", force: true do |t|
     t.integer  "photograph_id"
@@ -20,6 +20,10 @@ ActiveRecord::Schema.define(version: 20130430092117) do
     t.string   "keywords",      array: true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.hstore   "camera"
+    t.hstore   "creator"
+    t.hstore   "image"
+    t.hstore   "settings"
   end
 
   add_index "metadata", ["photograph_id"], name: "index_metadata_on_photograph_id"
