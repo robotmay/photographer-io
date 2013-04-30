@@ -19,3 +19,7 @@ gem 'jbuilder', '~> 1.0.1'
 gem 'devise'
 # gem 'devise-scrypt' TODO: Switch to scrypt, gem needs updating
 gem 'cancan'
+
+# images
+gem 'fog'
+gem 'carrierwave'
