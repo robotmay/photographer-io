@@ -11,11 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130430001433) do
+ActiveRecord::Schema.define(version: 20130430092117) do
+
+  create_table "metadata", force: true do |t|
+    t.integer  "photograph_id"
+    t.string   "title"
+    t.text     "description"
+    t.string   "keywords",      array: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "metadata", ["photograph_id"], name: "index_metadata_on_photograph_id"
 
   create_table "photographs", force: true do |t|
     t.integer  "user_id"
-    t.string   "image"
+    t.string   "image_uid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
