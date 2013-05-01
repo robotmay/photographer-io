@@ -2,7 +2,7 @@ class Account::PhotographsController < ApplicationController
   respond_to :html
 
   def index
-    @photographs = current_user.photographs.order("created_at DESC")
+    @photographs = current_user.photographs.order("created_at DESC").page(params[:page]).per(36)
     authorize! :manage, current_user.photographs.new
     respond_with @photographs
   end
