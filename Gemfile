@@ -40,6 +40,7 @@ end
 
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'jquery-turbolinks'
 gem 'jbuilder', '~> 1.0.1'
 gem 'quiet_assets'
 

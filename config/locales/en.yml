@@ -9,3 +9,4 @@ en:
   account:
     photographs:
       upload: "Upload"
+      dropzone: "Drag images into this area to upload"

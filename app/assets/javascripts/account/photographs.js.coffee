@@ -8,11 +8,21 @@ $(document).ready ->
       paramName: "photograph[image]"
       parallelUploads: 1
       maxFileSize: 100
-      maxThumbnailFilesize: 3
+      maxThumbnailFilesize: 2
       acceptParam: "image/jpg"
       init: ->
         photoForm.addClass("dropzone")
+        photoForm.find("fieldset").hide()
     })
 
     dropzone.on "sending", (file, xhr) ->
       $.rails.CSRFProtection(xhr)
+
+    dropzone.on "success", (file) ->
+      if dropzone.filesQueue.length == 0
+        location.reload()
+      else
+        setTimeout(->
+          dropzone.removeFile(file)
+        , 2000)
+

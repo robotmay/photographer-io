@@ -1,4 +1,7 @@
 = simple_form_for [:account, photograph], html: { multipart: true } do |f|
+  div class="message"
+    = t("account.photographs.dropzone")
+
   fieldset
     = f.input :image, as: :file
     = f.button :submit
