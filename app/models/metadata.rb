@@ -5,6 +5,7 @@ class Metadata < ActiveRecord::Base
 
   validates :photograph_id, presence: true
 
+  before_create :extract_from_photograph
   def extract_from_photograph
     exif = photograph.exif
 
@@ -41,7 +42,7 @@ class Metadata < ActiveRecord::Base
       :flash_output, :gamma, :image_size, :date_created, :date_time_original
     ])
 
-    return self
+    save
   end
 
   private
