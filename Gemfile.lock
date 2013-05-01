@@ -109,6 +109,9 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.7.7)
+    kaminari (0.14.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     link_to_active_state (1.0.7)
     listen (0.7.3)
     lumberjack (1.0.3)
@@ -236,6 +239,8 @@ GEM
       multi_json (~> 1.0, >= 1.0.2)
     warden (1.2.1)
       rack (>= 1.0)
+    zurb-foundation (4.0.9)
+      sass (>= 3.2.0)
 
 PLATFORMS
   ruby
@@ -256,6 +261,7 @@ DEPENDENCIES
   identity_cache
   jbuilder (~> 1.0.1)
   jquery-rails
+  kaminari
   link_to_active_state
   machinist
   mini_exiftool_vendored
@@ -274,3 +280,4 @@ DEPENDENCIES
   slim
   turbolinks
   uglifier (>= 1.0.3)
+  zurb-foundation (~> 4.0.0)

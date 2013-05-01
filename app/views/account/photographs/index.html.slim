@@ -1,2 +1,9 @@
-- @photographs.each do |photograph|
-  = image_tag photograph.image.thumb("300x300>").url
+section id="account-photographs-show"
+  header class="row"
+    div class="large-12 columns"
+      = link_to t("account.photographs.upload"), new_account_photograph_path, class: "radius button"
+
+  ul class="large-block-grid-4 small-block-grid-2"
+    - @photographs.each do |photograph|
+      li
+        = image_tag photograph.image.thumb("300x300>").url

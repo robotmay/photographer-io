@@ -1,0 +1,20 @@
+nav class="top-bar"
+  ul class="title-area"
+    li class="name"
+      h1= link_to t("site_name"), root_path
+
+  section class="top-bar-section"
+    ul class="left"
+      = link_to t("nav.explore"), explore_photographs_path, active_on: true, \
+        active_wrapper: :li
+
+    ul class="right"
+      - if user_signed_in?
+        = link_to t("nav.photographs"), account_photographs_path, active_on: true, \
+          active_wrapper: :li
+        li class="has-dropdown"
+          = link_to t("nav.account"), account_root_path, active_on: true
+          ul class="dropdown"
+            = link_to t("nav.edit_account"), edit_user_registration_path, \
+              active_on: true, active_wrapper: :li
+            li= link_to t("nav.sign_out"), destroy_user_session_path

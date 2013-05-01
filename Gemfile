@@ -28,12 +28,14 @@ gem 'mini_exiftool_vendored'
 gem 'slim'
 gem 'simple_form'
 gem 'link_to_active_state'
+gem 'kaminari'
 
 # assets
 group :assets do
   gem 'sass-rails',   '~> 4.0.0.beta1'
   gem 'coffee-rails', '~> 4.0.0.beta1'
   gem 'uglifier', '>= 1.0.3'
+  gem 'zurb-foundation', '~> 4.0.0'
 end
 
 gem 'jquery-rails'

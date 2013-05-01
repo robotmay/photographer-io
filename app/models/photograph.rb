@@ -7,10 +7,11 @@ class Photograph < ActiveRecord::Base
   cache_has_one :metadata, embed: true
 
   image_accessor :image do
-    #
+    after_assign { |i| i.encode(:jpg) }
   end
 
   validates :user_id, :image, presence: true
+  validates_property :format, of: :image, in: [:jpeg, :jpg], case_sensitive: false
 
   def exif
     MiniExiftool.new(image.file.path)

@@ -16,7 +16,7 @@ class Account::PhotographsController < ApplicationController
   def create
     @photograph = current_user.photographs.new(photograph_params)
     authorize! :create, @photograph
-    if @photograph.save
+    if @photograph.save!
       respond_with @photograph do |f|
         f.html { redirect_to edit_account_photograph_path(@photograph) }
         f.json { render json: @photograph.to_json }
