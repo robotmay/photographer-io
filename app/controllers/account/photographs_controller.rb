@@ -25,7 +25,7 @@ module Account
       else
         respond_with @photograph, status: :bad_request do |f|
           f.html { render :new }
-          f.json { render json: @photograph.to_json }
+          f.json { render text: t("account.photographs.create.failed") }
         end
       end
     end
@@ -35,10 +35,28 @@ module Account
       authorize! :update, @photograph
       respond_with @photograph
     end
+
+    def update
+      @photograph = current_user.photographs.fetch(params[:id])
+      authorize! :update, @photograph
+      if @photograph.update_attributes(photograph_params)
+        flash[:notice] = t("account.photographs.update.succeeded")
+        respond_with @photograph do |f|
+          f.html { redirect_to edit_account_photograph_path(@photograph) }
+        end
+      else
+        flash.now[:alert] = t("account.photographs.update.failed")
+        respond_with @photograph, status: :unprocessable_entity do |f|
+          f.html { render :edit }
+        end
+      end
+    end
     
     private
     def photograph_params
-      params.require(:photograph).permit(:image)
+      params.require(:photograph).permit(:image, metadata_attributes: [
+        :id, :title, :keywords, :description
+      ])
     end
   end
 end

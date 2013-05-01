@@ -10,6 +10,8 @@ class Photograph < ActiveRecord::Base
     #
   end
 
+  accepts_nested_attributes_for :metadata
+
   validates :user_id, :image, presence: true
   validates_property :format, of: :image, in: [:jpeg, :jpg], case_sensitive: false
 

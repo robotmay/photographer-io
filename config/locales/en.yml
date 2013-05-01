@@ -16,6 +16,15 @@ en:
       upload: "Upload"
       dropzone: "Drag images into this area to upload"
 
+      create:
+        failed: "Upload error"
+
+      update:
+        succeeded: "Your changes have been saved successfully!"
+        failed: "A problem occurred whilst saving your photograph. Please check for errors below."
+
   photographs:
     metadata:
       title: "Photograph Details"
+      fov: "FOV"
+      date_time_original: "Taken at"

@@ -5,8 +5,8 @@ aside class="metadata"
   
   table
     - if opts[:format] && opts[:format] == :short
-      tbody
-        
+     tbody
+       -#TODO: Figure out the fields needed for short view
 
     - else
       - [:camera, :image, :settings].each do |attr|

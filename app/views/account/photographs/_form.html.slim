@@ -1,8 +1,8 @@
 = simple_form_for [:account, photograph] do |f|
   = f.simple_fields_for :metadata do |m|
     fieldset
-      = m.input :title
-      = m.input :keywords
-      = m.input :description, as: :text
+      = m.input :title, required: false
+      = m.input :keywords, required: false
+      = m.input :description, as: :text, required: false
 
     = f.button :submit
