@@ -1,0 +1,9 @@
+- content_for(:main) do
+  section id="account" class="row"
+    aside class="large-2 columns"
+      = render partial: "shared/account_nav"
+
+    div class="large-10 columns"
+      == yield
+
+= render file: "layouts/application"

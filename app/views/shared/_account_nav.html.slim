@@ -1,0 +1,8 @@
+nav id="account-nav" class="panel"
+  header
+    h4= t("account.nav.title")
+  ul class="side-nav"
+    = link_to t("account.nav.home"), account_root_path, active_on: true, \
+      active_wrapper: :li
+    = link_to t("account.nav.photographs"), account_photographs_path, \
+      active_on: /\/account\/photographs/i, active_wrapper: :li

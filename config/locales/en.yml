@@ -7,6 +7,15 @@ en:
     photographs: "Manage photographs"
 
   account:
+    nav:
+      title: "Your Account"
+      home: "Dashboard"
+      photographs: "Photographs"
+
     photographs:
       upload: "Upload"
       dropzone: "Drag images into this area to upload"
+
+  photographs:
+    metadata:
+      title: "Photograph Details"

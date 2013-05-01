@@ -1,0 +1,22 @@
+- opts ||= {}
+aside class="metadata"
+  header
+    h5= t("photographs.metadata.title")
+  
+  table
+    - if opts[:format] && opts[:format] == :short
+      tbody
+        
+
+    - else
+      - [:camera, :image, :settings].each do |attr|
+        - if photograph.metadata.send(attr).size > 0
+          thead
+            tr
+              td colspan="2"
+                = attr.to_s.humanize
+          tbody
+            - photograph.metadata.send(attr).each do |key, value|
+              tr
+                td= t("photographs.metadata.#{key}")
+                td= value
