@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe Metadata do
   it { should belong_to(:photograph) }
+  it { should have_one(:user).through(:photograph) }
 
   [:photograph_id].each do |attr|
     it { should validate_presence_of(attr) }

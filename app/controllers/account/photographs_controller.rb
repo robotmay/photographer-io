@@ -2,17 +2,31 @@ class Account::PhotographsController < ApplicationController
   respond_to :html
 
   def index
-    @photographs = current_user.fetch_photographs.order("created_at DESC")
+    @photographs = current_user.photographs.order("created_at DESC")
     authorize! :manage, current_user.photographs.new
     respond_with @photographs
   end
 
   def new
-
+    @photograph = current_user.photographs.new
+    authorize! :create, @photograph
+    respond_with @photograph
   end
 
   def create
-
+    @photograph = current_user.photographs.new(photograph_params)
+    authorize! :create, @photograph
+    if @photograph.save
+      respond_with @photograph do |f|
+        f.html { redirect_to edit_account_photograph_path(@photograph) }
+        f.json { render json: @photograph.to_json }
+      end
+    else
+      respond_with @photograph, status: :bad_request do |f|
+        f.html { render :new }
+        f.json { render json: @photograph.to_json }
+      end
+    end
   end
 
   def edit

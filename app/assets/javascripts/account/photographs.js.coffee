@@ -1,3 +1,17 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+#= require dropzone
+Dropzone.autoDiscover = false
+
+$(document).ready ->
+  photoForm = $("form#new_photograph")
+  if photoForm.length > 0
+    dropzone = new Dropzone("form#new_photograph", {
+      paramName: "photograph[name]"
+      parallelUploads: 1
+      maxFileSize: 100
+      maxThumbnailFilesize: 3
+      init: ->
+        photoForm.addClass("dropzone")
+    })
+
+    dropzone.on "sending", (file, xhr) ->
+      $.rails.CSRFProtection(xhr)

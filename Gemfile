@@ -15,7 +15,7 @@ gem 'puma'
 gem 'sidekiq'
 
 # auth
-gem 'devise'
+gem 'devise', git: 'git://github.com/plataformatec/devise.git', branch: 'rails4'
 # gem 'devise-scrypt' TODO: Switch to scrypt, gem needs updating
 gem 'cancan'
 
@@ -39,6 +39,7 @@ end
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.0.1'
+gem 'quiet_assets'
 
 # testing
 group :development, :test do

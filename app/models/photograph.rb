@@ -21,4 +21,9 @@ class Photograph < ActiveRecord::Base
     self.metadata = Metadata.new(photograph: self) if metadata.nil?
     metadata.extract_from_photograph
   end
+
+  after_create :save_metadata
+  def save_metadata
+    metadata.save
+  end
 end

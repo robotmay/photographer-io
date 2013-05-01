@@ -2,6 +2,7 @@ class Metadata < ActiveRecord::Base
   include IdentityCache
 
   belongs_to :photograph
+  has_one :user, through: :photograph
 
   validates :photograph_id, presence: true
 
@@ -41,8 +42,6 @@ class Metadata < ActiveRecord::Base
       :color_space, :image_width, :image_height, :gps_position,
       :flash_output, :gamma, :image_size, :date_created, :date_time_original
     ])
-
-    save
   end
 
   private
