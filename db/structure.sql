@@ -43,6 +43,39 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
+-- Name: collections; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE collections (
+    id integer NOT NULL,
+    user_id integer,
+    name character varying(255),
+    public boolean DEFAULT false,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: collections_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE collections_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: collections_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE collections_id_seq OWNED BY collections.id;
+
+
+--
 -- Name: metadata; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -165,6 +198,13 @@ ALTER SEQUENCE users_id_seq OWNED BY users.id;
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY collections ALTER COLUMN id SET DEFAULT nextval('collections_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY metadata ALTER COLUMN id SET DEFAULT nextval('metadata_id_seq'::regclass);
 
 
@@ -180,6 +220,14 @@ ALTER TABLE ONLY photographs ALTER COLUMN id SET DEFAULT nextval('photographs_id
 --
 
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
+
+
+--
+-- Name: collections_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY collections
+    ADD CONSTRAINT collections_pkey PRIMARY KEY (id);
 
 
 --
@@ -204,6 +252,20 @@ ALTER TABLE ONLY photographs
 
 ALTER TABLE ONLY users
     ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: index_collections_on_public; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_collections_on_public ON collections USING btree (public);
+
+
+--
+-- Name: index_collections_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_collections_on_user_id ON collections USING btree (user_id);
 
 
 --
@@ -258,3 +320,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130430092117');
 INSERT INTO schema_migrations (version) VALUES ('20130430214315');
 
 INSERT INTO schema_migrations (version) VALUES ('20130430214425');
+
+INSERT INTO schema_migrations (version) VALUES ('20130502000100');

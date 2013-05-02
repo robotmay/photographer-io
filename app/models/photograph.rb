@@ -4,6 +4,7 @@ class Photograph < ActiveRecord::Base
   belongs_to :user
   has_one :metadata
 
+  cache_belongs_to :user
   cache_has_one :metadata, embed: true
 
   image_accessor :image do
