@@ -11,7 +11,12 @@ Iso::Application.routes.draw do
       resources :photographs
     end
 
-    resources :photographs
+    resources :photographs do
+      collection do
+        get :public
+        get :private
+      end
+    end
 
     root to: "photographs#index"
   end

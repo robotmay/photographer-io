@@ -20,6 +20,9 @@ class Photograph < ActiveRecord::Base
   validates :user_id, :image, presence: true
   validates_property :format, of: :image, in: [:jpeg, :jpg], case_sensitive: false
 
+  scope :public, joins(:collections).where(collections: { public: true })
+  scope :private, joins(:collections).where(collections: { public: false })
+
   def exif
     MiniExiftool.new(image.file.path)
   end

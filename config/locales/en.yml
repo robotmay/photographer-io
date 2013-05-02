@@ -30,6 +30,9 @@ en:
     photographs:
       nav:
         title: "Photographs"
+        all: "All"
+        public: "All public"
+        private: "All private"
 
       upload: "Upload"
       dropzone: "Drag images into this area to upload"

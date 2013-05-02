@@ -21,6 +21,22 @@ module Account
       respond_with @photographs
     end
 
+    def public
+      @photographs = current_user.photographs.public.order("created_at desc").page(params[:page]).per(36)
+      authorize! :manage, current_user.photographs.new
+      respond_with @photographs do |f|
+        f.html { render :index }
+      end
+    end
+
+    def private
+      @photographs = current_user.photographs.private.order("created_at desc").page(params[:page]).per(36)
+      authorize! :manage, current_user.photographs.new
+      respond_with @photographs do |f|
+        f.html { render :index }
+      end
+    end
+
     def new
       @photograph = current_user.photographs.new
       authorize! :create, @photograph
