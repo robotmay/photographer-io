@@ -7,6 +7,12 @@ Iso::Application.configure do
   # Other caching configuration
   config.cache_store = :dalli_store
   config.action_controller.perform_caching = true
+  config.action_dispatch.rack_cache = {
+    metastore: Dalli::Client.new,
+    entitystore: Dalli::Client.new,
+    allow_reload: false
+  }
+  config.static_cache_control = "public, max-age=2592000"
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both thread web servers
