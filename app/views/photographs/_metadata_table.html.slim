@@ -9,7 +9,7 @@ aside class="metadata"
        -#TODO: Figure out the fields needed for short view
 
     - else
-      - [:camera, :image, :settings].each do |attr|
+      - [:camera, :image, :settings, :creator].each do |attr|
         - if photograph.metadata.send(attr).size > 0
           thead
             tr
