@@ -29,6 +29,11 @@ module Account
 
     def create
       @photograph = current_user.photographs.new(photograph_params)
+
+      if @collection.present?
+        @photograph.collections << @collection
+      end
+
       authorize! :create, @photograph
       if @photograph.save!
         respond_with @photograph do |f|
@@ -84,7 +89,7 @@ module Account
     private
     def photograph_params
       params.require(:photograph).permit(
-        :image, :collection_ids, metadata_attributes: [
+        :image, collection_ids: [], metadata_attributes: [
           :id, :title, :keywords, :description
         ]
       )

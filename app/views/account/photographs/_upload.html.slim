@@ -1,4 +1,5 @@
-= simple_form_for [:account, photograph], html: { multipart: true } do |f|
+- scope = @collection.present? ? [:account, @collection, photograph] : [:account, photograph]
+= simple_form_for scope, html: { multipart: true } do |f|
   div class="message"
     = t("account.photographs.dropzone")
 

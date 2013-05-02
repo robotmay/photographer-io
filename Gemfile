@@ -27,7 +27,7 @@ gem 'mini_exiftool_vendored'
 
 # views
 gem 'slim'
-gem 'simple_form'
+gem 'simple_form', '~> 3.0.0.beta1'
 gem 'link_to_active_state'
 gem 'kaminari'
 
