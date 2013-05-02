@@ -1,7 +1,7 @@
 section id="account-photographs-edit"
   section class="row"
     div class="large-9 columns"
-      = image_tag @photograph.image.thumb("1000x1000>").url
+      = image_tag @photograph.image.thumb("1000x1000>").jpg.url
       = render partial: "form", locals: { photograph: @photograph }
 
     div class="large-3 columns"

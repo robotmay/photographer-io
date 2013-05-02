@@ -15,7 +15,7 @@ app.configure_with(:rails)
 if ENV['S3_ENABLED']
   app.configure do |c|
     c.datastore = datastore
-    c.protect_from_dos_attacks = true
+    c.protect_from_dos_attacks = false
     c.secret = ENV['DRAGONFLY_SECRET']
     c.url_format = "/media/:job/:basename.:format"
   end
