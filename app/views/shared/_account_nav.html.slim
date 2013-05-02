@@ -5,7 +5,7 @@ nav id="account-nav" class="panel"
     = link_to t("account.nav.home"), account_root_path, active_on: true, \
       active_wrapper: :li
     = link_to t("account.nav.photographs"), account_photographs_path, \
-      active_on: /\/account\/(.*)\/photographs/i, active_wrapper: :li
+      active_on: /\/account(.*)\/photographs/i, active_wrapper: :li
 
 nav id="photographs-nav" class="panel"
   header
@@ -20,6 +20,8 @@ nav id="photographs-nav" class="panel"
 
     = link_to t("account.photographs.nav.private"), private_account_photographs_path, \
       active_on: true, active_wrapper: :li
+
+    li class="divider"
 
     - current_user.collections.order("name").each do |collection|
       = link_to collection.name, account_collection_photographs_path(collection), \

@@ -10,6 +10,5 @@
  *
  *= require_self
  *= require dropzone-basic
- *= require_tree .
- *= require foundation_and_overrides
+ *= require base
  */

@@ -213,7 +213,7 @@ $row-width: 100%;
 // $fieldset-margin: emCalc(18px) 0;
 
 // We use these to style the legends when you use them
-// $legend-bg: #fff;
+$legend-bg: none;
 // $legend-font-weight: bold;
 // $legend-padding: 0 emCalc(3px);
 
@@ -833,7 +833,7 @@ $panel-bg: darken($body-bg, 5%);
 // We use these to control border styles
 // $side-nav-divider-size: 1px;
 // $side-nav-divider-style: solid;
-// $side-nav-divider-color: darken(#fff, 10%);
+$side-nav-divider-color: darken($body-bg, 10%);
 
 //
 // Sub Nav Variables

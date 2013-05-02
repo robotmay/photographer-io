@@ -1,12 +1,12 @@
 = simple_form_for [:account, photograph] do |f|
   = f.simple_fields_for :metadata do |m|
-    fieldset
+    fieldset class="panel"
       legend= t("account.photographs.form.general")
       = m.input :title, required: false
       = m.input :keywords, required: false, input_html: { value: m.object.keywords_string }
       = m.input :description, as: :text, required: false
 
-  fieldset
+  fieldset class="panel"
     legend= t("account.photographs.form.collections")
     = f.association :collections, as: :check_boxes
 

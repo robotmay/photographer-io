@@ -24,3 +24,9 @@ en:
     #     username: 'User name to sign in.'
     #     password: 'No special characters, please.'
 
+    hints:
+      metadata:
+        keywords: >
+          Keywords should be a comma-separated list of tags relevant to the image, 
+          e.g. nature, birds, blackbird
+
