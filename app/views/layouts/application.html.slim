@@ -45,6 +45,14 @@ body
   - else
     == yield
 
+  footer id="layout-footer"
+    div class="row"
+      div class="large-4 columns"
+        = link_to "http://www.cloud66.com" do
+          = image_tag "http://s3.amazonaws.com/cdn.cloud66.com/images/powered-by-cloud66.png"
+      div class="large-8 columns" style="text-align: right;"
+        = simple_format t("copyright")
+
   javascript:
     var _gauges = _gauges || [];
     (function() {

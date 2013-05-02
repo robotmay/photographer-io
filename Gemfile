@@ -11,6 +11,7 @@ gem 'identity_cache'
 gem 'rack-cache'
 
 # services
+gem 'puma'
 gem 'unicorn'
 gem 'sidekiq'
 

@@ -1,5 +1,8 @@
 en:
   site_name: "ISO.io"
+  copyright: >
+    All photographs are copyright of their respective creators,
+    and may not be republished without permission.
 
   nav:
     browse: "Explore"

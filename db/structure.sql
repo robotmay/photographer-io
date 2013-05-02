@@ -43,6 +43,38 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
+-- Name: collection_photographs; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE collection_photographs (
+    id integer NOT NULL,
+    collection_id integer,
+    photograph_id integer,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: collection_photographs_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE collection_photographs_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: collection_photographs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE collection_photographs_id_seq OWNED BY collection_photographs.id;
+
+
+--
 -- Name: collections; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -198,6 +230,13 @@ ALTER SEQUENCE users_id_seq OWNED BY users.id;
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY collection_photographs ALTER COLUMN id SET DEFAULT nextval('collection_photographs_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY collections ALTER COLUMN id SET DEFAULT nextval('collections_id_seq'::regclass);
 
 
@@ -220,6 +259,14 @@ ALTER TABLE ONLY photographs ALTER COLUMN id SET DEFAULT nextval('photographs_id
 --
 
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
+
+
+--
+-- Name: collection_photographs_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY collection_photographs
+    ADD CONSTRAINT collection_photographs_pkey PRIMARY KEY (id);
 
 
 --
@@ -252,6 +299,20 @@ ALTER TABLE ONLY photographs
 
 ALTER TABLE ONLY users
     ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: index_collection_photographs_on_collection_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_collection_photographs_on_collection_id ON collection_photographs USING btree (collection_id);
+
+
+--
+-- Name: index_collection_photographs_on_photograph_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_collection_photographs_on_photograph_id ON collection_photographs USING btree (photograph_id);
 
 
 --
@@ -322,3 +383,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130430214315');
 INSERT INTO schema_migrations (version) VALUES ('20130430214425');
 
 INSERT INTO schema_migrations (version) VALUES ('20130502000100');
+
+INSERT INTO schema_migrations (version) VALUES ('20130502000711');

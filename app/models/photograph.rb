@@ -3,9 +3,12 @@ class Photograph < ActiveRecord::Base
 
   belongs_to :user
   has_one :metadata
+  has_many :collection_photographs
+  has_many :collections, through: :collection_photographs
 
   cache_belongs_to :user
   cache_has_one :metadata, embed: true
+  cache_has_many :collections, inverse_name: :photographs
 
   image_accessor :image do
     #
