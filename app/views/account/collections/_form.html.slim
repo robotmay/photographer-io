@@ -1,0 +1,8 @@
+= simple_form_for [:account, collection] do |f|
+  fieldset
+    legend= t("account.collections.form.general")
+
+    = f.input :name
+    = f.input :public
+
+  = f.button :submit

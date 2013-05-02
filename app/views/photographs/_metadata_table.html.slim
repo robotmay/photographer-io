@@ -10,13 +10,13 @@ aside class="metadata"
 
     - else
       - [:camera, :image, :settings, :creator].each do |attr|
-        - if photograph.metadata.send(attr).size > 0
+        - if photograph.fetch_metadata.send(attr).size > 0
           thead
             tr
               td colspan="2"
                 = attr.to_s.humanize
           tbody
-            - photograph.metadata.send(attr).each do |key, value|
+            - photograph.fetch_metadata.send(attr).each do |key, value|
               tr
                 td= t("photographs.metadata.#{key}")
                 td= value

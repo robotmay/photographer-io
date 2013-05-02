@@ -27,7 +27,7 @@ end
 
 app.define_macro(ActiveRecord::Base, :image_accessor)
 
-if defined?(Rack::Cache)
+if !Rails.env.test? && defined?(Rack::Cache)
   Rails.application.middleware.insert_after Rack::Cache, Dragonfly::Middleware, :images
 else
   Rails.application.middleware.insert 1, Dragonfly::Middleware, :images

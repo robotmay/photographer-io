@@ -15,6 +15,18 @@ en:
       home: "Dashboard"
       photographs: "Photographs"
 
+    collections:
+      form:
+        general: "Collection details"
+
+      modal:
+        button: "Create collection"
+        title: "Create a new collection"
+
+      create:
+        succeeded: "Your new collection has been created successfully."
+        failed: "There was a problem creating your collection. Please check for errors below."
+
     photographs:
       nav:
         title: "Photographs"
@@ -22,12 +34,20 @@ en:
       upload: "Upload"
       dropzone: "Drag images into this area to upload"
 
+      form:
+        general: "Details"
+        collections: "What collections does this photo belong in?"
+
       create:
         failed: "Upload error"
 
       update:
         succeeded: "Your changes have been saved successfully!"
         failed: "A problem occurred whilst saving your photograph. Please check for errors below."
+
+      destroy:
+        succeeded: "Your photograph has been deleted successfully."
+        failed: "There was a problem deleting that photograph."
 
   photographs:
     metadata:

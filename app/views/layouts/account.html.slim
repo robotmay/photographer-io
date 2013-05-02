@@ -6,4 +6,11 @@
     div class="large-10 columns"
       == yield
 
+- content_for(:after_body) do
+  div id="new-collection-modal" class="reveal-modal small"
+    a class="close-reveal-modal"
+      | &#215;
+    h2= t("account.collections.modal.title")
+    = render partial: "account/collections/form", locals: { collection: current_user.collections.new }
+
 = render file: "layouts/application"

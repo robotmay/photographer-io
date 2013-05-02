@@ -2,8 +2,21 @@ module Account
   class PhotographsController < AccountController
     respond_to :html
 
+    before_filter :set_parents
+    def set_parents
+      if params[:collection_id].present?
+        @collection = current_user.collections.fetch(params[:collection_id])
+      end
+    end
+
     def index
-      @photographs = current_user.photographs.order("created_at DESC").page(params[:page]).per(36)
+      if @collection.present?
+        @photographs = @collection.photographs
+      else
+        @photographs = current_user.photographs
+      end
+
+      @photographs = @photographs.order("created_at DESC").page(params[:page]).per(36)
       authorize! :manage, current_user.photographs.new
       respond_with @photographs
     end
@@ -51,12 +64,30 @@ module Account
         end
       end
     end
+
+    def destroy
+      @photograph = current_user.photographs.fetch(params[:id])
+      authorize! :destroy, @photograph
+      if @photograph.destroy
+        flash[:notice] = t("account.photographs.destroy.succeeded")
+        respond_with @photograph do |f|
+          f.html { redirect_to account_photographs_path }
+        end
+      else
+        flash[:alert] = t("account.photographs.destroy.failed")
+        respond_with @photograph, status: :bad_request do |f|
+          f.html { redirect_to :back }
+        end
+      end
+    end
     
     private
     def photograph_params
-      params.require(:photograph).permit(:image, metadata_attributes: [
-        :id, :title, :keywords, :description
-      ])
+      params.require(:photograph).permit(
+        :image, :collection_ids, metadata_attributes: [
+          :id, :title, :keywords, :description
+        ]
+      )
     end
   end
 end

@@ -3,7 +3,10 @@ class Ability
 
   def initialize(user)
     user ||= User.new
+
+    can :read, Collection, public: true
     
+    can :manage, Collection, user_id: user.id
     can :manage, Photograph, user_id: user.id
     can :manage, Metadata do |metadata|
       metadata.user == user

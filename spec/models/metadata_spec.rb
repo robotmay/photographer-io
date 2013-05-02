@@ -16,6 +16,11 @@ describe Metadata do
         metadata.keywords = ['nature', 'squirrel']
         metadata.keywords.should be_a(Array)
       end
+
+      it "takes a string as input" do
+        metadata.keywords = "nature, wibble"
+        metadata.keywords.should eq(['nature', 'wibble'])
+      end
     end
 
     describe "#fetch_from_exif" do

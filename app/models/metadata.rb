@@ -44,6 +44,18 @@ class Metadata < ActiveRecord::Base
     ])
   end
 
+  def keywords=(value)
+    if value.is_a?(String)
+      value = value.split(",").map(&:strip)
+    end
+
+    super(value)
+  end
+
+  def keywords_string
+    keywords.join(", ") unless keywords.nil?
+  end
+
   private
   def fetch_from_exif(exif, keys = [])
     return_hash = {}

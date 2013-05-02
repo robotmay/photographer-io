@@ -1,6 +1,6 @@
 nav id="account-nav" class="panel"
   header
-    h4= t("account.nav.title")
+    h5= t("account.nav.title")
   ul class="side-nav"
     = link_to t("account.nav.home"), account_root_path, active_on: true, \
       active_wrapper: :li
@@ -9,9 +9,15 @@ nav id="account-nav" class="panel"
 
 nav id="photographs-nav" class="panel"
   header
-    h4= t("account.photographs.nav.title")
+    h5= t("account.photographs.nav.title")
 
   ul class="side-nav"
-    - current_user.fetch_collections.each do |collection|
+    = link_to t("account.photographs.nav.all"), account_photographs_path, \
+      active_on: true, active_wrapper: :li
+
+    - current_user.collections.each do |collection|
       = link_to collection.name, account_collection_photographs_path(collection), \
         active_on: true, active_wrapper: :li
+
+    button data-reveal-id="new-collection-modal" class="small expand"
+      = t("account.collections.modal.button")
