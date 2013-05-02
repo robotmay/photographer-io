@@ -6,3 +6,12 @@ nav id="account-nav" class="panel"
       active_wrapper: :li
     = link_to t("account.nav.photographs"), account_photographs_path, \
       active_on: /\/account\/photographs/i, active_wrapper: :li
+
+nav id="photographs-nav" class="panel"
+  header
+    h4= t("account.photographs.nav.title")
+
+  ul class="side-nav"
+    - current_user.fetch_collections.each do |collection|
+      = link_to collection.name, account_collection_photographs_path(collection), \
+        active_on: true, active_wrapper: :li

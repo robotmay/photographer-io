@@ -7,6 +7,10 @@ Iso::Application.routes.draw do
 
   devise_for :users, path: :account
   namespace :account do
+    resources :collections do
+      resources :photographs
+    end
+
     resources :photographs
 
     root to: "photographs#index"

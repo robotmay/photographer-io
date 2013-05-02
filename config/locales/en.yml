@@ -16,6 +16,9 @@ en:
       photographs: "Photographs"
 
     photographs:
+      nav:
+        title: "Photographs"
+
       upload: "Upload"
       dropzone: "Drag images into this area to upload"
 
