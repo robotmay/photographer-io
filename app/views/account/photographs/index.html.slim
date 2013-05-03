@@ -1,6 +1,14 @@
 section id="account-photographs-show"
   header class="row"
     div class="large-12 columns"
+      - if @collection.present? && @collection.public
+        div class="alert-box"
+          = t("account.photographs.public_warning")
+
+      - if ["public", "private", "unsorted"].include?(params[:action])
+        div class="alert-box"
+          = t("account.photographs.unsorted_warning")
+
       = render partial: "upload", locals: { photograph: current_user.photographs.new }
 
   section class="row"

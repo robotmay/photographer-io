@@ -39,6 +39,12 @@ en:
       upload: "Upload"
       delete: "Delete this photograph"
       dropzone: "Drag images into this area to upload"
+      public_warning: >
+        This collection is set as public. Any photos in here will be listed on
+        the public-facing site.
+      unsorted_warning: >
+        As this view is a filter over the photographs and not an actual collection,
+        any photographs you upload here will be added to the unsorted view.
 
       form:
         general: "Details"
