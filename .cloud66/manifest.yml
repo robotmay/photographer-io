@@ -8,5 +8,16 @@ production:
     configuration:
       ruby_version: 2.0.0
 
+  postgresql:
+    server:
+      unique_name: Sloth
+      size: 63
+
+  redis:
+    server:
+      unique_name: HoneyBadger
+      size: 66
+
   memcached:
-    shared_group: redis
+    shared_server: HoneyBadger
+
