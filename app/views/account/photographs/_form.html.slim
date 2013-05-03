@@ -10,6 +10,10 @@
     legend= t("account.photographs.form.collections")
     = f.association :collections, as: :check_boxes
 
+  fieldset class="panel"
+    legend= t("account.photographs.form.settings")
+    = f.input :safe_for_work
+
   = f.button :submit
 
   - if photograph.persisted?

@@ -154,7 +154,8 @@ CREATE TABLE photographs (
     user_id integer,
     image_uid character varying(255),
     created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    updated_at timestamp without time zone,
+    safe_for_work boolean DEFAULT true
 );
 
 
@@ -337,6 +338,13 @@ CREATE INDEX index_metadata_on_photograph_id ON metadata USING btree (photograph
 
 
 --
+-- Name: index_photographs_on_safe_for_work; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_photographs_on_safe_for_work ON photographs USING btree (safe_for_work);
+
+
+--
 -- Name: index_photographs_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -385,3 +393,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130430214425');
 INSERT INTO schema_migrations (version) VALUES ('20130502000100');
 
 INSERT INTO schema_migrations (version) VALUES ('20130502000711');
+
+INSERT INTO schema_migrations (version) VALUES ('20130503110219');

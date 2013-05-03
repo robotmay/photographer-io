@@ -49,6 +49,7 @@ en:
       form:
         general: "Details"
         collections: "What collections does this photo belong in?"
+        settings: "Settings"
 
       create:
         failed: "Upload error"

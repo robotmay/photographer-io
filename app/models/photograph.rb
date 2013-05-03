@@ -26,6 +26,8 @@ class Photograph < ActiveRecord::Base
   scope :not_in, lambda { |id_array|
     where(Photograph.arel_table[:id].not_in id_array)
   }
+  scope :safe_for_work, where(safe_for_work: true)
+  scope :not_safe_for_work, where(safe_for_work: false)
 
   def exif
     MiniExiftool.new(image.file.path)
