@@ -1,7 +1,12 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+licenses = [
+  { name: "Attribution", code: "CC BY" },
+  { name: "Attribution-ShareAlike", code: "CC BY-SA" },
+  { name: "Attribution-NoDerivs", code: "CC BY-ND" },
+  { name: "Attribution-NonCommercial", code: "CC BY-NC" },
+  { name: "Attribution-NonCommercial-ShareAlike", code: "CC BY-NC-SA" },
+  { name: "Attribution-NonCommercial-NoDerivs", code: "CC BY-NC-ND" }
+]
+
+licenses.each do |license|
+  License.find_or_create_by_name_and_code(license[:name], license[:code])
+end

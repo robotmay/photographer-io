@@ -12,7 +12,14 @@
 
   fieldset class="panel"
     legend= t("account.photographs.form.settings")
-    = f.input :safe_for_work
+    div class="row"
+      div class="large-4 columns"
+        = f.input :safe_for_work, as: :radio_buttons
+
+      div class="large-4 columns"
+        = f.association :license
+
+      div class="large-4 columns"
 
   = f.button :submit
 

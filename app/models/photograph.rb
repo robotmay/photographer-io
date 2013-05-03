@@ -2,11 +2,13 @@ class Photograph < ActiveRecord::Base
   include IdentityCache
 
   belongs_to :user
+  belongs_to :license
   has_one :metadata, dependent: :destroy
   has_many :collection_photographs, dependent: :destroy
   has_many :collections, through: :collection_photographs
 
   cache_belongs_to :user
+  cache_belongs_to :license
   cache_has_one :metadata, embed: true
   cache_has_many :collections, inverse_name: :photographs
 
@@ -28,6 +30,9 @@ class Photograph < ActiveRecord::Base
   }
   scope :safe_for_work, where(safe_for_work: true)
   scope :not_safe_for_work, where(safe_for_work: false)
+  scope :with_license, lambda { |license|
+    where(license_id: license.id)
+  }
 
   def exif
     MiniExiftool.new(image.file.path)

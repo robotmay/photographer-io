@@ -108,6 +108,38 @@ ALTER SEQUENCE collections_id_seq OWNED BY collections.id;
 
 
 --
+-- Name: licenses; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE licenses (
+    id integer NOT NULL,
+    name character varying(255),
+    code character varying(255),
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: licenses_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE licenses_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: licenses_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE licenses_id_seq OWNED BY licenses.id;
+
+
+--
 -- Name: metadata; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -155,7 +187,8 @@ CREATE TABLE photographs (
     image_uid character varying(255),
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
-    safe_for_work boolean DEFAULT true
+    safe_for_work boolean DEFAULT true,
+    license_id integer
 );
 
 
@@ -245,6 +278,13 @@ ALTER TABLE ONLY collections ALTER COLUMN id SET DEFAULT nextval('collections_id
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY licenses ALTER COLUMN id SET DEFAULT nextval('licenses_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY metadata ALTER COLUMN id SET DEFAULT nextval('metadata_id_seq'::regclass);
 
 
@@ -276,6 +316,14 @@ ALTER TABLE ONLY collection_photographs
 
 ALTER TABLE ONLY collections
     ADD CONSTRAINT collections_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: licenses_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY licenses
+    ADD CONSTRAINT licenses_pkey PRIMARY KEY (id);
 
 
 --
@@ -338,6 +386,13 @@ CREATE INDEX index_metadata_on_photograph_id ON metadata USING btree (photograph
 
 
 --
+-- Name: index_photographs_on_license_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_photographs_on_license_id ON photographs USING btree (license_id);
+
+
+--
 -- Name: index_photographs_on_safe_for_work; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -395,3 +450,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130502000100');
 INSERT INTO schema_migrations (version) VALUES ('20130502000711');
 
 INSERT INTO schema_migrations (version) VALUES ('20130503110219');
+
+INSERT INTO schema_migrations (version) VALUES ('20130503110857');

@@ -30,3 +30,12 @@ en:
           Keywords should be a comma-separated list of tags relevant to the image, 
           e.g. nature, birds, blackbird
 
+      photograph:
+        safe_for_work: >
+          Help out fellow users who browse this site from work; please mark this
+          photograph as unsafe for work if it contains any adult content which could 
+          be deemed unsuitable in an office environment.
+
+        license: >
+          By default you reserve all rights to your photographs. If you wish to add
+          a Creative Commons license, you can do so above.
