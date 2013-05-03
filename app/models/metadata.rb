@@ -63,6 +63,10 @@ class Metadata < ActiveRecord::Base
     super(value)
   end
 
+  def keywords
+    super || []
+  end
+
   def keywords_string
     keywords.join(", ") unless keywords.nil?
   end
