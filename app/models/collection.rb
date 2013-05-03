@@ -9,4 +9,7 @@ class Collection < ActiveRecord::Base
   cache_has_many :photographs, inverse_name: :collections
 
   validates :user_id, :name, presence: true
+
+  scope :public, where(public: true)
+  scope :private, where(private: true)
 end

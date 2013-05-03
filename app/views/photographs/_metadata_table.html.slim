@@ -17,3 +17,15 @@
                 tr
                   td= t("photographs.metadata.#{key}")
                   td= value
+
+        thead
+          tr
+            td colspan="2"
+              = t("photographs.metadata.license")
+        tbody
+          tr
+            td colspan="2"
+              - if photograph.license.present?
+                = photograph.license.name
+              - else
+                = t("photographs.metadata.default_license")

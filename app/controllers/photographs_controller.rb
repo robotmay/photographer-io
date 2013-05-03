@@ -1,8 +1,22 @@
 class PhotographsController < ApplicationController
   respond_to :html
 
+  before_filter :set_parents
+  def set_parents
+    if params[:collection_id].present?
+      @collection = Collection.fetch(params[:collection_id])
+      authorize! :read, @collection
+    end
+  end
+
   def index
-    @photographs = Photograph.public.page(params[:page])
+    if @collection.present?
+      @photographs = @collection.photographs
+    else
+      @photographs = Photograph.scoped
+    end
+
+    @photographs = @photographs.public.page(params[:page])
     respond_with @photographs
   end
 
@@ -14,6 +28,10 @@ class PhotographsController < ApplicationController
   end
 
   def favourite
+
+  end
+
+  def search
 
   end
 

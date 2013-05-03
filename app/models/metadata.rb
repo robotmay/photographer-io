@@ -67,6 +67,10 @@ class Metadata < ActiveRecord::Base
     keywords.join(", ") unless keywords.nil?
   end
 
+  def has_text?
+    title.present? || description.present?
+  end
+
   private
   def fetch_from_exif(exif, keys = [])
     return_hash = {}

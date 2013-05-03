@@ -1,8 +1,34 @@
 section id="photographs-show"
   section class="row"
-    div class="large-9 columns"
-      = photo_tag @photograph, "1500x1500>"
+    article class="large-9 columns"
+      section class="image"
+        = photo_tag @photograph, "1500x1500>"
 
-    div class="large-3 columns"
+      - if @photograph.fetch_metadata.has_text?
+        section class="description panel"
+          h4= @photograph.fetch_metadata.title
+
+
+          - if @photograph.fetch_metadata.description.present?
+            = simple_format @photograph.fetch_metadata.description
+
+    aside id="photographs-sidebar" class="large-3 columns"
       = creator_details_for @photograph
       = metadata_table_for @photograph, format: :short
+
+      - if @photograph.collections.count > 0
+        h5= t("photographs.collections")
+        table
+          tbody
+            - @photograph.collections.each do |collection|
+              tr
+                td= link_to collection.name, collection_path(collection)
+
+      - if @photograph.fetch_metadata.keywords.size > 0
+        h5= t("photographs.keywords")
+        ul id="photographs-keywords" class="inline-list"
+          - @photograph.fetch_metadata.keywords.each do |keyword|
+            li
+              = link_to search_photographs_path(keyword: keyword) do
+                span class="label radius"
+                  = keyword

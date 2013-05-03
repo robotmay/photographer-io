@@ -13,7 +13,7 @@ en:
     sign_out: "Sign out"
     sign_up: "Create an account"
     edit_account: "Account settings"
-    favourites: "Favourite"
+    favourites: "Favourites"
 
   account:
     nav:
@@ -55,6 +55,8 @@ en:
         private: "Private"
         unsorted: "Unsorted"
 
+      keywords: "Keywords"
+      collections: "Listed in collections"
       upload: "Upload"
       delete: "Delete this photograph"
       dropzone: "Drag images into this area to upload"
@@ -92,3 +94,5 @@ en:
       date_time_original: "Taken at"
       lat: "Latitude"
       lng: "Longitude"
+      license: "License"
+      default_license: "All rights reserved"

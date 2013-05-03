@@ -10,7 +10,7 @@ nav id="layout-nav" class="top-bar"
         active_wrapper: :li
 
       - if user_signed_in?
-        = link_to t("nav.favourite"), favourite_photographs_path, active_on: true, \
+        = link_to t("nav.favourites"), favourite_photographs_path, active_on: true, \
           active_wrapper: :li
 
     ul class="right"

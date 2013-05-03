@@ -240,7 +240,8 @@ CREATE TABLE users (
     updated_at timestamp without time zone,
     name character varying(255),
     location character varying(255),
-    default_license_id integer
+    default_license_id integer,
+    avatar_uid character varying(255)
 );
 
 
@@ -457,3 +458,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130503110219');
 INSERT INTO schema_migrations (version) VALUES ('20130503110857');
 
 INSERT INTO schema_migrations (version) VALUES ('20130503174811');
+
+INSERT INTO schema_migrations (version) VALUES ('20130503222325');
