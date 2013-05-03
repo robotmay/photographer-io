@@ -10,7 +10,7 @@ production:
       type: BYOC
       vendor: digitalocean
       region: 1
-      size: 63
+      size: 34
 
     configuration:
       ruby_version: 2.0.0
@@ -23,7 +23,7 @@ production:
       type: BYOC
       vendor: digitalocean
       region: 1
-      size: 63
+      size: 34
 
   redis:
     server:
@@ -31,7 +31,7 @@ production:
       type: BYOC
       vendor: digitalocean
       region: 1
-      size: 66
+      size: 33
 
   memcached:
     shared_group: redis
