@@ -5,19 +5,33 @@ development:
 
 production:
   rails:
+    server:
+      unique_name: app
+      type: BYOC
+      vendor: digitalocean
+      region: 1
+      size: 63
+
     configuration:
       ruby_version: 2.0.0
+      use_asset_pipeline: true
+      do_initial_db_schema_load: true
 
   postgresql:
     server:
-      unique_name: Sloth
+      unique_name: database
+      type: BYOC
+      vendor: digitalocean
+      region: 1
       size: 63
 
   redis:
     server:
-      unique_name: HoneyBadger
+      unique_name: utility
+      type: BYOC
+      vendor: digitalocean
+      region: 1
       size: 66
 
   memcached:
-    shared_server: HoneyBadger
-
+    shared_group: redis
