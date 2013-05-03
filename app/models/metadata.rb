@@ -10,6 +10,15 @@ class Metadata < ActiveRecord::Base
 
   validates :photograph_id, presence: true
 
+  scope :with_keyword, lambda { |keyword|
+    with_keywords([keyword])
+  }
+
+  scope :with_keywords, lambda { |keywords|
+    keywords = keywords.map { |kw| "\"#{kw}\"" }.join(",")
+    where("metadata.keywords @> ?", "{#{keywords}}")
+  }
+
   before_create :extract_from_photograph
   def extract_from_photograph
     exif = photograph.exif

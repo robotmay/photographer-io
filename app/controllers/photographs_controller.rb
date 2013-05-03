@@ -32,7 +32,15 @@ class PhotographsController < ApplicationController
   end
 
   def search
+    if params[:keyword].present?
+      @metadata = Metadata.with_keyword(params[:keyword])
+      @photographs = Photograph.public.where(id: @metadata.pluck(:photograph_id))
+      @photographs = @photographs.page(params[:page])
+    end
 
+    respond_with @photographs do |f|
+      f.html { render :index }
+    end
   end
 
   def show

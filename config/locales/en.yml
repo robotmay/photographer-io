@@ -54,9 +54,6 @@ en:
         public: "Public"
         private: "Private"
         unsorted: "Unsorted"
-
-      keywords: "Keywords"
-      collections: "Listed in collections"
       upload: "Upload"
       delete: "Delete this photograph"
       dropzone: "Drag images into this area to upload"
@@ -84,13 +81,16 @@ en:
         failed: "There was a problem deleting that photograph."
 
   photographs:
+    collections: "Listed in collections"
     metadata:
       title: "Photograph Details"
+      keywords: "Keywords"
       camera: "Camera"
       creator: "Creator"
       image: "Image"
       settings: "Settings"
       fov: "FOV"
+      iso: "ISO"
       date_time_original: "Taken at"
       lat: "Latitude"
       lng: "Longitude"

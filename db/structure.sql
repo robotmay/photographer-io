@@ -425,6 +425,13 @@ CREATE UNIQUE INDEX index_users_on_reset_password_token ON users USING btree (re
 
 
 --
+-- Name: metadata_gin_keywords; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX metadata_gin_keywords ON metadata USING gin (keywords);
+
+
+--
 -- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -460,3 +467,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130503110857');
 INSERT INTO schema_migrations (version) VALUES ('20130503174811');
 
 INSERT INTO schema_migrations (version) VALUES ('20130503222325');
+
+INSERT INTO schema_migrations (version) VALUES ('20130503225818');

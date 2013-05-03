@@ -25,7 +25,7 @@ section id="photographs-show"
                 td= link_to collection.name, collection_path(collection)
 
       - if @photograph.fetch_metadata.keywords.size > 0
-        h5= t("photographs.keywords")
+        h5= t("photographs.metadata.keywords")
         ul id="photographs-keywords" class="inline-list"
           - @photograph.fetch_metadata.keywords.each do |keyword|
             li
