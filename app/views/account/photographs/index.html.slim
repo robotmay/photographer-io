@@ -11,6 +11,6 @@ section id="account-photographs-show"
         - @photographs.each do |photograph|
           li class="photo"
             = link_to edit_account_photograph_path(photograph) do
-              = photo_tag photograph, "500x500>"
+              = photo_tag photograph, "500x500>", quality: 70
 
       = paginate @photographs

@@ -64,6 +64,14 @@ module Account
       end
     end
 
+    def show
+      @photograph = current_user.photographs.fetch(params[:id])
+      authorize! :update, @photograph
+      respond_with @photograph do |f|
+        f.html { redirect_to edit_account_photograph_path(@photograph) }
+      end
+    end
+
     def edit
       @photograph = current_user.photographs.fetch(params[:id])
       authorize! :update, @photograph

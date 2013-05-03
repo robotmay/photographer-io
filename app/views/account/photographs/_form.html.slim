@@ -11,3 +11,6 @@
     = f.association :collections, as: :check_boxes
 
   = f.button :submit
+
+  - if photograph.persisted?
+    = link_to t("account.photographs.delete"), account_photograph_path(@photograph), method: :delete, confirm: t("confirm_delete"), class: "button small alert delete"

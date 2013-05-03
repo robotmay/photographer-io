@@ -2,8 +2,8 @@ class Photograph < ActiveRecord::Base
   include IdentityCache
 
   belongs_to :user
-  has_one :metadata
-  has_many :collection_photographs
+  has_one :metadata, dependent: :destroy
+  has_many :collection_photographs, dependent: :destroy
   has_many :collections, through: :collection_photographs
 
   cache_belongs_to :user

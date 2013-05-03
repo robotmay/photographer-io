@@ -3,6 +3,7 @@ en:
   copyright: >
     All photographs are copyright of their respective creators,
     and may not be republished without permission.
+  confirm_delete: "Are you sure?"
 
   nav:
     browse: "Explore"
@@ -35,6 +36,7 @@ en:
         private: "All private"
 
       upload: "Upload"
+      delete: "Delete this photograph"
       dropzone: "Drag images into this area to upload"
 
       form:
