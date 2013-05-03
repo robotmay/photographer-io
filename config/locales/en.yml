@@ -67,3 +67,5 @@ en:
       title: "Photograph Details"
       fov: "FOV"
       date_time_original: "Taken at"
+      lat: "Latitude"
+      lng: "Longitude"

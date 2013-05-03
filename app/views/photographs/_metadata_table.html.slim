@@ -1,5 +1,5 @@
 - opts ||= {}
-- cache([photograph, :metadata, opts.to_s]) do
+- cache([photograph, photograph.metadata, opts.to_s]) do
   aside class="metadata"
     header
       h5= t("photographs.metadata.title")

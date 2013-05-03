@@ -1,8 +1,12 @@
 class Metadata < ActiveRecord::Base
   include IdentityCache
+  include GPSParser
 
   belongs_to :photograph
   has_one :user, through: :photograph
+
+  store_accessor :image, :lat
+  store_accessor :image, :lng
 
   validates :photograph_id, presence: true
 
@@ -42,6 +46,13 @@ class Metadata < ActiveRecord::Base
       :color_space, :image_width, :image_height, :gps_position,
       :flash_output, :gamma, :image_size, :date_created, :date_time_original
     ])
+  end
+
+  before_save :convert_lat_lng
+  def convert_lat_lng
+    if image['gps_position'].present?
+      self.lat, self.lng = convert_to_lat_lng(image['gps_position'])      
+    end
   end
 
   def keywords=(value)
