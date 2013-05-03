@@ -12,6 +12,7 @@ class Photograph < ActiveRecord::Base
   cache_has_one :metadata, embed: true
   cache_has_many :collections, inverse_name: :photographs
 
+  paginates_per 36
   image_accessor :image do
     #
   end

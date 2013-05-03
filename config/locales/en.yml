@@ -81,6 +81,8 @@ en:
         failed: "There was a problem deleting that photograph."
 
   photographs:
+    none: "There are no photographs here!"
+    no_results: "There were no results for your query."
     collections: "Listed in collections"
     metadata:
       title: "Photograph Details"
