@@ -12,6 +12,14 @@ app = Dragonfly[:images]
 app.configure_with(:imagemagick)
 app.configure_with(:rails)
 
+app.content_filename = proc do |job, request|
+  if job.process_steps.any?
+    "#{job.basename}_#{job.process_steps.first.name}.#{job.format}"
+  else
+    "#{job.basename}.#{job.format}"
+  end
+end
+
 if ENV['S3_ENABLED']
   app.configure do |c|
     c.datastore = datastore
