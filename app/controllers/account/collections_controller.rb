@@ -55,7 +55,19 @@ module Account
     end
 
     def destroy
-
+      @collection = current_user.collections.fetch(params[:id])
+      authorize! :destroy, @collection
+      if @collection.destroy
+        flash[:notice] = t("account.collections.destroy.succeeded")
+        respond_with @collection do |f|
+          f.html { redirect_to account_photographs_path }
+        end
+      else
+        flash[:alert] = t("account.collections.destroy.failed")
+        respond_with @collection, status: :bad_request do |f|
+          f.html { redirect_to :back }
+        end
+      end
     end
 
     private
