@@ -9,6 +9,10 @@ en:
     browse: "Explore"
     account: "Account"
     photographs: "Manage photographs"
+    sign_in: "Sign in"
+    sign_out: "Sign out"
+    sign_up: "Create an account"
+    edit_account: "Account settings"
 
   account:
     nav:

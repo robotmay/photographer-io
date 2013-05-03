@@ -13,6 +13,7 @@ gem 'rack-cache'
 # services
 gem 'puma'
 gem 'unicorn'
+gem 'thin'
 gem 'sidekiq'
 
 # auth

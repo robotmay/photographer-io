@@ -59,6 +59,7 @@ GEM
       execjs
     coffee-script-source (1.6.2)
     connection_pool (1.0.0)
+    daemons (1.1.9)
     dalli (2.6.2)
     database_cleaner (0.9.1)
     diff-lcs (1.2.4)
@@ -66,6 +67,7 @@ GEM
       multi_json (~> 1.0)
       rack
     erubis (2.7.0)
+    eventmachine (1.0.3)
     excon (0.20.1)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -226,6 +228,10 @@ GEM
       activesupport (>= 3.0)
       sprockets (~> 2.8)
     temple (0.6.4)
+    thin (1.5.1)
+      daemons (>= 1.0.9)
+      eventmachine (>= 0.12.6)
+      rack (>= 1.0.0)
     thor (0.18.1)
     thread_safe (0.1.0)
       atomic
@@ -286,6 +292,7 @@ DEPENDENCIES
   sidekiq
   simple_form (~> 3.0.0.beta1)
   slim
+  thin
   turbolinks
   uglifier (>= 1.0.3)
   unicorn

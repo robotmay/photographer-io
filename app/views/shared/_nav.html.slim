@@ -18,3 +18,10 @@ nav class="top-bar"
             = link_to t("nav.edit_account"), edit_user_registration_path, \
               active_on: true, active_wrapper: :li
             li= link_to t("nav.sign_out"), destroy_user_session_path
+      
+      - else
+        = link_to t("nav.sign_in"), new_user_session_path, active_on: true, \
+          active_wrapper: :li
+
+        = link_to t("nav.sign_up"), new_user_registration_path, active_on: true, \
+          active_wrapper: :li
