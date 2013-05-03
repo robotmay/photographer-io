@@ -9,6 +9,10 @@ nav id="layout-nav" class="top-bar"
       = link_to t("nav.explore"), explore_photographs_path, active_on: true, \
         active_wrapper: :li
 
+      - if user_signed_in?
+        = link_to t("nav.favourite"), favourite_photographs_path, active_on: true, \
+          active_wrapper: :li
+
     ul class="right"
       - if user_signed_in?
         = link_to t("nav.photographs"), account_photographs_path, active_on: true, \

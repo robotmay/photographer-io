@@ -1,23 +1,19 @@
 - opts ||= {}
 - cache([photograph, photograph.metadata, opts.to_s]) do
-  aside class="metadata"
-    header
-      h5= t("photographs.metadata.title")
-    
-    table
-      - if opts[:format] && opts[:format] == :short
-       tbody
-         -#TODO: Figure out the fields needed for short view
-
-      - else
+  div class="row"
+    aside class="metadata" class="large-12 columns"
+      header
+        h5= t("photographs.metadata.title")
+      
+      table
         - [:camera, :image, :settings, :creator].each do |attr|
           - if photograph.fetch_metadata.send(attr).size > 0
             thead
               tr
                 td colspan="2"
-                  = attr.to_s.humanize
+                  = t("photographs.metadata.#{attr}")
             tbody
-              - photograph.fetch_metadata.send(attr).each do |key, value|
+              - metadata_values_for_attr(photograph, attr, opts).each do |key, value|
                 tr
                   td= t("photographs.metadata.#{key}")
                   td= value

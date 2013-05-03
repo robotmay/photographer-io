@@ -2,6 +2,7 @@ Iso::Application.routes.draw do
   resources :photographs do
     collection do
       get :explore
+      get :favourite
     end
   end
 

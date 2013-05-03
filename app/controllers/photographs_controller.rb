@@ -12,4 +12,14 @@ class PhotographsController < ApplicationController
       f.html { render :index }
     end
   end
+
+  def favourite
+
+  end
+
+  def show
+    @photograph = Photograph.fetch(params[:id])
+    authorize! :read, @photograph
+    respond_with @photograph
+  end
 end

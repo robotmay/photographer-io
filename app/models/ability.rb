@@ -5,6 +5,9 @@ class Ability
     user ||= User.new
 
     can :read, Collection, public: true
+    can :read, Photograph do |photograph|
+      photograph.public?
+    end
     
     can :manage, Collection, user_id: user.id
     can :manage, Photograph, user_id: user.id

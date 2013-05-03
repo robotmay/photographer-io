@@ -1,6 +1,22 @@
 section id="account-photographs-index"
   header class="row"
     div class="large-12 columns"
+      - if @collection.present?
+        div class="row"
+          div class="large-10 columns"
+            h2= @collection.name
+
+          div class="large-2 columns"
+            button data-reveal-id="edit-collection-modal" class="small edit-collection"
+              = t("account.collections.modal.edit.button")
+
+        - content_for(:after_body) do
+          div id="edit-collection-modal" class="reveal-modal small"
+            a class="close-reveal-modal"
+              | &#215;
+            h2= t("account.collections.modal.edit.title")
+            = render partial: "account/collections/form", locals: { collection: @collection }
+
       - if @collection.present? && @collection.public
         div class="alert-box"
           = t("account.photographs.public_warning")

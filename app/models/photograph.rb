@@ -34,6 +34,10 @@ class Photograph < ActiveRecord::Base
     where(license_id: license.id)
   }
 
+  def public?
+    collections.where(public: true).count > 0
+  end
+
   def exif
     MiniExiftool.new(image.file.path)
   end

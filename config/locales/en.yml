@@ -13,6 +13,7 @@ en:
     sign_out: "Sign out"
     sign_up: "Create an account"
     edit_account: "Account settings"
+    favourites: "Favourite"
 
   account:
     nav:
@@ -25,12 +26,21 @@ en:
         general: "Collection details"
 
       modal:
-        button: "Create collection"
-        title: "Create a new collection"
+        new: 
+          button: "Create collection"
+          title: "Create a new collection"
+
+        edit: 
+          button: "Edit"
+          title: "Edit collection"
 
       create:
         succeeded: "Your new collection has been created successfully."
         failed: "There was a problem creating your collection. Please check for errors below."
+
+      update:
+        succeeded: "Your collection has been updated successfully."
+        failed: "There was a problem updating your collection."
 
     photographs:
       nav:
@@ -69,6 +79,10 @@ en:
   photographs:
     metadata:
       title: "Photograph Details"
+      camera: "Camera"
+      creator: "Creator"
+      image: "Image"
+      settings: "Settings"
       fov: "FOV"
       date_time_original: "Taken at"
       lat: "Latitude"

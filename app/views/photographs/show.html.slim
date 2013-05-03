@@ -1,0 +1,8 @@
+section id="photographs-show"
+  section class="row"
+    div class="large-9 columns"
+      = photo_tag @photograph, "1500x1500>"
+
+    div class="large-3 columns"
+      = creator_details_for @photograph
+      = metadata_table_for @photograph, format: :short

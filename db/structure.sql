@@ -237,7 +237,10 @@ CREATE TABLE users (
     current_sign_in_ip character varying(255),
     last_sign_in_ip character varying(255),
     created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    updated_at timestamp without time zone,
+    name character varying(255),
+    location character varying(255),
+    default_license_id integer
 );
 
 
@@ -452,3 +455,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130502000711');
 INSERT INTO schema_migrations (version) VALUES ('20130503110219');
 
 INSERT INTO schema_migrations (version) VALUES ('20130503110857');
+
+INSERT INTO schema_migrations (version) VALUES ('20130503174811');

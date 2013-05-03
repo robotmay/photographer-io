@@ -26,7 +26,7 @@ class Metadata < ActiveRecord::Base
 
     self.settings = fetch_from_exif(exif, [
       :orientation, :fov, :aperture, :focal_length,
-      :shutter_speed, :exposure_time, :exposure_program, :exposure_mode,
+      :shutter_speed, :iso, :exposure_program, :exposure_mode,
       :metering_mode, :flash, :drive_mode, :digital_zoom, :macro_mode,
       :self_timer, :quality, :record_mode, :easy_mode, :contrast,
       :saturation, :sharpness, :focus_range, :auto_iso, :base_iso,

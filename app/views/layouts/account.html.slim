@@ -10,7 +10,7 @@
   div id="new-collection-modal" class="reveal-modal small"
     a class="close-reveal-modal"
       | &#215;
-    h2= t("account.collections.modal.title")
+    h2= t("account.collections.modal.new.title")
     = render partial: "account/collections/form", locals: { collection: current_user.collections.new }
 
 = render file: "layouts/application"
