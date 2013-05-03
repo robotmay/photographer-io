@@ -22,6 +22,10 @@ class Photograph < ActiveRecord::Base
 
   scope :public, joins(:collections).where(collections: { public: true })
   scope :private, joins(:collections).where(collections: { public: false })
+  scope :in_collections, joins(:collections)
+  scope :not_in, lambda { |id_array|
+    where(Photograph.arel_table[:id].not_in id_array)
+  }
 
   def exif
     MiniExiftool.new(image.file.path)

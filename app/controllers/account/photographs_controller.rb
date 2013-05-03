@@ -37,6 +37,15 @@ module Account
       end
     end
 
+    def unsorted
+      not_photographs = current_user.photographs.in_collections.pluck(:id)
+      @photographs = current_user.photographs.not_in(not_photographs).order("created_at DESC").page(params[:page]).per(36)
+      authorize! :manage, current_user.photographs.new
+      respond_with @photographs do |f|
+        f.html { render :index }
+      end
+    end
+
     def new
       @photograph = current_user.photographs.new
       authorize! :create, @photograph

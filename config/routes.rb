@@ -15,6 +15,7 @@ Iso::Application.routes.draw do
       collection do
         get :public
         get :private
+        get :unsorted
       end
     end
 

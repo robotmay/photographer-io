@@ -32,8 +32,9 @@ en:
       nav:
         title: "Photographs"
         all: "All"
-        public: "All public"
-        private: "All private"
+        public: "Public"
+        private: "Private"
+        unsorted: "Unsorted"
 
       upload: "Upload"
       delete: "Delete this photograph"
