@@ -1,0 +1,14 @@
+- content_for(:main) do
+  section id="account-devise" class="row"
+    - if user_signed_in?
+      aside class="large-2 columns"
+        = render partial: "shared/account_nav"
+
+      div class="large-10 columns"
+        == yield
+
+    - else
+      div class="large-12 columns"
+        == yield
+
+= render file: "layouts/application"

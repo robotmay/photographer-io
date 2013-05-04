@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   cache_has_many :photographs
   cache_has_many :collections
 
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :invitable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   image_accessor :avatar

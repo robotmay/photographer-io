@@ -20,6 +20,7 @@ gem 'sidekiq'
 
 # auth
 gem 'devise', git: 'git://github.com/plataformatec/devise.git', branch: 'rails4'
+gem 'devise_invitable', git: 'git://github.com/scambra/devise_invitable.git', branch: 'rails4'
 # gem 'devise-scrypt' TODO: Switch to scrypt, gem needs updating
 gem 'cancan'
 

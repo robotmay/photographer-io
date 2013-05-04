@@ -6,3 +6,7 @@ section id="account-photographs-edit"
 
     div class="large-3 columns"
       = metadata_table_for @photograph, format: :full
+
+      - if @photograph.metadata.has_location_data?
+        h5= t("photographs.location")
+        = render partial: "photographs/map", locals: { photograph: @photograph }

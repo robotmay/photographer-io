@@ -20,6 +20,7 @@ en:
     nav:
       title: "Your Account"
       home: "Dashboard"
+      settings: "Account settings"
       photographs: "Photographs"
 
     collections:
