@@ -23,6 +23,11 @@ en:
       settings: "Account settings"
       photographs: "Photographs"
 
+    form:
+      auth: "Sign in details"
+      public: "How do you want to be known to other users?"
+      settings: "Account settings"
+
     collections:
       delete: "Delete this collection"
       form:

@@ -1,0 +1,28 @@
+= simple_form_for resource, as: resource_name, url: registration_path(resource_name), html: { multipart: true } do |f|
+  div class="row"
+    div class="large-6 columns"
+      fieldset
+        legend= t("account.form.auth")
+        = f.input :email
+        = f.input :password, input_html: { autocomplete: "off" }
+        = f.input :password_confirmation
+
+    div class="large-6 columns"
+      fieldset
+        legend= t("account.form.public")
+        = f.input :name
+        = f.input :avatar, as: :file
+
+  fieldset
+    legend= t("account.form.settings")
+    div class="row"
+      div class="large-4 columns"
+        = f.input :show_location_data, as: :radio_buttons
+      
+      div class="large-4 columns"
+        = f.input :show_nsfw_content, as: :radio_buttons
+
+      div class="large-4 columns"
+        = f.input :default_license_id, collection: License.scoped
+
+  = f.button :submit

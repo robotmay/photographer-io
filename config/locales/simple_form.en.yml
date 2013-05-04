@@ -43,3 +43,9 @@ en:
         show_location_data: >
           Do you want to show the location of where this photograph was taken? You
           can change your default setting for this in your account settings.
+
+
+  helpers:
+    submit:
+      user:
+        update: "Update your account details"

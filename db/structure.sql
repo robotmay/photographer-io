@@ -250,7 +250,8 @@ CREATE TABLE users (
     invitation_accepted_at timestamp without time zone,
     invitation_limit integer,
     invited_by_id integer,
-    invited_by_type character varying(255)
+    invited_by_type character varying(255),
+    show_nsfw_content boolean DEFAULT false
 );
 
 
@@ -512,3 +513,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130504071626');
 INSERT INTO schema_migrations (version) VALUES ('20130504202315');
 
 INSERT INTO schema_migrations (version) VALUES ('20130504210246');
+
+INSERT INTO schema_migrations (version) VALUES ('20130504213832');

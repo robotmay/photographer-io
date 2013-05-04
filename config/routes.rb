@@ -17,7 +17,9 @@ Iso::Application.routes.draw do
     end
   end
 
-  devise_for :users, path: :account
+  devise_for :users, path: :account, controllers: { 
+    registrations: "devise_extensions/registrations" 
+  }
   namespace :account do
     resources :photographs do
       collection do

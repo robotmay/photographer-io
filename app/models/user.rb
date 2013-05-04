@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
   include IdentityCache
 
-  has_many :photographs
-  has_many :collections
+  has_many :photographs, dependent: :destroy
+  has_many :collections, dependent: :destroy
 
   cache_has_many :photographs
   cache_has_many :collections
@@ -12,5 +12,5 @@ class User < ActiveRecord::Base
 
   image_accessor :avatar
 
-  validates :name, presence: true
+  validates :email, :name, presence: true
 end
