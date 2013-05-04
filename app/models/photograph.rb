@@ -43,9 +43,11 @@ class Photograph < ActiveRecord::Base
     MiniExiftool.new(image.file.path)
   end
 
-  before_create :set_show_location_data_default
-  def set_show_location_data_default
+  before_create :set_defaults_from_user_settings
+  def set_defaults_from_user_settings
+    self.license_id = user.default_license_id
     self.show_location_data = user.show_location_data
+    return
   end
 
   before_create :extract_metadata
