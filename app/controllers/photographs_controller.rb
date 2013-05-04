@@ -16,12 +16,12 @@ class PhotographsController < ApplicationController
       @photographs = Photograph.scoped
     end
 
-    @photographs = @photographs.public.page(params[:page])
+    @photographs = @photographs.view_for(current_user).page(params[:page])
     respond_with @photographs
   end
 
   def explore
-    @photographs = Photograph.public.order("created_at DESC").page(params[:page])
+    @photographs = Photograph.view_for(current_user).order("created_at DESC").page(params[:page])
     respond_with @photographs do |f|
       f.html { render :index }
     end
@@ -42,7 +42,7 @@ class PhotographsController < ApplicationController
     end
 
     unless photo_ids.nil? || photo_ids.empty?
-      @photographs = Photograph.public.where(id: photo_ids).page(params[:page])
+      @photographs = Photograph.view_for(current_user).where(id: photo_ids).page(params[:page])
     end
 
     respond_with @photographs do |f|

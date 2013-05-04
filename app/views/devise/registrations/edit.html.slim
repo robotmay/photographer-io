@@ -12,6 +12,10 @@
         legend= t("account.form.public")
         = f.input :name
         = f.input :avatar, as: :file
+        = f.input :retained_avatar, as: :hidden
+        - if f.object.avatar.present?
+          = image_tag f.object.avatar.thumb("200x200#").jpg.url
+          = f.input :remove_avatar, as: :boolean
 
   fieldset
     legend= t("account.form.settings")

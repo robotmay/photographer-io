@@ -24,6 +24,10 @@ en:
     #     username: 'User name to sign in.'
     #     password: 'No special characters, please.'
 
+    labels:
+      user:
+        show_nsfw_content: "Show NSFW content"
+
     hints:
       metadata:
         keywords: >
@@ -44,6 +48,20 @@ en:
           Do you want to show the location of where this photograph was taken? You
           can change your default setting for this in your account settings.
 
+      user:
+        show_nsfw_content: >
+          Do you want to show content marked as Not Safe For Work? This could involve
+          nudity, gore, or other content which might not be deemed suitable for the
+          workplace.
+
+        default_license_id: >
+          By default you reserve all rights to your photographs. If you wish to add
+          a Creative Commons license, you can do so above. This will apply by default
+          to all new photographs you upload, but can be altered on each image.
+
+        show_location_data: >
+          Do you want to show the location where photographs were taken by default?
+          This can be altered on an image-by-image basis.
 
   helpers:
     submit:

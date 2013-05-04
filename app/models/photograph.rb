@@ -35,6 +35,15 @@ class Photograph < ActiveRecord::Base
     where(license_id: license.id)
   }
 
+  # Not sure why but combining scopes for this breaks it, so hardcoding it
+  def self.view_for(user)
+    if user.nil? || !user.show_nsfw_content
+      where(safe_for_work: true).joins(:collections).where(collections: { public: true })
+    else
+      joins(:collections).where(collections: { public: true })
+    end
+  end
+
   def public?
     collections.where(public: true).count > 0
   end
