@@ -15,21 +15,21 @@ nav id="layout-nav" class="top-bar"
 
       li class="divider"
 
-      li class="has-form"
+      li id="nav-search" class="has-form"
         = form_tag search_photographs_path, method: :get do
           div class="row collapse"
             div class="small-8 columns"
               = text_field_tag :q, params[:q]
 
             div class="small-4 columns"
-              = submit_tag t("nav.search"), class: "button"
+              = submit_tag t("nav.search"), class: "button secondary"
 
     ul class="right"
       - if user_signed_in?
         = link_to t("nav.photographs"), account_photographs_path, active_on: true, \
           active_wrapper: :li
         li class="has-dropdown"
-          = link_to t("nav.account"), account_root_path, active_on: true
+          = link_to current_user.name, account_root_path, active_on: true
           ul class="dropdown"
             = link_to t("nav.edit_account"), edit_user_registration_path, \
               active_on: true, active_wrapper: :li

@@ -11,4 +11,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   image_accessor :avatar
+
+  validates :name, presence: true
 end

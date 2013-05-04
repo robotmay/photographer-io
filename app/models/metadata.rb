@@ -65,6 +65,8 @@ class Metadata < ActiveRecord::Base
       :color_space, :image_width, :image_height, :gps_position,
       :flash_output, :gamma, :image_size, :date_created, :date_time_original
     ])
+
+    convert_lat_lng
   end
 
   before_save :convert_lat_lng

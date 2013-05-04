@@ -41,7 +41,7 @@ class PhotographsController < ApplicationController
       (@text_results.map(&:photograph_id) + @keyword_results.pluck(:photograph_id)).uniq
     end
 
-    unless photo_ids.empty?
+    unless photo_ids.nil? || photo_ids.empty?
       @photographs = Photograph.public.where(id: photo_ids).page(params[:page])
     end
 
