@@ -4,6 +4,7 @@ gem 'rails', '4.0.0.rc1'
 
 # databases
 gem 'pg'
+gem 'pg_search'
 
 # caching
 gem 'dalli'

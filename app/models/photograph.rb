@@ -3,7 +3,7 @@ class Photograph < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :license
-  has_one :metadata, dependent: :destroy
+  has_one :metadata, dependent: :delete
   has_many :collection_photographs, dependent: :destroy
   has_many :collections, through: :collection_photographs
 

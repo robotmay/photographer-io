@@ -154,7 +154,8 @@ CREATE TABLE metadata (
     camera hstore,
     creator hstore,
     image hstore,
-    settings hstore
+    settings hstore,
+    search_vector tsvector
 );
 
 
@@ -390,6 +391,13 @@ CREATE INDEX index_metadata_on_photograph_id ON metadata USING btree (photograph
 
 
 --
+-- Name: index_metadata_on_search_vector; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_metadata_on_search_vector ON metadata USING gin (search_vector);
+
+
+--
 -- Name: index_photographs_on_license_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -439,6 +447,13 @@ CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (v
 
 
 --
+-- Name: metadata_vector_update; Type: TRIGGER; Schema: public; Owner: -
+--
+
+CREATE TRIGGER metadata_vector_update BEFORE INSERT OR UPDATE ON metadata FOR EACH ROW EXECUTE PROCEDURE tsvector_update_trigger('search_vector', 'pg_catalog.english', 'title', 'description');
+
+
+--
 -- PostgreSQL database dump complete
 --
 
@@ -469,3 +484,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130503174811');
 INSERT INTO schema_migrations (version) VALUES ('20130503222325');
 
 INSERT INTO schema_migrations (version) VALUES ('20130503225818');
+
+INSERT INTO schema_migrations (version) VALUES ('20130504071626');

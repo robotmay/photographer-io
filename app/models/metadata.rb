@@ -1,6 +1,7 @@
 class Metadata < ActiveRecord::Base
   include IdentityCache
   include GPSParser
+  include PgSearch
 
   belongs_to :photograph
   has_one :user, through: :photograph
@@ -9,6 +10,15 @@ class Metadata < ActiveRecord::Base
   store_accessor :image, :lng
 
   validates :photograph_id, presence: true
+
+  pg_search_scope :fulltext_search,
+                  against: [:title, :description],
+                  using: {
+                    tsearch: { 
+                      dictionary: 'english',
+                      tsvector_column: 'search_vector'
+                    }
+                  }
 
   scope :with_keyword, lambda { |keyword|
     with_keywords([keyword])
