@@ -71,8 +71,9 @@ class Metadata < ActiveRecord::Base
 
   before_save :convert_lat_lng
   def convert_lat_lng
-    if image['gps_position'].present?
-      self.lat, self.lng = convert_to_lat_lng(image['gps_position'])      
+    gps_position = image['gps_position'] || image[:gps_position]
+    if gps_position.present?
+      self.lat, self.lng = convert_to_lat_lng(gps_position)      
     end
   end
 

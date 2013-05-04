@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.0.0.rc1'
+gem 'sinatra', '>= 1.3.0', require: nil
 
 # databases
 gem 'pg'

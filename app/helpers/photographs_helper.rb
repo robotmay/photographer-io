@@ -14,7 +14,7 @@ module PhotographsHelper
       image.encode(:jpg, "-quality 90")
     end
 
-    image_tag image.url, alt: photograph.metadata.title
+    image_tag image.url, alt: photograph.fetch_metadata.title
   end
 
   def creator_details_for(photograph)

@@ -16,7 +16,7 @@ module Account
         @photographs = current_user.photographs
       end
 
-      @photographs = @photographs.order("created_at DESC").page(params[:page])
+      @photographs = @photographs.includes(:metadata).order("created_at DESC").page(params[:page])
       authorize! :manage, current_user.photographs.new
       respond_with @photographs
     end

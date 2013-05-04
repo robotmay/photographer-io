@@ -1,4 +1,8 @@
+require 'sidekiq/web'
+
 Iso::Application.routes.draw do
+  mount Sidekiq::Web => '/sidekiq'
+
   resources :photographs, only: [:index, :show] do
     collection do
       get :explore
