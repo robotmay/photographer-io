@@ -85,6 +85,7 @@ en:
     none: "There are no photographs here!"
     no_results: "There were no results for your query."
     collections: "Listed in collections"
+    location: "Location"
     metadata:
       title: "Photograph Details"
       keywords: "Keywords"

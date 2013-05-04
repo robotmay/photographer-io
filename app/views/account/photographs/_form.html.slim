@@ -20,6 +20,7 @@
         = f.association :license
 
       div class="large-4 columns"
+        = f.input :show_location_data, as: :radio_buttons, default: (f.object.user.show_location_data)
 
   = f.button :submit
 

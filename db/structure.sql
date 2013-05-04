@@ -189,7 +189,8 @@ CREATE TABLE photographs (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     safe_for_work boolean DEFAULT true,
-    license_id integer
+    license_id integer,
+    show_location_data boolean DEFAULT false
 );
 
 
@@ -242,7 +243,8 @@ CREATE TABLE users (
     name character varying(255),
     location character varying(255),
     default_license_id integer,
-    avatar_uid character varying(255)
+    avatar_uid character varying(255),
+    show_location_data boolean DEFAULT false
 );
 
 
@@ -486,3 +488,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130503222325');
 INSERT INTO schema_migrations (version) VALUES ('20130503225818');
 
 INSERT INTO schema_migrations (version) VALUES ('20130504071626');
+
+INSERT INTO schema_migrations (version) VALUES ('20130504202315');

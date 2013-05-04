@@ -39,3 +39,7 @@ en:
         license: >
           By default you reserve all rights to your photographs. If you wish to add
           a Creative Commons license, you can do so above.
+
+        show_location_data: >
+          Do you want to show the location of where this photograph was taken? You
+          can change your default setting for this in your account settings.

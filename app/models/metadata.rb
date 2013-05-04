@@ -96,6 +96,10 @@ class Metadata < ActiveRecord::Base
   def has_text?
     title.present? || description.present?
   end
+  
+  def has_location_data?
+    lat.present? && lng.present?
+  end
 
   private
   def fetch_from_exif(exif, keys = [])
