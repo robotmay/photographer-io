@@ -32,10 +32,17 @@ class PhotographsController < ApplicationController
   end
 
   def search
-    if params[:keyword].present?
-      @metadata = Metadata.with_keyword(params[:keyword])
-      @photographs = Photograph.public.where(id: @metadata.pluck(:photograph_id))
-      @photographs = @photographs.page(params[:page])
+    photo_ids = if params[:keyword].present?
+      @keyword_results = Metadata.with_keyword(params[:keyword])
+      @keyword_results.pluck(:photograph_id)
+    elsif params[:q].present?
+      @text_results = Metadata.fulltext_search(params[:q])
+      @keyword_results = Metadata.with_keywords(params[:q].split(" "))
+      (@text_results.map(&:photograph_id) + @keyword_results.pluck(:photograph_id)).uniq
+    end
+
+    unless photo_ids.empty?
+      @photographs = Photograph.public.where(id: photo_ids).page(params[:page])
     end
 
     respond_with @photographs do |f|

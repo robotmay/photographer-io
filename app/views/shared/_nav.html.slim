@@ -13,6 +13,17 @@ nav id="layout-nav" class="top-bar"
         = link_to t("nav.favourites"), favourite_photographs_path, active_on: true, \
           active_wrapper: :li
 
+      li class="divider"
+
+      li class="has-form"
+        = form_tag search_photographs_path, method: :get do
+          div class="row collapse"
+            div class="small-8 columns"
+              = text_field_tag :q, params[:q]
+
+            div class="small-4 columns"
+              = submit_tag t("nav.search"), class: "button"
+
     ul class="right"
       - if user_signed_in?
         = link_to t("nav.photographs"), account_photographs_path, active_on: true, \
