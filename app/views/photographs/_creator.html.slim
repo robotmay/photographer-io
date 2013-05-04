@@ -3,4 +3,4 @@ aside id="photographs-creator"
     div class="large-12 columns"
       h3= photograph.user.name
       - if photograph.user.avatar.present?
-        = photo_tag photograph.user.avatar, "150x150#"
+        = image_tag photograph.user.avatar.thumb("150x150#").jpg.url
