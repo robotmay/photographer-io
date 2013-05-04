@@ -10,6 +10,7 @@ gem 'pg'
 gem 'pg_search'
 
 # caching
+gem 'memcachier'
 gem 'dalli'
 gem 'identity_cache'
 gem 'rack-cache'
