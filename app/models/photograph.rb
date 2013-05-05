@@ -18,9 +18,6 @@ class Photograph < ActiveRecord::Base
   paginates_per 36
   image_accessor :image
 
-  counter :score
-  define_callbacks :score_changed
-
   accepts_nested_attributes_for :metadata
   accepts_nested_attributes_for :collections
 
@@ -65,21 +62,16 @@ class Photograph < ActiveRecord::Base
     metadata.save
   end
 
+  def score
+    Photograph.rankings[id]
+  end
+
   def increment_score(by = 1)
-    run_callbacks :score_changed do
-      score.increment(by)
-    end
+    Photograph.rankings.increment(id, by)
   end
 
   def decrement_score(by = 1)
-    run_callbacks :score_changed do
-      score.decrement(by)
-    end
-  end
-
-  set_callback :score_changed, :after, :update_ranking
-  def update_ranking
-    Photograph.rankings[id] = score.value
+    Photograph.rankings.decrement(id, by)
   end
 
   class << self
@@ -89,8 +81,8 @@ class Photograph < ActiveRecord::Base
 
     def adjust_scores
       Photograph.find_each do |photograph|
-        if photograph.score.value > 0
-          decrease_by = photograph.score.value * 0.2
+        if photograph.score > 0
+          decrease_by = photograph.score * 0.2
           photograph.decrement_score(decrease_by.to_i)
         end
       end
