@@ -6,6 +6,7 @@ describe Photograph do
   it { should have_many(:collection_photographs) }
   it { should have_many(:collections).through(:collection_photographs) }
   it { should belong_to(:license) }
+  it { should have_many(:recommendations) }
 
   [:user_id, :image].each do |attr|
     it { should validate_presence_of(attr) }

@@ -9,6 +9,9 @@ gem 'sinatra', '>= 1.3.0', require: nil
 gem 'pg'
 gem 'pg_search'
 
+# redis
+gem 'redis-objects'
+
 # caching
 gem 'memcachier'
 gem 'dalli'

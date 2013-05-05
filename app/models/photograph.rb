@@ -1,21 +1,25 @@
 class Photograph < ActiveRecord::Base
   include IdentityCache
+  include Redis::Objects
 
   belongs_to :user
   belongs_to :license
   has_one :metadata, dependent: :delete
   has_many :collection_photographs, dependent: :destroy
   has_many :collections, through: :collection_photographs
+  has_many :recommendations
 
   cache_belongs_to :user
   cache_belongs_to :license
   cache_has_one :metadata, embed: true
   cache_has_many :collections, inverse_name: :photographs
+  cache_has_many :recommendations
 
   paginates_per 36
-  image_accessor :image do
-    #
-  end
+  image_accessor :image
+
+  counter :score
+  define_callbacks :score_changed
 
   accepts_nested_attributes_for :metadata
   accepts_nested_attributes_for :collections
@@ -34,15 +38,6 @@ class Photograph < ActiveRecord::Base
   scope :with_license, lambda { |license|
     where(license_id: license.id)
   }
-
-  # Not sure why but combining scopes for this breaks it, so hardcoding it
-  def self.view_for(user)
-    if user.nil? || !user.show_nsfw_content
-      where(safe_for_work: true).joins(:collections).where(collections: { public: true })
-    else
-      joins(:collections).where(collections: { public: true })
-    end
-  end
 
   def public?
     collections.where(public: true).count > 0
@@ -68,5 +63,46 @@ class Photograph < ActiveRecord::Base
   after_create :save_metadata
   def save_metadata
     metadata.save
+  end
+
+  def increment_score(by = 1)
+    run_callbacks :score_changed do
+      score.increment(by)
+    end
+  end
+
+  def decrement_score(by = 1)
+    run_callbacks :score_changed do
+      score.decrement(by)
+    end
+  end
+
+  set_callback :score_changed, :after, :update_ranking
+  def update_ranking
+    Photograph.rankings[id] = score.value
+  end
+
+  class << self
+    def rankings
+      Redis::SortedSet.new('photograph_rankings')
+    end
+
+    def adjust_scores
+      Photograph.find_each do |photograph|
+        if photograph.score.value > 0
+          decrease_by = photograph.score.value * 0.2
+          photograph.decrement_score(decrease_by.to_i)
+        end
+      end
+    end
+
+    # Not sure why but combining scopes for this breaks it, so hardcoding it
+    def view_for(user)
+      if user.nil? || !user.show_nsfw_content
+        where(safe_for_work: true).joins(:collections).where(collections: { public: true })
+      else
+        joins(:collections).where(collections: { public: true })
+      end
+    end
   end
 end

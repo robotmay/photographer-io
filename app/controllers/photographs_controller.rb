@@ -55,4 +55,10 @@ class PhotographsController < ApplicationController
     authorize! :read, @photograph
     respond_with @photograph
   end
+
+  def recommend
+    @photograph = Photograph.fetch(params[:id])
+    authorize! :recommend, @photograph
+    #TODO
+  end
 end

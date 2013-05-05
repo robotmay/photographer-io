@@ -214,6 +214,38 @@ ALTER SEQUENCE photographs_id_seq OWNED BY photographs.id;
 
 
 --
+-- Name: recommendations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE recommendations (
+    id integer NOT NULL,
+    photograph_id integer,
+    user_id integer,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: recommendations_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE recommendations_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: recommendations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE recommendations_id_seq OWNED BY recommendations.id;
+
+
+--
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -251,7 +283,8 @@ CREATE TABLE users (
     invitation_limit integer,
     invited_by_id integer,
     invited_by_type character varying(255),
-    show_nsfw_content boolean DEFAULT false
+    show_nsfw_content boolean DEFAULT false,
+    recommendation_quota integer
 );
 
 
@@ -313,6 +346,13 @@ ALTER TABLE ONLY photographs ALTER COLUMN id SET DEFAULT nextval('photographs_id
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY recommendations ALTER COLUMN id SET DEFAULT nextval('recommendations_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
 
 
@@ -354,6 +394,14 @@ ALTER TABLE ONLY metadata
 
 ALTER TABLE ONLY photographs
     ADD CONSTRAINT photographs_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: recommendations_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY recommendations
+    ADD CONSTRAINT recommendations_pkey PRIMARY KEY (id);
 
 
 --
@@ -425,6 +473,20 @@ CREATE INDEX index_photographs_on_safe_for_work ON photographs USING btree (safe
 --
 
 CREATE INDEX index_photographs_on_user_id ON photographs USING btree (user_id);
+
+
+--
+-- Name: index_recommendations_on_photograph_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_recommendations_on_photograph_id ON recommendations USING btree (photograph_id);
+
+
+--
+-- Name: index_recommendations_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_recommendations_on_user_id ON recommendations USING btree (user_id);
 
 
 --
@@ -515,3 +577,7 @@ INSERT INTO schema_migrations (version) VALUES ('20130504202315');
 INSERT INTO schema_migrations (version) VALUES ('20130504210246');
 
 INSERT INTO schema_migrations (version) VALUES ('20130504213832');
+
+INSERT INTO schema_migrations (version) VALUES ('20130505180844');
+
+INSERT INTO schema_migrations (version) VALUES ('20130505185219');

@@ -8,6 +8,8 @@ class Ability
     can :read, Photograph do |photograph|
       photograph.public?
     end
+
+    can :recommend, Photograph
     
     can :manage, Collection, user_id: user.id
     can :manage, Photograph, user_id: user.id

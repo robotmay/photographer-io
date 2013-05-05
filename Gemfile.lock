@@ -191,6 +191,8 @@ GEM
     redis (3.0.4)
     redis-namespace (1.2.1)
       redis (~> 3.0.0)
+    redis-objects (0.7.0)
+      redis (>= 3.0.2)
     rspec (2.13.0)
       rspec-core (~> 2.13.0)
       rspec-expectations (~> 2.13.0)
@@ -309,6 +311,7 @@ DEPENDENCIES
   rack-cache
   rails (= 4.0.0.rc1)
   rb-inotify (~> 0.8.8)
+  redis-objects
   rspec-rails
   sass-rails (~> 4.0.0.beta1)
   shoulda

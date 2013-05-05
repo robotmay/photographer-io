@@ -11,6 +11,7 @@
       fieldset
         legend= t("account.form.public")
         = f.input :name
+        = f.input :location
         = f.input :avatar, as: :file
         = f.input :retained_avatar, as: :hidden
         - if f.object.avatar.present?

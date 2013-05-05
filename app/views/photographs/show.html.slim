@@ -8,7 +8,6 @@ section id="photographs-show"
         section class="description panel"
           h4= @photograph.fetch_metadata.title
 
-
           - if @photograph.fetch_metadata.description.present?
             = simple_format @photograph.fetch_metadata.description
 
