@@ -9,6 +9,10 @@ Iso::Application.routes.draw do
       get :recommended
       get :search
     end
+
+    member do
+      post :recommend
+    end
   end
 
   resources :users, shallow: true, only: [:show] do

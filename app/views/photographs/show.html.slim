@@ -13,6 +13,15 @@ section id="photographs-show"
 
     aside id="photographs-sidebar" class="large-3 columns"
       = creator_details_for @photograph
+
+      - if user_signed_in?
+        div class="recommendations"
+          - if current_user.recommended?(@photograph)
+            button class="recommended success expand"
+              = t("photographs.recommended")
+          - else
+            = button_to t("photographs.recommend"), { action: :recommend, remote: true }, { class: "button recommend secondary expand" }
+
       = metadata_table_for @photograph, format: :short
 
       - if @photograph.collections.count > 0
