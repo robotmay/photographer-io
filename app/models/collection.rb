@@ -10,6 +10,6 @@ class Collection < ActiveRecord::Base
 
   validates :user_id, :name, presence: true
 
-  scope :public, where(public: true)
-  scope :private, where(private: true)
+  scope :public, -> { where(public: true) }
+  scope :private, -> { where(private: true) }
 end

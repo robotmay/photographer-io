@@ -45,9 +45,14 @@ class Photograph < ActiveRecord::Base
   scope :with_license, -> (license) {
     where(license_id: license.id)
   }
-  #FIXME
   scope :landscape, -> { 
-    joins(:metadata) & Metadata.format('landscape')
+    joins(:metadata).merge(Metadata.format('landscape'))
+  }
+  scope :portrait, -> {
+    joins(:metadata).merge(Metadata.format('portrait'))
+  }
+  scope :square, -> {
+    joins(:metadata).merge(Metadata.format('square'))
   }
 
   def public?
@@ -106,15 +111,13 @@ class Photograph < ActiveRecord::Base
     #
     # @return [Array]
     def recommended(user, n = nil)
-      Rails.cache.fetch([:photographs, :recommended, :sorted_photographs], expires_in: 1.minute) do
-        photo_ids = if n.present? && n > 0
-          Photograph.rankings.revrange(0,(n - 1))     
-        else
-          Photograph.rankings.members.reverse
-        end
-        photographs = Photograph.view_for(user).where(id: photo_ids).group_by(&:id)
-        photo_ids.map { |id| photographs[id.to_i] }.compact.map(&:first)
+      photo_ids = if n.present? && n > 0
+        Photograph.rankings.revrange(0,(n - 1))     
+      else
+        Photograph.rankings.members.reverse
       end
+      photographs = scoped.view_for(user).where(id: photo_ids).group_by(&:id)
+      photo_ids.map { |id| photographs[id.to_i] }.compact.map(&:first)
     end
 
     # Not sure why but combining scopes for this breaks it, so hardcoding it
