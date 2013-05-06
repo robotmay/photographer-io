@@ -96,6 +96,7 @@ en:
     location: "Location"
     recommend: "Recommend this photograph"
     recommended: "Recommended!"
+    stats: "Statistics"
     metadata:
       title: "Photograph Details"
       keywords: "Keywords"

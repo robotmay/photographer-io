@@ -18,6 +18,8 @@ class Photograph < ActiveRecord::Base
   paginates_per 36
   image_accessor :image
 
+  counter :views
+
   accepts_nested_attributes_for :metadata
   accepts_nested_attributes_for :collections
 
