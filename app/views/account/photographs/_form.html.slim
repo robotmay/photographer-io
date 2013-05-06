@@ -2,7 +2,6 @@
   = f.simple_fields_for :metadata do |m|
     fieldset class="panel"
       legend= t("account.photographs.form.general")
-      = m.input :id, as: :hidden
       = m.input :title, required: false
       = m.input :keywords, required: false, input_html: { value: m.object.keywords_string }
       = m.input :description, as: :text, required: false
