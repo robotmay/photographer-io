@@ -23,3 +23,17 @@ section id="account-dashboard"
           tr
             td= t("account.dashboard.statistics.views")
             td= current_user.photograph_views.to_i
+
+    div class="large-4 columns"
+      h4= t("account.dashboard.recommendations.title")
+
+      table
+        tbody
+          tr
+            td= t("account.dashboard.recommendations.quota", n: current_user.recommendation_quota)
+          tr
+            td= t("account.dashboard.recommendations.remaining", n: current_user.remaining_recommendations_for_today)
+          tr
+            td= t("account.dashboard.recommendations.total", n: current_user.recommendations.count)
+
+    div class="large-4 columns"

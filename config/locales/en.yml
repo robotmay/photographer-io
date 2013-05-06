@@ -46,6 +46,12 @@ en:
         public_photo_count: "Public photographs"
         private_photo_count: "Private photographs"
 
+      recommendations:
+        title: "Your Recommendations"
+        quota: "You can currently recommend %{n} photos per day"
+        remaining: "You have %{n} remaining recommendations for today"
+        total: "You have made a total of %{n} recommendations"
+
     collections:
       delete: "Delete this collection"
       form:
