@@ -1,17 +1,17 @@
 en:
-  site_name: "ISO.io"
+  site_name: "photographer.io"
   copyright: >
     All photographs are copyright of their respective creators,
     and may not be republished without permission.
   confirm_delete: "Are you sure?"
 
   nav:
-    browse: "Explore"
+    explore: "Explore"
     account: "Account"
     photographs: "Manage photographs"
     sign_in: "Sign in"
     sign_out: "Sign out"
-    sign_up: "Create an ISO.io account"
+    sign_up: "Create a photographer.io account"
     edit_account: "Account settings"
     favourites: "Favourites"
     search: "Search"
@@ -28,7 +28,7 @@ en:
       auth: "Sign in details"
       public: "How do you want to be known to other users?"
       settings: "Account settings"
-      create: "Sign up for an ISO.io account"
+      create: "Sign up for a photographer.io account"
 
     collections:
       delete: "Delete this collection"
