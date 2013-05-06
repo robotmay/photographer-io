@@ -1,9 +1,12 @@
 en:
-  site_name: "photographer.io"
+  site_name: "PHOTOGRAPHER.IO"
+  default_title: "The photo community for enthusiasts - PHOTOGRAPHER.IO"
+  page_title: "%{title} - PHOTOGRAPHER.IO"
   copyright: >
     All photographs are copyright of their respective creators,
     and may not be republished without permission.
   confirm_delete: "Are you sure?"
+  explore: "Explore"
 
   nav:
     explore: "Explore"
@@ -11,7 +14,7 @@ en:
     photographs: "Manage photographs"
     sign_in: "Sign in"
     sign_out: "Sign out"
-    sign_up: "Create a photographer.io account"
+    sign_up: "Create your account"
     edit_account: "Account settings"
     favourites: "Favourites"
     search: "Search"
@@ -28,7 +31,7 @@ en:
       auth: "Sign in details"
       public: "How do you want to be known to other users?"
       settings: "Account settings"
-      create: "Sign up for a photographer.io account"
+      create: "Sign up for a PHOTOGRAPHER.IO account"
 
     collections:
       delete: "Delete this collection"
