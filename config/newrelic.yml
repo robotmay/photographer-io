@@ -42,7 +42,7 @@ common: &default_settings
   #       - Ajax Service
   #       - All Services
   #
-  app_name: My Application
+  app_name: ISO.io
 
   # When "true", the agent collects performance data about your
   # application and reports this data to the New Relic service at
