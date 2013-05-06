@@ -72,9 +72,9 @@ class Metadata < ActiveRecord::Base
     ])
 
     convert_lat_lng
+    set_format
   end
 
-  before_save :convert_lat_lng
   def convert_lat_lng
     gps_position = image['gps_position'] || image[:gps_position]
     if gps_position.present?
@@ -82,7 +82,6 @@ class Metadata < ActiveRecord::Base
     end
   end
   
-  before_save :set_format
   def set_format
     width = image['image_width'] || image[:image_width]
     height = image['image_height'] || image[:image_height]
