@@ -23,6 +23,7 @@ gem 'puma'
 gem 'unicorn'
 gem 'thin'
 gem 'sidekiq'
+gem 'airbrake'
 
 # auth
 gem 'devise', git: 'git://github.com/plataformatec/devise.git', branch: 'rails4'
