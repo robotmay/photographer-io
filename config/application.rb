@@ -25,5 +25,26 @@ module Iso
     # config.i18n.default_locale = :de
 
     config.active_record.schema_format = :sql
+
+    if Puma.respond_to?(:cli_config)
+      ::Iso.set_db_connection_pool_size! Puma.cli_config.options.fetch(:max_threads)
+    end
   end
+
+  def set_db_connection_pool_size!(size=20)
+    # bump the AR connection pool
+    if ENV['DATABASE_URL'] !~ /pool/
+      pool_size = ENV.fetch('DATABASE_POOL_SIZE', size)
+      db = URI.parse ENV['DATABASE_URL']
+      if db.query
+        db.query += "&pool=#{pool_size}"
+      else
+        db.query = "pool=#{pool_size}"
+      end
+      ENV['DATABASE_URL'] = db.to_s
+      ActiveRecord::Base.establish_connection
+    end
+  end
+
+  module_function :set_db_connection_pool_size!
 end
