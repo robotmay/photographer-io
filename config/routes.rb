@@ -6,7 +6,7 @@ Iso::Application.routes.draw do
   resources :photographs, only: [:index, :show] do
     collection do
       get :explore
-      get :favourite
+      get :recommended
       get :search
     end
   end

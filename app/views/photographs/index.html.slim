@@ -12,6 +12,7 @@ section id="photographs-index"
             li class="photo"
               = link_to photograph_path(photograph) do
                 = photo_tag photograph, "500x500>", quality: 70
+                = photograph.score
 
         = paginate @photographs
       - else

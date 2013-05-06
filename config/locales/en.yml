@@ -15,6 +15,7 @@ en:
     edit_account: "Account settings"
     favourites: "Favourites"
     search: "Search"
+    recommended: "Recommended"
 
   account:
     nav:
