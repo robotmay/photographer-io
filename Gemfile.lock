@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/FriendlyId/friendly_id.git
+  revision: d59c38a868d32dfc3c08d34f26aaf1b78e73664b
+  specs:
+    friendly_id (4.1.0.beta.2)
+
+GIT
   remote: git://github.com/plataformatec/devise.git
   revision: 69f79ad446101b45bf7ec29d290dc2be96142686
   branch: rails4
@@ -304,6 +310,7 @@ DEPENDENCIES
   dragonfly
   ffaker
   fog
+  friendly_id!
   guard
   guard-rspec
   guard-sidekiq

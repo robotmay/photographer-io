@@ -43,6 +43,38 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
+-- Name: categories; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE categories (
+    id integer NOT NULL,
+    name character varying(255),
+    slug character varying(255),
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: categories_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE categories_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: categories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE categories_id_seq OWNED BY categories.id;
+
+
+--
 -- Name: collection_photographs; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -190,7 +222,8 @@ CREATE TABLE photographs (
     updated_at timestamp without time zone,
     safe_for_work boolean DEFAULT true,
     license_id integer,
-    show_location_data boolean DEFAULT false
+    show_location_data boolean DEFAULT false,
+    category_id integer
 );
 
 
@@ -311,6 +344,13 @@ ALTER SEQUENCE users_id_seq OWNED BY users.id;
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY categories ALTER COLUMN id SET DEFAULT nextval('categories_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY collection_photographs ALTER COLUMN id SET DEFAULT nextval('collection_photographs_id_seq'::regclass);
 
 
@@ -354,6 +394,14 @@ ALTER TABLE ONLY recommendations ALTER COLUMN id SET DEFAULT nextval('recommenda
 --
 
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
+
+
+--
+-- Name: categories_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY categories
+    ADD CONSTRAINT categories_pkey PRIMARY KEY (id);
 
 
 --
@@ -413,6 +461,13 @@ ALTER TABLE ONLY users
 
 
 --
+-- Name: index_categories_on_slug; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_categories_on_slug ON categories USING btree (slug);
+
+
+--
 -- Name: index_collection_photographs_on_collection_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -452,6 +507,13 @@ CREATE INDEX index_metadata_on_photograph_id ON metadata USING btree (photograph
 --
 
 CREATE INDEX index_metadata_on_search_vector ON metadata USING gin (search_vector);
+
+
+--
+-- Name: index_photographs_on_category_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_photographs_on_category_id ON photographs USING btree (category_id);
 
 
 --
@@ -590,3 +652,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130505180844');
 INSERT INTO schema_migrations (version) VALUES ('20130505185219');
 
 INSERT INTO schema_migrations (version) VALUES ('20130506003536');
+
+INSERT INTO schema_migrations (version) VALUES ('20130506222702');
