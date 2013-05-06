@@ -4,7 +4,7 @@ class Photograph < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :license
-  has_one :metadata, dependent: :delete
+  has_one :metadata
   has_many :collection_photographs, dependent: :destroy
   has_many :collections, through: :collection_photographs
   has_many :recommendations
@@ -20,7 +20,7 @@ class Photograph < ActiveRecord::Base
 
   counter :views
 
-  accepts_nested_attributes_for :metadata
+  accepts_nested_attributes_for :metadata, update_only: true
   accepts_nested_attributes_for :collections
 
   validates :user_id, :image, presence: true
