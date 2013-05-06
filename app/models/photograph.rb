@@ -24,16 +24,30 @@ class Photograph < ActiveRecord::Base
   validates :user_id, :image, presence: true
   validates_property :format, of: :image, in: [:jpeg, :jpg], case_sensitive: false
 
-  scope :public, joins(:collections).where(collections: { public: true })
-  scope :private, joins(:collections).where(collections: { public: false })
-  scope :in_collections, joins(:collections)
-  scope :not_in, lambda { |id_array|
+  scope :public, -> {
+    joins(:collections).where(collections: { public: true })
+  }
+  scope :private, -> {
+    joins(:collections).where(collections: { public: false })
+  }
+  scope :in_collections, -> { 
+    joins(:collections)
+  }
+  scope :not_in, -> (id_array) {
     where(Photograph.arel_table[:id].not_in id_array)
   }
-  scope :safe_for_work, where(safe_for_work: true)
-  scope :not_safe_for_work, where(safe_for_work: false)
-  scope :with_license, lambda { |license|
+  scope :safe_for_work, -> {
+    where(safe_for_work: true)
+  }
+  scope :not_safe_for_work, -> {
+    where(safe_for_work: false)
+  }
+  scope :with_license, -> (license) {
     where(license_id: license.id)
+  }
+  #FIXME
+  scope :landscape, -> { 
+    joins(:metadata) & Metadata.format('landscape')
   }
 
   def public?
@@ -85,6 +99,21 @@ class Photograph < ActiveRecord::Base
           decrease_by = photograph.score * 0.2
           photograph.decrement_score(decrease_by.to_i)
         end
+      end
+    end
+
+    # Sorted by place in rankings
+    #
+    # @return [Array]
+    def recommended(user, n = nil)
+      Rails.cache.fetch([:photographs, :recommended, :sorted_photographs], expires_in: 1.minute) do
+        photo_ids = if n.present? && n > 0
+          Photograph.rankings.revrange(0,(n - 1))     
+        else
+          Photograph.rankings.members.reverse
+        end
+        photographs = Photograph.view_for(user).where(id: photo_ids).group_by(&:id)
+        photo_ids.map { |id| photographs[id.to_i] }.compact.map(&:first)
       end
     end
 

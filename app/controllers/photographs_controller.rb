@@ -7,11 +7,17 @@ class PhotographsController < ApplicationController
       @collection = Collection.fetch(params[:collection_id])
       authorize! :read, @collection
     end
+
+    if params[:user_id].present?
+      @user = User.fetch(params[:user_id])
+    end
   end
 
   def index
     if @collection.present?
       @photographs = @collection.photographs
+    elsif @user.present?
+      @photographs = @user.photographs
     else
       @photographs = Photograph.scoped
     end
@@ -28,11 +34,7 @@ class PhotographsController < ApplicationController
   end
 
   def recommended
-    sorted_photographs = Rails.cache.fetch([:photographs, :recommended, :sorted_photographs], expires_in: 1.minute) do
-      photo_ids = Photograph.rankings.members.reverse
-      photographs = Photograph.view_for(current_user).where(id: photo_ids).group_by(&:id)
-      sorted_photographs = photo_ids.map { |id| photographs[id.to_i] }.compact.map(&:first)
-    end
+    sorted_photographs = Photograph.recommended(current_user)
     @photographs = Kaminari.paginate_array(sorted_photographs).page(params[:page]).per(Photograph.default_per_page)
     respond_with @photographs do |f|
       f.html { render :index }

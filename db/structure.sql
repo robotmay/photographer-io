@@ -525,6 +525,13 @@ CREATE INDEX metadata_gin_keywords ON metadata USING gin (keywords);
 
 
 --
+-- Name: metadata_image_gin; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX metadata_image_gin ON metadata USING gin (image);
+
+
+--
 -- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -581,3 +588,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130504213832');
 INSERT INTO schema_migrations (version) VALUES ('20130505180844');
 
 INSERT INTO schema_migrations (version) VALUES ('20130505185219');
+
+INSERT INTO schema_migrations (version) VALUES ('20130506003536');

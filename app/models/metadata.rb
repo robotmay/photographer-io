@@ -8,6 +8,7 @@ class Metadata < ActiveRecord::Base
 
   store_accessor :image, :lat
   store_accessor :image, :lng
+  store_accessor :image, :format
 
   validates :photograph_id, presence: true
 
@@ -20,13 +21,17 @@ class Metadata < ActiveRecord::Base
                     }
                   }
 
-  scope :with_keyword, lambda { |keyword|
+  scope :with_keyword, -> (keyword) {
     with_keywords([keyword])
   }
 
-  scope :with_keywords, lambda { |keywords|
+  scope :with_keywords, -> (keywords) {
     keywords = keywords.map { |kw| "\"#{kw}\"" }.join(",")
     where("metadata.keywords @> ?", "{#{keywords}}")
+  }
+  
+  scope :format, -> (format) {
+    where("metadata.image @> 'format=>#{format}'")
   }
 
   before_create :extract_from_photograph
@@ -44,7 +49,7 @@ class Metadata < ActiveRecord::Base
     ])
 
     self.settings = fetch_from_exif(exif, [
-      :orientation, :fov, :aperture, :focal_length,
+      :format, :fov, :aperture, :focal_length,
       :shutter_speed, :iso, :exposure_program, :exposure_mode,
       :metering_mode, :flash, :drive_mode, :digital_zoom, :macro_mode,
       :self_timer, :quality, :record_mode, :easy_mode, :contrast,
@@ -74,6 +79,20 @@ class Metadata < ActiveRecord::Base
     gps_position = image['gps_position'] || image[:gps_position]
     if gps_position.present?
       self.lat, self.lng = convert_to_lat_lng(gps_position)      
+    end
+  end
+  
+  before_save :set_format
+  def set_format
+    width = image['image_width'] || image[:image_width]
+    height = image['image_height'] || image[:image_height]
+    
+    if height > width
+      self.format = 'portrait'
+    elsif height == width
+      self.format = 'square'
+    else
+      self.format = 'landscape'
     end
   end
 
