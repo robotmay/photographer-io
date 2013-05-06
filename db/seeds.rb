@@ -10,3 +10,25 @@ licenses = [
 licenses.each do |license|
   License.find_or_create_by_name_and_code(license[:name], license[:code])
 end
+
+categories = [
+  "Nature",
+  "Wildlife",
+  "Architecture",
+  "Sport",
+  "Family",
+  "Still Life",
+  "Street",
+  "Landscape",
+  "Portraiture",
+  "Journalism",
+  "People",
+  "Travel",
+  "Art",
+  "Wedding",
+  "Pets"
+]
+
+categories.each do |category|
+  Category.find_or_create_by_name(category)
+end

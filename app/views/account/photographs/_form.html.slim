@@ -8,7 +8,12 @@
 
   fieldset class="panel"
     legend= t("account.photographs.form.collections")
-    = f.association :collections, as: :check_boxes
+    div class="row"
+      div class="large-8 columns"
+        = f.association :collections, as: :check_boxes
+      
+      div class="large-4 columns"
+        = f.association :category, collection: Category.order("name ASC")
 
   fieldset class="panel"
     legend= t("account.photographs.form.settings")

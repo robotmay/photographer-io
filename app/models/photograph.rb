@@ -4,6 +4,7 @@ class Photograph < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :license
+  belongs_to :category
   has_one :metadata, dependent: :delete
   has_many :collection_photographs, dependent: :destroy
   has_many :collections, through: :collection_photographs
@@ -11,6 +12,7 @@ class Photograph < ActiveRecord::Base
 
   cache_belongs_to :user
   cache_belongs_to :license
+  cache_belongs_to :category
   cache_has_one :metadata, embed: true
   cache_has_many :collections, inverse_name: :photographs
   cache_has_many :recommendations

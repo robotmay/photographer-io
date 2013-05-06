@@ -4,4 +4,6 @@
   section id="pages-home"
     div class="row"
       div class="large-12 columns"
-        = photo_tag @top_photos.sample, "2000x", quality: 80
+        - photo = @top_photos.sample
+        = link_to photograph_path(photo) do
+          = photo_tag photo, "2000x", quality: 80
