@@ -1,0 +1,25 @@
+section id="account-dashboard"
+  div class="row"
+    div class="large-12 columns"
+      article class="panel callout secondary"
+        h3= t("account.dashboard.title")
+        = simple_format t("account.dashboard.blurb")
+
+  div class="row"
+    div class="large-4 columns"
+      h4= t("account.dashboard.statistics.title")
+
+      table
+        tbody
+          tr
+            td= t("account.dashboard.statistics.photo_count")
+            td= current_user.photographs.count
+          tr
+            td= t("account.dashboard.statistics.public_photo_count")
+            td= current_user.photographs.public.count
+          tr
+            td= t("account.dashboard.statistics.private_photo_count")
+            td= current_user.photographs.private.count
+          tr
+            td= t("account.dashboard.statistics.views")
+            td= current_user.photograph_views.to_i

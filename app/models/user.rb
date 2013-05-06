@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
 
   image_accessor :avatar
 
+  counter :photograph_views
+
   validates :email, :name, presence: true
 
   before_create :set_defaults

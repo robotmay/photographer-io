@@ -33,6 +33,19 @@ en:
       settings: "Account settings"
       create: "Sign up for a PHOTOGRAPHER.IO account"
 
+    dashboard:
+      title: "Your Account Dashboard"
+      blurb: >
+        As a member you can upload and organise your photographs before publishing
+        them on the public-facing site.
+
+      statistics:
+        title: "Statistics"
+        views: "Total views for your photographs"
+        photo_count: "Photographs"
+        public_photo_count: "Public photographs"
+        private_photo_count: "Private photographs"
+
     collections:
       delete: "Delete this collection"
       form:
