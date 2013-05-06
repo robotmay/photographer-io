@@ -39,7 +39,7 @@ Iso::Application.routes.draw do
       resources :photographs
     end
 
-    root to: "photographs#index"
+    root to: "account#dashboard"
   end
 
   root to: "pages#home"

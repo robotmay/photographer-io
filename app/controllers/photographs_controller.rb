@@ -67,7 +67,11 @@ class PhotographsController < ApplicationController
   def show
     @photograph = Photograph.fetch(params[:id])
     authorize! :read, @photograph
-    @photograph.views.increment
+
+    @photograph.views.increment do
+      @photograph.user.photograph_views.increment
+    end
+    
     set_title(@photograph.metadata.title)
     respond_with @photograph
   end
