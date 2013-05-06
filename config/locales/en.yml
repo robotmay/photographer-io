@@ -93,6 +93,8 @@ en:
     no_results: "There were no results for your query."
     collections: "Listed in collections"
     location: "Location"
+    recommend: "Recommend this photograph"
+    recommended: "Recommended!"
     metadata:
       title: "Photograph Details"
       keywords: "Keywords"

@@ -69,6 +69,17 @@ class PhotographsController < ApplicationController
   def recommend
     @photograph = Photograph.fetch(params[:id])
     authorize! :recommend, @photograph
-    #TODO
+    @recommendation = current_user.recommendations.find_or_create_by_photograph_id(@photograph.id)
+    if @recommendation
+      respond_with @recommendation, status: :created do |f|
+        f.html { redirect_to :back }
+        f.json
+      end
+    else
+      respond_with @recommendation, status: :unprocessable_entity do |f|
+        f.html { redirect_to :back }
+        f.json { render json: @recommendation.errors }
+      end
+    end
   end
 end
