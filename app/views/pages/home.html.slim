@@ -1,2 +1,7 @@
-section id="pages-home"
-  = photo_tag @top_photos.sample, "1000x"
+- content_for(:body_class, "darkroom")
+
+- cache([current_user, :homepage], expires_in: 5.minutes) do
+  section id="pages-home"
+    div class="row"
+      div class="large-12 columns"
+        = photo_tag @top_photos.sample, "2000x", quality: 80

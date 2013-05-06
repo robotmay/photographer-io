@@ -6,6 +6,7 @@ module PhotographsHelper
   ]
 
   def photo_tag(photograph, size, opts = {})
+    return nil if photograph.nil?
     image = photograph.image.thumb(size)
 
     image = if opts[:quality].present?
