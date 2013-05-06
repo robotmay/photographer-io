@@ -62,7 +62,9 @@ class Photograph < ActiveRecord::Base
   end
 
   def exif
-    MiniExiftool.new(image.file.path)
+    Photograph.benchmark "Parsing image for EXIF" do
+      MiniExiftool.new(image.file.path)
+    end
   end
 
   before_create :set_defaults_from_user_settings
