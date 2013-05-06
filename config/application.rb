@@ -13,7 +13,7 @@ Bundler.require(*Rails.groups(assets: %w(development test)))
 module Iso
   def set_db_connection_pool_size!(size=20)
     # bump the AR connection pool
-    if ENV['DATABASE_URL'] !~ /pool/
+    if ENV['DATABASE_URL'].present? && ENV['DATABASE_URL'] !~ /pool/
       pool_size = ENV.fetch('DATABASE_POOL_SIZE', size)
       db = URI.parse ENV['DATABASE_URL']
       if db.query
