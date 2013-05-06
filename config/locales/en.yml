@@ -28,6 +28,7 @@ en:
       auth: "Sign in details"
       public: "How do you want to be known to other users?"
       settings: "Account settings"
+      create: "Sign up for an ISO.io account"
 
     collections:
       delete: "Delete this collection"

@@ -67,3 +67,4 @@ en:
     submit:
       user:
         update: "Update your account details"
+        create: "Create your account"
