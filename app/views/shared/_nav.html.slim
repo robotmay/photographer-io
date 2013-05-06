@@ -37,3 +37,7 @@ nav id="layout-nav" class="top-bar"
       - else
         = link_to t("nav.sign_in"), new_user_session_path, active_on: true, \
           active_wrapper: :li
+
+        li class="has-form"
+          = link_to t("nav.sign_up"), new_user_registration_path, active_on: true, \
+            class: "button tiny success"

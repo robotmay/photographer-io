@@ -23,7 +23,7 @@ head
 
   == yield(:stylesheets)
 
-body
+body class=(yield(:body_class))
   == yield(:before_body)
 
   header id="layout-header"
