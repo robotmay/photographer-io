@@ -88,17 +88,22 @@ module Account
     end
 
     def update
-      @photograph = current_user.photographs.fetch(params[:id])
-      authorize! :update, @photograph
-      if @photograph.update_attributes(photograph_params)
-        flash[:notice] = t("account.photographs.update.succeeded")
-        respond_with @photograph do |f|
-          f.html { redirect_to edit_account_photograph_path(@photograph) }
-        end
-      else
-        flash.now[:alert] = t("account.photographs.update.failed")
-        respond_with @photograph, status: :unprocessable_entity do |f|
-          f.html { render :edit }
+      benchmark "Fetching and authorizing record" do
+        @photograph = current_user.photographs.fetch(params[:id])
+        authorize! :update, @photograph
+      end
+
+      benchmark "Updating records" do
+        if @photograph.update_attributes(photograph_params)
+          flash[:notice] = t("account.photographs.update.succeeded")
+          respond_with @photograph do |f|
+            f.html { redirect_to edit_account_photograph_path(@photograph) }
+          end
+        else
+          flash.now[:alert] = t("account.photographs.update.failed")
+          respond_with @photograph, status: :unprocessable_entity do |f|
+            f.html { render :edit }
+          end
         end
       end
     end
