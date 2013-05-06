@@ -1,4 +1,6 @@
 class DeviseExtensions::RegistrationsController < Devise::RegistrationsController
+  before_filter :configure_permitted_parameters
+
   def update
     # required for settings form to submit when password is left blank
     if params[:user][:password].blank?
@@ -28,5 +30,9 @@ class DeviseExtensions::RegistrationsController < Devise::RegistrationsControlle
                                    :name, :avatar, :retained_avatar, :remove_avatar,
                                    :show_location_data, :show_nsfw_content, 
                                    :default_license_id)
+  end
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :email, :password, :password_confirmation) }
   end
 end
