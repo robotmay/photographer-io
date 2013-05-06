@@ -21,26 +21,34 @@ section id="photographs-show"
               = t("photographs.recommended")
           - else
             = button_to t("photographs.recommend"), { action: :recommend, remote: true }, { class: "button recommend secondary expand" }
-
-      = metadata_table_for @photograph, format: :short
-
-      - if @photograph.collections.count > 0
-        h5= t("photographs.collections")
+      
+      - cache([@photograph, :sidebar], expires_in: 5.minutes) do
+        h5= t("photographs.stats")
         table
           tbody
-            - @photograph.collections.each do |collection|
-              tr
-                td= link_to collection.name, collection_path(collection)
+            tr
+              td= t("photographs.views")
+              td= @photograph.views.to_i
 
-      - if @photograph.fetch_metadata.keywords.size > 0
-        h5= t("photographs.metadata.keywords")
-        ul id="photographs-keywords" class="inline-list"
-          - @photograph.fetch_metadata.keywords.each do |keyword|
-            li
-              = link_to search_photographs_path(keyword: keyword) do
-                span class="label radius"
-                  = keyword
+        = metadata_table_for @photograph, format: :short
 
-      - if @photograph.show_location_data && @photograph.metadata.has_location_data?
-        h5= t("photographs.location")
-        = render partial: "map", locals: { photograph: @photograph }
+        - if @photograph.collections.count > 0
+          h5= t("photographs.collections")
+          table
+            tbody
+              - @photograph.collections.each do |collection|
+                tr
+                  td= link_to collection.name, collection_path(collection)
+
+        - if @photograph.fetch_metadata.keywords.size > 0
+          h5= t("photographs.metadata.keywords")
+          ul id="photographs-keywords" class="inline-list"
+            - @photograph.fetch_metadata.keywords.each do |keyword|
+              li
+                = link_to search_photographs_path(keyword: keyword) do
+                  span class="label radius"
+                    = keyword
+
+        - if @photograph.show_location_data && @photograph.metadata.has_location_data?
+          h5= t("photographs.location")
+          = render partial: "map", locals: { photograph: @photograph }
