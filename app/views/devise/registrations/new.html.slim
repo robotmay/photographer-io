@@ -1,0 +1,13 @@
+= simple_form_for resource, as: resource_name, url: registration_path(resource_name) do |f|
+  div class="row"
+    div class="large-6 columns"
+      fieldset
+        legend= t("account.form.auth")
+        = f.input :name
+        = f.input :email
+        = f.input :password, input_html: { autocomplete: "off" }
+        = f.input :password_confirmation
+
+  = f.button :submit
+
+= render "devise/shared/links"
