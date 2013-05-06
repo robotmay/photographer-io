@@ -11,6 +11,23 @@ require "sprockets/railtie"
 Bundler.require(*Rails.groups(assets: %w(development test)))
 
 module Iso
+  def set_db_connection_pool_size!(size=20)
+    # bump the AR connection pool
+    if ENV['DATABASE_URL'] !~ /pool/
+      pool_size = ENV.fetch('DATABASE_POOL_SIZE', size)
+      db = URI.parse ENV['DATABASE_URL']
+      if db.query
+        db.query += "&pool=#{pool_size}"
+      else
+        db.query = "pool=#{pool_size}"
+      end
+      ENV['DATABASE_URL'] = db.to_s
+      ActiveRecord::Base.establish_connection
+    end
+  end
+
+  module_function :set_db_connection_pool_size!
+
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -30,21 +47,4 @@ module Iso
       ::Iso.set_db_connection_pool_size! Puma.cli_config.options.fetch(:max_threads)
     end
   end
-
-  def set_db_connection_pool_size!(size=20)
-    # bump the AR connection pool
-    if ENV['DATABASE_URL'] !~ /pool/
-      pool_size = ENV.fetch('DATABASE_POOL_SIZE', size)
-      db = URI.parse ENV['DATABASE_URL']
-      if db.query
-        db.query += "&pool=#{pool_size}"
-      else
-        db.query = "pool=#{pool_size}"
-      end
-      ENV['DATABASE_URL'] = db.to_s
-      ActiveRecord::Base.establish_connection
-    end
-  end
-
-  module_function :set_db_connection_pool_size!
 end
