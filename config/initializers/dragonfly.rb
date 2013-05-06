@@ -33,12 +33,6 @@ else
   end
 end
 
-if ENV['CDN_HOST'].present?
-  app.configure do |c|
-    c.url_host = ENV['CDN_HOST']
-  end
-end
-
 app.define_macro(ActiveRecord::Base, :image_accessor)
 
 if !Rails.env.test? && defined?(Rack::Cache)
