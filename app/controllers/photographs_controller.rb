@@ -16,8 +16,10 @@ class PhotographsController < ApplicationController
   def index
     if @collection.present?
       @photographs = @collection.photographs
+      set_title(@collection.name)
     elsif @user.present?
       @photographs = @user.photographs
+      set_title(@user.name)
     else
       @photographs = Photograph.scoped
     end
@@ -28,6 +30,8 @@ class PhotographsController < ApplicationController
 
   def explore
     @photographs = Photograph.view_for(current_user).order("created_at DESC").page(params[:page])
+    set_title(t("explore"))
+
     respond_with @photographs do |f|
       f.html { render :index }
     end
@@ -64,6 +68,7 @@ class PhotographsController < ApplicationController
     @photograph = Photograph.fetch(params[:id])
     authorize! :read, @photograph
     @photograph.views.increment
+    set_title(@photograph.metadata.title)
     respond_with @photograph
   end
 
