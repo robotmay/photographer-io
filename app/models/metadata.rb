@@ -3,7 +3,7 @@ class Metadata < ActiveRecord::Base
   include GPSParser
   include PgSearch
 
-  belongs_to :photograph
+  belongs_to :photograph, touch: true
   has_one :user, through: :photograph
 
   store_accessor :image, :lat

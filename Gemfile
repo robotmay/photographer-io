@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby "2.0.0"
 
-gem 'rails', '4.0.0.rc1'
+gem 'rails', github: 'rails/rails'
 gem 'sinatra', '>= 1.3.0', require: nil
 
 # debugging
@@ -32,7 +32,7 @@ gem 'newrelic_rpm'
 
 # auth
 gem 'devise', git: 'git://github.com/plataformatec/devise.git', branch: 'rails4'
-gem 'devise_invitable', git: 'git://github.com/scambra/devise_invitable.git', branch: 'rails4'
+gem 'devise_invitable', git: 'git://github.com/robotmay/devise_invitable.git', branch: 'rails4'
 # gem 'devise-scrypt' TODO: Switch to scrypt, gem needs updating
 gem 'cancan'
 
