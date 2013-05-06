@@ -24,6 +24,7 @@ gem 'unicorn'
 gem 'thin'
 gem 'sidekiq'
 gem 'airbrake'
+gem 'newrelic_rpm'
 
 # auth
 gem 'devise', git: 'git://github.com/plataformatec/devise.git', branch: 'rails4'
