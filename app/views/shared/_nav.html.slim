@@ -6,8 +6,14 @@ nav id="layout-nav" class="top-bar"
 
   section class="top-bar-section"
     ul class="left"
-      = link_to t("nav.explore"), explore_photographs_path, active_on: true, \
-        active_wrapper: :li
+      li class="has-dropdown"
+        = link_to t("nav.explore"), explore_photographs_path, active_on: true
+        ul class="dropdown"
+          li
+            label= t("nav.categories")
+          - @categories.each do |category|
+            = link_to category.name, category_path(category.slug), active_on: true, \
+              active_wrapper: :li
 
       = link_to t("nav.recommended"), recommended_photographs_path, active_on: true, \
         active_wrapper: :li

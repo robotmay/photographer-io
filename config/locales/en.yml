@@ -19,6 +19,7 @@ en:
     favourites: "Favourites"
     search: "Search"
     recommended: "Recommended"
+    categories: "Explore by category"
 
   account:
     nav:
