@@ -539,13 +539,6 @@ CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (v
 
 
 --
--- Name: metadata_vector_update; Type: TRIGGER; Schema: public; Owner: -
---
-
-CREATE TRIGGER metadata_vector_update BEFORE INSERT OR UPDATE ON metadata FOR EACH ROW EXECUTE PROCEDURE tsvector_update_trigger('search_vector', 'pg_catalog.english', 'title', 'description');
-
-
---
 -- PostgreSQL database dump complete
 --
 
@@ -590,3 +583,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130505180844');
 INSERT INTO schema_migrations (version) VALUES ('20130505185219');
 
 INSERT INTO schema_migrations (version) VALUES ('20130506003536');
+
+INSERT INTO schema_migrations (version) VALUES ('20130506191958');
