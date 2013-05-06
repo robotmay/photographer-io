@@ -14,7 +14,7 @@ section id="photographs-show"
     aside id="photographs-sidebar" class="large-3 columns"
       = creator_details_for @photograph
 
-      - if user_signed_in?
+      - if user_signed_in? && @photograph.user != current_user
         div class="recommendations"
           - if current_user.recommended?(@photograph)
             button class="recommended success expand"
