@@ -45,6 +45,10 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
+    airbrake (3.1.12)
+      activesupport
+      builder
+      json
     ar_transaction_changes (0.0.1)
       activerecord (>= 3.0.0)
     arel (4.0.0)
@@ -122,6 +126,7 @@ GEM
     jquery-turbolinks (1.0.0)
       railties (>= 3.1.0)
       turbolinks
+    json (1.7.7)
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -281,6 +286,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  airbrake
   cancan
   coffee-rails (~> 4.0.0.beta1)
   dalli
