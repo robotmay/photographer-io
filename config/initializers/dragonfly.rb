@@ -33,9 +33,9 @@ else
   end
 end
 
-if ENV['CDN_SUMO_URL'].present?
+if ENV['CDN_HOST'].present?
   app.configure do |c|
-    c.url_host = ENV['CDN_SUMO_URL']
+    c.url_host = ENV['CDN_HOST']
   end
 end
 
