@@ -9,4 +9,5 @@
 
       div class="large-5 columns"
         - if user.avatar.present?
-          = image_tag user.avatar.thumb("150x150#").jpg.url
+          = link_to user_photographs_path(user) do
+            = image_tag user.avatar.thumb("150x150#").jpg.url

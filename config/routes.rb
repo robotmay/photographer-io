@@ -17,8 +17,10 @@ Iso::Application.routes.draw do
 
   resources :users, shallow: true, only: [:show] do
     resources :collections, only: [:index, :show] do
-      resources :photographs, only: [:index, :show]
+      resources :photographs, only: [:index]
     end
+
+    resources :photographs, only: [:index]
   end
 
   devise_for :users, path: :account, controllers: { 
