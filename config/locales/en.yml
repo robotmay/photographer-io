@@ -113,3 +113,4 @@ en:
 
   recommendations:
     user_quota_exceeded: "You have run out of recommendations to give for today!"
+    quota: "You can recommend %{amount} more photographs today!"
