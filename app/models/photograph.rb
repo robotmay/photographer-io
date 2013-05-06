@@ -24,7 +24,7 @@ class Photograph < ActiveRecord::Base
   accepts_nested_attributes_for :collections
 
   validates :user_id, :image, presence: true
-  validates_property :format, of: :image, in: [:jpeg, :jpg], case_sensitive: false
+  validates_property :format, of: :image, in: [:jpeg, :jpg], case_sensitive: false, on: :create
 
   scope :public, -> {
     joins(:collections).where(collections: { public: true })
