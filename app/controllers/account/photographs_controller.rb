@@ -55,12 +55,12 @@ module Account
     def create
       @photograph = current_user.photographs.new(photograph_params)
 
-      if @collection.present?
-        @photograph.collections << @collection
-      end
-
       authorize! :create, @photograph
       if @photograph.save
+        if @collection.present?
+          @photograph.collections << @collection
+        end
+
         respond_with @photograph do |f|
           f.html { redirect_to edit_account_photograph_path(@photograph) }
           f.json { render json: @photograph.to_json }
