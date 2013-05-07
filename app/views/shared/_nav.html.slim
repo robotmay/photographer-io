@@ -30,6 +30,8 @@ nav id="layout-nav" class="top-bar"
               = submit_tag t("nav.search"), class: "button secondary"
 
     ul class="right"
+      li= link_to t("nav.support"), "mailto:xz1ped65@incoming.intercom.io", id: "Intercom"
+      li class="divider"
       - if user_signed_in?
         = link_to t("nav.photographs"), account_photographs_path, active_on: true, \
           active_wrapper: :li
