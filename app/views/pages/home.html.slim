@@ -11,4 +11,4 @@ section id="pages-home"
         div id="hero-blurb"
           header
             h2= t("home.title")
-            h4= simple_format t("home.blurb", name: link_to(photo.user.name, user_photographs_path(photo.user)), image_path: link_to(photograph_path(photo)))
+            h4= simple_format t("home.blurb", name: link_to(photo.user.name, user_photographs_path(photo.user)), image_path: photograph_path(photo))
