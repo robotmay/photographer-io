@@ -39,10 +39,12 @@ section id="account-dashboard"
     div class="large-4 columns"
 
   div class="row"
-    div class="large-12 columns"
-      div class="panel"
+    div class="large-8 columns"
+      div class="panel hints"
         header
           h4= t("account.dashboard.hints.title")
 
-        ul class="no-bullet"
+        ul
           li= t("account.dashboard.hints.public_collections")
+          li= t("account.dashboard.hints.recommendations")
+          li= t("account.dashboard.hints.homepage")

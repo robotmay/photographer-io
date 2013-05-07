@@ -69,6 +69,12 @@ en:
           Your photographs won't appear to the public until you have added them to a
           public collection! This is to make sure you don't accidentally publish
           images you aren't ready for people to see.
+        recommendations: >
+          You can recommend photographs from other users. This works similarly to
+          'liking' a photograph elsewhere, except that you have a finite amount of
+          recommendations you can make per day.
+        homepage: >
+          The top recommended photographs are put into rotation for the homepage.
 
     collections:
       delete: "Delete this collection"
