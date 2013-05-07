@@ -8,7 +8,7 @@
       table
         - sections = photograph.show_copyright_info? ? [:camera, :image, :settings, :creator] : [:camera, :image, :settings]
         - sections.each do |attr|
-          - if photograph.fetch_metadata.send(attr).size > 0
+          - if metadata_values_for_attr(photograph, attr, opts).size > 0
             thead
               tr
                 td colspan="2"
