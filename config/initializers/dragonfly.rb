@@ -33,6 +33,10 @@ else
   end
 end
 
+if ENV['CDN_HOST']
+  app.cache_duration = 1.day
+end
+
 app.define_macro(ActiveRecord::Base, :image_accessor)
 
 if !Rails.env.test? && defined?(Rack::Cache)
