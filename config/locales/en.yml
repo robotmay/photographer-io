@@ -21,6 +21,14 @@ en:
     recommended: "Recommended"
     categories: "Explore by category"
 
+  home:
+    title: >
+      A new photo community for sharing your photographs.
+    blurb: >
+      Upload, organise, and share your photographs alongside others like %{name} did
+      with this <a href="%{image_path}">fantastic image</a>.
+    register: "Create your account"
+
   account:
     nav:
       title: "Your Account"
