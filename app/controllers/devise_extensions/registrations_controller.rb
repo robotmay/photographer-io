@@ -32,7 +32,7 @@ class DeviseExtensions::RegistrationsController < Devise::RegistrationsControlle
   def user_params
       params.require(:user).permit(:email, :password, :password_confirmation, 
                                    :name, :location, :avatar, :retained_avatar, 
-                                   :remove_avatar,
+                                   :remove_avatar, :show_copyright_info, 
                                    :show_location_data, :show_nsfw_content, 
                                    :default_license_id)
   end

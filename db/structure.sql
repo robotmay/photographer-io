@@ -223,7 +223,8 @@ CREATE TABLE photographs (
     safe_for_work boolean DEFAULT true,
     license_id integer,
     show_location_data boolean DEFAULT false,
-    category_id integer
+    category_id integer,
+    show_copyright_info boolean DEFAULT false
 );
 
 
@@ -318,7 +319,8 @@ CREATE TABLE users (
     invited_by_type character varying(255),
     show_nsfw_content boolean DEFAULT false,
     recommendation_quota integer,
-    photographs_count integer
+    photographs_count integer,
+    show_copyright_info boolean DEFAULT true
 );
 
 
@@ -657,3 +659,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130506003536');
 INSERT INTO schema_migrations (version) VALUES ('20130506222702');
 
 INSERT INTO schema_migrations (version) VALUES ('20130507101348');
+
+INSERT INTO schema_migrations (version) VALUES ('20130507130212');

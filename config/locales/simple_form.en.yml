@@ -48,6 +48,11 @@ en:
           Do you want to show the location of where this photograph was taken? You
           can change your default setting for this in your account settings.
 
+        show_copyright_info: >
+          Do you want to display the copyright info, if it exists, which is embedded
+          in your photo metadata? This could contain personal information such as your
+          name and the area in which you live (city/country).
+
         category: >
           Setting a relevant category for your photo will help other people discover
           it more easily!
@@ -66,6 +71,11 @@ en:
         show_location_data: >
           Do you want to show the location where photographs were taken by default?
           This can be altered on an image-by-image basis.
+
+        show_copyright_info: >
+          Do you want to display the copyright info, if it exists, which is embedded
+          in your photo metadata? This could contain personal information such as your
+          name and the area in which you live (city/country).
 
   helpers:
     submit:
