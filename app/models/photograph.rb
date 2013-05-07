@@ -20,7 +20,11 @@ class Photograph < ActiveRecord::Base
   delegate :format, :landscape?, :portrait?, :square?, to: :metadata
 
   paginates_per 36
-  image_accessor :image
+  image_accessor :image do
+    copy_to(:standard_image) { |i| i.thumb("3000x3000>") }  
+  end
+
+  image_accessor :standard_image
 
   counter :views
 
