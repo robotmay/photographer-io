@@ -1,7 +1,7 @@
 en:
-  site_name: "PHOTOGRAPHER.IO"
-  default_title: "The photo community for enthusiasts - PHOTOGRAPHER.IO"
-  page_title: "%{title} - PHOTOGRAPHER.IO"
+  site_name: "Photographer.io"
+  default_title: "The photo community for enthusiasts - Photographer.io"
+  page_title: "%{title} - Photographer.io"
   copyright: >
     All photographs are copyright of their respective creators,
     and may not be republished without permission.
@@ -42,7 +42,7 @@ en:
       auth: "Sign in details"
       public: "How do you want to be known to other users?"
       settings: "Account settings"
-      create: "Sign up for a PHOTOGRAPHER.IO account"
+      create: "Sign up for a Photographer.io account"
 
     dashboard:
       title: "Your Account Dashboard"
