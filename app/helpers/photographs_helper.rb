@@ -41,4 +41,18 @@ module PhotographsHelper
       attributes
     end
   end
+
+  def parse_and_display_metadata_value(key, value)
+    begin
+      case key
+      when 'date_time_original'
+        dt = DateTime::parse(value)
+        l(dt, format: :long)
+      else
+        value
+      end
+    rescue Exception
+      value
+    end
+  end
 end
