@@ -29,7 +29,8 @@ categories = [
   "Pets",
   "Events",
   "Vehicles",
-  "Crafts"
+  "Crafts",
+  "Abstract"
 ]
 
 categories.each do |category|
