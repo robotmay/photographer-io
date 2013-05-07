@@ -62,6 +62,13 @@ en:
         remaining: "You have %{n} remaining recommendations for today"
         total: "You have made a total of %{n} recommendations"
 
+      hints:
+        title: "Hints for new users"
+        public_collections: >
+          Your photographs won't appear to the public until you have added them to a
+          public collection! This is to make sure you don't accidentally publish
+          images you aren't ready for people to see.
+
     collections:
       delete: "Delete this collection"
       form:

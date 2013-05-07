@@ -37,3 +37,12 @@ section id="account-dashboard"
             td= t("account.dashboard.recommendations.total", n: current_user.recommendations.count)
 
     div class="large-4 columns"
+
+  div class="row"
+    div class="large-12 columns"
+      div class="panel"
+        header
+          h4= t("account.dashboard.hints.title")
+
+        ul class="no-bullet"
+          li= t("account.dashboard.hints.public_collections")
