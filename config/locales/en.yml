@@ -112,6 +112,9 @@ en:
         succeeded: "Your photograph has been deleted successfully."
         failed: "There was a problem deleting that photograph."
 
+  collection_photographs:
+    user_must_match: "You cannot add a photo to that collection"
+
   photographs:
     none: "There are no photographs here!"
     no_results: "There were no results for your query."

@@ -10,7 +10,7 @@
     legend= t("account.photographs.form.collections")
     div class="row"
       div class="large-8 columns"
-        = f.association :collections, as: :check_boxes
+        = f.association :collections, as: :check_boxes, collection: current_user.collections.order("name ASC")
       
       div class="large-4 columns"
         = f.association :category, collection: Category.order("name ASC")
