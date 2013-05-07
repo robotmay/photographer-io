@@ -164,6 +164,8 @@ en:
       lng: "Longitude"
       license: "License"
       default_license: "All rights reserved"
+    creator:
+      photos: "View more photos"
 
   recommendations:
     user_quota_exceeded: "You have run out of recommendations to give for today!"

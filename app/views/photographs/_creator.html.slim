@@ -1,13 +1,15 @@
-- cache([photograph, photograph.user, :creator_details]) do
-  - user = photograph.fetch_user
-  aside id="photographs-creator"
-    div class="row"
-      div class="large-7 columns"
-        h3= user.name
-        - if user.location.present?
-          h5= user.location
+- user = photograph.fetch_user
+aside id="photographs-creator" class="panel"
+  div class="row"
+    div class="large-7 columns"
+      h4= user.name
+      - if user.location.present?
+        h5= user.location
 
-      div class="large-5 columns"
-        - if user.avatar.present?
-          = link_to user_photographs_path(user) do
-            = image_tag user.avatar.thumb("150x150#").jpg.url
+
+    div class="large-5 columns"
+      - if user.avatar.present?
+        = link_to user_photographs_path(user) do
+          = image_tag user.avatar.thumb("150x150#").jpg.url
+
+      = link_to t("photographs.creator.photos"), user_photographs_path(user), class: "button tiny success expand"
