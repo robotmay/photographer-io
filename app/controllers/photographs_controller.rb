@@ -11,6 +11,10 @@ class PhotographsController < ApplicationController
     if params[:user_id].present?
       @user = User.fetch(params[:user_id])
     end
+
+    if params[:category_id].present?
+      @category = Category.fetch_by_slug(params[:category_id])
+    end
   end
 
   def index
@@ -20,6 +24,9 @@ class PhotographsController < ApplicationController
     elsif @user.present?
       @photographs = @user.photographs
       set_title(@user.name)
+    elsif @category.present?
+      @photographs = @category.photographs
+      set_title(@category.name)
     else
       @photographs = Photograph.scoped
     end

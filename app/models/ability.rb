@@ -4,6 +4,7 @@ class Ability
   def initialize(user)
     user ||= User.new
 
+    can :read, Category
     can :read, Collection, public: true
     can :read, Photograph do |photograph|
       photograph.public?
