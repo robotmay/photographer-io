@@ -48,6 +48,10 @@ en:
           Do you want to show the location of where this photograph was taken? You
           can change your default setting for this in your account settings.
 
+        category: >
+          Setting a relevant category for your photo will help other people discover
+          it more easily!
+
       user:
         show_nsfw_content: >
           Do you want to show content marked as Not Safe For Work? This could involve
