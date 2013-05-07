@@ -6,7 +6,6 @@ class Collection < ActiveRecord::Base
   has_many :photographs, through: :collection_photographs
 
   cache_belongs_to :user
-  cache_has_many :photographs, inverse_name: :collections
 
   validates :user_id, :name, presence: true
 
