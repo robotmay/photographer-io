@@ -30,7 +30,8 @@ categories = [
   "Events",
   "Vehicles",
   "Crafts",
-  "Abstract"
+  "Abstract",
+  "Music"
 ]
 
 categories.each do |category|
