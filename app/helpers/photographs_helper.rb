@@ -7,7 +7,11 @@ module PhotographsHelper
 
   def photo_tag(photograph, size, opts = {})
     return nil if photograph.nil?
-    image = photograph.image.thumb(size)
+    image = if photograph.standard_image.present?
+      photograph.standard_image.thumb(size)
+    else
+      photograph.image.thumb(size)
+    end
 
     image = if opts[:quality].present?
       image.encode(:jpg, "-quality #{opts[:quality]}")

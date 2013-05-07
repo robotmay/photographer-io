@@ -224,7 +224,8 @@ CREATE TABLE photographs (
     license_id integer,
     show_location_data boolean DEFAULT false,
     category_id integer,
-    show_copyright_info boolean DEFAULT false
+    show_copyright_info boolean DEFAULT false,
+    standard_image_uid character varying(255)
 );
 
 
@@ -661,3 +662,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130506222702');
 INSERT INTO schema_migrations (version) VALUES ('20130507101348');
 
 INSERT INTO schema_migrations (version) VALUES ('20130507130212');
+
+INSERT INTO schema_migrations (version) VALUES ('20130507230144');
