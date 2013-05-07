@@ -17,11 +17,7 @@
               - metadata_values_for_attr(photograph, attr, opts).each do |key, value|
                 tr
                   td= t("photographs.metadata.#{key}")
-                  - if key == 'date_time_original'
-                    - date = DateTime::parse(value)
-                    td= l(date, format: :long)
-                  - else
-                    td= value
+                  td= parse_and_display_metadata_value(key, value)
 
         thead
           tr
