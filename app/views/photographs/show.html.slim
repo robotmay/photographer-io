@@ -2,7 +2,12 @@ section id="photographs-show"
   section class="row"
     article class="large-9 columns"
       section class="image"
-        = photo_tag @photograph, "1500x1500>"
+        - if @photograph.landscape?
+          = photo_tag @photograph, "1500x"
+        - elsif @photograph.portrait?
+          = photo_tag @photograph, "x1000"
+        - else
+          = photo_tag @photograph, "1500x1500>"
 
       - if @photograph.fetch_metadata.has_text?
         section class="description panel"

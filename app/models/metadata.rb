@@ -121,6 +121,18 @@ class Metadata < ActiveRecord::Base
     lat.present? && lng.present?
   end
 
+  def landscape?
+    format == 'landscape'
+  end
+
+  def portrait?
+    format == 'portrait'
+  end
+
+  def square?
+    format == 'square'
+  end
+
   private
   def fetch_from_exif(exif, keys = [])
     Rails.logger.debug "Fetching EXIF"

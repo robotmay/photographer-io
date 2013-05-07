@@ -17,6 +17,8 @@ class Photograph < ActiveRecord::Base
   cache_has_many :collections, inverse_name: :photographs
   cache_has_many :recommendations
 
+  delegate :format, :landscape?, :portrait?, :square?, to: :metadata
+
   paginates_per 36
   image_accessor :image
 
