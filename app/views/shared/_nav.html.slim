@@ -30,6 +30,8 @@ nav id="layout-nav" class="top-bar"
               = submit_tag t("nav.search"), class: "button secondary"
 
     ul class="right"
+      li= link_to t("nav.beta"), "#", data: { "reveal-id" => "beta-notes" }
+      li class="divider"
       li= link_to t("nav.support"), "mailto:xz1ped65@incoming.intercom.io", id: "Intercom"
       li class="divider"
       - if user_signed_in?
@@ -49,3 +51,10 @@ nav id="layout-nav" class="top-bar"
         li class="has-form"
           = link_to t("nav.sign_up"), new_user_registration_path, active_on: true, \
             class: "button tiny success"
+
+- content_for(:after_body) do
+  div id="beta-notes" class="reveal-modal"
+    a class="close-reveal-modal"
+      | &#215;
+    h4= t("beta_notes.title")
+    = simple_format t("beta_notes.blurb")
