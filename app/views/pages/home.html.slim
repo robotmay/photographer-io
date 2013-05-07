@@ -1,9 +1,8 @@
 - content_for(:body_class, "darkroom")
 
-- cache([current_user, :homepage], expires_in: 5.minutes) do
-  section id="pages-home"
-    div class="row"
-      div class="large-12 columns"
-        - photo = @top_photos.sample
-        = link_to photograph_path(photo) do
-          = photo_tag photo, "2000x", quality: 80
+section id="pages-home"
+  div class="row"
+    div class="large-12 columns"
+      - photo = @top_photos.sample
+      = link_to photograph_path(photo) do
+        = photo_tag photo, "2000x", quality: 80
