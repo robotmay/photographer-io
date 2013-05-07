@@ -21,13 +21,16 @@
   fieldset
     legend= t("account.form.settings")
     div class="row"
-      div class="large-4 columns"
+      div class="large-3 columns"
         = f.input :show_location_data, as: :radio_buttons
+
+      div class="large-3 columns"
+        = f.input :show_copyright_info, as: :radio_buttons
       
-      div class="large-4 columns"
+      div class="large-3 columns"
         = f.input :show_nsfw_content, as: :radio_buttons
 
-      div class="large-4 columns"
+      div class="large-3 columns"
         = f.input :default_license_id, collection: License.scoped
 
   = f.button :submit

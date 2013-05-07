@@ -128,6 +128,7 @@ module Account
     def photograph_params
       params.require(:photograph).permit(
         :image, :safe_for_work, :show_location_data, :license_id, :category_id,
+        :show_copyright_info, 
         collection_ids: [], metadata_attributes: [
           :id, :title, :keywords, :description
         ]

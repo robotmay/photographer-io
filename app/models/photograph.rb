@@ -75,6 +75,7 @@ class Photograph < ActiveRecord::Base
   def set_defaults_from_user_settings
     self.license_id = user.default_license_id
     self.show_location_data = user.show_location_data
+    self.show_copyright_info = user.show_copyright_info
     return
   end
 

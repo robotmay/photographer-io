@@ -6,7 +6,8 @@
         h5= t("photographs.metadata.title")
       
       table
-        - [:camera, :image, :settings, :creator].each do |attr|
+        - sections = photograph.show_copyright_info? ? [:camera, :image, :settings, :creator] : [:camera, :image, :settings]
+        - sections.each do |attr|
           - if photograph.fetch_metadata.send(attr).size > 0
             thead
               tr
