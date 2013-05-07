@@ -142,6 +142,8 @@ GEM
     identity_cache (0.0.1)
       ar_transaction_changes (= 0.0.1)
       cityhash (= 0.6.0)
+    intercom-rails (0.2.18)
+      activesupport (> 3.0)
     jbuilder (1.0.2)
       activesupport (>= 3.0.0)
     jquery-rails (2.2.1)
@@ -316,6 +318,7 @@ DEPENDENCIES
   guard-sidekiq
   guard-spork
   identity_cache
+  intercom-rails (~> 0.2.14)
   jbuilder (~> 1.0.1)
   jquery-rails
   jquery-turbolinks
