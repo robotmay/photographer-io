@@ -3,6 +3,12 @@
 section id="pages-home"
   div class="row"
     div class="large-12 columns"
-      - photo = @top_photos.sample
-      = link_to photograph_path(photo) do
-        = photo_tag photo, "2000x", quality: 80
+      article id="hero-photograph"
+        - photo = @top_photos.sample
+        = link_to photograph_path(photo) do
+          = photo_tag photo, "2000x", quality: 80
+      
+        div id="hero-blurb"
+          header
+            h2= t("home.title")
+            h4= simple_format t("home.blurb", name: link_to(photo.user.name, user_photographs_path(photo.user)), image_path: link_to(photograph_path(photo)))
