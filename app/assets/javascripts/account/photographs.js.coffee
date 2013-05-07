@@ -15,6 +15,16 @@ $(document).ready ->
         photoForm.find("fieldset").hide()
     })
 
+    originalHeight = 0
+
+    dropzone.on "dragover", (event) ->
+      unless originalHeight > 0
+        originalHeight = $(dropzone.element).height()
+      $(dropzone.element).height(200)
+
+    dropzone.on "dragleave", (event) ->
+      $(dropzone.element).height(originalHeight)
+
     dropzone.on "sending", (file, xhr) ->
       $.rails.CSRFProtection(xhr)
 
