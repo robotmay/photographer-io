@@ -2,7 +2,7 @@ class Photograph < ActiveRecord::Base
   include IdentityCache
   include Redis::Objects
 
-  belongs_to :user
+  belongs_to :user, counter_cache: true
   belongs_to :license
   belongs_to :category
   has_one :metadata, dependent: :delete

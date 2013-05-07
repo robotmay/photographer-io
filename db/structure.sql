@@ -317,7 +317,8 @@ CREATE TABLE users (
     invited_by_id integer,
     invited_by_type character varying(255),
     show_nsfw_content boolean DEFAULT false,
-    recommendation_quota integer
+    recommendation_quota integer,
+    photographs_count integer
 );
 
 
@@ -654,3 +655,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130505185219');
 INSERT INTO schema_migrations (version) VALUES ('20130506003536');
 
 INSERT INTO schema_migrations (version) VALUES ('20130506222702');
+
+INSERT INTO schema_migrations (version) VALUES ('20130507101348');
