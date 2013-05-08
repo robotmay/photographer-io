@@ -6,6 +6,7 @@ module Account
     def set_parents
       if params[:collection_id].present?
         @collection = current_user.collections.find(params[:collection_id])
+        authorize! :manage, @collection
       end
     end
 
