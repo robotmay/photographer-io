@@ -27,6 +27,7 @@ class Photograph < ActiveRecord::Base
   image_accessor :standard_image
 
   counter :views
+  value :highest_rank
 
   accepts_nested_attributes_for :metadata, update_only: true
   accepts_nested_attributes_for :collections
@@ -98,11 +99,24 @@ class Photograph < ActiveRecord::Base
     Photograph.rankings[id]
   end
 
+  def rank
+    Photograph.rankings.rank(id)
+  end
+
+  def set_highest_rank
+    if rank.present? && rank > highest_rank.to_i
+      self.highest_rank = rank
+    end
+  end
+
   def increment_score(by = 1)
-    Photograph.rankings.increment(id, by)
+    Photograph.rankings.increment(id, by) do
+      set_highest_rank
+    end
   end
 
   def decrement_score(by = 1)
+    set_highest_rank
     Photograph.rankings.decrement(id, by)
   end
 
@@ -112,10 +126,12 @@ class Photograph < ActiveRecord::Base
     end
 
     def adjust_scores
-      Photograph.find_each do |photograph|
+      Photograph.recommended(nil, 10).each do |photograph|
         if photograph.score > 0
-          decrease_by = photograph.score * 0.2
-          photograph.decrement_score(decrease_by.to_i)
+          if photograph.created_at < 1.day.ago
+            decrease_by = photograph.score * 0.05
+            photograph.decrement_score(decrease_by.to_i)
+          end
         end
       end
     end
@@ -123,13 +139,19 @@ class Photograph < ActiveRecord::Base
     # Sorted by place in rankings
     #
     # @return [Array]
-    def recommended(user, n = nil)
+    def recommended(user = nil, n = nil)
       photo_ids = if n.present? && n > 0
         Photograph.rankings.revrange(0,(n - 1))     
       else
         Photograph.rankings.members.reverse
       end
-      photographs = scoped.view_for(user).where(id: photo_ids).group_by(&:id)
+      
+      if user.present?
+        photographs = scoped.view_for(user).where(id: photo_ids).group_by(&:id)
+      else
+        photographs = scoped.where(id: photo_ids).group_by(&:id)
+      end
+
       photo_ids.map { |id| photographs[id.to_i] }.compact.map(&:first)
     end
 
