@@ -43,4 +43,13 @@ class User < ActiveRecord::Base
   def favourited?(photograph)
     favourite_photographs.include?(photograph)
   end
+
+  def website_host
+    begin
+      uri = URI.parse(website_url)
+      uri.host
+    rescue Exception
+      website_url
+    end
+  end
 end
