@@ -9,6 +9,7 @@ Iso::Application.routes.draw do
       get :recommended
       get :search
       get :random
+      get :favourites
     end
 
     member do

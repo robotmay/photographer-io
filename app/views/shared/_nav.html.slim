@@ -44,6 +44,10 @@ nav id="layout-nav" class="top-bar"
           ul class="dropdown"
             = link_to t("nav.edit_account"), edit_user_registration_path, \
               active_on: true, active_wrapper: :li
+
+            = link_to t("nav.favourites"), favourites_photographs_path, active_on: true, \
+            active_wrapper: :li
+
             li= link_to t("nav.sign_out"), destroy_user_session_path, method: :delete
       
       - else

@@ -11,8 +11,10 @@ en:
 
   privacy: "Privacy Policy"
   confirm_delete: "Are you sure?"
-  explore: "Explore"
-  recommended: "Photos recommended by other members"
+  titles:
+    explore: "Explore"
+    recommended: "Photos recommended by other members"
+    favourites: "Your favourite photographs"
 
   nav:
     explore: "Explore"
@@ -28,6 +30,7 @@ en:
     categories: "Explore by category"
     support: "Support/feedback"
     beta: "Read our beta notes"
+    favourites: "Favourites"
 
   beta_notes:
     title: "This is an early stage beta!"
