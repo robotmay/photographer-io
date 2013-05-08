@@ -353,7 +353,9 @@ CREATE TABLE users (
     show_nsfw_content boolean DEFAULT false,
     recommendation_quota integer,
     photographs_count integer,
-    show_copyright_info boolean DEFAULT true
+    show_copyright_info boolean DEFAULT true,
+    biography text,
+    website_url character varying(255)
 );
 
 
@@ -727,3 +729,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130507130212');
 INSERT INTO schema_migrations (version) VALUES ('20130507230144');
 
 INSERT INTO schema_migrations (version) VALUES ('20130508183202');
+
+INSERT INTO schema_migrations (version) VALUES ('20130508222338');
