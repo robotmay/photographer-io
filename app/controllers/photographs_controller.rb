@@ -1,5 +1,6 @@
 class PhotographsController < ApplicationController
   respond_to :html
+  before_filter :authenticate_user!, only: [:favourites, :recommend]
 
   before_filter :set_parents
   def set_parents
@@ -37,7 +38,7 @@ class PhotographsController < ApplicationController
 
   def explore
     @photographs = Photograph.view_for(current_user).order("created_at DESC").page(params[:page])
-    set_title(t("explore"))
+    set_title(t("titles.explore"))
 
     respond_with @photographs do |f|
       f.html { render :index }
@@ -47,7 +48,15 @@ class PhotographsController < ApplicationController
   def recommended
     sorted_photographs = Photograph.recommended(current_user)
     @photographs = Kaminari.paginate_array(sorted_photographs).page(params[:page]).per(Photograph.default_per_page)
-    set_title(t("recommended"))
+    set_title(t("titles.recommended"))
+    respond_with @photographs do |f|
+      f.html { render :index }
+    end
+  end
+
+  def favourites
+    @photographs = current_user.favourite_photographs.order("favourites.created_at DESC").page(params[:page])
+    set_title(t("titles.favourites"))
     respond_with @photographs do |f|
       f.html { render :index }
     end
