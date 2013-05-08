@@ -72,6 +72,14 @@ class PhotographsController < ApplicationController
     end
   end
 
+  def random
+    @photograph = Photograph.view_for(current_user).order("RANDOM()").first
+    authorize! :read, @photograph
+    respond_with @photograph do |f|
+      f.html { redirect_to photograph_path(@photograph) }
+    end
+  end
+
   def show
     @photograph = Photograph.fetch(params[:id])
     authorize! :read, @photograph
