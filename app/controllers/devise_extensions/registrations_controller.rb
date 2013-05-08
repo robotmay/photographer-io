@@ -34,7 +34,7 @@ class DeviseExtensions::RegistrationsController < Devise::RegistrationsControlle
                                    :name, :location, :avatar, :retained_avatar, 
                                    :remove_avatar, :show_copyright_info, 
                                    :show_location_data, :show_nsfw_content, 
-                                   :default_license_id)
+                                   :default_license_id, :website_url, :biography)
   end
 
   def configure_permitted_parameters

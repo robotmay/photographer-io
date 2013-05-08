@@ -27,6 +27,11 @@ en:
     labels:
       user:
         show_nsfw_content: "Show NSFW content"
+        website_url: "Your website URL"
+
+    placeholders:
+      user:
+        website_url: "http://yourgreatphotosite.com"
 
     hints:
       metadata:
@@ -76,6 +81,10 @@ en:
           Do you want to display the copyright info, if it exists, which is embedded
           in your photo metadata? This could contain personal information such as your
           name and the area in which you live (city/country).
+
+        biography: >
+          The biography field is not currently displayed on the site, but will be once
+          profile pages are implemented.
 
   helpers:
     submit:
