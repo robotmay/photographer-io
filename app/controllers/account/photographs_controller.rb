@@ -5,7 +5,7 @@ module Account
     before_filter :set_parents
     def set_parents
       if params[:collection_id].present?
-        @collection = current_user.collections.fetch(params[:collection_id])
+        @collection = current_user.collections.find(params[:collection_id])
       end
     end
 
@@ -74,7 +74,7 @@ module Account
     end
 
     def show
-      @photograph = current_user.photographs.fetch(params[:id])
+      @photograph = current_user.photographs.find(params[:id])
       authorize! :update, @photograph
       respond_with @photograph do |f|
         f.html { redirect_to edit_account_photograph_path(@photograph) }
@@ -82,14 +82,14 @@ module Account
     end
 
     def edit
-      @photograph = current_user.photographs.fetch(params[:id])
+      @photograph = current_user.photographs.find(params[:id])
       authorize! :update, @photograph
       respond_with @photograph
     end
 
     def update
       benchmark "Fetching and authorizing record" do
-        @photograph = current_user.photographs.fetch(params[:id])
+        @photograph = current_user.photographs.find(params[:id])
         authorize! :update, @photograph
       end
 
@@ -109,7 +109,7 @@ module Account
     end
 
     def destroy
-      @photograph = current_user.photographs.fetch(params[:id])
+      @photograph = current_user.photographs.find(params[:id])
       authorize! :destroy, @photograph
       if @photograph.destroy
         flash[:notice] = t("account.photographs.destroy.succeeded")
