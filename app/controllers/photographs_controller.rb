@@ -31,7 +31,7 @@ class PhotographsController < ApplicationController
       @photographs = Photograph.scoped
     end
 
-    @photographs = @photographs.view_for(current_user).page(params[:page])
+    @photographs = @photographs.view_for(current_user).order("created_at DESC").page(params[:page])
     respond_with @photographs
   end
 
