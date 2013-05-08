@@ -57,7 +57,12 @@ body class=(yield(:body_class))
 
   footer id="layout-footer"
     div class="row"
-      div class="large-12 columns" style="text-align: right;"
+      div class="large-4 columns"
+        p
+          erb:
+            <a href="http://www.iubenda.com/privacy-policy/288645" class="iubenda-nostyle no-brand iubenda-embed" title="Privacy Policy">Privacy Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "http://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+
+      div class="large-8 columns" style="text-align: right;"
         = simple_format t("copyright")
 
   == yield(:after_body)
