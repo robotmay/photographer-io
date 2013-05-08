@@ -6,6 +6,9 @@ aside id="photographs-creator" class="panel"
       - if user.location.present?
         h5= user.location
 
+      - if user.website_url.present?
+        h6= link_to user.website_host, user.website_url, target: "_blank"
+
 
     div class="large-5 columns"
       - if user.avatar.present?
