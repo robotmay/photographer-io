@@ -3,7 +3,7 @@ module Account
     respond_to :html
 
     def show
-      @collection = current_user.collections.fetch(params[:id])
+      @collection = current_user.collections.find(params[:id])
       authorize! :manage, @collection
       respond_with @collection do |f|
         f.html { redirect_to account_collection_photographs_path(@collection) }
@@ -33,13 +33,13 @@ module Account
     end
 
     def edit
-      @collection = current_user.collections.fetch(params[:id])
+      @collection = current_user.collections.find(params[:id])
       authorize! :update, @collection
       respond_with @collection 
     end
 
     def update
-      @collection = current_user.collections.fetch(params[:id])
+      @collection = current_user.collections.find(params[:id])
       authorize! :update, @collection
       if @collection.update_attributes(collection_params)
         flash[:notice] = t("account.collections.update.succeeded")
@@ -55,7 +55,7 @@ module Account
     end
 
     def destroy
-      @collection = current_user.collections.fetch(params[:id])
+      @collection = current_user.collections.find(params[:id])
       authorize! :destroy, @collection
       if @collection.destroy
         flash[:notice] = t("account.collections.destroy.succeeded")
