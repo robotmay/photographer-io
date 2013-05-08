@@ -82,8 +82,16 @@ class PhotographsController < ApplicationController
   end
 
   def random
-    @photograph = Photograph.view_for(current_user).order("RANDOM()").first
+    @photograph = Photograph.view_for(current_user).order("RANDOM()")
+
+    @photograph = if session[:last_random_user_id].present?
+      @photograph.where.not(user_id: session[:last_random_user_id]).first
+    else
+      @photograph.first
+    end
+
     authorize! :read, @photograph
+    session[:last_random_user_id] = @photograph.user_id
     respond_with @photograph do |f|
       f.html { redirect_to photograph_path(@photograph) }
     end
