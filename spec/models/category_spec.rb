@@ -1,5 +1,5 @@
 require 'spec_helper'
 
 describe Category do
-  it { has_many(:photographs) }
+  it { should have_many(:photographs) }
 end
