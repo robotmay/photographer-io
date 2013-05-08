@@ -6,7 +6,10 @@ section id="pages-home"
       article id="hero-photograph"
         - photo = @top_photos.sample
         = link_to photograph_path(photo) do
-          = photo_tag photo, "2000x", quality: 80
+          - if photo.landscape? || photo.square?
+            = photo_tag photo, "2000x", quality: 80
+          - else
+            = photo_tag photo, "2000x2000#", quality: 80
       
         div id="hero-blurb"
           header
