@@ -12,7 +12,7 @@ class Recommendation < ActiveRecord::Base
 
   after_create :adjust_photograph_score
   def adjust_photograph_score
-    photograph.increment_score
+    photograph.increment_score(3)
   end
 
   private
