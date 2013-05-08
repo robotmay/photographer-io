@@ -11,6 +11,11 @@ class Ability
     end
 
     can :recommend, Photograph
+
+    can :create, Favourite do |favourite|
+      favourite.user == user && favourite.photograph.public? && favourite.photograph.user != user
+    end
+    can :destroy, Favourite, user_id: user.id
     
     can :manage, Collection, user_id: user.id
     can :manage, Photograph, user_id: user.id

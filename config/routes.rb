@@ -14,6 +14,8 @@ Iso::Application.routes.draw do
     member do
       post :recommend
     end
+
+    resources :favourites, only: [:create, :destroy]
   end
 
   resources :categories, shallow: true, only: [:show] do

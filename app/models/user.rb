@@ -39,4 +39,8 @@ class User < ActiveRecord::Base
   def recommended?(photograph)
     recommended_photographs.include?(photograph) 
   end
+
+  def favourited?(photograph)
+    favourite_photographs.include?(photograph)
+  end
 end
