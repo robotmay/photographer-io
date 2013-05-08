@@ -140,6 +140,38 @@ ALTER SEQUENCE collections_id_seq OWNED BY collections.id;
 
 
 --
+-- Name: favourites; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE favourites (
+    id integer NOT NULL,
+    user_id integer,
+    photograph_id integer,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: favourites_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE favourites_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: favourites_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE favourites_id_seq OWNED BY favourites.id;
+
+
+--
 -- Name: licenses; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -369,6 +401,13 @@ ALTER TABLE ONLY collections ALTER COLUMN id SET DEFAULT nextval('collections_id
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY favourites ALTER COLUMN id SET DEFAULT nextval('favourites_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY licenses ALTER COLUMN id SET DEFAULT nextval('licenses_id_seq'::regclass);
 
 
@@ -422,6 +461,14 @@ ALTER TABLE ONLY collection_photographs
 
 ALTER TABLE ONLY collections
     ADD CONSTRAINT collections_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: favourites_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY favourites
+    ADD CONSTRAINT favourites_pkey PRIMARY KEY (id);
 
 
 --
@@ -497,6 +544,20 @@ CREATE INDEX index_collections_on_public ON collections USING btree (public);
 --
 
 CREATE INDEX index_collections_on_user_id ON collections USING btree (user_id);
+
+
+--
+-- Name: index_favourites_on_photograph_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_favourites_on_photograph_id ON favourites USING btree (photograph_id);
+
+
+--
+-- Name: index_favourites_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_favourites_on_user_id ON favourites USING btree (user_id);
 
 
 --
@@ -664,3 +725,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130507101348');
 INSERT INTO schema_migrations (version) VALUES ('20130507130212');
 
 INSERT INTO schema_migrations (version) VALUES ('20130507230144');
+
+INSERT INTO schema_migrations (version) VALUES ('20130508183202');

@@ -6,10 +6,13 @@ class User < ActiveRecord::Base
   has_many :collections, dependent: :destroy
   has_many :recommendations, dependent: :destroy
   has_many :recommended_photographs, through: :recommendations, source: :photograph
+  has_many :favourites, dependent: :destroy
+  has_many :favourite_photographs, through: :favourites, source: :photograph
 
   cache_has_many :photographs
   cache_has_many :collections
   cache_has_many :recommendations
+  cache_has_many :favourites
 
   devise :database_authenticatable, :invitable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable

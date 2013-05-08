@@ -9,6 +9,8 @@ class Photograph < ActiveRecord::Base
   has_many :collection_photographs, dependent: :destroy
   has_many :collections, through: :collection_photographs
   has_many :recommendations
+  has_many :favourites
+  has_many :favourited_by_users, through: :favourites, source: :user
 
   cache_belongs_to :user
   cache_belongs_to :license
