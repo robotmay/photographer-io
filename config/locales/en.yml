@@ -181,7 +181,7 @@ en:
 
   favourites:
     create:
-      succeeded: "Favourite created!"
+      succeeded: "The photo has been added to your favourites!"
       failed: "Failed to add photo to your favourites."
     destroy:
       succeeded: "Favourite removed!"
