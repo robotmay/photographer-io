@@ -176,6 +176,14 @@ en:
   collection_photographs:
     user_must_match: "You cannot add a photo to that collection"
 
+  favourites:
+    create:
+      succeeded: "Favourite created!"
+      failed: "Failed to add photo to your favourites."
+    destroy:
+      succeeded: "Favourite removed!"
+      failed: "Failed to remove the photo from your favourites."
+
   photographs:
     none: "There are no photographs here!"
     no_results: "There were no results for your query."
@@ -183,6 +191,8 @@ en:
     location: "Location"
     recommend: "Recommend this photograph"
     recommended: "Recommended!"
+    favourite: "Favourite"
+    unfavourite: "Unfavourite"
     stats: "Statistics"
     views: "Views"
     metadata:

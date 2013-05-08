@@ -20,12 +20,21 @@ section id="photographs-show"
       = creator_details_for @photograph
 
       - if user_signed_in? && @photograph.user != current_user
-        div class="recommendations"
-          - if current_user.recommended?(@photograph)
-            button class="recommended success expand"
-              = t("photographs.recommended")
-          - else
-            = button_to t("photographs.recommend"), { action: :recommend, remote: true }, { class: "button recommend secondary expand" }
+        div class="interactions"
+          span class="recommendations"
+            - if current_user.recommended?(@photograph)
+              a class="button recommended success"
+                = t("photographs.recommended")
+            - else
+              = link_to t("photographs.recommend"), { action: :recommend }, { method: :post, class: "button recommend secondary" }
+
+          span class="favourites"
+            - if current_user.favourited?(@photograph)
+              = link_to photograph_favourite_path(@photograph, current_user.favourites.where(photograph_id: @photograph.id).first), method: :delete, class: "button unfavourite alert" do
+                | &nbsp;
+            - else
+              = link_to photograph_favourites_path(@photograph), method: :post, class: "button favourite secondary" do
+                | &nbsp;
       
       - cache([@photograph, :sidebar], expires_in: 5.minutes) do
         h5= t("photographs.stats")
