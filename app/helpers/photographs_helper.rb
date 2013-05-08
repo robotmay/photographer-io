@@ -1,7 +1,7 @@
 module PhotographsHelper
   SHORT_METADATA_KEYS = [
     :model, :lens_type, :aperture, :focal_length, :shutter_speed, :iso,
-    :copyright_notice, :rights, :creator, :creator_country, :creator_city,
+    :copyright_notice, :creator, :creator_country, :creator_city,
     :date_time_original
   ]
 
