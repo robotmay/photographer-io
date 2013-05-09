@@ -131,7 +131,7 @@ class Photograph < ActiveRecord::Base
       Photograph.recommended(nil, 10).each do |photograph|
         if photograph.score > 0
           if photograph.created_at < 1.day.ago
-            decrease_by = photograph.score * 0.05
+            decrease_by = photograph.score * 0.10
             photograph.decrement_score(decrease_by.to_i)
           end
         end
