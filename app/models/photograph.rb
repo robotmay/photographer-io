@@ -160,9 +160,9 @@ class Photograph < ActiveRecord::Base
     # Not sure why but combining scopes for this breaks it, so hardcoding it
     def view_for(user)
       if user.nil? || !user.show_nsfw_content
-        includes(:metadata).where(safe_for_work: true).joins(:collections).where(collections: { public: true }).uniq
+        includes(:metadata).where(safe_for_work: true).joins(:collections).where(collections: { public: true })
       else
-        includes(:metadata).joins(:collections).where(collections: { public: true }).uniq
+        includes(:metadata).joins(:collections).where(collections: { public: true })
       end
     end
   end
