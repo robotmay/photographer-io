@@ -1,6 +1,6 @@
 class Recommendation < ActiveRecord::Base
   belongs_to :photograph
-  belongs_to :user
+  belongs_to :user, counter_cache: true
 
   validates :photograph_id, :user_id, presence: true
   validate :recommendation_quota_is_not_exceeded
