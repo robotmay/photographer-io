@@ -35,7 +35,8 @@ categories = [
   "Seascapes",
   "Ocean",
   "Underwater",
-  "Fashion"
+  "Fashion",
+  "Macro"
 ]
 
 categories.each do |category|
