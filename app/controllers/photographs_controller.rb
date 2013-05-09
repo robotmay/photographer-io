@@ -73,7 +73,7 @@ class PhotographsController < ApplicationController
     end
 
     unless photo_ids.nil? || photo_ids.empty?
-      @photographs = Photograph.view_for(current_user).where(id: photo_ids).page(params[:page])
+      @photographs = Photograph.view_for(current_user).uniq.where(id: photo_ids).page(params[:page])
     end
 
     respond_with @photographs do |f|
