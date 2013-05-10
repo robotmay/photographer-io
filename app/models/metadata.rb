@@ -26,7 +26,7 @@ class Metadata < ActiveRecord::Base
   }
 
   scope :with_keywords, -> (keywords) {
-    keywords = keywords.map { |kw| "\"#{kw}\"" }.join(",")
+    keywords = keywords.map { |kw| Metadata.clean_keyword(kw) }.join(",")
     where("metadata.keywords @> ?", "{#{keywords}}")
   }
   
@@ -140,6 +140,13 @@ class Metadata < ActiveRecord::Base
   def square?
     format == 'square'
   end
+
+  class << self
+    def clean_keyword(word)
+      ActiveRecord::Base.sanitize(word).gsub("\"", "")
+    end
+  end
+
 
   private
   def fetch_from_exif(exif, keys = [])

@@ -133,7 +133,6 @@ class Photograph < ActiveRecord::Base
     end
 
     def adjust_scores
-      #TODO: Alter to use median of scores to whack down persistent leaders
       Photograph.recommended(nil, 20).each do |photograph|
         if photograph.score > 0
           if photograph.created_at < 1.day.ago
