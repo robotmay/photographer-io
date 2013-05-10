@@ -7,10 +7,8 @@ body
     .name
       #logo
         a
-          background:
-            image: image-url('photographer-io-logo.png')
-            position: top left
-            repeat: no-repeat
+          background: image-url('photographer-io-logo.png') center no-repeat
+          @include image-2x(image-url('photographer-io-logo@2x.png'), 250px, 48px)
           display: block
           width: 250px
           height: 48px
