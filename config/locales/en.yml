@@ -17,6 +17,7 @@ en:
     favourites: "Your favourite photographs"
 
   nav:
+    menu: "Menu"
     explore: "Explore"
     account: "Account"
     photographs: "Manage photographs"
