@@ -23,4 +23,12 @@ class ApplicationController < ActionController::Base
       @title = title
     end
   end
+
+  def session_id
+    request.session_options[:id]
+  end
+
+  def recently_viewed_user_ids
+    Redis::List.new("#{session_id}/recently_viewed_user_ids", maxlength: 10)
+  end
 end
