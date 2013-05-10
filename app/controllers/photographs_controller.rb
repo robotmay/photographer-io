@@ -89,7 +89,10 @@ class PhotographsController < ApplicationController
     else
       photo = photographs.where.not(user_id: recently_viewed_user_ids.map(&:to_i)).first
       if photo.nil?
+        recently_viewed_user_ids.clear
         photographs.first
+      else
+        photo
       end
     end
 
