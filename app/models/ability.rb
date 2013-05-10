@@ -9,6 +9,7 @@ class Ability
     can :read, Photograph do |photograph|
       photograph.public?
     end
+    can :read, User
 
     can :recommend, Photograph
 
