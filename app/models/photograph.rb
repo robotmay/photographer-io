@@ -127,12 +127,23 @@ class Photograph < ActiveRecord::Base
       Redis::SortedSet.new('photograph_rankings')
     end
 
+    def median_score(n)
+      members = Photograph.rankings.members(with_scores: true).reverse.take(n)
+      members.map(&:last).median
+    end
+
     def adjust_scores
-      Photograph.recommended(nil, 10).each do |photograph|
+      #TODO: Alter to use median of scores to whack down persistent leaders
+      Photograph.recommended(nil, 20).each do |photograph|
         if photograph.score > 0
           if photograph.created_at < 1.day.ago
-            decrease_by = photograph.score * 0.10
+            decrease_by = photograph.score * 0.1
             photograph.decrement_score(decrease_by.to_i)
+          end
+
+          if photograph.score > (median_score(20) * 2)
+            decrease_by = photograph.score * 0.5
+            photograph.decrement_score(decrease_by.to_i)           
           end
         end
       end
