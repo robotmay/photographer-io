@@ -9,7 +9,7 @@ Iso::Application.configure do
   config.action_controller.perform_caching = true
   config.action_dispatch.rack_cache = {
     metastore: Dalli::Client.new,
-    entitystore: Dalli::Client.new,
+    entitystore: 'file:tmp/cache/rack/body',
     allow_reload: false
   }
   config.static_cache_control = "public, max-age=2592000"

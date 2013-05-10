@@ -35,7 +35,7 @@ else
 end
 
 if ENV['CDN_HOST']
-  app.cache_duration = 1.day
+  app.cache_duration = 28.days
 end
 
 app.define_macro(ActiveRecord::Base, :image_accessor)
