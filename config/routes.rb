@@ -40,11 +40,16 @@ Iso::Application.routes.draw do
         get :public
         get :private
         get :unsorted
+        post :mass_update
       end
     end
 
     resources :collections, shallow: true do
-      resources :photographs
+      resources :photographs do
+        collection do
+          post :mass_update
+        end
+      end
     end
 
     root to: "account#dashboard"
