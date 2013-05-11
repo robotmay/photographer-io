@@ -185,6 +185,9 @@ GEM
       pry (>= 0.9.10)
     puma (2.0.0)
       rack (>= 1.1, < 2.0)
+    pusher (0.11.3)
+      multi_json (~> 1.0)
+      signature (~> 0.1.6)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
@@ -251,6 +254,7 @@ GEM
       multi_json (~> 1)
       redis (~> 3)
       redis-namespace
+    signature (0.1.7)
     simple_form (3.0.0.beta1)
       actionpack (>= 4.0.0.beta, < 4.1)
       activemodel (>= 4.0.0.beta, < 4.1)
@@ -336,6 +340,7 @@ DEPENDENCIES
   pry
   pry-rails
   puma
+  pusher
   quiet_assets
   rack-cache
   rails (= 4.0.0.rc1)

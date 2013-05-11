@@ -2,7 +2,7 @@ class Favourite < ActiveRecord::Base
   include IdentityCache
 
   belongs_to :user
-  belongs_to :photograph
+  belongs_to :photograph, counter_cache: true
 
   validates :user_id, :photograph_id, presence: true
 
