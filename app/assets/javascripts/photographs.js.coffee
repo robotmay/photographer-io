@@ -5,3 +5,4 @@ $(document).ready ->
       itemSelector: 'li'
       columnWidth: (containerWidth) ->
         containerWidth / 5
+      isResizable: true

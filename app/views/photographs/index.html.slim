@@ -8,7 +8,7 @@ section id="photographs-index"
       - if @photographs.present? && @photographs.size > 0
         = paginate @photographs
 
-        ul class="large-block-grid-5 small-block-grid-3 photo-grid"
+        ul class="large-block-grid-5 photo-grid"
           - if content_for?(:grid_block)
             == yield(:grid_block)
 
