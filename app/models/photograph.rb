@@ -135,14 +135,12 @@ class Photograph < ActiveRecord::Base
     def adjust_scores
       Photograph.recommended(nil, 20).each do |photograph|
         if photograph.score > 0
-          if photograph.created_at < 1.day.ago
-            decrease_by = photograph.score * 0.1
-            photograph.decrement_score(decrease_by.to_i)
-          end
-
           if photograph.score > (median_score(20) * 2)
             decrease_by = photograph.score * 0.5
-            photograph.decrement_score(decrease_by.to_i)           
+            photograph.decrement_score(decrease_by.to_i)
+          elsif photograph.created_at < 1.day.ago
+            decrease_by = photograph.score * 0.1
+            photograph.decrement_score(decrease_by.to_i)
           end
         end
       end
