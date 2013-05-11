@@ -88,6 +88,9 @@ en:
 
   helpers:
     submit:
+      mass_edit:
+        create: "Update"
+
       user:
         update: "Update your account details"
         create: "Create your account"

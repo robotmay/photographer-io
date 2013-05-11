@@ -7,3 +7,14 @@ form.edit_photograph
     padding-left: 20px
     li
       margin-bottom: 5px
+
+#new_mass_edit
+  &.edit-mode
+    .photo-grid
+      li.photo
+        opacity: 0.6
+
+        &.active
+          opacity: 1  
+          img
+            box-shadow: 0 0 6px 1px $primary-color

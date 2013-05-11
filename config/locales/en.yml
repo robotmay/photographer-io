@@ -167,6 +167,11 @@ en:
       unsorted_warning: >
         As this view is a filter over the photographs and not an actual collection,
         any photographs you upload here will be added to the unsorted view.
+      
+      edit_mode:
+        button: "Edit mode"
+        change_collections: "Change collections"
+        delete: "Delete"
 
       form:
         general: "Details"
@@ -179,6 +184,11 @@ en:
       update:
         succeeded: "Your changes have been saved successfully!"
         failed: "A problem occurred whilst saving your photograph. Please check for errors below."
+
+      mass_update:
+        no_photos_selected: "There were no photos selected."
+        collections:
+          succeeded: "Photograph collections have been updated successfully."
 
       destroy:
         succeeded: "Your photograph has been deleted successfully."
