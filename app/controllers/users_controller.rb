@@ -4,8 +4,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     authorize! :read, @user
-    respond_with @user do |f|
-      f.html { redirect_to user_photographs_path(@user) }
-    end
+    @photographs = @user.photographs.view_for(current_user).order("created_at DESC").page(params[:page])
+    respond_with @user
   end
 end

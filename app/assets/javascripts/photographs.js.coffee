@@ -3,3 +3,5 @@ $(document).ready ->
   photoGrid.imagesLoaded ->
     photoGrid.masonry
       itemSelector: 'li'
+      columnWidth: (containerWidth) ->
+        containerWidth / 5

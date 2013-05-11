@@ -1,0 +1,28 @@
+- content_for(:grid_block) do
+  li id="user-blocks" class=("with-bio" unless @user.biography.blank?)
+    section id="user-panel"
+      div class="panel"
+        h1 class="name"
+          = @user.name
+        - if @user.location.present?
+          h5 class="location"
+            = @user.location
+
+        - if @user.website_url.present?
+          h6 class="website"
+            = link_to @user.website_host, @user.website_url, target: "_blank"
+
+        div class="row"
+          div class="large-12 columns"
+            - if @user.avatar.present?
+              div class="avatar"
+                = link_to user_photographs_path(@user) do
+                  = image_tag @user.avatar.thumb("500x500#").jpg.url
+
+    - if !@user.biography.blank?
+      article id="user-biography"
+        div class="panel"
+          = simple_format @user.biography
+
+section id="users-show"
+  = render file: "photographs/index"
