@@ -6,7 +6,15 @@ $(document).ready ->
   favouritesEl = miniStats.find(".favourites .number")
 
   userChannel.bind "stats_update", (data) ->
-    console.log(data)
-    viewsEl.text(data['views'])
-    recommendationsEl.text(data['recommendations'])
-    favouritesEl.text(data['favourites'])
+    viewsEl.changeStat(data['views'])
+    recommendationsEl.changeStat(data['recommendations'])
+    favouritesEl.changeStat(data['favourites'])
+
+$.fn.changeStat = (newValue) ->
+  val = newValue.toString()
+  if this.text() != val
+    this.text(val)
+    this.addClass("active")
+    setTimeout (=>
+      this.removeClass("active")
+    ), 500
