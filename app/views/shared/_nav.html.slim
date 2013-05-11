@@ -49,12 +49,12 @@ nav id="layout-nav" class="top-bar"
             span class="recommendations" title=(t("nav.mini_stats.recommendations"))
               span class="icon"
               span class="number"
-                = current_user.received_recommendations.count
+                = current_user.received_recommendations_count.to_i
 
             span class="favourites" title=(t("nav.mini_stats.favourites"))
               span class="icon"
               span class="number"
-                = current_user.received_favourites.count
+                = current_user.received_favourites_count.to_i
             
         li class="has-dropdown"
           = link_to current_user.name, account_root_path, active_on: true
