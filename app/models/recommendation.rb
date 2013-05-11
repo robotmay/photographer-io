@@ -1,5 +1,5 @@
 class Recommendation < ActiveRecord::Base
-  belongs_to :photograph
+  belongs_to :photograph, counter_cache: true
   belongs_to :user, counter_cache: true
 
   validates :photograph_id, :user_id, presence: true
@@ -13,6 +13,18 @@ class Recommendation < ActiveRecord::Base
   after_create :adjust_photograph_score
   def adjust_photograph_score
     photograph.increment_score(3)
+  end
+
+  after_create :push
+  def push
+    begin
+      Pusher.trigger(user.channel_key, 'new_recommendation', {
+        photograph_id: photograph_id,
+        photograph_recommendations_count: photograph.recommendations_count
+      })
+    rescue Pusher::Error
+      #
+    end
   end
 
   private

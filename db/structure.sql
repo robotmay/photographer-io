@@ -36,6 +36,20 @@ CREATE EXTENSION IF NOT EXISTS hstore WITH SCHEMA public;
 COMMENT ON EXTENSION hstore IS 'data type for storing sets of (key, value) pairs';
 
 
+--
+-- Name: uuid-ossp; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp" WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION "uuid-ossp"; Type: COMMENT; Schema: -; Owner: -
+--
+
+COMMENT ON EXTENSION "uuid-ossp" IS 'generate universally unique identifiers (UUIDs)';
+
+
 SET search_path = public, pg_catalog;
 
 SET default_tablespace = '';
@@ -257,7 +271,9 @@ CREATE TABLE photographs (
     show_location_data boolean DEFAULT false,
     category_id integer,
     show_copyright_info boolean DEFAULT false,
-    standard_image_uid character varying(255)
+    standard_image_uid character varying(255),
+    recommendations_count integer,
+    favourites_count integer
 );
 
 
@@ -356,7 +372,8 @@ CREATE TABLE users (
     show_copyright_info boolean DEFAULT true,
     biography text,
     website_url character varying(255),
-    recommendations_count integer
+    recommendations_count integer,
+    channel_key uuid DEFAULT uuid_generate_v4()
 );
 
 
@@ -734,3 +751,7 @@ INSERT INTO schema_migrations (version) VALUES ('20130508183202');
 INSERT INTO schema_migrations (version) VALUES ('20130508222338');
 
 INSERT INTO schema_migrations (version) VALUES ('20130509123705');
+
+INSERT INTO schema_migrations (version) VALUES ('20130510225834');
+
+INSERT INTO schema_migrations (version) VALUES ('20130510231125');
