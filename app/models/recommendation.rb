@@ -15,7 +15,7 @@ class Recommendation < ActiveRecord::Base
     photograph.increment_score(3)
   end
 
-  after_create :push
+  after_commit :push, on: :create
   def push
     begin
       Pusher.trigger(user.channel_key, 'new_recommendation', {
