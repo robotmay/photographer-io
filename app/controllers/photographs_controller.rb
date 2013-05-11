@@ -107,9 +107,11 @@ class PhotographsController < ApplicationController
     @photograph = Photograph.fetch(params[:id])
     authorize! :read, @photograph
 
-    @photograph.views.increment do
-      @photograph.user.photograph_views.increment
-      @photograph.user.push_stats
+    unless user_signed_in? && current_user == @photograph.user
+      @photograph.views.increment do
+        @photograph.user.photograph_views.increment
+        @photograph.user.push_stats
+      end
     end
     
     set_title(@photograph.metadata.title)
