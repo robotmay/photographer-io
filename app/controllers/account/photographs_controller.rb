@@ -114,23 +114,29 @@ module Account
       @photographs = current_user.photographs.where(id: @mass_edit.photograph_ids)
 
       if @mass_edit.photograph_ids.size > 0
-        Photograph.transaction do
-          @photographs.find_each do |photograph|
-            if @collection.present?
-              # Prevent removal from other collections
-              if !@mass_edit.collection_ids.include?(@collection.id)
-                photograph.collection_photographs.where(collection_id: @collection.id).find_each(&:destroy)
+        begin
+          Photograph.transaction do
+            @photographs.find_each do |photograph|
+              if @collection.present?
+                # Prevent removal from other collections
+                if !@mass_edit.collection_ids.include?(@collection.id)
+                  photograph.collection_photographs.where(collection_id: @collection.id).find_each(&:destroy)
+                end
+              else
+                photograph.collection_photographs.find_each(&:destroy)
               end
-            else
-              photograph.collection_photographs.find_each(&:destroy)
-            end
 
-            @mass_edit.collection_ids.each do |id|
-              photograph.collection_photographs.find_or_create_by(collection_id: id)
+              @mass_edit.collection_ids.each do |id|
+                photograph.collection_photographs.find_or_create_by(collection_id: id)
+              end
             end
           end
 
           flash[:notice] = t("account.photographs.mass_update.collections.succeeded")
+
+        rescue ActiveRecord::StatementInvald
+          flash[:notice] = t("account.photographs.mass_update.collections.failed")
+          raise ActiveRecord::Rollback
         end
       else
         flash[:alert] = t("account.photographs.mass_update.no_photos_selected")
