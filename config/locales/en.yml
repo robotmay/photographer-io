@@ -103,6 +103,8 @@ en:
         photo_count: "Photographs"
         public_photo_count: "Public photographs"
         private_photo_count: "Private photographs"
+        recommendations: "Total recommendations received"
+        favourites: "Total favourites of your photographs"
 
       recommendations:
         title: "Your Recommendations"
