@@ -122,8 +122,6 @@ module Account
                 if !@mass_edit.collection_ids.include?(@collection.id)
                   photograph.collection_photographs.where(collection_id: @collection.id).find_each(&:destroy)
                 end
-              else
-                photograph.collection_photographs.find_each(&:destroy)
               end
 
               @mass_edit.collection_ids.each do |id|

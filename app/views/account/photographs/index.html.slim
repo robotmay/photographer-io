@@ -40,6 +40,8 @@ section id="account-photographs-index"
               = t("account.photographs.edit_mode.change_collections")
 
         ul[id="MECollections" class="f-dropdown" data-dropdown-content]
+          li class="hint"
+            = t("account.photographs.edit_mode.collection_note")
           - current_user.collections.order("name ASC").each do |collection|
             li
               label for="mass_edit_collection_ids_#{collection.id}"

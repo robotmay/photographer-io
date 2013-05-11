@@ -20,10 +20,14 @@ form.edit_photograph
             box-shadow: 0 0 6px 1px $primary-color
 
   #MECollections
-    @include dropdown-container(content, true, 300px)
+    @include dropdown-container(content, true, 400px)
 
     li
       margin-bottom: 5px
+
+      &.hint
+        font-size: 0.8em
+        margin-bottom: 10px
 
       &:hover
         background: none
@@ -34,5 +38,6 @@ form.edit_photograph
 
       label
         display: block
+        font-size: 1em
         input
           margin-right: 5px
