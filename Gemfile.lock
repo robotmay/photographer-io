@@ -235,7 +235,7 @@ GEM
       rspec-expectations (~> 2.13.0)
       rspec-mocks (~> 2.13.0)
     ruby-hmac (0.4.0)
-    sass (3.2.8)
+    sass (3.2.9)
     sass-rails (4.0.0.rc1)
       railties (>= 4.0.0.beta, < 5.0)
       sass (>= 3.1.10)
@@ -301,7 +301,7 @@ GEM
       raindrops (~> 0.7)
     warden (1.2.1)
       rack (>= 1.0)
-    zurb-foundation (4.0.9)
+    zurb-foundation (4.1.6)
       sass (>= 3.2.0)
 
 PLATFORMS
@@ -357,4 +357,4 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.0.3)
   unicorn
-  zurb-foundation (~> 4.0.0)
+  zurb-foundation (~> 4.1.6)

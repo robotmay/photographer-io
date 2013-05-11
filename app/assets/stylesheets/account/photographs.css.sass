@@ -18,3 +18,14 @@ form.edit_photograph
           opacity: 1  
           img
             box-shadow: 0 0 6px 1px $primary-color
+
+  #MECollections
+    @include dropdown-container(content, true, 300px)
+
+    li
+      &:hover
+        background: none
+        cursor: default
+
+      label
+        display: block

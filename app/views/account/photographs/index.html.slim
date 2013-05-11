@@ -39,7 +39,7 @@ section id="account-photographs-index"
             button id="change-collections" class="button dropdown disabled" data-dropdown="MECollections"
               = t("account.photographs.edit_mode.change_collections")
 
-        ul[id="MECollections" class="f-dropdown small content" data-dropdown-content]
+        ul[id="MECollections" class="f-dropdown" data-dropdown-content]
           - current_user.collections.order("name ASC").each do |collection|
             li
               ul class="inline-list"

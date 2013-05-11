@@ -126,7 +126,7 @@ module Account
             end
 
             @mass_edit.collection_ids.each do |id|
-              photograph.collection_photographs.find_or_create_by_collection_id(id)
+              photograph.collection_photographs.find_or_create_by(collection_id: id)
             end
           end
 
