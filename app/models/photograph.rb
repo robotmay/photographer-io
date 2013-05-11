@@ -158,7 +158,7 @@ class Photograph < ActiveRecord::Base
         Photograph.rankings.members.reverse
       end
       
-      photographs = scoped.view_for(user).includes(:metadata).where(id: photo_ids).group_by(&:id)
+      photographs = view_for(user).includes(:metadata).where(id: photo_ids).group_by(&:id)
 
       photo_ids.map { |id| photographs[id.to_i] }.compact.map(&:first)
     end

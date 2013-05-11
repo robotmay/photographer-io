@@ -43,6 +43,9 @@ section id="photographs-show"
             tr
               td= t("photographs.views")
               td= @photograph.views.to_i
+            tr
+              td= t("photographs.favourites")
+              td= @photograph.favourites_count
 
         = metadata_table_for @photograph, format: :short
 
