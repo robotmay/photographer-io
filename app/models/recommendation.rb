@@ -19,8 +19,7 @@ class Recommendation < ActiveRecord::Base
   def push
     begin
       Pusher.trigger(user.channel_key, 'new_recommendation', {
-        photograph_id: photograph_id,
-        photograph_recommendations_count: photograph.recommendations.count
+        photograph_id: photograph_id
       })
     rescue Pusher::Error
     end
