@@ -22,6 +22,40 @@ body
       input[type = 'submit']
         color: rgb(0,0,0)
 
+  #mini-user-stats
+    span
+      text-align: right
+
+      .icon
+        vertical-align: middle
+        display: inline-block
+        width: 16px
+        height: 16px
+        margin-right: 5px
+
+      .number
+        display: inline-block
+        font-size: 12px
+        height: 16px
+        line-height: 10px
+
+      &.views
+        margin-right: 15px
+        .icon
+          background: image-url('glyphicons_halflings_inverted/glyphicons_halflings_104_eye-open.png') left center no-repeat
+          @include image-2x(image-url('glyphicons_halflings_inverted/glyphicons_halflings_104_eye-open@2x.png'), 16px, 16px)
+
+      &.recommendations
+        margin-right: 15px
+        .icon
+          background: image-url('glyphicons_halflings_inverted/glyphicons_halflings_124_thumbs-up.png') left center no-repeat
+          @include image-2x(image-url('glyphicons_halflings_inverted/glyphicons_halflings_124_thumbs-up@2x.png'), 16px, 16px)
+
+      &.favourites
+        .icon
+          background: image-url('glyphicons_halflings_inverted/glyphicons_halflings_004_heart.png') left center no-repeat
+          @include image-2x(image-url('glyphicons_halflings_inverted/glyphicons_halflings_004_heart@2x.png'), 16px, 16px)
+
 #layout-footer
   margin:
     top: 30px

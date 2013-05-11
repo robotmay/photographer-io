@@ -6,8 +6,10 @@ class User < ActiveRecord::Base
   has_many :collections, dependent: :destroy
   has_many :recommendations, dependent: :destroy
   has_many :recommended_photographs, through: :recommendations, source: :photograph
+  has_many :received_recommendations, through: :photographs, source: :recommendations
   has_many :favourites, dependent: :destroy
   has_many :favourite_photographs, through: :favourites, source: :photograph
+  has_many :received_favourites, through: :photographs, source: :favourites
 
   cache_has_many :photographs
   cache_has_many :collections
@@ -18,6 +20,8 @@ class User < ActiveRecord::Base
   image_accessor :avatar
 
   counter :photograph_views
+  counter :received_recommendations_count
+  counter :received_favourites_count
 
   validates :email, :name, presence: true
 
@@ -48,6 +52,17 @@ class User < ActiveRecord::Base
       uri.host
     rescue Exception
       website_url
+    end
+  end
+
+  def push_stats
+    begin
+      Pusher.trigger(channel_key, 'stats_update', {
+        views: photograph_views.to_i,
+        recommendations: received_recommendations_count.to_i,
+        favourites: received_favourites_count.to_i
+      })
+    rescue Pusher::Error
     end
   end
 end

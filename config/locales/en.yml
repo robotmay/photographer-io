@@ -33,6 +33,10 @@ en:
     beta: "Beta"
     favourites: "Favourites"
     profile: "Your profile"
+    mini_stats:
+      views: "Total number of times your photos have been viewed"
+      recommendations: "Total number of recommendations you've received"
+      favourites: "Total number of times your photos have been favourited"
 
   beta_notes:
     title: "This is an early stage beta!"

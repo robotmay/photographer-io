@@ -1,3 +1,12 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$(document).ready ->
+  miniStats = $("#mini-user-stats")
+
+  viewsEl = miniStats.find(".views .number")
+  recommendationsEl = miniStats.find(".recommendations .number")
+  favouritesEl = miniStats.find(".favourites .number")
+
+  userChannel.bind "stats_update", (data) ->
+    console.log(data)
+    viewsEl.text(data['views'])
+    recommendationsEl.text(data['recommendations'])
+    favouritesEl.text(data['favourites'])

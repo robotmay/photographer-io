@@ -10,4 +10,9 @@ class Favourite < ActiveRecord::Base
   def adjust_photograph_score
     photograph.increment_score(1)
   end
+
+  after_create do
+    photograph.user.received_favourites_count.increment
+    photograph.user.push_stats
+  end
 end
