@@ -23,6 +23,12 @@ section id="account-dashboard"
           tr
             td= t("account.dashboard.statistics.views")
             td= current_user.photograph_views.to_i
+          tr
+            td= t("account.dashboard.statistics.recommendations")
+            td= current_user.received_recommendations_count.to_i
+          tr
+            td= t("account.dashboard.statistics.favourites")
+            td= current_user.received_favourites_count.to_i
 
     div class="large-4 columns"
       h4= t("account.dashboard.recommendations.title")
