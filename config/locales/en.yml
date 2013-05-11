@@ -189,6 +189,7 @@ en:
         no_photos_selected: "There were no photos selected."
         collections:
           succeeded: "Photograph collections have been updated successfully."
+          failed: "An error occurred whilst attempting to update the collections"
 
       destroy:
         succeeded: "Your photograph has been deleted successfully."
