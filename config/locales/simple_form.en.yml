@@ -83,8 +83,9 @@ en:
           name and the area in which you live (city/country).
 
         biography: >
-          The biography field is not currently displayed on the site, but will be once
-          profile pages are implemented.
+          Your biography will be displayed on your profile page. It doesn't currently
+          support any formatting past basic new line support. Markdown support is
+          coming soon.
 
   helpers:
     submit:
