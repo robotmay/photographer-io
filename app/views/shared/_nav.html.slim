@@ -41,11 +41,12 @@ nav id="layout-nav" class="top-bar"
       li= link_to t("nav.support"), "mailto:xz1ped65@incoming.intercom.io", id: "Intercom"
       li class="divider"
       - if user_signed_in?
-        = link_to t("nav.photographs"), account_photographs_path, active_on: true, \
-          active_wrapper: :li
         li class="has-dropdown"
           = link_to current_user.name, account_root_path, active_on: true
           ul class="dropdown"
+            = link_to t("nav.photographs"), account_photographs_path, active_on: true, \
+              active_wrapper: :li
+
             = link_to t("nav.edit_account"), edit_user_registration_path, \
               active_on: true, active_wrapper: :li
 
