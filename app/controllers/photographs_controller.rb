@@ -109,6 +109,7 @@ class PhotographsController < ApplicationController
 
     @photograph.views.increment do
       @photograph.user.photograph_views.increment
+      @photograph.user.push_stats
     end
     
     set_title(@photograph.metadata.title)

@@ -15,4 +15,9 @@ class Favourite < ActiveRecord::Base
     photograph.user.received_favourites_count.increment
     photograph.user.push_stats
   end
+
+  after_destroy do
+    photograph.user.received_favourites_count.decrement
+    photograph.user.push_stats
+  end
 end
