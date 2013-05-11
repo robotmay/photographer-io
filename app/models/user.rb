@@ -57,13 +57,17 @@ class User < ActiveRecord::Base
   end
 
   def push_stats
-    begin
-      Pusher.trigger(channel_key, 'stats_update', {
-        views: photograph_views.to_i,
-        recommendations: received_recommendations_count.to_i,
-        favourites: received_favourites_count.to_i
-      })
-    rescue Pusher::Error
+    Thread.new do
+      ActiveRecord::Base.connection_pool.with_connection do
+        begin
+          Pusher.trigger(channel_key, 'stats_update', {
+            views: photograph_views.to_i,
+            recommendations: received_recommendations_count.to_i,
+            favourites: received_favourites_count.to_i
+          })
+        rescue Pusher::Error
+        end
+      end
     end
   end
 end
