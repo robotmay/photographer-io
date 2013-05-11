@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
 
   image_accessor :avatar
 
+  hash_key :settings
   counter :photograph_views
   counter :received_recommendations_count
   counter :received_favourites_count
