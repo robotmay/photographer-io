@@ -42,18 +42,14 @@ section id="account-photographs-index"
         ul[id="MECollections" class="f-dropdown" data-dropdown-content]
           - current_user.collections.order("name ASC").each do |collection|
             li
-              ul class="inline-list"
-                li
-                  - if @collection.present? && @collection == collection
-                    input[type="checkbox" id="mass_edit_collection_ids_#{collection.id}" name="mass_edit[collection_ids][]" value=(collection.id) autocomplete="off" checked]
-                  - else
-                    input type="checkbox" id="mass_edit_collection_ids_#{collection.id}" name="mass_edit[collection_ids][]" value=(collection.id) autocomplete="off"
+              label for="mass_edit_collection_ids_#{collection.id}"
+                - if @collection.present? && @collection == collection
+                  input[type="checkbox" id="mass_edit_collection_ids_#{collection.id}" name="mass_edit[collection_ids][]" value=(collection.id) autocomplete="off" checked]
+                - else
+                  input type="checkbox" id="mass_edit_collection_ids_#{collection.id}" name="mass_edit[collection_ids][]" value=(collection.id) autocomplete="off"
+                = collection.name
 
-                li
-                  label for="mass_edit_collection_ids_#{collection.id}"
-                    = collection.name
-
-          li
+          li class="action"
             = f.button :submit, class: "button expand small"
 
     div class="row"
