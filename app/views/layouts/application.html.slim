@@ -9,12 +9,11 @@ doctype html
 head
   meta charset="utf-8"
 
-  / Uncomment to make IE8 render like IE7
-  / meta http-equiv="X-UA-Compatible" content="IE=7"
+  link rel="icon" href=(asset_path("favicon.png"))
 
   / Set the viewport width to device width for mobile
   meta name="viewport" content="width=device-width, initial-scale=1.0"
-  link rel="icon" href=(asset_path("favicon.png"))
+  = csrf_meta_tag
 
   title
     - if content_for?(:title)
@@ -26,7 +25,12 @@ head
 
   = stylesheet_link_tag "application"
   = javascript_include_tag "custom.modernizr"
-  = csrf_meta_tag
+
+  - if user_signed_in?
+    = javascript_include_tag "http://js.pusher.com/2.0/pusher.min.js"
+    javascript:
+      var pusher = new Pusher('#{Pusher.key}');
+      var userChannel = pusher.subscribe('#{current_user.channel_key}');
 
   == yield(:stylesheets)
 

@@ -37,10 +37,25 @@ nav id="layout-nav" class="top-bar"
 
     ul class="right"
       li= link_to t("nav.beta"), "#", data: { "reveal-id" => "beta-notes" }
-      li class="divider"
       li= link_to t("nav.support"), "mailto:xz1ped65@incoming.intercom.io", id: "Intercom"
-      li class="divider"
       - if user_signed_in?
+        li id="mini-user-stats" class="has-form"
+          = link_to account_root_path do
+            span class="views" title=(t("nav.mini_stats.views"))
+              span class="icon"
+              span class="number"
+                = current_user.photograph_views.to_i
+
+            span class="recommendations" title=(t("nav.mini_stats.recommendations"))
+              span class="icon"
+              span class="number"
+                = current_user.received_recommendations.count
+
+            span class="favourites" title=(t("nav.mini_stats.favourites"))
+              span class="icon"
+              span class="number"
+                = current_user.received_favourites.count
+            
         li class="has-dropdown"
           = link_to current_user.name, account_root_path, active_on: true
           ul class="dropdown"

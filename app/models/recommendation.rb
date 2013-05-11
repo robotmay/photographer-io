@@ -15,14 +15,9 @@ class Recommendation < ActiveRecord::Base
     photograph.increment_score(3)
   end
 
-  after_create :push
-  def push
-    begin
-      Pusher.trigger(user.channel_key, 'new_recommendation', {
-        photograph_id: photograph_id
-      })
-    rescue Pusher::Error
-    end
+  after_create do
+    photograph.user.received_recommendations_count.increment
+    photograph.user.push_stats
   end
 
   private
