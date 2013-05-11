@@ -246,6 +246,7 @@ en:
       license: "License"
       default_license: "All rights reserved"
     creator:
+      profile: "View profile"
       photos: "View more photos"
 
   recommendations:

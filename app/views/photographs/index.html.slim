@@ -9,6 +9,9 @@ section id="photographs-index"
         = paginate @photographs
 
         ul class="large-block-grid-5 small-block-grid-3 photo-grid"
+          - if content_for?(:grid_block)
+            == yield(:grid_block)
+
           - @photographs.each do |photograph|
             li class="photo"
               = link_to photograph_path(photograph) do
