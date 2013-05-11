@@ -15,6 +15,6 @@ aside id="photographs-creator" class="panel"
           = link_to user_path(user) do
             = image_tag user.avatar.thumb("150x150#").jpg.url
 
-      = link_to t("photographs.creator.profile"), user_path(user), class: "button tiny secondary expand"
+      = link_to t("photographs.creator.profile"), user_path(user), class: "button tiny expand"
 
       = link_to t("photographs.creator.photos"), user_photographs_path(user), class: "button tiny success expand"
