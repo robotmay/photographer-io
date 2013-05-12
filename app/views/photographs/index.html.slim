@@ -15,7 +15,10 @@ section id="photographs-index"
           - @photographs.each do |photograph|
             li class="photo"
               = link_to photograph_path(photograph) do
-                = photo_tag photograph, "500x500>", quality: 70
+                - if photograph.has_precalculated_sizes?
+                  = photo_tag photograph, :thumbnail 
+                - else
+                  = photo_tag photograph, "500x500>", quality: 70
 
         = paginate @photographs
       - else

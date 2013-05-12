@@ -4,10 +4,13 @@ section id="pages-home"
   article id="hero-photograph"
     - photo = @top_photos.sample
     = link_to photograph_path(photo) do
-      - if photo.landscape?
-        = photo_tag photo, "2000x", quality: 80
+      - if photo.has_precalculated_sizes?
+        = photo_tag photo, :homepage
       - else
-        = photo_tag photo, "2000x1400#", quality: 80
+        - if photo.landscape?
+          = photo_tag photo, "2000x", quality: 80
+        - else
+          = photo_tag photo, "2000x1400#", quality: 80
   
     div id="hero-blurb"
       header
