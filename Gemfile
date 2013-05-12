@@ -43,6 +43,7 @@ gem 'cancan'
 gem 'fog'
 gem 'dragonfly'
 gem 'mini_exiftool_vendored'
+gem 's3_direct_upload'
 
 # views
 gem 'slim'

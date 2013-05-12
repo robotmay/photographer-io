@@ -22,11 +22,23 @@ class Photograph < ActiveRecord::Base
   delegate :format, :landscape?, :portrait?, :square?, to: :metadata
 
   paginates_per 36
-  image_accessor :image do
-    copy_to(:standard_image) { |i| i.thumb("3000x3000>") }  
+  image_accessor :image
+
+  image_accessor :standard_image do
+    storage_path { |i| image_storage_path(i) }
   end
 
-  image_accessor :standard_image
+  image_accessor :homepage_image do
+    storage_path { |i| image_storage_path(i) }
+  end
+
+  image_accessor :large_image do
+    storage_path { |i| image_storage_path(i) }
+  end
+
+  image_accessor :thumbnail_image do
+    storage_path { |i| image_storage_path(i) }
+  end
 
   counter :views
   value :highest_rank
@@ -34,8 +46,8 @@ class Photograph < ActiveRecord::Base
   accepts_nested_attributes_for :metadata, update_only: true
   accepts_nested_attributes_for :collections
 
-  validates :user_id, :image, presence: true
-  validates_property :format, of: :image, in: [:jpeg, :jpg], case_sensitive: false, on: :create
+  validates :user_id, :image_uid, presence: true
+  #validates_property :format, of: :image, in: [:jpeg, :jpg], case_sensitive: false, on: :create
 
   scope :public, -> {
     joins(:collections).where(collections: { public: true })
@@ -68,6 +80,11 @@ class Photograph < ActiveRecord::Base
     joins(:metadata).merge(Metadata.format('square'))
   }
 
+  def image_storage_path(i)
+    name = File.basename(image_uid, image_ext)
+    [File.dirname(image_uid), "#{name}_#{i.width}x#{i.height}.#{i.format}"].join("/")
+  end
+
   def public?
     collections.where(public: true).count > 0
   end
@@ -89,12 +106,16 @@ class Photograph < ActiveRecord::Base
   before_create :extract_metadata
   def extract_metadata
     self.metadata = Metadata.new(photograph: self) if metadata.nil?
-    metadata.extract_from_photograph
   end
 
   after_create :save_metadata
   def save_metadata
     metadata.save
+  end
+
+  after_commit :create_sizes, on: :create
+  def create_sizes
+    PhotoExpansionWorker.perform_async(id)
   end
 
   def score
@@ -123,6 +144,22 @@ class Photograph < ActiveRecord::Base
   end
 
   class << self
+    def new_from_s3_upload(user, params)
+      user.photographs.new do |p|
+        p.image_uid = Photograph.prepare_image_uid(params[:filepath])
+        p.image_name = params[:filename]
+        p.image_ext = File.extname(params[:filename])
+        p.image_size = params[:filesize]
+      end
+    end
+
+    def prepare_image_uid(s3_upload_path)
+      s3_upload_path.gsub!(ENV['S3_BUCKET'], "") if ENV['S3_BUCKET']
+      s3_upload_path.gsub!("//", "")
+      s3_upload_path.gsub!("+", " ")
+      URI.unescape(s3_upload_path)
+    end
+
     def rankings
       Redis::SortedSet.new('photograph_rankings')
     end
