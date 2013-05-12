@@ -47,7 +47,8 @@ class Photograph < ActiveRecord::Base
   accepts_nested_attributes_for :collections
 
   validates :user_id, :image_uid, presence: true
-  #validates_property :format, of: :image, in: [:jpeg, :jpg], case_sensitive: false, on: :create
+  validates :image_mime_type, inclusion: { in: ["image/jpeg"] }
+  validates :image_size, numericality: { less_than_or_equal_to: 50.megabytes }
 
   scope :processing, -> {
     where(processing: true)
@@ -165,6 +166,7 @@ class Photograph < ActiveRecord::Base
         p.image_name = params[:filename]
         p.image_ext = File.extname(params[:filename])
         p.image_size = params[:filesize]
+        p.image_mime_type = params[:filetype]
       end
     end
 
