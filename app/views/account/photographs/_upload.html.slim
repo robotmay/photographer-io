@@ -1,4 +1,4 @@
-- scope = @collection.present? ? account_collection_photographs_url(@collection, format: :json) : account_photographs_url(format: :json)
+- scope = @collection.present? ? account_collection_photographs_path : account_photographs_path
 = s3_uploader_form callback_url: scope, id: "photograph-uploader", max_file_size: 50.megabytes, key: "photographs/{timestamp}-{unique_id}-#{SecureRandom.hex}/${filename}", key_starts_with: "photographs/", acl: "private" do
   = file_field_tag :file, multiple: true
 

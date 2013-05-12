@@ -1,0 +1,7 @@
+li class="photo"
+  input type="checkbox" name="mass_edit[photograph_ids][]" value=(photograph.id) style="display: none;"
+  = link_to edit_account_photograph_path(photograph) do
+    - if photograph.has_precalculated_sizes?
+      = photo_tag photograph, :thumbnail 
+    - else
+      = photo_tag photograph, "500x500>", quality: 70

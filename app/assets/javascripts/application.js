@@ -13,9 +13,17 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.masonry
+//= require jquery.wookmark
 //= require jquery.pjax
 //= require s3_direct_upload
 //= require foundation
 //= require_tree .
 
 $(document).foundation();
+
+window.wookmarkOptions = {
+  align: 'center',
+  container: $(".photo-grid"),
+  flexibleWidth: '20%',
+  autoResize: true
+}

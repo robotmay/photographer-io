@@ -5,6 +5,7 @@ class MassEdit
   attr_accessor :photograph_ids, :collection_ids, :action
 
   def initialize(attributes = {})
+    attributes ||= {}
     attributes.each do |key, value|
       self.send("#{key}=", value)
     end
