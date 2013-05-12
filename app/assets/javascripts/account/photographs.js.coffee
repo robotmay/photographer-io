@@ -8,8 +8,8 @@ $(document).ready ->
     photoForm.find("input[type = 'file']").hide()
 
     photoForm.bind "ajax:success", (e, data) ->
-      $(".photo-grid").prepend(data)
-      $(".photo-grid").trigger("reload:grid")
+      $(".photo-grid").prepend(data).find("img").load ->
+        $(".photo-grid").trigger("reload:grid")
 
     photoForm.bind "ajax:failure", (e, data) ->
       alert(data)
