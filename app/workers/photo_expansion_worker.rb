@@ -21,5 +21,6 @@ class PhotoExpansionWorker
 
     photo.processing = false
     photo.save
+    photo.trigger_image_processed_push
   end
 end

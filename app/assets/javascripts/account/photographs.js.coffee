@@ -9,7 +9,7 @@ $(document).ready ->
 
     photoForm.bind "ajax:success", (e, data) ->
       $(".photo-grid").prepend(data)
-      $(".photo-grid").find(".photo").wookmark(wookmarkOptions)
+      $(".photo-grid").trigger("reload:grid")
 
     photoForm.bind "ajax:failure", (e, data) ->
       alert(data)

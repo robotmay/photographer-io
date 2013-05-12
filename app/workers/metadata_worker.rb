@@ -6,5 +6,6 @@ class MetadataWorker
     metadata.extract_from_photograph
     metadata.processing = false
     metadata.save
+    metadata.photograph.trigger_image_processed_push
   end
 end
