@@ -88,7 +88,7 @@ class Photograph < ActiveRecord::Base
   }
 
   def image_storage_path(i)
-    name = File.basename(image_uid, image_ext)
+    name = File.basename(image_uid, (image_ext || ".jpg"))
     [File.dirname(image_uid), "#{name}_#{i.width}x#{i.height}.#{i.format}"].join("/")
   end
 
