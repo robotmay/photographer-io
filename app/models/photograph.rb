@@ -22,7 +22,11 @@ class Photograph < ActiveRecord::Base
   delegate :format, :landscape?, :portrait?, :square?, to: :metadata
 
   paginates_per 36
-  image_accessor :image
+  image_accessor :image do
+    storage_opts do |i|
+      { storage_headers: { 'x-amz-acl' => 'private' } }
+    end
+  end
 
   image_accessor :standard_image do
     storage_path { |i| image_storage_path(i) }
