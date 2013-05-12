@@ -54,7 +54,7 @@ module Account
     end
 
     def create
-      @photograph = current_user.photographs.new(photograph_params)
+      @photograph = Photograph.new_from_s3_upload(current_user, upload_params)
 
       authorize! :create, @photograph
       if @photograph.save
@@ -162,9 +162,13 @@ module Account
     end
     
     private
+    def upload_params
+      params.permit(:file, :filepath, :unique_id, :filename, :filesize, :filetype, :url)
+    end
+
     def photograph_params
       params.require(:photograph).permit(
-        :image, :safe_for_work, :show_location_data, :license_id, :category_id,
+        :image_uid, :safe_for_work, :show_location_data, :license_id, :category_id,
         :show_copyright_info, 
         collection_ids: [], metadata_attributes: [
           :id, :title, :keywords, :description

@@ -34,7 +34,19 @@ class Metadata < ActiveRecord::Base
     where("metadata.image @> 'format=>#{format}'")
   }
 
-  before_create :extract_from_photograph
+  before_create :set_defaults
+  def set_defaults
+    self.camera ||= {}
+    self.settings ||= {}
+    self.creator ||= {}
+    self.image ||= {}
+  end
+  
+  after_commit :enqueue_extraction, on: :create
+  def enqueue_extraction
+    MetadataWorker.perform_async(id)
+  end
+
   def extract_from_photograph
     begin
       Metadata.benchmark "Extracting EXIF" do

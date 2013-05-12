@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery.masonry
 //= require jquery.pjax
+//= require s3_direct_upload
 //= require foundation
 //= require_tree .
 

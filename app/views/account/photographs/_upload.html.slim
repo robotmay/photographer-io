@@ -1,8 +1,11 @@
-- scope = @collection.present? ? [:account, @collection, photograph] : [:account, photograph]
-= simple_form_for scope, html: { multipart: true } do |f|
-  div class="message"
-    = t("account.photographs.dropzone")
+- scope = @collection.present? ? account_collection_photographs_url(@collection, format: :json) : account_photographs_url(format: :json)
+= s3_uploader_form callback_url: scope, id: "photograph-uploader", max_file_size: 50.megabytes, key: "photographs/{timestamp}-{unique_id}-#{SecureRandom.hex}/${filename}", key_starts_with: "photographs/", acl: "private" do
+  = file_field_tag :file, multiple: true
 
-  fieldset
-    = f.input :image, as: :file
-    = f.button :submit
+erb:
+  <script id="template-upload" type="text/x-tmpl">
+    <div id="file-{%=o.unique_id%}" class="upload">
+      {%=o.name%}
+      <div class="progress"><div class="bar" style="width: 0%"></div></div>
+    </div>
+  </script>

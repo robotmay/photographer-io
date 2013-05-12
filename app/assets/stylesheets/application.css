@@ -9,7 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require dropzone-basic
+ *= require s3_direct_upload_progress_bars
  *= require intercom
  *= require base
  */

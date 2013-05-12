@@ -273,7 +273,13 @@ CREATE TABLE photographs (
     show_copyright_info boolean DEFAULT false,
     standard_image_uid character varying(255),
     recommendations_count integer,
-    favourites_count integer
+    favourites_count integer,
+    image_name character varying(255),
+    image_ext character varying(255),
+    image_size integer,
+    homepage_image_uid character varying(255),
+    large_image_uid character varying(255),
+    thumbnail_image_uid character varying(255)
 );
 
 
@@ -755,3 +761,7 @@ INSERT INTO schema_migrations (version) VALUES ('20130509123705');
 INSERT INTO schema_migrations (version) VALUES ('20130510225834');
 
 INSERT INTO schema_migrations (version) VALUES ('20130510231125');
+
+INSERT INTO schema_migrations (version) VALUES ('20130512093545');
+
+INSERT INTO schema_migrations (version) VALUES ('20130512100329');
