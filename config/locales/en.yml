@@ -160,7 +160,8 @@ en:
         unsorted: "Unsorted"
       upload: "Upload"
       delete: "Delete this photograph"
-      dropzone: "Drag images into this area to upload"
+      dropzone: >
+        Drag and drop your images onto this page to upload them.
       public_warning: >
         This collection is set as public. Any photos in here will be listed on
         the public-facing site.
