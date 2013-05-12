@@ -1,7 +1,11 @@
 require 'sidekiq/web'
 
 Iso::Application.routes.draw do
-  mount Sidekiq::Web => '/sidekiq'
+  devise_for :admin_users
+
+  authenticate :admin_user do
+    mount Sidekiq::Web => '/sidekiq'
+  end
 
   resources :photographs, only: [:index, :show] do
     collection do
