@@ -32,6 +32,7 @@ gem 'newrelic_rpm'
 gem 'intercom-rails', '~> 0.2.14'
 gem 'postmark-rails'
 gem 'pusher'
+gem 's3'
 
 # auth
 gem 'devise', git: 'git://github.com/plataformatec/devise.git', branch: 'rails4'
