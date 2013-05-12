@@ -180,6 +180,7 @@ GEM
       actionmailer
       postmark (>= 0.9.0)
       rake
+    proxies (0.2.1)
     pry (0.9.12.1)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
@@ -238,6 +239,8 @@ GEM
       rspec-expectations (~> 2.13.0)
       rspec-mocks (~> 2.13.0)
     ruby-hmac (0.4.0)
+    s3 (0.3.11)
+      proxies (~> 0.2.0)
     s3_direct_upload (0.1.3)
       coffee-rails (>= 3.2.1)
       jquery-fileupload-rails (~> 0.4.1)
@@ -355,6 +358,7 @@ DEPENDENCIES
   rb-inotify (~> 0.8.8)
   redis-objects
   rspec-rails
+  s3
   s3_direct_upload
   sass-rails (~> 4.0.0.beta1)
   shoulda
