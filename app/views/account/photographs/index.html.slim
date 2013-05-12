@@ -58,11 +58,14 @@ section id="account-photographs-index"
       div class="large-12 columns"
         = paginate @photographs
 
-        ul class="large-block-grid-5 small-block-grid-3 photo-grid"
+        ul class="large-block-grid-5 photo-grid"
           - @photographs.each do |photograph|
             li class="photo"
               input type="checkbox" name="mass_edit[photograph_ids][]" value=(photograph.id) style="display: none;"
               = link_to edit_account_photograph_path(photograph) do
-                = photo_tag photograph, "500x500>", quality: 70
+                - if photograph.has_precalculated_sizes?
+                  = photo_tag photograph, :thumbnail 
+                - else
+                  = photo_tag photograph, "500x500>", quality: 70
 
         = paginate @photographs

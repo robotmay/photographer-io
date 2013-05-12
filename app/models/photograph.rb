@@ -49,8 +49,14 @@ class Photograph < ActiveRecord::Base
   validates :user_id, :image_uid, presence: true
   #validates_property :format, of: :image, in: [:jpeg, :jpg], case_sensitive: false, on: :create
 
+  scope :processing, -> {
+    where(processing: true)
+  }
+  scope :not_processing, -> {
+    where(processing: false)
+  }
   scope :public, -> {
-    joins(:collections).where(collections: { public: true })
+    not_processing.joins(:collections).where(collections: { public: true })
   }
   scope :private, -> {
     joins(:collections).where(collections: { public: false })
@@ -121,6 +127,10 @@ class Photograph < ActiveRecord::Base
 
   def processing?
     processing || metadata.processing
+  end
+
+  def has_precalculated_sizes?
+    (large_image.present? && homepage_image.present? && thumbnail_image.present?) || processing?
   end
 
   def score
@@ -206,9 +216,9 @@ class Photograph < ActiveRecord::Base
     # Not sure why but combining scopes for this breaks it, so hardcoding it
     def view_for(user)
       if user.nil? || !user.show_nsfw_content
-        includes(:metadata).where(safe_for_work: true).joins(:collections).where(collections: { public: true })
+        includes(:metadata).where(safe_for_work: true).joins(:collections).where(collections: { public: true }).where(processing: false)
       else
-        includes(:metadata).joins(:collections).where(collections: { public: true })
+        includes(:metadata).joins(:collections).where(collections: { public: true }).where(processing: false)
       end
     end
   end

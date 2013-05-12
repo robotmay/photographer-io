@@ -1,4 +1,7 @@
 module PhotographsHelper
+  class DeprecatedPhoto < StandardError; end
+  class Processing < StandardError; end
+
   SHORT_METADATA_KEYS = [
     :model, :lens_type, :aperture, :focal_length, :shutter_speed, :iso,
     :copyright_notice, :creator, :creator_country, :creator_city,
@@ -6,6 +9,39 @@ module PhotographsHelper
   ]
 
   def photo_tag(photograph, size, opts = {})
+    return nil if photograph.nil?
+
+    begin
+      raise DeprecatedPhoto if !photograph.has_precalculated_sizes?
+      raise Processing if photograph.processing?
+      
+      image = case size
+      when :homepage
+        photograph.homepage_image
+      when :large
+        photograph.large_image
+      when :thumbnail
+        photograph.thumbnail_image
+      else
+        photograph.thumbnail_image
+      end
+
+      url = if ENV['CDN_HOST']
+        image.remote_url(host: ENV['CDN_HOST'])
+      else
+        image.remote_url
+      end
+
+      image_tag url, alt: photograph.fetch_metadata.title
+
+    rescue Processing
+      image_tag "processing_#{size.to_s}.jpg"
+    rescue DeprecatedPhoto
+      deprecated_photo_tag(photograph, size, opts = {})
+    end
+  end
+  
+  def deprecated_photo_tag(photograph, size, opts = {})
     return nil if photograph.nil?
     image = if photograph.standard_image.present?
       photograph.standard_image.thumb(size)
