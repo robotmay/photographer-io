@@ -321,7 +321,8 @@ CREATE TABLE photographs (
     homepage_image_uid character varying(255),
     large_image_uid character varying(255),
     thumbnail_image_uid character varying(255),
-    processing boolean DEFAULT false
+    processing boolean DEFAULT false,
+    image_mime_type character varying(255)
 );
 
 
@@ -840,3 +841,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130512100329');
 INSERT INTO schema_migrations (version) VALUES ('20130512105305');
 
 INSERT INTO schema_migrations (version) VALUES ('20130512105909');
+
+INSERT INTO schema_migrations (version) VALUES ('20130512114945');
