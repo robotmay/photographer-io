@@ -1,7 +1,18 @@
-li class="photo"
+li class="photo" id="photograph-#{photograph.id}"
   input type="checkbox" name="mass_edit[photograph_ids][]" value=(photograph.id) style="display: none;"
   = link_to edit_account_photograph_path(photograph) do
     - if photograph.has_precalculated_sizes?
       = photo_tag photograph, :thumbnail 
     - else
       = photo_tag photograph, "500x500>", quality: 70
+
+  - if photograph.processing? && request.xhr?
+    javascript:
+      $(document).ready(function() {
+        userChannel.bind("image_processed", function(data) {
+          if(data['id'] == #{photograph.id}) {
+            $("#photograph-#{photograph.id}").find("img").attr("src", data['thumbnail']).trigger("load");
+            $(".photo-grid").trigger("reload:grid");
+          }
+        });
+      });

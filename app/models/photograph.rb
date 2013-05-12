@@ -159,6 +159,35 @@ class Photograph < ActiveRecord::Base
     Photograph.rankings.decrement(id, by)
   end
 
+  def trigger_image_processed_push
+    unless processing?
+      push
+    end
+  end
+
+  def push
+    if ENV['CDN_HOST']
+      large = large_image.remote_url(host: ENV['CDN_HOST'])
+      thumb = thumbnail_image.remote_url(host: ENV['CDN_HOST'])
+    else
+      large = large_image.remote_url
+      thumb = thumbnail_image.remote_url
+    end
+
+    Thread.new do
+      ActiveRecord::Base.connection_pool.with_connection do
+        begin
+          Pusher.trigger(user.channel_key, 'image_processed', {
+            id: id,
+            large: large,
+            thumbnail: thumb
+          })
+        rescue Pusher::Error
+        end
+      end
+    end
+  end
+
   class << self
     def new_from_s3_upload(user, params)
       user.photographs.new do |p|
