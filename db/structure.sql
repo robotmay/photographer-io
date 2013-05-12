@@ -273,7 +273,8 @@ CREATE TABLE metadata (
     creator hstore,
     image hstore,
     settings hstore,
-    search_vector tsvector
+    search_vector tsvector,
+    processing boolean DEFAULT false
 );
 
 
@@ -319,7 +320,8 @@ CREATE TABLE photographs (
     image_size integer,
     homepage_image_uid character varying(255),
     large_image_uid character varying(255),
-    thumbnail_image_uid character varying(255)
+    thumbnail_image_uid character varying(255),
+    processing boolean DEFAULT false
 );
 
 
@@ -836,3 +838,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130512093545');
 INSERT INTO schema_migrations (version) VALUES ('20130512100329');
 
 INSERT INTO schema_migrations (version) VALUES ('20130512105305');
+
+INSERT INTO schema_migrations (version) VALUES ('20130512105909');
