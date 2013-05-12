@@ -47,8 +47,8 @@ class Photograph < ActiveRecord::Base
   accepts_nested_attributes_for :collections
 
   validates :user_id, :image_uid, presence: true
-  validates :image_mime_type, inclusion: { in: ["image/jpeg"] }
-  validates :image_size, numericality: { less_than_or_equal_to: 50.megabytes }
+  validates :image_mime_type, inclusion: { in: ["image/jpeg"] }, on: :create
+  validates :image_size, numericality: { less_than_or_equal_to: 50.megabytes }, on: :create
 
   scope :processing, -> {
     where(processing: true)

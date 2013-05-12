@@ -4,7 +4,7 @@ class PhotoExpansionWorker
   def perform(photograph_id)
     photo = Photograph.find(photograph_id)
     photo.standard_image = photo.image.thumb("3000x3000>")
-    photo.save
+    photo.save!
 
     if photo.standard_image.width > photo.standard_image.height
       photo.homepage_image = photo.standard_image.thumb("2000x").encode(:jpg, "-quality 80")
@@ -20,7 +20,7 @@ class PhotoExpansionWorker
     photo.thumbnail_image = photo.standard_image.thumb("500x500>").encode(:jpg, "-quality 70")
 
     photo.processing = false
-    photo.save
+    photo.save!
     photo.trigger_image_processed_push
   end
 end
