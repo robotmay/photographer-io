@@ -97,6 +97,7 @@ class Photograph < ActiveRecord::Base
 
   before_create :set_defaults_from_user_settings
   def set_defaults_from_user_settings
+    self.processing = true
     self.license_id = user.default_license_id
     self.show_location_data = user.show_location_data
     self.show_copyright_info = user.show_copyright_info
@@ -116,6 +117,10 @@ class Photograph < ActiveRecord::Base
   after_commit :create_sizes, on: :create
   def create_sizes
     PhotoExpansionWorker.perform_async(id)
+  end
+
+  def processing?
+    processing || metadata.processing
   end
 
   def score

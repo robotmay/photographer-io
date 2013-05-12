@@ -36,6 +36,7 @@ class Metadata < ActiveRecord::Base
 
   before_create :set_defaults
   def set_defaults
+    self.processing = true
     self.camera ||= {}
     self.settings ||= {}
     self.creator ||= {}

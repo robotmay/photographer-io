@@ -18,6 +18,8 @@ class PhotoExpansionWorker
     end
 
     photo.thumbnail_image = photo.standard_image.thumb("500x500>").encode(:jpg, "-quality 70")
+
+    photo.processing = false
     photo.save
   end
 end
