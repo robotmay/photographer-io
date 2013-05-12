@@ -5,6 +5,8 @@ $(document).ready ->
       before_add: (file) ->
         file.type == "image/jpeg"
 
+    photoForm.find("input[type = 'file']").hide()
+
     photoForm.bind "ajax:success", (e, data) ->
       $(".photo-grid").prepend(data)
       $(".photo-grid").find(".photo").wookmark(wookmarkOptions)

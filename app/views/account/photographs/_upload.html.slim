@@ -2,6 +2,9 @@
 = s3_uploader_form callback_url: scope, id: "photograph-uploader", max_file_size: 50.megabytes, key: "photographs/{timestamp}-{unique_id}-#{SecureRandom.hex}/${filename}", key_starts_with: "photographs/", acl: "private" do
   = file_field_tag :file, multiple: true
 
+  div class="panel dropzone"
+    = t("account.photographs.dropzone")
+
 erb:
   <script id="template-upload" type="text/x-tmpl">
     <div id="file-{%=o.unique_id%}" class="upload">
