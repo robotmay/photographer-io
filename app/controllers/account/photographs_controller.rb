@@ -63,12 +63,24 @@ module Account
         end
 
         respond_with @photograph do |f|
-          f.html { redirect_to edit_account_photograph_path(@photograph) }
+          f.html do
+            if request.xhr?
+              render partial: "account/photographs/photo_tile", locals: { photograph: @photograph }  
+            else
+              redirect_to edit_account_photograph_path(@photograph)
+            end
+          end
           f.json { render json: @photograph.to_json }
         end
       else
         respond_with @photograph, status: :bad_request do |f|
-          f.html { render :new }
+          f.html do
+            if request.xhr?
+              render text: t("account.photographs.create.failed")
+            else
+              render :new
+            end
+          end
           f.json { render text: t("account.photographs.create.failed") }
         end
       end

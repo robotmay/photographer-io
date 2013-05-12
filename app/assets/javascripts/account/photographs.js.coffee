@@ -1,7 +1,16 @@
 $(document).ready ->
   photoForm = $("form#photograph-uploader")
   if photoForm.length > 0
-    photoForm.S3Uploader()
+    photoForm.S3Uploader
+      before_add: (file) ->
+        file.type == "image/jpeg"
+
+    photoForm.bind "ajax:success", (e, data) ->
+      $(".photo-grid").prepend(data)
+      $(".photo-grid").find(".photo").wookmark(wookmarkOptions)
+
+    photoForm.bind "ajax:failure", (e, data) ->
+      alert(data)
 
   massEditForm = $("form#new_mass_edit")
   if massEditForm.length > 0
