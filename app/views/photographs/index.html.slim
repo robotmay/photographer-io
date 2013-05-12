@@ -6,20 +6,26 @@ section id="photographs-index"
   section class="row"
     div class="large-12 columns"
       - if @photographs.present? && @photographs.size > 0
-        = paginate @photographs
+        div class="row"
+          div class="large-12 columns"
+            = paginate @photographs
 
-        ul class="large-block-grid-5 photo-grid"
-          - if content_for?(:grid_block)
-            == yield(:grid_block)
+        div class="row"
+          div class="large-12 columns"
+            ul class="large-block-grid-5 photo-grid"
+              - if content_for?(:grid_block)
+                == yield(:grid_block)
 
-          - @photographs.each do |photograph|
-            li class="photo"
-              = link_to photograph_path(photograph) do
-                - if photograph.has_precalculated_sizes?
-                  = photo_tag photograph, :thumbnail 
-                - else
-                  = photo_tag photograph, "500x500>", quality: 70
+              - @photographs.each do |photograph|
+                li class="photo"
+                  = link_to photograph_path(photograph) do
+                    - if photograph.has_precalculated_sizes?
+                      = photo_tag photograph, :thumbnail 
+                    - else
+                      = photo_tag photograph, "500x500>", quality: 70
 
-        = paginate @photographs
+        div class="row"
+          div class="large-12 columns"
+            = paginate @photographs
       - else
         = t("photographs.none")
