@@ -160,6 +160,7 @@ GEM
     minitest (4.7.4)
     mocha (0.13.3)
       metaclass (~> 0.0.1)
+    multi_fetch_fragments (0.0.16)
     multi_json (1.7.3)
     net-scp (1.1.0)
       net-ssh (>= 2.6.5)
@@ -344,6 +345,7 @@ DEPENDENCIES
   machinist
   memcachier
   mini_exiftool_vendored
+  multi_fetch_fragments
   newrelic_rpm
   pg
   pg_search
