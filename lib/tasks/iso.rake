@@ -2,14 +2,7 @@ namespace :iso do
   namespace :maintenance do
     task :repair_image_permissions => :environment do
       bucket = $s3_client.buckets.find(ENV['S3_BUCKET'])
-      to_fix = []
       Photograph.find_each do |p|
-        if p.image_uid =~ /2013\//
-          to_fix << p
-        end
-      end
-
-      to_fix.each do |p|
         begin
           obj = bucket.objects.find(p.image_uid)
           obj.copy(key: p.image_uid, bucket: bucket, acl: :private)  
