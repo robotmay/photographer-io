@@ -40,9 +40,7 @@ class PhotographsController < ApplicationController
     @photographs = Photograph.view_for(current_user).uniq.order("created_at DESC").page(params[:page])
     set_title(t("titles.explore"))
 
-    respond_with @photographs do |f|
-      f.html { render :index }
-    end
+    respond_with @photographs
   end
 
   def recommended
