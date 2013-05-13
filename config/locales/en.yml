@@ -225,6 +225,10 @@ en:
     stats: "Statistics"
     views: "Views"
     favourites: "Favourites"
+    sub_nav:
+      filter: "Filter"
+      grouped: "Grouped by user"
+      all: "All"
     metadata:
       title: "Photograph Details"
       keywords: "Keywords"

@@ -7,8 +7,13 @@ class Collection < ActiveRecord::Base
 
   cache_belongs_to :user
 
+  paginates_per 50
+
   validates :user_id, :name, presence: true
 
   scope :public, -> { where(public: true) }
   scope :private, -> { where(private: true) }
+  scope :view_for, -> (user) {
+    joins(:photographs).merge(Photograph.view_for(user).except(:includes))
+  }
 end
