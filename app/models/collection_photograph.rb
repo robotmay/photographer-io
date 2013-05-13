@@ -1,5 +1,5 @@
 class CollectionPhotograph < ActiveRecord::Base
-  belongs_to :collection
+  belongs_to :collection, touch: true
   belongs_to :photograph
 
   validate :photograph_and_collection_should_belong_to_same_user

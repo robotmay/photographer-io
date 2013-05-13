@@ -23,6 +23,12 @@ Iso::Application.routes.draw do
     resources :favourites, only: [:create, :destroy]
   end
 
+  resources :collections, only: [:show] do
+    collection do
+      get :explore
+    end
+  end
+
   resources :categories, shallow: true, only: [:show] do
     resources :photographs, only: [:index]
   end
