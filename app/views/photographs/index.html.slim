@@ -19,14 +19,7 @@ section id="photographs-index"
               - if content_for?(:grid_block)
                 == yield(:grid_block)
 
-              - @photographs.each do |photograph|
-                - cache([photograph, :public], expires_in: 1.day) do
-                  li class="photo"
-                    = link_to photograph_path(photograph) do
-                      - if photograph.has_precalculated_sizes?
-                        = photo_tag photograph, :thumbnail 
-                      - else
-                        = photo_tag photograph, "500x500>", quality: 70
+              = render @photographs, cache: true
 
         div class="row"
           div class="large-12 columns"

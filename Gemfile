@@ -21,6 +21,7 @@ gem 'memcachier'
 gem 'dalli'
 gem 'identity_cache'
 gem 'rack-cache'
+gem 'multi_fetch_fragments'
 
 # services
 gem 'puma'
