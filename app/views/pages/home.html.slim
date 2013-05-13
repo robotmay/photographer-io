@@ -2,7 +2,7 @@
 
 section id="pages-home"
   article id="hero-photograph"
-    - photo = @top_photos.sample
+    - photo = @top_photos.sample || Photograph.view_for(current_user).first
     = link_to photograph_path(photo) do
       - if photo.has_precalculated_sizes?
         = photo_tag photo, :homepage

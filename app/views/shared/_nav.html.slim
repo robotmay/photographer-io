@@ -10,22 +10,31 @@ nav id="layout-nav" class="top-bar"
 
   section class="top-bar-section"
     ul class="left"
-      li class="has-dropdown"
-        = link_to t("nav.explore"), explore_photographs_path, active_on: true
-        ul class="dropdown"
-          li class="random"
-            = link_to image_tag("random.png"), random_photographs_path, title: t("nav.random")
+      - cache([:nav, :explore, request.fullpath], expires_in: 10.minutes) do
+        li class="has-dropdown"
+          = link_to t("nav.explore"), explore_photographs_path, active_on: true
+          ul class="dropdown explore-menu"
+            li
+              div class="row"
+                div class="large-12 columns"
+                  label= t("nav.general")
+                  ul class="sub-nav"
+                    li
+                      = link_to t("nav.random"), random_photographs_path, title: t("nav.random")
+                    = link_to t("nav.latest"), explore_photographs_path, active_on: true, \
+                      active_wrapper: :li
 
-          li
-            label= t("nav.general")
-            = link_to t("nav.latest"), explore_photographs_path, active_on: true, \
-              active_wrapper: :li
-
-          li
-            label= t("nav.categories")
-          - @categories.each do |category|
-            = link_to category.name, category_path(category.slug), active_on: true, \
-              active_wrapper: :li
+              div class="row"
+                div class="large-12 columns"
+                  label= t("nav.categories")
+    
+              div class="row"
+                - @categories.each_slice((@categories.size / 2) + 1) do |categories|
+                  div class="large-6 columns"
+                    ul class="sub-nav"
+                      - categories.each do |category|
+                        = link_to category.name, category_path(category.slug), active_on: category_photographs_path(category.slug), \
+                          active_wrapper: :li
 
       = link_to t("nav.recommended"), recommended_photographs_path, active_on: true, \
         active_wrapper: :li
@@ -88,8 +97,9 @@ nav id="layout-nav" class="top-bar"
             class: "button tiny success"
 
 - content_for(:after_body) do
-  div id="beta-notes" class="reveal-modal"
-    a class="close-reveal-modal"
-      | &#215;
-    h4= t("beta_notes.title")
-    = simple_format t("beta_notes.blurb")
+  - cache([:beta_notes, :modal]) do
+    div id="beta-notes" class="reveal-modal"
+      a class="close-reveal-modal"
+        | &#215;
+      h4= t("beta_notes.title")
+      = simple_format t("beta_notes.blurb")
