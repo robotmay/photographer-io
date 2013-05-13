@@ -1,5 +1,6 @@
 - content_for(:pagination) do
-  = paginate @photographs
+  - if @photographs.present? && @photographs.size > 0
+    = paginate @photographs
 
 section id="photographs-index"
   header class="row"
