@@ -37,6 +37,9 @@ en:
       views: "Total number of times your photos have been viewed"
       recommendations: "Total number of recommendations you've received"
       favourites: "Total number of times your photos have been favourited"
+    general: "Explore"
+    latest: "Latest photographs"
+    random: "Go to a random photo!"
 
   beta_notes:
     title: "This is an early stage beta!"
