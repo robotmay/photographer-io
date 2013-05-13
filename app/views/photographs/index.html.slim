@@ -17,12 +17,13 @@ section id="photographs-index"
                 == yield(:grid_block)
 
               - @photographs.each do |photograph|
-                li class="photo"
-                  = link_to photograph_path(photograph) do
-                    - if photograph.has_precalculated_sizes?
-                      = photo_tag photograph, :thumbnail 
-                    - else
-                      = photo_tag photograph, "500x500>", quality: 70
+                - cache([photograph, :public]) do
+                  li class="photo"
+                    = link_to photograph_path(photograph) do
+                      - if photograph.has_precalculated_sizes?
+                        = photo_tag photograph, :thumbnail 
+                      - else
+                        = photo_tag photograph, "500x500>", quality: 70
 
         div class="row"
           div class="large-12 columns"
