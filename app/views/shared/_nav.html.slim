@@ -14,7 +14,13 @@ nav id="layout-nav" class="top-bar"
         = link_to t("nav.explore"), explore_photographs_path, active_on: true
         ul class="dropdown"
           li class="random"
-            = link_to image_tag("random.png"), random_photographs_path
+            = link_to image_tag("random.png"), random_photographs_path, title: t("nav.random")
+
+          li
+            label= t("nav.general")
+            = link_to t("nav.latest"), explore_photographs_path, active_on: true, \
+              active_wrapper: :li
+
           li
             label= t("nav.categories")
           - @categories.each do |category|
