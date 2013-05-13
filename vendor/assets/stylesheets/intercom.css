@@ -5,6 +5,15 @@
 #Intercom em {
   display: inline-block;
   font-style: normal;
-  text-decoration: underline;
+  text-decoration: none;
+  border-radius: 50%;
+  width: 22px;
+  line-height: 1.5em;
+  background: #fff;
+  color: #000;
+  text-align: center;
 }
 
+#Intercom em span {
+  text-align: left;
+}
