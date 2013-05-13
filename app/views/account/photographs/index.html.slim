@@ -1,3 +1,7 @@
+- content_for(:pagination) do
+  - if @photographs.present? && @photographs.size > 0
+    = paginate @photographs
+
 section id="account-photographs-index"
   header class="row"
     div class="large-12 columns"
@@ -56,14 +60,13 @@ section id="account-photographs-index"
 
     div class="row"
       div class="large-12 columns"
-        = paginate @photographs
+        == yield(:pagination)
 
     div class="row"
       div class="large-12 columns"
         ul class="large-block-grid-5 photo-grid"
-          - @photographs.each do |photograph|
-            = render partial: "photo_tile", locals: { photograph: photograph }
+          = render @photographs, cache: true
 
     div class="row"
       div class="large-12 columns"
-        = paginate @photographs
+        == yield(:pagination)
