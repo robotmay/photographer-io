@@ -226,8 +226,8 @@ en:
     views: "Views"
     favourites: "Favourites"
     sub_nav:
-      filter: "Filter"
-      grouped: "Grouped by user"
+      filter: "Filter:"
+      grouped: "Smart view"
       all: "All"
     metadata:
       title: "Photograph Details"

@@ -16,4 +16,8 @@ class Collection < ActiveRecord::Base
   scope :view_for, -> (user) {
     joins(:photographs).merge(Photograph.view_for(user).except(:includes))
   }
+
+  def cover_photo
+    photographs.safe_for_work.order("created_at DESC").first
+  end
 end

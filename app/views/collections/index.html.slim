@@ -1,0 +1,39 @@
+- content_for(:pagination) do
+  - if @collections.present? && @collections.size > 0
+    = paginate @collections
+
+section id="collections-index"
+  header class="row"
+    div class="large-12 columns"
+      h1= @title
+
+  section class="row"
+    div class="large-12 columns"
+      - if @collections.present? && @collections.size > 0
+        div class="row"
+          div class="large-6 columns"
+            dl class="sub-nav"
+              dt= t("photographs.sub_nav.filter")
+              = link_to t("photographs.sub_nav.grouped"), explore_collections_path, \
+                active_on: true, active_wrapper: :dd
+              = link_to t("photographs.sub_nav.all"), explore_photographs_path, \
+                active_on: true, active_wrapper: :dd
+
+          div class="large-12 columns"
+            == yield(:pagination)
+
+        div class="row"
+          div class="large-12 columns"
+            ul class="large-block-grid-5 photo-grid"
+              - if content_for?(:grid_block)
+                == yield(:grid_block)
+
+              = render @collections, cache: true
+
+        div class="row"
+          div class="large-12 columns"
+            == yield(:pagination)
+
+      - else
+        = t("photographs.none")
+
