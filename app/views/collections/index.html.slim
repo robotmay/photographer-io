@@ -11,7 +11,7 @@ section id="collections-index"
     div class="large-12 columns"
       - if @collections.present? && @collections.size > 0
         div class="row"
-          div class="large-6 columns"
+          div class="large-4 columns"
             dl class="sub-nav"
               dt= t("photographs.sub_nav.filter")
               = link_to t("photographs.sub_nav.grouped"), explore_collections_path, \
@@ -19,8 +19,10 @@ section id="collections-index"
               = link_to t("photographs.sub_nav.all"), explore_photographs_path, \
                 active_on: true, active_wrapper: :dd
 
-          div class="large-12 columns"
+          div class="large-4 columns"
             == yield(:pagination)
+
+          div class="large-4 columns"
 
         div class="row"
           div class="large-12 columns"
