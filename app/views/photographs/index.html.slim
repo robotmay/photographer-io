@@ -20,7 +20,7 @@ section id="photographs-index"
                 == yield(:grid_block)
 
               - @photographs.each do |photograph|
-                - cache([photograph, :public]) do
+                - cache([photograph, :public], expires_in: 1.day) do
                   li class="photo"
                     = link_to photograph_path(photograph) do
                       - if photograph.has_precalculated_sizes?
