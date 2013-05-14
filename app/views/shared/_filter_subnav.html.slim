@@ -1,0 +1,7 @@
+dl class="sub-nav"
+  dt= t("photographs.sub_nav.filter")
+  = link_to t("photographs.sub_nav.grouped"), switch_filter_path(:photographs, :collections), \
+    active_on: /\/collections/i, active_wrapper: :dd
+  = link_to t("photographs.sub_nav.all"), switch_filter_path(:collections, :photographs), \
+    active_on: /\/photographs/i, active_wrapper: :dd
+

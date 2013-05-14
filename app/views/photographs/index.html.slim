@@ -11,18 +11,13 @@ section id="photographs-index"
     div class="large-12 columns"
       - if @photographs.present? && @photographs.size > 0
         div class="row"
-          - if content_for?(:filters)
-            div class="large-3 columns"
-              == yield(:filters)
+          div class="large-3 columns"
+            = render partial: "shared/filter_subnav"
 
-            div class="large-6 columns"
-              == yield(:pagination)
+          div class="large-6 columns"
+            == yield(:pagination)
 
-            div class="large-3 columns"
-
-          - else
-            div class="large-12 columns"
-              == yield(:pagination)
+          div class="large-3 columns"
 
         div class="row"
           div class="large-12 columns"

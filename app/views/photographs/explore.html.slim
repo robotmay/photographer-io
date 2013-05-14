@@ -1,9 +1,1 @@
-- content_for(:filters) do
-  dl class="sub-nav"
-    dt= t("photographs.sub_nav.filter")
-    = link_to t("photographs.sub_nav.grouped"), explore_collections_path, \
-      active_on: true, active_wrapper: :dd
-    = link_to t("photographs.sub_nav.all"), explore_photographs_path, \
-      active_on: true, active_wrapper: :dd
-
 = render file: "photographs/index"
