@@ -4,8 +4,15 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.fetch_by_slug(params[:id])
     authorize! :read, @category
+
+    path = if request.referer =~ /\/photographs/i
+      category_photographs_path(@category.slug)
+    else
+      category_collections_path(@category.slug)
+    end
+
     respond_with @category do |f|
-      f.html { redirect_to category_photographs_path(@category.slug) }
+      f.html { redirect_to path }
     end
   end
 end

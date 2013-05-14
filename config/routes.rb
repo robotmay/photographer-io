@@ -23,7 +23,7 @@ Iso::Application.routes.draw do
     resources :favourites, only: [:create, :destroy]
   end
 
-  resources :collections, only: [:show] do
+  resources :collections, only: [:index, :show] do
     collection do
       get :explore
     end

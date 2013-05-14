@@ -3,6 +3,7 @@ class Category < ActiveRecord::Base
   #extend FriendlyId
 
   has_many :photographs
+  has_many :collections, through: :photographs
   
   cache_index :slug, unique: true
   cache_has_many :photographs
