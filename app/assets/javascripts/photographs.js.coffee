@@ -3,5 +3,9 @@ $(document).ready ->
   photoGrid.imagesLoaded ->
     photoGrid.trigger "reload:grid"
 
+  $(window).resize ->
+    photoGrid.trigger "reload:grid"
+
   photoGrid.on "reload:grid", ->
-    photoGrid.find(".photo, .user-block").wookmark(wookmarkOptions)
+    opts = wookmarkOptions(calculateGridWidth())
+    photoGrid.find(".photo, .user-block").wookmark(opts)
