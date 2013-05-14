@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   layout :set_layout
-  helper_method :set_title
+  helper_method :set_title, :hide_filters?
 
   before_filter do
     @categories = Rails.cache.fetch([:categories, :list], expires_in: 5.minutes) do
@@ -34,5 +34,13 @@ class ApplicationController < ActionController::Base
 
   def recently_viewed_user_ids
     Redis::List.new("#{session_id}/recently_viewed_user_ids", maxlength: 10)
+  end
+
+  def hide_filters?
+    @hide_filters ||= false
+  end
+
+  def hide_filters!
+    @hide_filters = true
   end
 end

@@ -1,6 +1,7 @@
 class PhotographsController < ApplicationController
   respond_to :html
   before_filter :authenticate_user!, only: [:favourites, :recommend]
+  before_filter :hide_filters!, only: [:recommended, :favourites, :search]
 
   before_filter :set_parents
   def set_parents
