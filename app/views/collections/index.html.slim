@@ -30,7 +30,7 @@ section id="collections-index"
               - if content_for?(:grid_block)
                 == yield(:grid_block)
 
-              = render @collections, cache: true
+              = render @collections, cache: true, cache_options: { expires_in: 10.minutes }
 
         div class="row"
           div class="large-12 columns"

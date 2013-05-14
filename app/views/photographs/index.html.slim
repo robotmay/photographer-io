@@ -30,7 +30,7 @@ section id="photographs-index"
               - if content_for?(:grid_block)
                 == yield(:grid_block)
 
-              = render @photographs, cache: true
+              = render @photographs, cache: true, expires_in: 10.minutes
 
         div class="row"
           div class="large-12 columns"
