@@ -3,11 +3,10 @@ class CollectionsController < ApplicationController
 
   def explore
     @collections = Collection.view_for(current_user).uniq.order("updated_at DESC").page(params[:page])
-    @photographs = @collections.map { |c| c.photographs.view_for(current_user).first }.compact
 
     set_title(t("titles.explore"))
 
-    respond_with @photographs do |f|
+    respond_with @collections do |f|
       f.html { render :index }
     end
   end
