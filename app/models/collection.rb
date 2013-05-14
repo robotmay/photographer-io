@@ -18,6 +18,6 @@ class Collection < ActiveRecord::Base
   }
 
   def cover_photo
-    photographs.safe_for_work.order("created_at DESC").first
+    photographs.safe_for_work.where(processing: false).order("created_at DESC").first
   end
 end
