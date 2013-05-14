@@ -6,4 +6,8 @@ li class="photo"
         = photo_tag photograph, :thumbnail 
       - else
         = photo_tag photograph, "500x500>", quality: 70
+  footer class="caption"
+    = t("collections.caption", \
+        user: link_to(collection.user.name, user_path(collection.user)), \
+        collection: link_to(collection.name, collection_path(collection))).html_safe
 
