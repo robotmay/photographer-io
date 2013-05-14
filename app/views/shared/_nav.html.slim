@@ -12,7 +12,7 @@ nav id="layout-nav" class="top-bar"
     ul class="left"
       - cache([:nav, :explore, request.fullpath], expires_in: 10.minutes) do
         li class="has-dropdown"
-          = link_to t("nav.explore"), explore_photographs_path, active_on: true
+          = link_to t("nav.explore"), explore_collections_path, active_on: /\/explore/i
           ul class="dropdown explore-menu"
             li
               div class="row"
@@ -21,7 +21,7 @@ nav id="layout-nav" class="top-bar"
                   ul class="sub-nav"
                     li
                       = link_to t("nav.random"), random_photographs_path, title: t("nav.random")
-                    = link_to t("nav.latest"), explore_photographs_path, active_on: true, \
+                    = link_to t("nav.latest"), explore_collections_path, active_on: true, \
                       active_wrapper: :li
 
               div class="row"
