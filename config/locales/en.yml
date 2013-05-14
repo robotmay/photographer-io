@@ -202,6 +202,9 @@ en:
         succeeded: "Your photograph has been deleted successfully."
         failed: "There was a problem deleting that photograph."
 
+  collections:
+    caption: "%{user} updated %{collection}"
+
   collection_photographs:
     user_must_match: "You cannot add a photo to that collection"
 
