@@ -228,9 +228,10 @@ en:
     stats: "Statistics"
     views: "Views"
     favourites: "Favourites"
+    caption: "%{photo} by %{user}"
     sub_nav:
       filter: "Filter:"
-      grouped: "Smart view"
+      grouped: "Group by collections"
       all: "All"
     metadata:
       title: "Photograph Details"
