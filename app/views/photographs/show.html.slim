@@ -39,7 +39,7 @@ section id="photographs-show"
               = link_to photograph_favourites_path(@photograph), method: :post, class: "button favourite secondary" do
                 | &nbsp;
       
-      - cache([@photograph, :sidebar], expires_in: 5.minutes) do
+      - cache([@photograph, @metadata, :sidebar], expires_in: 5.minutes) do
         h5= t("photographs.stats")
         table
           tbody
