@@ -53,9 +53,9 @@ class Metadata < ActiveRecord::Base
       Metadata.benchmark "Extracting EXIF" do
         exif = photograph.exif
 
-        self.title        = exif.title
-        self.description  = exif.description
-        self.keywords     = exif.keywords
+        self.title        = exif.title if title.blank?
+        self.description  = exif.description if description.blank?
+        self.keywords     = exif.keywords if keywords.blank?
 
         self.camera = fetch_from_exif(exif, [
           :make, :model, :serial_number, :camera_type, :lens_type, :lens_model,
