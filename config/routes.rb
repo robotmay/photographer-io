@@ -31,6 +31,7 @@ Iso::Application.routes.draw do
 
   resources :categories, shallow: true, only: [:show] do
     resources :photographs, only: [:index]
+    resources :collections, only: [:index]
   end
 
   resources :users, shallow: true, only: [:show] do
