@@ -127,7 +127,7 @@ class Metadata < ActiveRecord::Base
   end
 
   def keywords
-    super || []
+    (super || []).map { |kw| kw.to_s.force_encoding("utf-8") }
   end
 
   def keywords_string
