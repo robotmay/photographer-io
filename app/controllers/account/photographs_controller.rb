@@ -65,7 +65,7 @@ module Account
         respond_with @photograph do |f|
           f.html do
             if request.xhr?
-              render partial: "account/photographs/photo_tile", locals: { photograph: @photograph }  
+              render partial: "account/photographs/photograph", locals: { photograph: @photograph }  
             else
               redirect_to edit_account_photograph_path(@photograph)
             end
