@@ -393,7 +393,7 @@ CREATE TABLE schema_migrations (
 CREATE TABLE users (
     id integer NOT NULL,
     email character varying(255) DEFAULT ''::character varying NOT NULL,
-    encrypted_password character varying(128) DEFAULT ''::character varying,
+    encrypted_password character varying(255) DEFAULT ''::character varying,
     reset_password_token character varying(255),
     reset_password_sent_at timestamp without time zone,
     remember_created_at timestamp without time zone,
