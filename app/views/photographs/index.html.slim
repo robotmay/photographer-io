@@ -12,13 +12,13 @@ section id="photographs-index"
       - if @photographs.present? && @photographs.size > 0
         div class="row"
           - if content_for?(:filters)
-            div class="large-4 columns"
+            div class="large-3 columns"
               == yield(:filters)
 
-            div class="large-4 columns"
+            div class="large-6 columns"
               == yield(:pagination)
 
-            div class="large-4 columns"
+            div class="large-3 columns"
 
           - else
             div class="large-12 columns"
