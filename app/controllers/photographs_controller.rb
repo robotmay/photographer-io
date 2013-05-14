@@ -23,9 +23,11 @@ class PhotographsController < ApplicationController
     if @collection.present?
       @photographs = @collection.photographs
       set_title(@collection.name)
+      hide_filters!
     elsif @user.present?
       @photographs = @user.photographs
       set_title(@user.name)
+      hide_filters!
     elsif @category.present?
       @photographs = @category.photographs
       set_title(@category.name)
