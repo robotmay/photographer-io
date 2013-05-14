@@ -12,6 +12,7 @@ gem 'pry-rails'
 # databases
 gem 'pg'
 gem 'pg_search'
+gem 'pg_array_parser'
 
 # redis
 gem 'redis-objects'

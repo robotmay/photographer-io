@@ -12,6 +12,46 @@ namespace :iso do
         end
       end
     end
+
+    task :repair_metadata => :environment do
+      require 'csv'
+
+      class Parser; include PgArrayParser; end
+
+      file = Rails.root.join("lib/metadata_restore.csv")
+      modified = 0
+
+      CSV.foreach(file, col_sep: ";") do |row|
+        begin
+          changed = false
+          m = Metadata.find(row[0])
+          if row[2].present? && m.title.blank?
+            m.title = row[2]
+            changed = true
+          end
+
+          if row[3].present? && m.description.blank?
+            m.description = row[3]
+            changed = true
+          end
+
+          if row[4].present? && m.keywords.empty?
+            m.keywords = Parser.new.parse_pg_array(row[4])
+            changed = true
+          end
+
+          if changed
+            puts "#{[m.id, m.title_was, m.keywords_was].inspect} => #{[m.id, m.title, m.keywords].inspect}"
+            m.save!
+            modified += 1
+          end
+        rescue Exception => ex
+          puts "Error on #{row[0]}: #{ex.inspect}"
+        end
+      end
+
+      puts "Changed: #{modified}"
+    end
   end
 
   namespace :rankings do
