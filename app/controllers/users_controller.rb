@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   respond_to :html
+  before_filter :hide_filters!, only: [:show]
 
   def show
     @user = User.find(params[:id])
