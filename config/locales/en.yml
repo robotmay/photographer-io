@@ -231,7 +231,7 @@ en:
     caption: "%{photo} by %{user}"
     sub_nav:
       filter: "Filter:"
-      grouped: "Group by collections"
+      grouped: "Group by collection"
       all: "All"
     metadata:
       title: "Photograph Details"

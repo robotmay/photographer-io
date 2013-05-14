@@ -18,6 +18,8 @@ class Collection < ActiveRecord::Base
   }
 
   def cover_photo
-    photographs.safe_for_work.where(processing: false).order("created_at DESC").first
+    Rails.cache.fetch([self, :cover_photo]) do
+      photographs.safe_for_work.where(processing: false).order("created_at DESC").first
+    end
   end
 end
