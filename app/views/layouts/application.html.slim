@@ -26,7 +26,7 @@ head
   = javascript_include_tag "custom.modernizr"
 
   - if user_signed_in?
-    = javascript_include_tag "https://js.pusher.com/2.0/pusher.min.js"
+    = javascript_include_tag "pusher.min.js"
     javascript:
       var pusher = new Pusher('#{Pusher.key}');
       var userChannel = pusher.subscribe('#{current_user.channel_key}');
