@@ -22,10 +22,16 @@
         thead
           tr
             td colspan="2"
-              = t("photographs.metadata.license")
+              = t("photographs.metadata.details")
         tbody
+          - if photograph.category.present?
+            tr
+              td= t("photographs.metadata.category")
+              td= link_to photograph.category.name, category_path(photograph.category)
+
           tr
-            td colspan="2"
+            td= t("photographs.metadata.license")
+            td
               - if photograph.license.present?
                 = photograph.license.name
               - else
