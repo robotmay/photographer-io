@@ -17,9 +17,14 @@ class Collection < ActiveRecord::Base
     joins(:photographs).merge(Photograph.view_for(user).except(:includes))
   }
 
-  def cover_photo
-    Rails.cache.fetch([self, :cover_photo]) do
-      photographs.safe_for_work.where(processing: false).order("created_at DESC").first
+  def cover_photo(category = nil)
+    Rails.cache.fetch([self, :cover_photo, category]) do
+      photos = photographs.safe_for_work.where(processing: false).order("created_at DESC")
+      if category.present?
+        photos = photos.where(category_id: category.id)
+      end
+      
+      photos.first
     end
   end
 end

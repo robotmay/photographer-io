@@ -1,6 +1,6 @@
 li class="photo"
   = link_to collection_path(collection) do
-    - photograph = collection.cover_photo
+    - photograph = collection.cover_photo(@category)
     - unless photograph.nil?
       - if photograph.has_precalculated_sizes?
         = photo_tag photograph, :thumbnail 
