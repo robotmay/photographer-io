@@ -8,4 +8,28 @@ class PagesController < ApplicationController
 
     respond_with @top_photos
   end
+
+  def stats
+    if ENV['STATS_API_KEY'].present? && params['api_key'] == ENV['STATS_API_KEY']
+      latest_photo = Photograph.public.order("created_at DESC").first
+
+      stats = {
+        cache: Rails.cache.stats,
+        photographs: {
+          total: Photograph.count,
+          latest: {
+            id: latest_photo.id,
+            title: latest_photo.metadata.title,
+            thumb: latest_photo.thumbnail_image.remote_url(host: ENV['CDN_HOST'])
+          }
+        }
+      }
+
+      respond_with stats do |f|
+        f.json { render json: stats }
+      end
+    else
+      head :not_found
+    end
+  end
 end
