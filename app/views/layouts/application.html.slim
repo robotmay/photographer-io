@@ -25,12 +25,6 @@ head
   = stylesheet_link_tag "application"
   = javascript_include_tag "custom.modernizr"
 
-  - if user_signed_in?
-    = javascript_include_tag "pusher.min.js"
-    javascript:
-      var pusher = new Pusher('#{Pusher.key}');
-      var userChannel = pusher.subscribe('#{current_user.channel_key}');
-
   == yield(:stylesheets)
 
 body class=(yield(:body_class))
@@ -85,4 +79,10 @@ body class=(yield(:body_class))
       })();
 
   = javascript_include_tag "application"
+  - if user_signed_in?
+    javascript:
+      var pusher = new Pusher('#{Pusher.key}');
+      var userChannel = pusher.subscribe('#{current_user.channel_key}');
+
   == yield(:javascript)
+

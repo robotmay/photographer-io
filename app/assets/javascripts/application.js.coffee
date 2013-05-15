@@ -16,6 +16,7 @@
 #= require jquery.wookmark
 #= require jquery.pjax
 #= require s3_direct_upload
+#= require pusher.min
 #= require foundation
 #= require_tree .
 
