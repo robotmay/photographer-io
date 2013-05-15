@@ -32,6 +32,10 @@ module PhotographsHelper
         image.remote_url
       end
 
+      if request.protocol == "https://"
+        url.gsub!("http://", "https://")
+      end
+
       image_tag url, alt: photograph.fetch_metadata.title
 
     rescue Processing
