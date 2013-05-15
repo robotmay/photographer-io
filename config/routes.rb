@@ -66,5 +66,7 @@ Iso::Application.routes.draw do
     root to: "account#dashboard"
   end
 
+  get "/stats" => "pages#stats"
+
   root to: "pages#home"
 end
