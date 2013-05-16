@@ -15,7 +15,7 @@ $(document).ready ->
   image = $(".display .image img")
   if image.length > 0
     image.on "resize:description", ->
-      image.siblings(".description").innerWidth(image.width())
+      image.siblings(".description").innerWidth(image.width()).fadeIn()
 
     $(".display").imagesLoaded ->
       image.trigger "resize:description"
