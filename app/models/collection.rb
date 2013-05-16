@@ -23,8 +23,17 @@ class Collection < ActiveRecord::Base
       if category.present?
         photos = photos.where(category_id: category.id)
       end
+
+      photo = if user.already_used_collection_cover_photos.size > 0
+        filtered_photos = photos.where.not(id: user.already_used_collection_cover_photos)
+        photo = filtered_photos.first || photos.first
+        user.already_used_collection_cover_photos << photo.id
+        photo
+      else
+        photos.first
+      end
       
-      photos.first
+      photo
     end
   end
 end

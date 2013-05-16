@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
   counter :photograph_views
   counter :received_recommendations_count
   counter :received_favourites_count
+  list :already_used_collection_cover_photos
 
   validates :email, :name, presence: true
 
