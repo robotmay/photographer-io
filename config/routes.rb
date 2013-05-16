@@ -14,6 +14,7 @@ Iso::Application.routes.draw do
       get :search
       get :random
       get :favourites
+      get :following
     end
 
     member do

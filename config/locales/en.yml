@@ -15,6 +15,7 @@ en:
     explore: "Explore"
     recommended: "Photos recommended by other members"
     favourites: "Your favourite photographs"
+    following: "Photos from people you follow"
 
   nav:
     menu: "Menu"
@@ -40,6 +41,7 @@ en:
     general: "Explore"
     latest: "Latest photographs"
     random: "Go to a random photo!"
+    following: "Photographs from people you follow"
 
   beta_notes:
     title: "This is an early stage beta!"

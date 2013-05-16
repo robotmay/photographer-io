@@ -1,7 +1,7 @@
 class PhotographsController < ApplicationController
   respond_to :html
-  before_filter :authenticate_user!, only: [:favourites, :recommend]
-  before_filter :hide_filters!, only: [:recommended, :favourites, :search]
+  before_filter :authenticate_user!, only: [:favourites, :recommend, :following]
+  before_filter :hide_filters!, only: [:recommended, :favourites, :following, :search]
 
   before_filter :set_parents
   def set_parents
@@ -58,6 +58,14 @@ class PhotographsController < ApplicationController
   def favourites
     @photographs = current_user.favourite_photographs.order("favourites.created_at DESC").page(params[:page])
     set_title(t("titles.favourites"))
+    respond_with @photographs do |f|
+      f.html { render :index }
+    end
+  end
+
+  def following
+    @photographs = current_user.followee_photographs.view_for(current_user).order("created_at DESC").page(params[:page])
+    set_title(t("titles.following"))
     respond_with @photographs do |f|
       f.html { render :index }
     end

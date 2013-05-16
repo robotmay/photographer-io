@@ -17,6 +17,10 @@
             div class="avatar"
               = link_to user_photographs_path(@user) do
                 = image_tag @user.avatar.thumb("500x500#").jpg.url
+      
+      div class="row"
+        div class="large-6 columns"
+          = follow_user_button(@user)
 
   - if !@user.biography.blank?
     li class="user-block"
