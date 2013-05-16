@@ -1,11 +1,3 @@
-#photographs-index
-  header
-    text-align: center
-
-#photographs-show
-  .image
-    text-align: center
-
 .photo-grid
   .photo
     img
@@ -22,6 +14,32 @@
         bottom: 2px
         left: 28px
         right: 5px
+
+#photographs-index
+  header
+    text-align: center
+
+#photographs-show
+  .display
+    text-align: center
+
+    .image
+      display: inline-block
+      max-width: 100%
+
+      img
+        @include box-shadow
+
+    .description
+      @include white-box
+      width: 100%
+      text-align: left
+      font-size: 0.9em
+      padding-bottom: 0
+
+      h4, p
+        margin-bottom: 0
+        padding-bottom: 10px
 
 #photographs-sidebar
   #photographs-creator
