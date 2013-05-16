@@ -51,6 +51,10 @@ class User < ActiveRecord::Base
     favourite_photographs.include?(photograph)
   end
 
+  def following?(user)
+    followees.include?(user)
+  end
+
   def cover_photo_ids
     collections.map { |c| c.cover_photo_id.to_i }.compact
   end

@@ -39,6 +39,7 @@ Iso::Application.routes.draw do
       resources :photographs, only: [:index]
     end
 
+    resources :followings, only: [:create, :destroy]
     resources :photographs, only: [:index]
   end
 

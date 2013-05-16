@@ -18,3 +18,12 @@ aside id="photographs-creator"
       = link_to t("photographs.creator.profile"), user_path(user), class: "button tiny expand"
 
       = link_to t("photographs.creator.photos"), user_photographs_path(user), class: "button tiny success expand"
+
+      - if user_signed_in? && photograph.user != current_user
+        - if current_user.following?(photograph.user)
+          - following = current_user.follower_followings.find_by(followee_id: photograph.user.id)
+          = link_to following_path(following), method: :delete, class: "button unfollow alert tiny expand" do
+            = t("followings.unfollow")
+        - else
+          = link_to user_followings_path(photograph.user), method: :post, class: "button follow secondary tiny expand" do
+            = t("followings.follow")
