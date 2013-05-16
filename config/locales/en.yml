@@ -216,6 +216,16 @@ en:
       succeeded: "Favourite removed!"
       failed: "Failed to remove the photo from your favourites."
 
+  followings:
+    follow: "Follow"
+    unfollow: "Unfollow"
+    create:
+      succeeded: "You are now following %{name}!"
+      failed: "There was a problem following that user. Please contact support."
+    destroy:
+      succeeded: "You are no longer following that user."
+      failed: "There was a problem removing that user from your followings."
+
   photographs:
     none: "There are no photographs here!"
     no_results: "There were no results for your query."

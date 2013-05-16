@@ -17,6 +17,11 @@ class Ability
       favourite.user == user && favourite.photograph.public? && favourite.photograph.user != user
     end
     can :destroy, Favourite, user_id: user.id
+
+    can :create, Following do |following|
+      following.follower == user && following.followee != user
+    end
+    can :destroy, Following, follower_id: user.id
     
     can :manage, Collection, user_id: user.id
     can :manage, Photograph, user_id: user.id
