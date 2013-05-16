@@ -13,9 +13,13 @@ $(document).ready ->
 
   # Description size tweaking on photo show
   image = $(".display .image img")
+  description = image.siblings(".description")
   if image.length > 0
     image.on "resize:description", ->
-      image.siblings(".description").innerWidth(image.width()).fadeIn()
+      if description.length > 0
+        description.innerWidth(image.width())
+        if description.is(":hidden")
+          description.fadeIn()
 
     $(".display").imagesLoaded ->
       image.trigger "resize:description"
