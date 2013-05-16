@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   has_many :followers, through: :followee_followings, source: :follower
   has_many :follower_followings, class_name: "Following", foreign_key: :follower_id
   has_many :followees, through: :follower_followings, source: :followee
+  has_many :followee_photographs, through: :followees, source: :photographs
 
   cache_has_many :photographs
   cache_has_many :collections
