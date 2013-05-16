@@ -14,4 +14,9 @@ $(document).ready ->
   # Description size tweaking on photo show
   image = $(".display .image img")
   if image.length > 0
-    image.siblings(".description").innerWidth(image.width())
+    image.on "resize", ->
+      image.siblings(".description").innerWidth(image.width())
+
+    image.trigger "resize"
+    $(window).resize ->
+      image.trigger "resize"
