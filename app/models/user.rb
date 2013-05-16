@@ -10,6 +10,10 @@ class User < ActiveRecord::Base
   has_many :favourites, dependent: :destroy
   has_many :favourite_photographs, through: :favourites, source: :photograph
   has_many :received_favourites, through: :photographs, source: :favourites
+  has_many :followee_followings, class_name: "Following", foreign_key: :followee_id
+  has_many :followers, through: :followee_followings, source: :follower
+  has_many :follower_followings, class_name: "Following", foreign_key: :follower_id
+  has_many :followees, through: :follower_followings, source: :followee
 
   cache_has_many :photographs
   cache_has_many :collections
