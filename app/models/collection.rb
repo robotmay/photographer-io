@@ -1,5 +1,6 @@
 class Collection < ActiveRecord::Base
   include IdentityCache
+  include Redis::Objects
 
   belongs_to :user
   has_many :collection_photographs
@@ -8,6 +9,8 @@ class Collection < ActiveRecord::Base
   cache_belongs_to :user
 
   paginates_per 50
+
+  value :cover_photo_id
 
   validates :user_id, :name, presence: true
 
@@ -24,14 +27,14 @@ class Collection < ActiveRecord::Base
         photos = photos.where(category_id: category.id)
       end
 
-      photo = if user.already_used_collection_cover_photos.size > 0
-        filtered_photos = photos.where.not(id: user.already_used_collection_cover_photos)
-        photo = filtered_photos.first || photos.first
-        user.already_used_collection_cover_photos << photo.id
-        photo
+      photo = if user.cover_photo_ids.size > 0
+        filtered_photos = photos.where.not(id: user.cover_photo_ids)
+        filtered_photos.first || photos.first
       else
         photos.first
       end
+      
+      self.cover_photo_id = photo.id
       
       photo
     end
