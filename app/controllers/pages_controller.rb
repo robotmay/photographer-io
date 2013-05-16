@@ -15,6 +15,7 @@ class PagesController < ApplicationController
 
       stats = {
         cache: Rails.cache.stats,
+        redis: Redis.current.info,
         photographs: {
           total: Photograph.count,
           latest: {
