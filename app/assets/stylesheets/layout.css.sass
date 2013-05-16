@@ -1,6 +1,9 @@
 body
+  background-image: image-url('ticks.png')
+  @include image-2x(image-url('ticks@2x.png'), 400px, 400px)
   &.darkroom
     background: rgb(0,0,0)
+    background-image: none
     color: rgb(220,220,220)
 
     .top-bar
