@@ -66,6 +66,9 @@ Iso::Application.routes.draw do
     root to: "account#dashboard"
   end
 
+  get "/p/:id" => "photographs#show"
+  get "/u/:id" => "users#show"
+  get "/c/:id" => "collections#show"
   get "/stats" => "pages#stats"
 
   root to: "pages#home"
