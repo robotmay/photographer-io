@@ -226,6 +226,38 @@ ALTER SEQUENCE favourites_id_seq OWNED BY favourites.id;
 
 
 --
+-- Name: followings; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE followings (
+    id integer NOT NULL,
+    followee_id integer,
+    follower_id integer,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: followings_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE followings_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: followings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE followings_id_seq OWNED BY followings.id;
+
+
+--
 -- Name: licenses; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -484,6 +516,13 @@ ALTER TABLE ONLY favourites ALTER COLUMN id SET DEFAULT nextval('favourites_id_s
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY followings ALTER COLUMN id SET DEFAULT nextval('followings_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY licenses ALTER COLUMN id SET DEFAULT nextval('licenses_id_seq'::regclass);
 
 
@@ -553,6 +592,14 @@ ALTER TABLE ONLY collections
 
 ALTER TABLE ONLY favourites
     ADD CONSTRAINT favourites_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: followings_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY followings
+    ADD CONSTRAINT followings_pkey PRIMARY KEY (id);
 
 
 --
@@ -656,6 +703,20 @@ CREATE INDEX index_favourites_on_photograph_id ON favourites USING btree (photog
 --
 
 CREATE INDEX index_favourites_on_user_id ON favourites USING btree (user_id);
+
+
+--
+-- Name: index_followings_on_followee_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_followings_on_followee_id ON followings USING btree (followee_id);
+
+
+--
+-- Name: index_followings_on_follower_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_followings_on_follower_id ON followings USING btree (follower_id);
 
 
 --
@@ -843,3 +904,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130512105305');
 INSERT INTO schema_migrations (version) VALUES ('20130512105909');
 
 INSERT INTO schema_migrations (version) VALUES ('20130512114945');
+
+INSERT INTO schema_migrations (version) VALUES ('20130516212700');
