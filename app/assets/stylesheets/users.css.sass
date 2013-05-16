@@ -5,7 +5,9 @@
     .panel
       margin-bottom: 0
 
-    &#user-biography
-      width: 40%
-      font-size: 0.9em
+    #user-panel, #user-biography
+      @include white-box
+
+      p:last-child
+        margin: 0
 
