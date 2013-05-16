@@ -17,6 +17,8 @@ $(document).ready ->
     image.on "resize", ->
       image.siblings(".description").innerWidth(image.width())
 
-    image.trigger "resize"
+    $(".display").imagesLoaded ->
+      image.trigger "resize"
+
     $(window).resize ->
       image.trigger "resize"
