@@ -23,7 +23,6 @@ class User < ActiveRecord::Base
   counter :photograph_views
   counter :received_recommendations_count
   counter :received_favourites_count
-  list :already_used_collection_cover_photos
 
   validates :email, :name, presence: true
 
@@ -46,6 +45,10 @@ class User < ActiveRecord::Base
 
   def favourited?(photograph)
     favourite_photographs.include?(photograph)
+  end
+
+  def cover_photo_ids
+    collections.map { |c| c.cover_photo_id.to_i }.compact
   end
 
   def website_host
