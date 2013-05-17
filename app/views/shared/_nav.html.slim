@@ -10,7 +10,7 @@ nav id="layout-nav" class="top-bar"
 
   section class="top-bar-section"
     ul class="left"
-      - cache([:nav, :explore, request.fullpath], expires_in: 10.minutes) do
+      - cache([:nav, :explore, request.fullpath, current_user], expires_in: 10.minutes) do
         li class="has-dropdown"
           = link_to t("nav.explore"), explore_collections_path, active_on: /\/explore/i
           ul class="dropdown explore-menu"
