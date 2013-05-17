@@ -24,8 +24,9 @@ nav id="layout-nav" class="top-bar"
                     = link_to t("nav.latest"), explore_collections_path, active_on: true, \
                       active_wrapper: :li
                     
-                    = link_to t("nav.following"), following_photographs_path, \
-                      active_on: true, active_wrapper: :li
+                    - if user_signed_in?
+                      = link_to t("nav.following"), following_photographs_path, \
+                        active_on: true, active_wrapper: :li
 
               div class="row"
                 div class="large-12 columns"
