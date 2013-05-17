@@ -131,6 +131,16 @@ class Photograph < ActiveRecord::Base
     PhotoExpansionWorker.perform_async(id)
   end
 
+  after_destroy :expire_from_cdn
+  def expire_from_cdn
+    paths = [:standard_image, :homepage_image, :large_image, :thumbnail_image].map do |m|
+      uri = URI.parse(URI.escape(self.send(m).remote_url))
+      uri.path
+    end
+
+    CDNExpiryWorker.perform_async(paths)
+  end
+
   def processing?
     processing || metadata.processing
   end
