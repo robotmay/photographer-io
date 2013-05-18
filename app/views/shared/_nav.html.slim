@@ -84,6 +84,9 @@ nav id="layout-nav" class="top-bar"
             = link_to t("nav.edit_account"), edit_user_registration_path, \
               active_on: true, active_wrapper: :li
 
+            = link_to t("nav.invite"), new_user_invitation_path, active_on: true, \
+              active_wrapper: :li
+
             = link_to t("nav.profile"), user_path(current_user), active_on: true, \
               active_wrapper: :li
 
