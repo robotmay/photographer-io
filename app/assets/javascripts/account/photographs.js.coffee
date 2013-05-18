@@ -2,6 +2,7 @@ $(document).ready ->
   photoForm = $("form#photograph-uploader")
   if photoForm.length > 0
     photoForm.S3Uploader
+      progress_bar_target: photoForm.find(".dropzone .bars")
       before_add: (file) ->
         file.type == "image/jpeg"
 

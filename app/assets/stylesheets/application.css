@@ -9,7 +9,6 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require s3_direct_upload_progress_bars
  *= require jquery.fileupload-ui
  *= require intercom
  *= require base
