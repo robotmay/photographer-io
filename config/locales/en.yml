@@ -297,6 +297,10 @@ en:
       new:
         title: "Invite your friends"
         invite: "Send invite"
+        limit: >
+          There is currently a limit of %{n} invites per user whilst this system
+          is new. This will likely be altered or removed in future depending on usage.
+
         spiel:
           title: "Bring your friends along and get rewards!"
           body: |
@@ -305,6 +309,29 @@ en:
 
             For every friend you recruit you'll gain %{referral_bonus} extra uploads
             per month.
+
+      edit:
+        title: "Create your account"
+        accept: "Accept invitation and create account"
+        spiel:
+          title: "Accept your invite and join us!"
+          body: |
+            As a free member of Photographer.io you'll be able to:
+
+            * Upload up to %{uploads} photos per month
+            * Create unlimited photo collections
+            * Follow other users' updates
+            * Favourite photographs
+            * Promote your favourite photos with the recommendation system
+
+            Want to get unlimited uploads, more features, and help support the site? 
+            A paid plan is coming soon!
+
+            ##### Refer your friends for extra uploads
+            For every friend you get to sign up, both you and your friend will 
+            gain an extra %{referral_bonus} uploads per month. 
+            Instructions are in your account page after you create
+            your account.
             
     sessions:
       new:

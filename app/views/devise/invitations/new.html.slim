@@ -32,7 +32,7 @@ section id="invitations-new"
     div class="large-7 columns"
       div id="invite-area"
         div class="row"
-          div class="large-4 columns"
+          div class="large-6 columns"
             article class="spiel"
               header
                 h5= t("users.invitations.new.spiel.title")
@@ -40,8 +40,13 @@ section id="invitations-new"
               section class="content"
                 = md t("users.invitations.new.spiel.body", \
                   referral_bonus: ISO[:defaults][:upload_referral_bonus])
+              
+                - if Devise.invitation_limit.present? && Devise.invitation_limit > 0
+                  p class="note"
+                    = t("users.invitations.new.limit", n: Devise.invitation_limit)
+                
 
-          div class="large-8 columns"
+          div class="large-6 columns"
             = simple_form_for resource, as: resource_name, url: invitation_path(resource_name), html: { method: :post } do |f|
               = devise_error_messages!
 
