@@ -54,6 +54,7 @@ class Photograph < ActiveRecord::Base
   validates :user_id, :image_uid, presence: true
   validates :image_mime_type, inclusion: { in: ["image/jpeg"] }, on: :create
   validates :image_size, numericality: { less_than_or_equal_to: 50.megabytes }, on: :create
+  validate :upload_quota_is_not_exceeded
 
   scope :processing, -> {
     where(processing: true)
@@ -90,6 +91,9 @@ class Photograph < ActiveRecord::Base
   }
   scope :square, -> {
     joins(:metadata).merge(Metadata.format('square'))
+  }
+  scope :for_month, -> (date_range) {
+    where(created_at: date_range)
   }
 
   def image_storage_path(i)
@@ -266,6 +270,13 @@ class Photograph < ActiveRecord::Base
       else
         joins(:collections).where(collections: { public: true }).where(processing: false).includes(:metadata, :user)
       end
+    end
+  end
+
+  private
+  def upload_quota_is_not_exceeded
+    if user.remaining_uploads_for_this_month == 0
+      errors.add(:base, I18n.t("photographs.user_quota_exceeded"))
     end
   end
 end

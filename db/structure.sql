@@ -454,7 +454,8 @@ CREATE TABLE users (
     biography text,
     website_url character varying(255),
     recommendations_count integer,
-    channel_key uuid DEFAULT uuid_generate_v4()
+    channel_key uuid DEFAULT uuid_generate_v4(),
+    upload_quota integer
 );
 
 
@@ -906,3 +907,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130512105909');
 INSERT INTO schema_migrations (version) VALUES ('20130512114945');
 
 INSERT INTO schema_migrations (version) VALUES ('20130516212700');
+
+INSERT INTO schema_migrations (version) VALUES ('20130518102856');
