@@ -1,0 +1,27 @@
+section id="invitations-edit"
+  header class="row"
+    div class="large-12 columns"
+      h1= t("users.invitations.edit.title")
+
+  div id="sign-up-area"
+    div class="row"
+      div class="large-6 columns"
+        article class="spiel"
+          header
+            h5= t("users.invitations.edit.spiel.title")
+
+          section class="content"
+            = md t("users.invitations.edit.spiel.body", \
+              uploads: (ISO[:defaults][:uploads_per_month] + ISO[:defaults][:upload_referral_bonus]),
+              referral_bonus: ISO[:defaults][:upload_referral_bonus])
+
+      div class="large-6 columns"
+        = simple_form_for resource, as: resource_name, url: invitation_path(resource_name), html: { method: :put } do |f|
+          = f.hidden_field :invitation_token
+          fieldset
+            = f.input :name
+            = f.input :email, input_html: { autocomplete: "off" }
+            = f.input :password, input_html: { autocomplete: "off" }, required: true
+            = f.input :password_confirmation, input_html: { autocomplete: "off" }, required: true
+
+            = f.button :submit, t("users.invitations.edit.accept"), class: "success expand small"
