@@ -48,7 +48,6 @@ section id="invitations-new"
 
           div class="large-6 columns"
             = simple_form_for resource, as: resource_name, url: invitation_path(resource_name), html: { method: :post } do |f|
-              = devise_error_messages!
 
               fieldset
                 - resource.class.invite_key_fields.each do |field|
