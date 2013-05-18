@@ -229,6 +229,8 @@ en:
       failed: "There was a problem removing that user from your followings."
 
   photographs:
+    user_quota_exceeded: >
+      Unfortunately you have hit your upload limit for this month :(
     none: "There are no photographs here!"
     no_results: "There were no results for your query."
     collections: "Listed in collections"
@@ -285,7 +287,7 @@ en:
         body: |
           As a free member of Photographer.io you'll be able to:
 
-          * Upload up to 120 photos per month
+          * Upload up to %{uploads} photos per month
           * Create unlimited photo collections
           * Follow other users' updates
           * Favourite photographs
@@ -293,3 +295,6 @@ en:
 
           Want to get unlimited uploads, more features, and help support the site? 
           A paid plan is coming soon!
+
+          You can also increase your upload limit by getting your friends to sign up;
+          details are available in your account page after you create your account.

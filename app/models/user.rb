@@ -33,7 +33,16 @@ class User < ActiveRecord::Base
 
   before_create :set_defaults
   def set_defaults
-    self.recommendation_quota = 10
+    self.recommendation_quota = ISO[:defaults][:recommendation_quota]
+    self.upload_quota = ISO[:defaults][:uploads_per_month]
+  end
+
+  def upload_count_for_this_month
+    photographs.for_month(Date.today.beginning_of_month..Date.today.end_of_month).count
+  end
+
+  def remaining_uploads_for_this_month
+    upload_quota - upload_count_for_this_month
   end
 
   def recommendation_count_for_today
