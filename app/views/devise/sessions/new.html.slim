@@ -1,0 +1,26 @@
+section id="sessions-new"
+  header class="row"
+    div class="large-12 columns"
+      h1= t("users.sessions.new.title")
+
+  div id="sign-in-area"
+    div class="row"
+      div class="large-6 columns"
+        article class="spiel"
+          header
+            h5= t("users.sessions.new.spiel.title")
+
+          section class="content"
+            = md t("users.sessions.new.spiel.body", sign_up_path: new_user_registration_path)
+
+      div class="large-6 columns"
+        = simple_form_for resource, as: resource_name, url: session_path(resource_name) do |f|
+          fieldset
+            = f.input :email, required: false, autofocus: true
+            = f.input :password, required: false
+            = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+
+            = f.button :submit, t("users.sessions.new.sign_in"), class: "success expand small"
+
+            = render "devise/shared/links"
+
