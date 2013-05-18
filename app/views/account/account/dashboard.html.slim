@@ -13,13 +13,13 @@ section id="account-dashboard"
         tbody
           tr
             td= t("account.dashboard.statistics.photo_count")
-            td= current_user.photographs.count
+            td= current_user.photographs.uniq.count
           tr
             td= t("account.dashboard.statistics.public_photo_count")
-            td= current_user.photographs.public.count
+            td= current_user.photographs.public.uniq.count
           tr
             td= t("account.dashboard.statistics.private_photo_count")
-            td= current_user.photographs.private.count
+            td= current_user.photographs.private.uniq.count
           tr
             td= t("account.dashboard.statistics.views")
             td= current_user.photograph_views.to_i
