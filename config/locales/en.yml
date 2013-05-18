@@ -185,7 +185,8 @@ en:
       upload: "Upload"
       delete: "Delete this photograph"
       dropzone: >
-        Drag and drop your images onto this page to upload them.
+        Drag and drop your images onto this page to upload them. 
+        Read up on our %{guidelines}.
       public_warning: >
         This collection is set as public. Any photos in here will be listed on
         the public-facing site.
@@ -222,6 +223,22 @@ en:
       destroy:
         succeeded: "Your photograph has been deleted successfully."
         failed: "There was a problem deleting that photograph."
+
+      guidelines:
+        link: "image guidelines"
+        title: "Guidelines for photographs"
+        body: |
+          The following are the rough guidelines for uploading your photos to 
+          Photographer.io. Following these will help ensure your images appear at their
+          best!
+
+          * Currently the only supported format is JPEG/JPG.
+          * Use a high quality setting when saving as JPG, as we adjust the quality automatically.
+          * It's recommended that you upload images of at least 2000 pixels in their largest dimension. This ensures that no scaling up will happen across the site.
+          * The largest image size accessible by the public on the site is 2000px, which is used for the homepage images. It will be possible to opt-out of your images appearing there soon.
+          * For individual photo pages the images are displayed at a maximum of 1500px in the largest dimension.
+          * You can upload full-size JPGs from your camera; upload quotas are calculated by the number of images, not the size. However it's recommended that you use slightly smaller copies to reduce upload and processing time.
+          * The original image you upload is not accessible by anyone but yourself, we generate smaller, optimised copies for use around the site.
 
   collections:
     caption: "%{user} updated %{collection}"

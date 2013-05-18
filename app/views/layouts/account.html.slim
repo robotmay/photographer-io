@@ -12,5 +12,14 @@
       | &#215;
     h2= t("account.collections.modal.new.title")
     = render partial: "account/collections/form", locals: { collection: current_user.collections.new }
+  
+  div id="photo-guidelines-modal" class="reveal-modal medium"
+    header
+      a class="close-reveal-modal"
+        | &#215;
+      h2= t("account.photographs.guidelines.title")
+
+    section class="content"
+      = md t("account.photographs.guidelines.body")
 
 = render file: "layouts/application"
