@@ -91,6 +91,8 @@ en:
       settings: "Account settings"
       invite: "Invite your friends"
       photographs: "Photographs"
+      upload_quota: "Your usage this month"
+      get_more_uploads: "Need more? <a href='%{path}'>Invite your friends!</a>"
 
     form:
       auth: "Sign in details"

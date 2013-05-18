@@ -53,6 +53,11 @@ class User < ActiveRecord::Base
     upload_quota - upload_count_for_this_month
   end
 
+  def percentage_of_upload_quota_used_this_month
+    decimal = upload_count_for_this_month.to_f / upload_quota.to_f
+    decimal * 100
+  end
+
   def increase_upload_quota(n)
     n ||= 0
     self.update_attribute(:upload_quota, upload_quota + n)
