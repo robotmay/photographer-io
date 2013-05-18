@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   cache_has_many :photographs
   cache_has_many :collections
 
-  devise :database_authenticatable, :invitable, :registerable,
+  devise :database_authenticatable, :invitable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
   image_accessor :avatar
@@ -37,12 +37,24 @@ class User < ActiveRecord::Base
     self.upload_quota = ISO[:defaults][:uploads_per_month]
   end
 
+  after_invitation_accepted :apply_referral_bonus
+  def apply_referral_bonus
+    n = ISO[:defaults][:upload_referral_bonus]
+    increase_upload_quota(n)
+    invited_by.increase_upload_quota(n)
+  end
+
   def upload_count_for_this_month
     photographs.for_month(Date.today.beginning_of_month..Date.today.end_of_month).count
   end
 
   def remaining_uploads_for_this_month
     upload_quota - upload_count_for_this_month
+  end
+
+  def increase_upload_quota(n)
+    n ||= 0
+    self.update_attribute(:upload_quota, upload_quota + n)
   end
 
   def recommendation_count_for_today

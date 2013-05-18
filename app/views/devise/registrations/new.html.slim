@@ -6,7 +6,7 @@ section id="users-new"
   div id="sign-up-area"
     div class="row"
       div class="large-6 columns"
-        article id="sign-up-spiel"
+        article class="spiel"
           header
             h5= t("users.new.spiel.title")
 
@@ -19,9 +19,9 @@ section id="users-new"
         = simple_form_for resource, as: resource_name, url: registration_path(resource_name) do |f|
           fieldset
             = f.input :name
-            = f.input :email
+            = f.input :email, input_html: { autocomplete: "off" }
             = f.input :password, input_html: { autocomplete: "off" }, required: true
-            = f.input :password_confirmation, required: true
+            = f.input :password_confirmation, input_html: { autocomplete: "off" }, required: true
 
             = f.button :submit, class: "success expand small"
 
