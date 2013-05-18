@@ -43,6 +43,7 @@ en:
     random: "Go to a random photo!"
     following: "Photographs from people you follow"
     invite: "Invite a friend"
+    dashboard: "Dashboard"
 
   beta_notes:
     title: "This is an early stage beta!"

@@ -78,6 +78,8 @@ nav id="layout-nav" class="top-bar"
         li class="has-dropdown"
           = link_to current_user.name, account_root_path, active_on: true
           ul class="dropdown"
+            = link_to t("nav.dashboard"), account_root_path, active_on: true, \
+              active_wrapper: :li
             = link_to t("nav.photographs"), account_photographs_path, active_on: true, \
               active_wrapper: :li
 
