@@ -31,7 +31,7 @@ en:
 
     placeholders:
       user:
-        name: "Your name, nickname, etc; how do you want to be known?"
+        name: "Your name or nickname"
         website_url: "http://yourgreatphotosite.com"
 
     hints:
