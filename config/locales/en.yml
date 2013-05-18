@@ -296,5 +296,7 @@ en:
           Want to get unlimited uploads, more features, and help support the site? 
           A paid plan is coming soon!
 
-          You can also increase your upload limit by getting your friends to sign up;
-          details are available in your account page after you create your account.
+          ##### Refer your friends for extra uploads
+          For every friend you get to sign up you'll gain an extra %{referral_bonus}
+          uploads per month. Instructions are in your account page after you create
+          your account.
