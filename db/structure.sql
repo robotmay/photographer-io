@@ -455,11 +455,7 @@ CREATE TABLE users (
     website_url character varying(255),
     recommendations_count integer,
     channel_key uuid DEFAULT uuid_generate_v4(),
-    upload_quota integer,
-    confirmation_token character varying(255),
-    confirmed_at timestamp without time zone,
-    confirmation_sent_at timestamp without time zone,
-    unconfirmed_email character varying(255)
+    upload_quota integer
 );
 
 
@@ -781,13 +777,6 @@ CREATE INDEX index_recommendations_on_user_id ON recommendations USING btree (us
 
 
 --
--- Name: index_users_on_confirmation_token; Type: INDEX; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE UNIQUE INDEX index_users_on_confirmation_token ON users USING btree (confirmation_token);
-
-
---
 -- Name: index_users_on_email; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -920,5 +909,3 @@ INSERT INTO schema_migrations (version) VALUES ('20130512114945');
 INSERT INTO schema_migrations (version) VALUES ('20130516212700');
 
 INSERT INTO schema_migrations (version) VALUES ('20130518102856');
-
-INSERT INTO schema_migrations (version) VALUES ('20130518105445');

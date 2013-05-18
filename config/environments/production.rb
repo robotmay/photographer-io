@@ -64,11 +64,6 @@ Iso::Application.configure do
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
 
-  # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  if ENV['CDN_HOST'].present?
-    config.action_controller.asset_host = ENV['CDN_HOST']
-  end
-
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
   config.assets.precompile += %w( custom.modernizr.js )
@@ -79,6 +74,13 @@ Iso::Application.configure do
   config.action_mailer.delivery_method = :postmark
   config.action_mailer.postmark_settings = { api_key: ENV['POSTMARK_API_KEY'] }
   config.action_mailer.default_url_options = { host: ENV['DOMAIN'] }
+  config.action_mailer.asset_host = ENV['DOMAIN']
+
+  # Enable serving of images, stylesheets, and JavaScripts from an asset server.
+  if ENV['CDN_HOST'].present?
+    config.action_controller.asset_host = ENV['CDN_HOST']
+    config.action_mailer.asset_host = ENV['CDN_HOST']
+  end
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found).

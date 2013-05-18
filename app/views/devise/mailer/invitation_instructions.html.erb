@@ -1,8 +1,15 @@
-<p>Hello <%= @resource.email %>!</p>
+<h4>Greetings!</h4>
 
-<p>Someone has invited you to <%= root_url %>, you can accept it through the link below.</p>
+<p>
+  <strong><%= link_to @resource.invited_by.name, user_url(@resource) %></strong> has invited you to join Photographer.io - a new photo sharing community for photography enthusiasts. Because they've invited you, you both get an additional <%= ISO[:defaults][:upload_referral_bonus] %> uploads per month.
+</p>
 
-<p><%= link_to 'Accept invitation', accept_invitation_url(@resource, :invitation_token => @resource.invitation_token) %></p>
+<p>
+  To accept your invite and get started, click the following link:
+</p>
 
-<p>If you don't want to accept the invitation, please ignore this email.<br />
-Your account won't be created until you access the link above and set your password.</p>
+<p><%= link_to 'Accept invitation', accept_invitation_url(@resource, :invitation_token => @resource.invitation_token), class: "button" %></p>
+
+<p>
+  If you believe this email was sent in error, then you don't need to do anything. Your account will not be created unless you accept the invitation via the link above.
+</p>
