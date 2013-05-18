@@ -3,7 +3,8 @@
   = file_field_tag :file, multiple: true
 
   div class="dropzone"
-    = t("account.photographs.dropzone")
+    = t("account.photographs.dropzone", \
+      guidelines: link_to(t("account.photographs.guidelines.link"), "#", "data-reveal-id" => "photo-guidelines-modal")).html_safe
     
     div class="clear"
     div class="bars"
