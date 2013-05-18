@@ -276,3 +276,20 @@ en:
   recommendations:
     user_quota_exceeded: "You have run out of recommendations to give for today!"
     quota: "You can recommend %{amount} more photographs today!"
+
+  users:
+    new:
+      title: "Create your Photographer.io account"
+      spiel:
+        title: "Join us!"
+        body: |
+          As a free member of Photographer.io you'll be able to:
+
+          * Upload up to 120 photos per month
+          * Create unlimited photo collections
+          * Follow other users' updates
+          * Favourite photographs
+          * Promote your favourite photos with the recommendation system
+
+          Want to get unlimited uploads, more features, and help support the site? 
+          A paid plan is coming soon!
