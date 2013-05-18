@@ -1,0 +1,54 @@
+section id="invitations-new"
+  header class="row"
+    div class="large-12 columns"
+      h1= t("users.invitations.new.title")
+
+  div class="row"
+    div class="large-5 columns"
+      div class="panel"
+        header
+          h4= t("users.invitations.invited.title")
+
+        - if current_user.invitations.count > 0
+          table
+            thead
+              tr
+                th= t("users.invitations.invited.email")
+                th= t("users.invitations.invited.status")
+            tbody
+              - current_user.invitations.order("created_at ASC").each do |user|
+                tr
+                  td= user.email
+                  td
+                    - if user.invitation_accepted?
+                      span class="success label"
+                        = t("users.invitations.invited.confirmed")
+                    - else
+                      span class="secondary label"
+                        = t("users.invitations.invited.unconfirmed")
+        - else
+          span= t("users.invitations.invited.none")
+
+    div class="large-7 columns"
+      div id="invite-area"
+        div class="row"
+          div class="large-4 columns"
+            article class="spiel"
+              header
+                h5= t("users.invitations.new.spiel.title")
+
+              section class="content"
+                = md t("users.invitations.new.spiel.body", \
+                  referral_bonus: ISO[:defaults][:upload_referral_bonus])
+
+          div class="large-8 columns"
+            = simple_form_for resource, as: resource_name, url: invitation_path(resource_name), html: { method: :post } do |f|
+              = devise_error_messages!
+
+              fieldset
+                - resource.class.invite_key_fields.each do |field|
+                  = f.input field, required: true, input_html: { autocomplete: "off" }
+
+                = f.button :submit, t("users.invitations.new.invite"), class: "secondary small"
+
+

@@ -89,6 +89,7 @@ en:
       title: "Your Account"
       home: "Dashboard"
       settings: "Account settings"
+      invite: "Invite your friends"
       photographs: "Photographs"
 
     form:
@@ -281,6 +282,28 @@ en:
     quota: "You can recommend %{amount} more photographs today!"
 
   users:
+    invitations:
+      invited:
+        title: "Friends you've already invited"
+        email: "Email address"
+        status: "Status"
+        confirmed: "Accepted!"
+        unconfirmed: "Not yet accepted"
+        none: |
+          You haven't invited anyone yet! Get started with the form to the right.
+
+      new:
+        title: "Invite your friends"
+        invite: "Send invite"
+        spiel:
+          title: "Bring your friends along and get rewards!"
+          body: |
+            Enjoying Photographer.io? Spread the love and get your friends
+            to join us too!
+
+            For every friend you recruit you'll gain %{referral_bonus} extra uploads
+            per month.
+            
     sessions:
       new:
         title: "Sign in to your account"

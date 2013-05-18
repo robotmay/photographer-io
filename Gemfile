@@ -39,6 +39,7 @@ gem 's3'
 # auth
 gem 'devise', git: 'git://github.com/plataformatec/devise.git', branch: 'rails4'
 gem 'devise_invitable', git: 'git://github.com/robotmay/devise_invitable.git', branch: 'rails4'
+gem 'devise-async'
 # gem 'devise-scrypt' TODO: Switch to scrypt, gem needs updating
 gem 'cancan'
 
@@ -85,4 +86,5 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'guard-sidekiq'
   gem 'rb-inotify', '~> 0.8.8'
+  gem 'letter_opener'
 end

@@ -23,8 +23,11 @@ Iso::Application.configure do
   config.consider_all_requests_local       = true
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { host: "localhost:5000" }
+  config.action_mailer.asset_host = 'http://localhost:5000'
+  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.perform_deliveries = true
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

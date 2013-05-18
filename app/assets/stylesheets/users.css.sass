@@ -14,10 +14,12 @@
     #user-biography
       font-size: 0.9em
 
-#users-new, #sessions-new
+#users-new, #sessions-new, #invitations-new
   #sign-up-area, #sign-in-area
-    @include white-box
     margin-top: 20px
+
+  #sign-up-area, #sign-in-area, #invite-area
+    @include white-box
 
     .spiel
       .content

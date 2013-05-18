@@ -15,12 +15,13 @@ class User < ActiveRecord::Base
   has_many :follower_followings, class_name: "Following", foreign_key: :follower_id
   has_many :followees, through: :follower_followings, source: :followee
   has_many :followee_photographs, through: :followees, source: :photographs
+  has_many :invitations, class_name: self.to_s, as: :invited_by
 
   cache_has_many :photographs
   cache_has_many :collections
 
-  devise :database_authenticatable, :invitable, :registerable, :confirmable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :invitable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable, :async
 
   image_accessor :avatar
 
