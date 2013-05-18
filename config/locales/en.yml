@@ -82,7 +82,15 @@ en:
       A new photo community for sharing your photographs.
     blurb: >
       Upload, organise, and share your photographs alongside others, like %{name} did
-      with this <a href="%{image_path}">fantastic image</a>.
+      with this <a href="%{image_path}">%{word} image</a>.
+    words:
+    - fantastic
+    - wonderful
+    - great
+    - excellent
+    - spectacular
+    - awesome
+    - superb
     register: "Create your account"
 
   account:
