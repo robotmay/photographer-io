@@ -53,6 +53,7 @@ gem 'slim', '>= 1.3.0'
 gem 'simple_form', '~> 3.0.0.beta1'
 gem 'link_to_active_state'
 gem 'kaminari'
+gem 'redcarpet'
 
 # models
 gem 'friendly_id', github: 'FriendlyId/friendly_id'
