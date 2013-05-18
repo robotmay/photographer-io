@@ -1,34 +1,37 @@
 = simple_form_for [:account, photograph] do |f|
   = f.simple_fields_for :metadata do |m|
-    fieldset class="panel"
-      legend= t("account.photographs.form.general")
-      = m.input :title, required: false
-      = m.input :keywords, required: false, input_html: { value: m.object.keywords_string }
-      = m.input :description, as: :text, required: false
+    div class="panel"
+      fieldset
+        legend= t("account.photographs.form.general")
+        = m.input :title, required: false
+        = m.input :keywords, required: false, input_html: { value: m.object.keywords_string }
+        = m.input :description, as: :text, required: false
 
-  fieldset class="panel"
-    legend= t("account.photographs.form.collections")
-    div class="row"
-      div class="large-8 columns"
-        = f.association :collections, as: :check_boxes, collection: current_user.collections.order("name ASC")
-      
-      div class="large-4 columns"
-        = f.association :category, collection: Category.order("name ASC")
+  div class="panel"
+    fieldset
+      legend= t("account.photographs.form.collections")
+      div class="row"
+        div class="large-8 columns"
+          = f.association :collections, as: :check_boxes, collection: current_user.collections.order("name ASC"), label: false
+        
+        div class="large-4 columns"
+          = f.association :category, collection: Category.order("name ASC")
 
-  fieldset class="panel"
-    legend= t("account.photographs.form.settings")
-    div class="row"
-      div class="large-3 columns"
-        = f.input :safe_for_work, as: :radio_buttons
+  div class="panel"
+    fieldset
+      legend= t("account.photographs.form.settings")
+      div class="row"
+        div class="large-3 columns"
+          = f.input :safe_for_work, as: :radio_buttons
 
-      div class="large-3 columns"
-        = f.input :show_copyright_info, as: :radio_buttons
+        div class="large-3 columns"
+          = f.input :show_copyright_info, as: :radio_buttons
 
-      div class="large-3 columns"
-        = f.association :license
+        div class="large-3 columns"
+          = f.association :license
 
-      div class="large-3 columns"
-        = f.input :show_location_data, as: :radio_buttons, default: (f.object.user.show_location_data)
+        div class="large-3 columns"
+          = f.input :show_location_data, as: :radio_buttons, default: (f.object.user.show_location_data)
 
   = f.button :submit
 
