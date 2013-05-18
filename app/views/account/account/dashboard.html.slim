@@ -43,6 +43,18 @@ section id="account-dashboard"
             td= t("account.dashboard.recommendations.total", n: current_user.recommendations.count)
 
     div class="large-4 columns"
+      h4= t("account.dashboard.usage.title")
+
+      table
+        tbody
+          tr
+            td= t("account.dashboard.usage.quota", n: current_user.upload_quota)
+          
+          tr
+            td= t("account.dashboard.usage.remaining", n: current_user.remaining_uploads_for_this_month)
+
+          tr
+            td= t("account.dashboard.usage.get_more", path: new_user_invitation_path).html_safe
 
   div class="row"
     div class="large-8 columns"

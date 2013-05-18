@@ -122,6 +122,12 @@ en:
         remaining: "You have %{n} remaining recommendations for today"
         total: "You have made a total of %{n} recommendations"
 
+      usage:
+        title: "Usage"
+        quota: "You can upload a total of %{n} photos per month"
+        remaining: "You have %{n} remaining uploads this month"
+        get_more: "Need more? <a href='%{path}'>Invite some friends!</a>"
+
       hints:
         title: "Hints for new users"
         public_collections: >
