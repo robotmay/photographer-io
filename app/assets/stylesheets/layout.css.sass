@@ -46,49 +46,7 @@ body
         color: rgb(0,0,0)
 
   #mini-user-stats
-    padding: 0
-
-    span
-      text-align: right
-
-      .icon
-        vertical-align: middle
-        display: inline-block
-        width: 16px
-        height: 16px
-        margin-right: 5px
-
-      .number
-        display: inline-block
-        font-size: 12px
-        height: 16px
-        line-height: 10px
-
-      &.active
-        color: $secondary-color
-
-      &.views
-        margin-right: 15px
-        .icon
-          background: image-url('glyphicons_halflings_inverted/glyphicons_halflings_104_eye-open.png') left center no-repeat
-          @include image-2x(image-url('glyphicons_halflings_inverted/glyphicons_halflings_104_eye-open@2x.png'), 16px, 16px)
-
-      &.followers
-        margin-right: 15px
-        .icon
-          background: image-url('glyphicons_halflings_inverted/glyphicons_halflings_007_user.png') left center no-repeat
-          @include image-2x(image-url('glyphicons_halflings_inverted/glyphicons_halflings_007_user@2x.png'), 16px, 16px)
-
-      &.recommendations
-        margin-right: 15px
-        .icon
-          background: image-url('glyphicons_halflings_inverted/glyphicons_halflings_012_ok.png') left center no-repeat
-          @include image-2x(image-url('glyphicons_halflings_inverted/glyphicons_halflings_012_ok@2x.png'), 16px, 16px)
-
-      &.favourites
-        .icon
-          background: image-url('glyphicons_halflings_inverted/glyphicons_halflings_004_heart.png') left center no-repeat
-          @include image-2x(image-url('glyphicons_halflings_inverted/glyphicons_halflings_004_heart@2x.png'), 16px, 16px)
+    @include stats
 
 #layout-footer
   opacity: 0.8

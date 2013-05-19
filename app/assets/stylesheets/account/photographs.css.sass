@@ -69,39 +69,51 @@ form.edit_photograph
       .progress
         margin-top: 5px
 
-#new_mass_edit
-  &.edit-mode
-    .photo-grid
-      li.photo
-        opacity: 0.6
+#account-photographs-index
+  .photo-grid
+    .photo
+      position: relative
 
-        &.active
-          opacity: 1  
-          img
-            box-shadow: 0 0 6px 1px $primary-color
+      footer
+        background-image: none
+        padding-left: 10px
+        padding-right: 10px
+        .stats
+          @include stats('glyphicons_halflings')
 
-  #MECollections
-    @include dropdown-container(content, true, 400px)
+  #new_mass_edit
+    &.edit-mode
+      .photo-grid
+        li.photo
+          opacity: 0.6
 
-    li
-      margin-bottom: 5px
+          &.active
+            opacity: 1  
+            img
+              box-shadow: 0 0 6px 1px $primary-color
 
-      &.hint
-        font-size: 0.8em
-        margin-bottom: 10px
+    #MECollections
+      @include dropdown-container(content, true, 400px)
 
-      &:hover
-        background: none
-        cursor: default
+      li
+        margin-bottom: 5px
 
-      &.action
-        margin-top: 10px
+        &.hint
+          font-size: 0.8em
+          margin-bottom: 10px
 
-      label
-        display: block
-        font-size: 1em
-        input
-          margin-right: 5px
+        &:hover
+          background: none
+          cursor: default
+
+        &.action
+          margin-top: 10px
+
+        label
+          display: block
+          font-size: 1em
+          input
+            margin-right: 5px
 
 #photo-guidelines-modal
   ul
