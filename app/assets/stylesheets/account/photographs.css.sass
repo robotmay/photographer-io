@@ -21,6 +21,33 @@ form.edit_photograph
     input
       margin: 0
 
+  .twitter-typeahead
+    width: 100%
+
+    input
+      width: 100%
+
+    .tt-dropdown-menu
+      @include white-box
+      padding:
+        top: 5px
+        bottom: 5px
+        left: 0
+        right: 0
+      width: 100%
+      
+      .tt-suggestions
+        .tt-suggestion
+          padding:
+            left: 10px
+            right: 10px
+          margin-bottom: 3px
+          &:hover
+            background: $secondary-color
+
+          p
+            margin: 0
+
 .hints
   ul
     padding-left: 20px

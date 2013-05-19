@@ -17,6 +17,7 @@
 #= require jquery.pjax
 #= require s3_direct_upload
 #= require pusher.min
+#= require typeahead
 #= require foundation
 #= require_tree .
 

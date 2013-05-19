@@ -172,6 +172,31 @@ module Account
         end
       end
     end
+
+    def typeahead
+      @values = Rails.cache.fetch([current_user, :typeahead, params[:key]], expires_in: 5.minutes) do
+        @values = Rails.cache.fetch([current_user, :typeahead], expires_in: 10.minutes) do
+          Metadata::EDITABLE_KEYS.reduce({}) do |hash, key|
+            hash[key] = current_user.metadata.map do |m|
+              value = m.send(key)
+              { value: value, tokens: value.to_s.split(" ") }
+            end
+            hash[key].keep_if { |val| val[:value].present? }
+            hash
+          end
+        end
+
+        if params[:key].present?
+          @values = @values[params[:key].to_sym]
+        else
+          @values
+        end
+      end
+
+      respond_with @values do |f|
+        f.json { render json: @values.to_json }
+      end
+    end
     
     private
     def upload_params

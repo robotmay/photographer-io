@@ -55,6 +55,7 @@ Iso::Application.routes.draw do
         get :private
         get :unsorted
         post :mass_update
+        get :typeahead
       end
     end
 

@@ -19,7 +19,18 @@
                 tr
                   td= t("photographs.metadata.#{attr}")
                   - if m.object.can_edit?(attr)
-                    td= m.input attr, label: false
+                    td= m.input attr, label: false, input_html: { "data-typeahead" => attr, "autocomplete" => "off" }
                   - else
                     td= parse_and_display_metadata_value(section, value)
 
+- content_for(:javascript) do
+  javascript:
+    var typeaheadData = #{metadata_typeahead_values.to_json.html_safe};
+
+    $("input[data-typeahead]").each(function() {
+      key = $(this).data('typeahead');
+      $(this).typeahead({
+        name: key,
+        local: typeaheadData[key]
+      });
+    });
