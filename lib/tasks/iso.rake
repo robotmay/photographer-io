@@ -72,6 +72,11 @@ namespace :iso do
         user.received_favourites_count.increment(
           user.received_favourites.count
         )
+
+        user.followers_count.reset
+        user.followers_count.increment(
+          user.followers.count
+        )
       end
     end
   end

@@ -30,6 +30,7 @@ class User < ActiveRecord::Base
   counter :photograph_views
   counter :received_recommendations_count
   counter :received_favourites_count
+  counter :followers_count
 
   validates :email, :name, presence: true
 
@@ -104,7 +105,8 @@ class User < ActiveRecord::Base
           Pusher.trigger(channel_key, 'stats_update', {
             views: photograph_views.to_i,
             recommendations: received_recommendations_count.to_i,
-            favourites: received_favourites_count.to_i
+            favourites: received_favourites_count.to_i,
+            followers: followers_count.to_i
           })
         rescue Pusher::Error
         end
