@@ -26,8 +26,8 @@ class PagesController < ApplicationController
         },
         users: {
           total: User.count,
-          invited: User.where.not(invited_by_id: nil),
-          accepted_invites: User.where.not(invitation_accepted_at: nil)
+          invited: User.where.not(invited_by_id: nil).count,
+          accepted_invites: User.where.not(invitation_accepted_at: nil).count
         }
       }
 
