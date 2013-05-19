@@ -115,7 +115,7 @@ class Photograph < ActiveRecord::Base
 
     integer :user_id, references: User
     integer :license_id, references: License
-    integer :category_ids, references: Category, multiple: true
+    integer :category_id, references: Category
     integer :collection_ids, references: Collection, multiple: true
     float :score
     time :created_at
