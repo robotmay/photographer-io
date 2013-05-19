@@ -55,7 +55,6 @@ nav id="layout-nav" class="top-bar"
               = submit_tag t("nav.search"), class: "button secondary"
 
     ul class="right"
-      li= link_to t("nav.beta"), "#", data: { "reveal-id" => "beta-notes" }
       li= link_to t("nav.support"), "mailto:xz1ped65@incoming.intercom.io", id: "Intercom"
       - if user_signed_in?
         li id="mini-user-stats" class="has-form"
@@ -64,6 +63,11 @@ nav id="layout-nav" class="top-bar"
               span class="icon"
               span class="number"
                 = current_user.photograph_views.to_i
+
+            span class="followers" title=(t("nav.mini_stats.followers"))
+              span class="icon"
+              span class="number"
+                = current_user.followers_count.to_i
 
             span class="recommendations" title=(t("nav.mini_stats.recommendations"))
               span class="icon"

@@ -36,6 +36,7 @@ en:
     profile: "Your profile"
     mini_stats:
       views: "Total number of times your photos have been viewed"
+      followers: "Total number of people following your updates"
       recommendations: "Total number of recommendations you've received"
       favourites: "Total number of times your photos have been favourited"
     general: "Explore"

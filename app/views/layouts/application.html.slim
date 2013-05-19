@@ -57,7 +57,9 @@ body class=(yield(:body_class))
     div class="row"
       div class="large-4 columns"
         p
-          = link_to t("privacy"), "http://www.iubenda.com/privacy-policy/288645"
+          ul class="inline-list"
+            li= link_to t("nav.beta"), "#", data: { "reveal-id" => "beta-notes" }
+            li= link_to t("privacy"), "http://www.iubenda.com/privacy-policy/288645"
 
       div class="large-8 columns" style="text-align: right;"
         = simple_format t("copyright")

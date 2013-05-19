@@ -3,11 +3,13 @@ $(document).ready ->
 
   if miniStats.length > 0
     viewsEl = miniStats.find(".views .number")
+    followersEl = miniStats.find(".followers .number")
     recommendationsEl = miniStats.find(".recommendations .number")
     favouritesEl = miniStats.find(".favourites .number")
 
     userChannel.bind "stats_update", (data) ->
       viewsEl.changeStat(data['views'])
+      followersEl.changeStat(data['followers'])
       recommendationsEl.changeStat(data['recommendations'])
       favouritesEl.changeStat(data['favourites'])
 
