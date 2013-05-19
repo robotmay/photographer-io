@@ -23,6 +23,11 @@ class PagesController < ApplicationController
             title: latest_photo.metadata.title,
             thumb: latest_photo.thumbnail_image.remote_url(host: ENV['CDN_HOST'])
           }
+        },
+        users: {
+          total: User.count,
+          invited: User.where.not(invited_by_id: nil),
+          accepted_invites: User.where.not(invitation_accepted_at: nil)
         }
       }
 
