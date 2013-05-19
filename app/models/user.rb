@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   include Redis::Objects
 
   has_many :photographs, dependent: :destroy
+  has_many :metadata, through: :photographs
   has_many :collections, dependent: :destroy
   has_many :recommendations, dependent: :destroy
   has_many :recommended_photographs, through: :recommendations, source: :photograph
