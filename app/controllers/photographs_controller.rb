@@ -72,17 +72,11 @@ class PhotographsController < ApplicationController
   end
 
   def search
-    photo_ids = if params[:keyword].present?
-      @keyword_results = Metadata.with_keyword(params[:keyword])
-      @keyword_results.pluck(:photograph_id)
-    elsif params[:q].present?
-      @text_results = Metadata.fulltext_search(params[:q])
-      @keyword_results = Metadata.with_keywords(params[:q].split(" "))
-      (@text_results.map(&:photograph_id) + @keyword_results.pluck(:photograph_id)).uniq
-    end
-
-    unless photo_ids.nil? || photo_ids.empty?
-      @photographs = Photograph.view_for(current_user).uniq.where(id: photo_ids).page(params[:page])
+    @photographs = Photograph.search do
+      fulltext search_params[:q]
+      with :public, true
+      order_by :created_at, :desc
+      paginate page: params[:page], per_page: Photograph.default_per_page
     end
 
     respond_with @photographs do |f|
@@ -144,5 +138,10 @@ class PhotographsController < ApplicationController
         f.json { render json: @recommendation.errors }
       end
     end
+  end
+
+  private
+  def search_params
+    params.permit(:q)
   end
 end
