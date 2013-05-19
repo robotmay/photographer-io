@@ -1,5 +1,5 @@
 - opts ||= {}
-- cache([photograph, photograph.metadata, opts]) do
+- cache([photograph, photograph.metadata, opts], expires_in: 1.hour) do
   div class="row"
     aside class="metadata large-12 columns"
       header
@@ -27,7 +27,7 @@
           - if photograph.category.present?
             tr
               td= t("photographs.metadata.category")
-              td= link_to photograph.category.name, category_path(photograph.category)
+              td= link_to photograph.category.name, category_path(photograph.category.slug)
 
           tr
             td= t("photographs.metadata.license")
