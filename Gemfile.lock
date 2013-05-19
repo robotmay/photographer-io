@@ -313,6 +313,10 @@ GEM
       nokogiri
       sunspot (= 2.0.0)
     sunspot_solr (2.0.0)
+    sunspot_with_kaminari (0.2.0)
+      kaminari (>= 0.14.0)
+      sunspot
+      sunspot_rails
     temple (0.6.4)
     thin (1.5.1)
       daemons (>= 1.0.9)
@@ -400,6 +404,7 @@ DEPENDENCIES
   sunspot-queue!
   sunspot_rails
   sunspot_solr
+  sunspot_with_kaminari
   thin
   turbolinks
   uglifier (>= 1.0.3)
