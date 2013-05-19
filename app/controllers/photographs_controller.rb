@@ -76,7 +76,7 @@ class PhotographsController < ApplicationController
       redirect_to photographs_path
     end
 
-    @photographs = Photograph.search do
+    search = Photograph.search do
       if search_params[:q].present?
         fulltext search_params[:q]
       end
@@ -89,6 +89,8 @@ class PhotographsController < ApplicationController
       order_by :created_at, :desc
       paginate page: params[:page], per_page: Photograph.default_per_page
     end
+
+    @photographs = search.results
 
     respond_with @photographs do |f|
       f.html { render :index }
