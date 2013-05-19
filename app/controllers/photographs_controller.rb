@@ -82,7 +82,7 @@ class PhotographsController < ApplicationController
       end
 
       if search_params[:keyword].present?
-        with :keyword, search_params[:keyword]
+        with :keywords, search_params[:keyword]
       end
 
       with :public, true
