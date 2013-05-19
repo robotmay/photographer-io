@@ -72,6 +72,10 @@ class PhotographsController < ApplicationController
   end
 
   def search
+    if search_params[:q].blank?
+      redirect_to photographs_path
+    end
+
     @photographs = Photograph.search do
       fulltext search_params[:q]
       with :public, true
