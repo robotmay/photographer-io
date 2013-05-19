@@ -33,6 +33,7 @@ class User < ActiveRecord::Base
   counter :followers_count
 
   validates :email, :name, presence: true
+  validates :website_url, format: URI::regexp(%w(http https))
 
   before_create :set_defaults
   def set_defaults
