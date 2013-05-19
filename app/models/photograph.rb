@@ -116,7 +116,9 @@ class Photograph < ActiveRecord::Base
     integer :user_id, references: User
     integer :license_id, references: License
     integer :category_id, references: Category
-    integer :collection_ids, references: Collection, multiple: true
+    integer :collection_ids, references: Collection, multiple: true do |photo|
+      photo.collections.pluck(:id)
+    end
     float :score
     time :created_at
     boolean :public, using: :public?
