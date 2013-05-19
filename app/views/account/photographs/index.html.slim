@@ -65,7 +65,7 @@ section id="account-photographs-index"
     div class="row"
       div class="large-12 columns"
         ul class="large-block-grid-5 photo-grid"
-          = render @photographs, cache: true
+          = render @photographs, cache: true, cache_options: { expires_in: 10.minutes }
 
     div class="row"
       div class="large-12 columns"
