@@ -5,6 +5,7 @@ li class="photo"
     - else
       = photo_tag photograph, "500x500>", quality: 70
   footer class="caption"
+    - title = photograph.metadata.title
     = t("photographs.caption", \
         user: link_to(photograph.user.name, user_path(photograph.user)), \
-        photo: link_to((photograph.metadata.title || t("untitled")), photograph_path(photograph))).html_safe
+        photo: link_to((title.blank? ? t("untitled") : title), photograph_path(photograph))).html_safe

@@ -183,6 +183,9 @@ en:
         public: "Public"
         private: "Private"
         unsorted: "Unsorted"
+      views: "Views"
+      recommendations: "Recommendations"
+      favourites: "Favourites"
       upload: "Upload"
       delete: "Delete this photograph"
       dropzone: >
