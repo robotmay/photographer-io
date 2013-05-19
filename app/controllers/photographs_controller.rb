@@ -72,12 +72,19 @@ class PhotographsController < ApplicationController
   end
 
   def search
-    if search_params[:q].blank?
+    if search_params[:q].blank? && search_params[:keyword].blank?
       redirect_to photographs_path
     end
 
     @photographs = Photograph.search do
-      fulltext search_params[:q]
+      if search_params[:q].present?
+        fulltext search_params[:q]
+      end
+
+      if search_params[:keyword].present?
+        with :keyword, search_params[:keyword]
+      end
+
       with :public, true
       order_by :created_at, :desc
       paginate page: params[:page], per_page: Photograph.default_per_page
@@ -146,6 +153,6 @@ class PhotographsController < ApplicationController
 
   private
   def search_params
-    params.permit(:q)
+    params.permit(:q, :keyword)
   end
 end
