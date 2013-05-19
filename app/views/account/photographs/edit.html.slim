@@ -1,16 +1,2 @@
 section id="account-photographs-edit"
-  section class="row"
-    div class="large-9 columns"
-      - if @photograph.has_precalculated_sizes?
-        = photo_tag @photograph, :large
-      - else
-        = photo_tag @photograph, "1000x1000>"
-
-      = render partial: "form", locals: { photograph: @photograph }
-
-    div class="large-3 columns"
-      = metadata_table_for @photograph, format: :full
-
-      - if @photograph.metadata.has_location_data?
-        h5= t("photographs.location")
-        = render partial: "photographs/map", locals: { photograph: @photograph }
+  = render partial: "form", locals: { photograph: @photograph }

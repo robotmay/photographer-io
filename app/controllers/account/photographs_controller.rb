@@ -182,9 +182,7 @@ module Account
       params.require(:photograph).permit(
         :image_uid, :safe_for_work, :show_location_data, :license_id, :category_id,
         :show_copyright_info, 
-        collection_ids: [], metadata_attributes: [
-          :id, :title, :keywords, :description
-        ]
+        collection_ids: [], metadata_attributes: Metadata::EDITABLE_KEYS
       )
     end
   end
