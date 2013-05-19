@@ -317,6 +317,7 @@ en:
     quota: "You can recommend %{amount} more photographs today!"
 
   users:
+    visit_site: "Visit website"
     invitations:
       invited:
         title: "Friends you've already invited"

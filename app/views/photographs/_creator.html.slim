@@ -7,7 +7,7 @@ aside id="photographs-creator"
         h5= user.location
 
       - if user.website_url.present?
-        h6= link_to user.website_host, user.website_url, target: "_blank"
+        h6= link_to t("users.visit_site"), user.website_url, target: "_blank"
 
     div class="large-5 columns"
       - if user.avatar.present?

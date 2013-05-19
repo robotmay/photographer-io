@@ -9,7 +9,7 @@
 
       - if @user.website_url.present?
         h6 class="website"
-          = link_to @user.website_host, @user.website_url, target: "_blank"
+          = link_to t("users.visit_site"), @user.website_url, target: "_blank"
 
       div class="row"
         div class="large-12 columns"
