@@ -18,6 +18,7 @@ gem 'pg_array_parser'
 gem 'sunspot_rails'
 gem 'sunspot_solr'
 gem 'sunspot-queue', github: 'robotmay/sunspot-queue'
+gem 'sunspot_with_kaminari'
 
 # redis
 gem 'redis-objects'
