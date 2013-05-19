@@ -3,12 +3,54 @@ class Metadata < ActiveRecord::Base
   include GPSParser
   include PgSearch
 
+  CAMERA_ATTRIBUTES = [
+    :make, :model, :serial_number, :camera_type, :lens_type, :lens_model,
+    :max_focal_length, :min_focal_length, :max_aperture, :min_aperture,
+    :num_af_points, :sensor_width, :sensor_height
+  ]
+
+  SETTINGS_ATTRIBUTES = [
+    :format, :fov, :aperture, :focal_length,
+    :shutter_speed, :iso, :exposure_program, :exposure_mode,
+    :metering_mode, :flash, :drive_mode, :digital_zoom, :macro_mode,
+    :self_timer, :quality, :record_mode, :easy_mode, :contrast,
+    :saturation, :sharpness, :focus_range, :auto_iso, :base_iso,
+    :measured_ev, :target_aperture, :target_exposure_time, :white_balance,
+    :camera_temperature, :flash_guide_number, :flash_exposure_comp,
+    :aeb_bracket_value, :focus_distance_upper, :focus_distance_lower,
+    :nd_filter, :flash_sync_speed_av, :shutter_curtain_sync, :mirror_lockup,
+    :bracket_mode, :bracket_value, :bracket_shot_number, :hyperfocal_distance,
+    :circle_of_confusion
+  ]
+
+  CREATOR_ATTRIBUTES = [
+    :copyright_notice, :rights, :creator, :creator_country, :creator_city
+  ]
+
+  IMAGE_ATTRIBUTES = [
+    :color_space, :image_width, :image_height, :gps_position, :lat, :lng,
+    :flash_output, :gamma, :image_size, :date_created, :date_time_original
+  ]
+
+  EDITABLE_KEYS = [
+    :id, :title, :description, :keywords, :lat, :lng, :make, :model, :serial_number,
+    :camera_type, :lens_type, :lens_model, :copyright_notice
+  ]
+
   belongs_to :photograph, touch: true
   has_one :user, through: :photograph
 
   store_accessor :image, :lat
   store_accessor :image, :lng
   store_accessor :image, :format
+
+  store_accessor :camera, [
+    :make, :model, :serial_number, :camera_type, :lens_type, :lens_model
+  ]
+
+  store_accessor :creator, [
+    :copyright_notice
+  ]
 
   validates :photograph_id, presence: true
 
@@ -57,34 +99,10 @@ class Metadata < ActiveRecord::Base
         self.description  = exif.description if description.blank?
         self.keywords     = exif.keywords if keywords.blank?
 
-        self.camera = fetch_from_exif(exif, [
-          :make, :model, :serial_number, :camera_type, :lens_type, :lens_model,
-          :max_focal_length, :min_focal_length, :max_aperture, :min_aperture,
-          :num_af_points, :sensor_width, :sensor_height
-        ])
-
-        self.settings = fetch_from_exif(exif, [
-          :format, :fov, :aperture, :focal_length,
-          :shutter_speed, :iso, :exposure_program, :exposure_mode,
-          :metering_mode, :flash, :drive_mode, :digital_zoom, :macro_mode,
-          :self_timer, :quality, :record_mode, :easy_mode, :contrast,
-          :saturation, :sharpness, :focus_range, :auto_iso, :base_iso,
-          :measured_ev, :target_aperture, :target_exposure_time, :white_balance,
-          :camera_temperature, :flash_guide_number, :flash_exposure_comp,
-          :aeb_bracket_value, :focus_distance_upper, :focus_distance_lower,
-          :nd_filter, :flash_sync_speed_av, :shutter_curtain_sync, :mirror_lockup,
-          :bracket_mode, :bracket_value, :bracket_shot_number, :hyperfocal_distance,
-          :circle_of_confusion
-        ])
-
-        self.creator = fetch_from_exif(exif, [
-          :copyright_notice, :rights, :creator, :creator_country, :creator_city
-        ])
-
-        self.image = fetch_from_exif(exif, [
-          :color_space, :image_width, :image_height, :gps_position,
-          :flash_output, :gamma, :image_size, :date_created, :date_time_original
-        ])
+        self.camera = fetch_from_exif(exif, CAMERA_ATTRIBUTES)
+        self.settings = fetch_from_exif(exif, SETTINGS_ATTRIBUTES)
+        self.creator = fetch_from_exif(exif, CREATOR_ATTRIBUTES)
+        self.image = fetch_from_exif(exif, IMAGE_ATTRIBUTES)
       end
 
       convert_lat_lng
@@ -152,6 +170,10 @@ class Metadata < ActiveRecord::Base
 
   def square?
     format == 'square'
+  end
+
+  def can_edit?(key)
+    self.respond_to?("#{key}=") && EDITABLE_KEYS.include?(key.to_sym)
   end
 
   class << self

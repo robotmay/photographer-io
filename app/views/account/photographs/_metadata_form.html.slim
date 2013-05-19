@@ -1,0 +1,25 @@
+- opts ||= { format: :full }
+= f.simple_fields_for :metadata do |m|
+  div class="row"
+    aside class="metadata-form large-12 columns"
+      header
+        h5= t("photographs.metadata.title")
+      
+      table
+        - sections = { camera: Metadata::CAMERA_ATTRIBUTES, image: Metadata::IMAGE_ATTRIBUTES, settings: Metadata::SETTINGS_ATTRIBUTES, creator: Metadata::CREATOR_ATTRIBUTES }
+        - sections.each do |section, attributes|
+          thead
+            tr
+              td colspan="2"
+                = t("photographs.metadata.#{section}")
+          tbody
+            - attributes.each do |attr|
+              - value = m.object.send(section)[attr.to_s]
+              - if m.object.can_edit?(attr) || !value.blank?
+                tr
+                  td= t("photographs.metadata.#{attr}")
+                  - if m.object.can_edit?(attr)
+                    td= m.input attr, label: false
+                  - else
+                    td= parse_and_display_metadata_value(section, value)
+
