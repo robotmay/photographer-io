@@ -103,7 +103,7 @@ module PhotographsHelper
   def metadata_typeahead_values(attr = nil)
     @values = Rails.cache.fetch([current_user, :typeahead, attr], expires_in: 5.minutes) do
       @values = Rails.cache.fetch([current_user, :typeahead], expires_in: 10.minutes) do
-        keys = Metadata::EDITABLE_KEYS
+        keys = Metadata::EDITABLE_KEYS.dup
         [:id, :title, :description, :keywords].each { |a| keys.delete(a) }
         keys.reduce({}) do |hash, key|
           hash[key] = current_user.metadata.map do |m|
