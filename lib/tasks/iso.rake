@@ -79,5 +79,12 @@ namespace :iso do
         )
       end
     end
+
+    task :reset_photo_counters => :environment do
+      Photograph.find_each do |photo|
+        Photograph.reset_counters(photo.id, :recommendations)
+        Photograph.reset_counters(photo.id, :favourites)
+      end
+    end
   end
 end
