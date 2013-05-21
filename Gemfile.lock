@@ -25,6 +25,12 @@ GIT
       railties (>= 4.0.0.beta)
 
 GIT
+  remote: git://github.com/robotmay/multi_fetch_fragments.git
+  revision: 284227cf2e34a95996576faf929328b8c44f3dca
+  specs:
+    multi_fetch_fragments (0.0.16)
+
+GIT
   remote: git://github.com/robotmay/sunspot-queue.git
   revision: 32e922edb103a867507e7935065d90ebec2278de
   specs:
@@ -173,7 +179,6 @@ GEM
     minitest (4.7.4)
     mocha (0.13.3)
       metaclass (~> 0.0.1)
-    multi_fetch_fragments (0.0.16)
     multi_json (1.7.3)
     net-scp (1.1.0)
       net-ssh (>= 2.6.5)
@@ -376,7 +381,7 @@ DEPENDENCIES
   machinist
   memcachier
   mini_exiftool_vendored
-  multi_fetch_fragments
+  multi_fetch_fragments!
   newrelic_rpm
   pg
   pg_array_parser

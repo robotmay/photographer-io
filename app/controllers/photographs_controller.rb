@@ -32,7 +32,7 @@ class PhotographsController < ApplicationController
       @photographs = @category.photographs
       set_title(@category.name)
     else
-      @photographs = Photograph.scoped
+      @photographs = Photograph.all
     end
 
     @photographs = @photographs.view_for(current_user).uniq.order("created_at DESC").page(params[:page])
