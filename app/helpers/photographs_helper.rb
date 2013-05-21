@@ -36,7 +36,12 @@ module PhotographsHelper
         url.gsub!("http://", "https://")
       end
 
-      image_tag url, alt: photograph.fetch_metadata.title
+      if match = url.match(/\d+x\d+.jpg/i)
+        width, height = match.to_a.last.split(".").first.split("x")
+        image_tag url, alt: photograph.fetch_metadata.title, width: width, height: height
+      else
+        image_tag url, alt: photograph.fetch_metadata.title
+      end
 
     rescue Processing
       image_tag "processing_#{size.to_s}.jpg"
