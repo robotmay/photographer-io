@@ -64,6 +64,7 @@ gem 'redcarpet'
 
 # models
 gem 'friendly_id', github: 'FriendlyId/friendly_id'
+gem 'closure_tree', github: 'mceachen/closure_tree', branch: 'wip_rails4'
 
 # assets
 group :assets do

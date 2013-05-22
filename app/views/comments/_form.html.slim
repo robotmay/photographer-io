@@ -2,6 +2,7 @@
   fieldset class="row"
     div class="large-9 columns"
       = f.input :body, label: false
+      = f.input :parent_id, as: :hidden
     
     div class="large-3 columns"
       = f.button :submit, class: "success expand small", "data-disable-with" => t("comments.saving")

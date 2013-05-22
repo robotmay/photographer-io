@@ -5,6 +5,15 @@ GIT
     friendly_id (4.1.0.beta.2)
 
 GIT
+  remote: git://github.com/mceachen/closure_tree.git
+  revision: a1613cc4741150efa1f24a5c8839d63671263e73
+  branch: wip_rails4
+  specs:
+    closure_tree (4.1.0.wip)
+      activerecord (>= 3.0.0)
+      with_advisory_lock (>= 0.0.6)
+
+GIT
   remote: git://github.com/plataformatec/devise.git
   revision: 69f79ad446101b45bf7ec29d290dc2be96142686
   branch: rails4
@@ -347,6 +356,8 @@ GEM
       raindrops (~> 0.7)
     warden (1.2.1)
       rack (>= 1.0)
+    with_advisory_lock (0.0.6)
+      activerecord (>= 3.0.0)
     zurb-foundation (4.1.6)
       sass (>= 3.2.0)
 
@@ -356,6 +367,7 @@ PLATFORMS
 DEPENDENCIES
   airbrake
   cancan
+  closure_tree!
   coffee-rails (~> 4.0.0.beta1)
   dalli
   database_cleaner
