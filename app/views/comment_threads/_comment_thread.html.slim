@@ -8,5 +8,7 @@ section id="comment-thread-#{comment_thread.id}" class="comment-thread"
   section class="comments"
     - published = comment_thread.comments.published.order("created_at DESC")
     - if user_signed_in?
-      = render comment_thread.comments.where(user_id: current_user.id).where.not(id: published.map(&:id))
-    = render published
+      div class="unpublished-comments"
+        = render comment_thread.comments.where(user_id: current_user.id).where.not(id: published.map(&:id)).order("created_at DESC")
+    div class="published-comments"
+      = render published
