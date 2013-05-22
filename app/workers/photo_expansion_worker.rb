@@ -1,5 +1,6 @@
 class PhotoExpansionWorker
   include Sidekiq::Worker
+  sidekiq_options queue: :photos
 
   def perform(photograph_id)
     photo = Photograph.find(photograph_id)
