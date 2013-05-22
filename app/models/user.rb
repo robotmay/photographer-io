@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
   has_many :followees, through: :follower_followings, source: :followee
   has_many :followee_photographs, through: :followees, source: :photographs
   has_many :invitations, class_name: self.to_s, as: :invited_by
+  has_many :comment_threads
+  has_many :comments
 
   cache_has_many :photographs
   cache_has_many :collections

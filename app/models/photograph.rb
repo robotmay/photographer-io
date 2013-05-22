@@ -11,6 +11,8 @@ class Photograph < ActiveRecord::Base
   has_many :recommendations
   has_many :favourites
   has_many :favourited_by_users, through: :favourites, source: :user
+  has_many :comment_threads, as: :threadable
+  has_many :comments, through: :comment_threads
 
   cache_belongs_to :user
   cache_belongs_to :license
@@ -18,6 +20,7 @@ class Photograph < ActiveRecord::Base
   cache_has_one :metadata, embed: true
   cache_has_many :collections, inverse_name: :photographs
   cache_has_many :recommendations
+  cache_has_many :comment_threads, inverse_name: :threadable
 
   delegate :title, :description, :keywords, :format, :landscape?, :portrait?, 
            :square?, to: :metadata
@@ -175,6 +178,10 @@ class Photograph < ActiveRecord::Base
 
   def processing?
     processing || metadata.processing
+  end
+
+  def comments_enabled?
+    enable_comments
   end
 
   def has_precalculated_sizes?

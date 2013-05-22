@@ -5,6 +5,8 @@
 @import "account/collections"
 @import "account/photographs"
 @import "collections"
+@import "comment_threads"
+@import "comments"
 @import "pages"
 @import "photographs"
 @import "users"
@@ -23,7 +25,10 @@ form
     margin: 0
     margin-right: 5px
 
-.button.secondary
+  textarea
+    height: 10em
+
+.button.secondary, .label.secondary
   color: rgb(0,0,0)
 
   &:hover

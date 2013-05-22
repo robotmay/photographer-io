@@ -24,6 +24,10 @@ Iso::Application.routes.draw do
     resources :favourites, only: [:create, :destroy]
   end
 
+  resources :comment_threads do
+    resources :comments, only: [:create, :update, :destroy]
+  end
+
   resources :collections, only: [:index, :show] do
     collection do
       get :explore

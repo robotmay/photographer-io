@@ -90,6 +90,10 @@ en:
 
   helpers:
     submit:
+      comment:
+        create: "Post comment"
+        update: "Update"
+
       mass_edit:
         create: "Update"
 
