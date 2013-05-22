@@ -1,5 +1,6 @@
 .comment-thread
   @include white-box
+  opacity: 1
   margin:
     top: 30px
   text-align: left
@@ -12,12 +13,10 @@
 
   .comments
     .comment
-      font-size: 0.9em
+      opacity: 1
+      font-size: 14px
       margin:
         bottom: 20px
-
-      &.unpublished
-        opacity: 0.8
 
       .main
         padding: 10px
@@ -58,3 +57,25 @@
           
           .label
             float: right
+
+      .comment-thread
+        width: 95%
+        padding: 0
+        margin:
+          left: auto
+          right: 0
+          top: 10px
+          bottom: 0
+        border: none
+        box-shadow: none
+
+        .comments
+          .comment
+            margin-bottom: 10px
+
+        .reply
+          display: none
+          form
+            fieldset
+              margin: 0
+              border: none

@@ -20,7 +20,6 @@ class Photograph < ActiveRecord::Base
   cache_has_one :metadata, embed: true
   cache_has_many :collections, inverse_name: :photographs
   cache_has_many :recommendations
-  cache_has_many :comment_threads, inverse_name: :threadable
 
   delegate :title, :description, :keywords, :format, :landscape?, :portrait?, 
            :square?, to: :metadata

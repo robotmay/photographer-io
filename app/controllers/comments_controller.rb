@@ -8,8 +8,15 @@ class CommentsController < ApplicationController
   end
 
   def create
+    parent_id = comment_params.delete(:parent_id)
     @comment = @comment_thread.comments.new(comment_params)
     @comment.user = current_user
+
+    if parent_id.present?
+      @parent = @comment_thread.comments.find(parent_id)
+      @parent.children << @comment
+    end
+
     authorize! :create, @comment
     
     if @comment.save
@@ -55,6 +62,6 @@ class CommentsController < ApplicationController
 
   private
   def comment_params
-    params.require(:comment).permit(:body)
+    params.require(:comment).permit(:body, :parent_id)
   end
 end

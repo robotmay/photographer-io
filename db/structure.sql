@@ -194,6 +194,17 @@ ALTER SEQUENCE collections_id_seq OWNED BY collections.id;
 
 
 --
+-- Name: comment_hierarchies; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE comment_hierarchies (
+    ancestor_id integer NOT NULL,
+    descendant_id integer NOT NULL,
+    generations integer NOT NULL
+);
+
+
+--
 -- Name: comment_threads; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -238,7 +249,8 @@ CREATE TABLE comments (
     body text,
     published boolean,
     created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    updated_at timestamp without time zone,
+    parent_id integer
 );
 
 
@@ -793,6 +805,20 @@ CREATE INDEX index_collections_on_user_id ON collections USING btree (user_id);
 
 
 --
+-- Name: index_comment_hierarchies_on_ancestor_id_and_descendant_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE UNIQUE INDEX index_comment_hierarchies_on_ancestor_id_and_descendant_id ON comment_hierarchies USING btree (ancestor_id, descendant_id);
+
+
+--
+-- Name: index_comment_hierarchies_on_descendant_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_comment_hierarchies_on_descendant_id ON comment_hierarchies USING btree (descendant_id);
+
+
+--
 -- Name: index_comment_threads_on_threadable_id_and_threadable_type; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -818,6 +844,13 @@ CREATE INDEX index_comments_on_comment_thread_id ON comments USING btree (commen
 --
 
 CREATE INDEX index_comments_on_comment_thread_id_and_published ON comments USING btree (comment_thread_id, published);
+
+
+--
+-- Name: index_comments_on_parent_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_comments_on_parent_id ON comments USING btree (parent_id);
 
 
 --
@@ -1055,3 +1088,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130518102856');
 INSERT INTO schema_migrations (version) VALUES ('20130521173713');
 
 INSERT INTO schema_migrations (version) VALUES ('20130521174315');
+
+INSERT INTO schema_migrations (version) VALUES ('20130522122447');
