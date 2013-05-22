@@ -1,0 +1,54 @@
+.comment-thread
+  @include white-box
+  margin:
+    top: 30px
+  text-align: left
+
+  .new-comment
+    form
+      fieldset
+        border: none
+        padding: 0
+
+  .comments
+    .comment
+      font-size: 0.9em
+      margin:
+        bottom: 20px
+
+      &.unpublished
+        opacity: 0.8
+
+      .main
+        padding: 10px
+        border: 1px solid $body-bg - #111
+        border-bottom: none
+
+        .avatar
+          width: 100px
+          height: 100px
+          float: left
+          margin:
+            right: 10px
+            bottom: 10px
+
+        .body
+          p
+            &:last-child
+              margin-bottom: 0
+
+      footer
+        background: $body-bg - #111
+        font-size: 0.9em
+        padding: 5px 10px
+
+        .author
+          margin-right: 10px
+        time
+
+        .actions
+          float: right
+          margin-right: 5px
+        
+        .label
+          float: right

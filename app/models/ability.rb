@@ -13,6 +13,11 @@ class Ability
 
     can :recommend, Photograph
 
+    can :manage, CommentThread, user_id: user.id
+    can :read, CommentThread
+    can :manage, Comment, user_id: user.id
+    can :read, Comment, published: true 
+
     can :create, Favourite do |favourite|
       favourite.user == user && favourite.photograph.public? && favourite.photograph.user != user
     end

@@ -194,6 +194,74 @@ ALTER SEQUENCE collections_id_seq OWNED BY collections.id;
 
 
 --
+-- Name: comment_threads; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE comment_threads (
+    id integer NOT NULL,
+    user_id integer,
+    threadable_id integer,
+    threadable_type character varying(255),
+    subject text,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: comment_threads_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE comment_threads_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: comment_threads_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE comment_threads_id_seq OWNED BY comment_threads.id;
+
+
+--
+-- Name: comments; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE comments (
+    id integer NOT NULL,
+    comment_thread_id integer,
+    user_id integer,
+    body text,
+    published boolean,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: comments_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE comments_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: comments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE comments_id_seq OWNED BY comments.id;
+
+
+--
 -- Name: favourites; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -354,7 +422,8 @@ CREATE TABLE photographs (
     large_image_uid character varying(255),
     thumbnail_image_uid character varying(255),
     processing boolean DEFAULT false,
-    image_mime_type character varying(255)
+    image_mime_type character varying(255),
+    enable_comments boolean DEFAULT false
 );
 
 
@@ -455,7 +524,8 @@ CREATE TABLE users (
     website_url character varying(255),
     recommendations_count integer,
     channel_key uuid DEFAULT uuid_generate_v4(),
-    upload_quota integer
+    upload_quota integer,
+    enable_comments boolean DEFAULT false
 );
 
 
@@ -504,6 +574,20 @@ ALTER TABLE ONLY collection_photographs ALTER COLUMN id SET DEFAULT nextval('col
 --
 
 ALTER TABLE ONLY collections ALTER COLUMN id SET DEFAULT nextval('collections_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY comment_threads ALTER COLUMN id SET DEFAULT nextval('comment_threads_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY comments ALTER COLUMN id SET DEFAULT nextval('comments_id_seq'::regclass);
 
 
 --
@@ -585,6 +669,22 @@ ALTER TABLE ONLY collection_photographs
 
 ALTER TABLE ONLY collections
     ADD CONSTRAINT collections_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: comment_threads_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY comment_threads
+    ADD CONSTRAINT comment_threads_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: comments_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY comments
+    ADD CONSTRAINT comments_pkey PRIMARY KEY (id);
 
 
 --
@@ -690,6 +790,48 @@ CREATE INDEX index_collections_on_public ON collections USING btree (public);
 --
 
 CREATE INDEX index_collections_on_user_id ON collections USING btree (user_id);
+
+
+--
+-- Name: index_comment_threads_on_threadable_id_and_threadable_type; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_comment_threads_on_threadable_id_and_threadable_type ON comment_threads USING btree (threadable_id, threadable_type);
+
+
+--
+-- Name: index_comment_threads_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_comment_threads_on_user_id ON comment_threads USING btree (user_id);
+
+
+--
+-- Name: index_comments_on_comment_thread_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_comments_on_comment_thread_id ON comments USING btree (comment_thread_id);
+
+
+--
+-- Name: index_comments_on_comment_thread_id_and_published; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_comments_on_comment_thread_id_and_published ON comments USING btree (comment_thread_id, published);
+
+
+--
+-- Name: index_comments_on_published; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_comments_on_published ON comments USING btree (published);
+
+
+--
+-- Name: index_comments_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_comments_on_user_id ON comments USING btree (user_id);
 
 
 --
@@ -909,3 +1051,7 @@ INSERT INTO schema_migrations (version) VALUES ('20130512114945');
 INSERT INTO schema_migrations (version) VALUES ('20130516212700');
 
 INSERT INTO schema_migrations (version) VALUES ('20130518102856');
+
+INSERT INTO schema_migrations (version) VALUES ('20130521173713');
+
+INSERT INTO schema_migrations (version) VALUES ('20130521174315');

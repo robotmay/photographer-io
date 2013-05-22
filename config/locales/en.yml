@@ -250,6 +250,13 @@ en:
   collection_photographs:
     user_must_match: "You cannot add a photo to that collection"
 
+  comment_threads:
+
+  comments:
+    saving: "Saving..."
+    unpublished: "This comment is visible only to you and the photo owner"
+    delete: "Delete"
+
   favourites:
     create:
       succeeded: "The photo has been added to your favourites!"

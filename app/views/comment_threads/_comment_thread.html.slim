@@ -1,0 +1,12 @@
+section id="comment-thread-#{comment_thread.id}" class="comment-thread"
+  header
+    h3= comment_thread.subject
+
+  section class="new-comment"
+    = render partial: "comments/form", locals: { comment: comment_thread.comments.new }
+
+  section class="comments"
+    - published = comment_thread.comments.published.order("created_at DESC")
+    - if user_signed_in?
+      = render comment_thread.comments.where(user_id: current_user.id).where.not(id: published.map(&:id))
+    = render published
