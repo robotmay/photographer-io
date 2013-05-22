@@ -4,7 +4,7 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :comment_thread, touch: true
 
-  acts_as_tree
+  acts_as_tree dependent: :destroy
 
   validates :user_id, :comment_thread_id, :body, presence: true
   validates :parent_id, inclusion: { in: -> (c) { c.comment_thread.comments.pluck(:id) } }, allow_blank: true

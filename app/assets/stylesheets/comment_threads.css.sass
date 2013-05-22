@@ -1,5 +1,8 @@
+$comment-border-colour: $body-bg - rgb(5,5,5)
+
 .comment-thread
   @include white-box
+  background: $body-bg
   opacity: 1
   margin:
     top: 30px
@@ -19,8 +22,8 @@
         bottom: 20px
 
       .main
+        @include white-box
         padding: 10px
-        border: 1px solid $body-bg - #111
         border-bottom: none
 
         .avatar
@@ -36,27 +39,38 @@
             &:last-child
               margin-bottom: 0
 
-      footer
-        background: $body-bg - #111
-        font-size: 0.9em
-        padding: 5px 10px
+        footer
+          font-size: 0.9em
 
-        .author
-          margin-right: 15px
-          
-          &.label
-            a
-              color: #fff
+          .author
+            margin-right: 15px
+            padding: $label-padding
 
-        time
+          time
+            padding: $label-padding
 
-        .right
-          .actions
-            float: right
-            margin-right: 5px
-          
-          .label
-            float: right
+          .left
+            padding:
+              top: 0.625em
+
+            .status
+              margin-left: 15px
+              font:
+                size: 1em
+                weight: normal
+
+          .right
+            .actions
+              float: right
+              margin-right: 5px
+
+              .button
+                margin:
+                  bottom: 0
+                  right: 5px
+            
+            .label
+              float: right
 
       .comment-thread
         width: 95%

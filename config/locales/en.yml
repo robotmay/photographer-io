@@ -256,6 +256,7 @@ en:
     saving: "Saving..."
     unpublished: "This comment is visible only to you and the photo owner"
     delete: "Delete"
+    reply: "Reply"
 
   favourites:
     create:

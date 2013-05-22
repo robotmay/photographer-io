@@ -10,29 +10,31 @@
 
       .clear
 
-    footer
-      div class="row"
-        div class="large-6 columns"
-          span class="author label radius"
-            = link_to comment.user.name, user_path(comment.user)
+      footer
+        div class="row"
+          div class="large-8 columns left"
+            span class="author"
+              = link_to comment.user.name, user_path(comment.user)
 
-          time datetime=(comment.created_at.utc)
-            = l comment.created_at, format: :long
+            time datetime=(comment.created_at.utc)
+              = l comment.created_at, format: :long
 
-        div class="large-6 columns right"
-          - if !comment.published
-            div class="label secondary radius"
-              = t("comments.unpublished")
+            - if !comment.published
+              div class="label secondary radius status"
+                = t("comments.unpublished")
 
-          - if user_signed_in? && current_user == comment.user
+          div class="large-4 columns right"
             div class="actions"
-              = link_to t("comments.delete"), comment_thread_comment_path(comment.comment_thread, comment), method: :delete, class: "label alert radius"
+              - if user_signed_in? && current_user == comment.user
+                = link_to t("comments.delete"), comment_thread_comment_path(comment.comment_thread, comment), method: :delete, class: "button small alert radius"
+
+              = link_to t("comments.reply"), "#", class: "button small radius", "data-toggle-reply" => true
 
       .clear
 
     div class="replies comment-thread"
+      div[class="reply" data-reply]
+        = render partial: "comments/form", locals: { comment: comment.comment_thread.comments.new(parent_id: comment.id) }
+
       div class="comments"
         = render comment.descendants.order("created_at DESC")
-
-      div class="reply"
-        = render partial: "comments/form", locals: { comment: comment.comment_thread.comments.new(parent_id: comment.id) }
