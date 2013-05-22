@@ -1,5 +1,6 @@
 class MetadataWorker
   include Sidekiq::Worker
+  sidekiq_options queue: :photos
 
   def perform(metadata_id)
     metadata = Metadata.find(metadata_id)
