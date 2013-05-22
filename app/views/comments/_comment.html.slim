@@ -2,28 +2,30 @@ article id="comment-#{comment.id}" class="comment #{comment.published? ? 'publis
   div class="main"
     - if comment.user.avatar.present?
       aside class="avatar"
-        = image_tag comment.user.avatar.thumb("100x100#").jpg.url, width: 100, height: 100, alt: ""
+        = image_tag comment.user.avatar.thumb("75x75#").jpg.url, width: 75, height: 75, alt: ""
 
     section class="body"
       = simple_format comment.body
 
+    .clear
+
   footer
     div class="row"
       div class="large-6 columns"
-        span class="author"
-          = comment.user.name
+        span class="author label radius"
+          = link_to comment.user.name, user_path(comment.user)
 
         time datetime=(comment.created_at.utc)
           = l comment.created_at, format: :long
 
-      div class="large-6 columns"
+      div class="large-6 columns right"
         - if !comment.published
-          div class="label secondary"
+          div class="label secondary radius"
             = t("comments.unpublished")
 
         
         - if user_signed_in? && current_user == comment.user
           div class="actions"
-            = link_to t("comments.delete"), comment_thread_comment_path(comment.comment_thread, comment), method: :delete, class: "label alert"
+            = link_to t("comments.delete"), comment_thread_comment_path(comment.comment_thread, comment), method: :delete, class: "label alert radius"
 
     .clear
