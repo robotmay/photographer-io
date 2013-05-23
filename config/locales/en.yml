@@ -210,6 +210,8 @@ en:
         general: "Details"
         collections: "What collections does this photo belong in?"
         settings: "Settings"
+        comments: "Comments"
+        comment_threads: "What subjects do you want comments on?"
 
       create:
         failed: "Upload error"

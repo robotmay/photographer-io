@@ -3,7 +3,7 @@
     div class="main"
       - if comment.user.avatar.present?
         aside class="avatar"
-          = image_tag comment.user.avatar.thumb("75x75#").jpg.url, width: 75, height: 75, alt: ""
+          = image_tag comment.user.avatar.thumb("50x50#").jpg.url, width: 50, height: 50, alt: ""
 
       section class="body"
         = simple_format comment.body
