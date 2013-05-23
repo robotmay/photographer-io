@@ -277,6 +277,13 @@ en:
       There are currently no publically visible comments here. Curious? Learn more
       about how commenting works on Photographer.io.
 
+    notifications:
+      subject: "%{user} has left a new comment on '%{on}'"
+      body: >
+        %{user} has left a new comment on your photograph '%{on}'. It won't be made
+        visible unless you choose to make it so, which you can do by visiting the 
+        public view of the photograph.
+
   favourites:
     create:
       succeeded: "The photo has been added to your favourites!"
@@ -294,6 +301,13 @@ en:
     destroy:
       succeeded: "You are no longer following that user."
       failed: "There was a problem removing that user from your followings."
+
+  notifications:
+    email:
+      subject: "Photographer.io: %{subject}"
+      button: "View on Photographer.io"
+      body: >
+        This is an automated notification email to inform you of the following:
 
   photographs:
     user_quota_exceeded: >

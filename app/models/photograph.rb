@@ -234,18 +234,11 @@ class Photograph < ActiveRecord::Base
       thumb = thumbnail_image.remote_url
     end
 
-    Thread.new do
-      ActiveRecord::Base.connection_pool.with_connection do
-        begin
-          Pusher.trigger(user.channel_key, 'image_processed', {
-            id: id,
-            large: large,
-            thumbnail: thumb
-          })
-        rescue Pusher::Error
-        end
-      end
-    end
+    PusherWorker.perform_async(user.channel_key, 'image_processed', {
+      id: id,
+      large: large,
+      thumbnail: thumb
+    })
   end
 
   class << self

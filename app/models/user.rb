@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
   has_many :invitations, class_name: self.to_s, as: :invited_by
   has_many :comment_threads
   has_many :comments
+  has_many :notifications
 
   cache_has_many :photographs
   cache_has_many :collections
@@ -102,18 +103,11 @@ class User < ActiveRecord::Base
   end
 
   def push_stats
-    Thread.new do
-      ActiveRecord::Base.connection_pool.with_connection do
-        begin
-          Pusher.trigger(channel_key, 'stats_update', {
-            views: photograph_views.to_i,
-            recommendations: received_recommendations_count.to_i,
-            favourites: received_favourites_count.to_i,
-            followers: followers_count.to_i
-          })
-        rescue Pusher::Error
-        end
-      end
-    end
+    PusherWorker.perform_async(channel_key, 'stats_update', {
+      views: photograph_views.to_i,
+      recommendations: received_recommendations_count.to_i,
+      favourites: received_favourites_count.to_i,
+      followers: followers_count.to_i
+    })
   end
 end

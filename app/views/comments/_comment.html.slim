@@ -36,7 +36,8 @@
               - if user_signed_in? && current_user == comment.user
                 = link_to t("comments.delete"), comment_thread_comment_path(comment.comment_thread, comment), method: :delete, class: "button small alert radius"
 
-              = link_to t("comments.reply"), "#", class: "button small radius", "data-toggle-reply" => true
+              - if user_signed_in?
+                = link_to t("comments.reply"), "#", class: "button small radius", "data-toggle-reply" => true
 
       .clear
 

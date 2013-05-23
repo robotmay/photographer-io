@@ -1,4 +1,5 @@
 ISO = {
+  from_email: ENV['SUPPORT_EMAIL'],
   defaults: {
     recommendation_quota: 10,
     uploads_per_month: 100,
