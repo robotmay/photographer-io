@@ -177,7 +177,7 @@ class Photograph < ActiveRecord::Base
   end
 
   def build_comment_threads
-    (3 - comment_threads.count).times do
+    (ISO[:defaults][:max_comment_threads] - comment_threads.count).times do
       comment_threads.build
     end
   end
