@@ -43,6 +43,8 @@ Iso::Application.routes.draw do
     resources :collections, only: [:index]
   end
 
+  resources :notifications, only: [:index, :show]
+
   resources :users, shallow: true, only: [:show] do
     resources :collections, only: [:index, :show] do
       resources :photographs, only: [:index]

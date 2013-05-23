@@ -22,6 +22,8 @@ class Ability
       comment.comment_thread.user == user
     end
 
+    can :read, Notification, user_id: user.id
+
     can :create, Favourite do |favourite|
       favourite.user == user && favourite.photograph.public? && favourite.photograph.user != user
     end

@@ -1,0 +1,5 @@
+p= t("notifications.email.body")
+
+= simple_format @notification.body
+
+= link_to t("notifications.email.button"), notification_url(@notification), class: "button"

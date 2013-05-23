@@ -410,6 +410,41 @@ ALTER SEQUENCE metadata_id_seq OWNED BY metadata.id;
 
 
 --
+-- Name: notifications; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE notifications (
+    id integer NOT NULL,
+    user_id integer,
+    notifiable_id integer,
+    notifiable_type character varying(255),
+    subject character varying(255),
+    body text,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: notifications_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE notifications_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: notifications_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE notifications_id_seq OWNED BY notifications.id;
+
+
+--
 -- Name: photographs; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -537,7 +572,8 @@ CREATE TABLE users (
     recommendations_count integer,
     channel_key uuid DEFAULT uuid_generate_v4(),
     upload_quota integer,
-    enable_comments boolean DEFAULT false
+    enable_comments boolean DEFAULT false,
+    receive_notification_emails boolean DEFAULT true
 );
 
 
@@ -628,6 +664,13 @@ ALTER TABLE ONLY licenses ALTER COLUMN id SET DEFAULT nextval('licenses_id_seq':
 --
 
 ALTER TABLE ONLY metadata ALTER COLUMN id SET DEFAULT nextval('metadata_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY notifications ALTER COLUMN id SET DEFAULT nextval('notifications_id_seq'::regclass);
 
 
 --
@@ -729,6 +772,14 @@ ALTER TABLE ONLY licenses
 
 ALTER TABLE ONLY metadata
     ADD CONSTRAINT metadata_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: notifications_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY notifications
+    ADD CONSTRAINT notifications_pkey PRIMARY KEY (id);
 
 
 --
@@ -907,6 +958,20 @@ CREATE INDEX index_metadata_on_photograph_id ON metadata USING btree (photograph
 --
 
 CREATE INDEX index_metadata_on_search_vector ON metadata USING gin (search_vector);
+
+
+--
+-- Name: index_notifications_on_notifiable_id_and_notifiable_type; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_notifications_on_notifiable_id_and_notifiable_type ON notifications USING btree (notifiable_id, notifiable_type);
+
+
+--
+-- Name: index_notifications_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_notifications_on_user_id ON notifications USING btree (user_id);
 
 
 --
@@ -1090,3 +1155,7 @@ INSERT INTO schema_migrations (version) VALUES ('20130521173713');
 INSERT INTO schema_migrations (version) VALUES ('20130521174315');
 
 INSERT INTO schema_migrations (version) VALUES ('20130522122447');
+
+INSERT INTO schema_migrations (version) VALUES ('20130523163304');
+
+INSERT INTO schema_migrations (version) VALUES ('20130523225313');
