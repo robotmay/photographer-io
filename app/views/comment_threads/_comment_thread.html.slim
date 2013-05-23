@@ -1,10 +1,15 @@
-section id="comment-thread-#{comment_thread.id}" class="comment-thread"
-  header
-    h3= comment_thread.subject
+- if user_signed_in? || comment_thread.comments.published.roots.count > 0
+  section id="comment-thread-#{comment_thread.id}" class="comment-thread"
+    header
+      h3= comment_thread.subject
 
-  - if user_signed_in?
-    section class="new-comment"
-      = render partial: "comments/form", locals: { comment: comment_thread.comments.new }
+    - if user_signed_in?
+      section class="new-comment"
+        = render partial: "comments/form", locals: { comment: comment_thread.comments.new }
 
-  section class="comments"
-    = render comment_thread.comments.roots.order("created_at DESC")
+    section class="comments"
+      - if comment_thread.comments.roots.count > 0
+        = render comment_thread.comments.roots.order("created_at DESC")
+      - else
+        p class="none"
+          = t("comments.none")

@@ -67,6 +67,9 @@
         = link_to t("account.photographs.delete"), account_photograph_path(photograph), method: :delete, data: { confirm: t("confirm_delete") }, class: "button small alert delete"
 
     div class="large-3 columns"
+      - if photograph.public?
+        = link_to t("account.photographs.view"), photograph_path(photograph), class: "button secondary expand"
+
       = render partial: "metadata_form", locals: { photograph: photograph, f: f }
 
       - if photograph.metadata.has_location_data?

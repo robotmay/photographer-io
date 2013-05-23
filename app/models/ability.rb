@@ -18,6 +18,10 @@ class Ability
     can :manage, Comment, user_id: user.id
     can :read, Comment, published: true 
 
+    can :moderate, Comment do |comment|
+      comment.comment_thread.user == user
+    end
+
     can :create, Favourite do |favourite|
       favourite.user == user && favourite.photograph.public? && favourite.photograph.user != user
     end

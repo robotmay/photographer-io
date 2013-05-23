@@ -60,6 +60,17 @@ class CommentsController < ApplicationController
     end
   end
 
+  def toggle
+    @comment = @comment_thread.comments.find(params[:id])
+    authorize! :moderate, @comment
+
+    if @comment.toggle_visibility
+      head :ok
+    else
+      head :bad_request
+    end
+  end
+
   private
   def comment_params
     params.require(:comment).permit(:body, :parent_id)
