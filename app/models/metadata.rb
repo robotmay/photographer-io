@@ -127,7 +127,9 @@ class Metadata < ActiveRecord::Base
     width = image['image_width'] || image[:image_width]
     height = image['image_height'] || image[:image_height]
     
-    if height > width
+    if height.nil? || width.nil?
+      self.format = 'unknown'
+    elsif height > width
       self.format = 'portrait'
     elsif height == width
       self.format = 'square'
