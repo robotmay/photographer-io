@@ -49,6 +49,7 @@ module Account
 
     def new
       @photograph = current_user.photographs.new
+      @photograph.build_comment_threads
       authorize! :create, @photograph
       respond_with @photograph
     end
@@ -96,6 +97,7 @@ module Account
 
     def edit
       @photograph = current_user.photographs.find(params[:id])
+      @photograph.build_comment_threads
       authorize! :update, @photograph
       respond_with @photograph
     end
@@ -206,8 +208,9 @@ module Account
     def photograph_params
       params.require(:photograph).permit(
         :image_uid, :safe_for_work, :show_location_data, :license_id, :category_id,
-        :show_copyright_info, 
-        collection_ids: [], metadata_attributes: Metadata::EDITABLE_KEYS
+        :show_copyright_info, :enable_comments,
+        collection_ids: [], metadata_attributes: Metadata::EDITABLE_KEYS,
+        comment_threads_attributes: [:id, :subject, :_destroy]
       )
     end
   end

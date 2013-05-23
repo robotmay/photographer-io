@@ -52,6 +52,7 @@ class Photograph < ActiveRecord::Base
 
   accepts_nested_attributes_for :metadata, update_only: true
   accepts_nested_attributes_for :collections
+  accepts_nested_attributes_for :comment_threads, allow_destroy: true, reject_if: -> (ct) { ct[:subject].blank? }
 
   validates :user_id, :image_uid, presence: true
   validates :image_mime_type, inclusion: { in: ["image/jpeg"] }, on: :create
@@ -173,6 +174,12 @@ class Photograph < ActiveRecord::Base
     end
 
     CDNExpiryWorker.perform_async(paths)
+  end
+
+  def build_comment_threads
+    (3 - comment_threads.count).times do
+      comment_threads.build
+    end
   end
 
   def processing?

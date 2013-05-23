@@ -25,16 +25,26 @@ en:
     #     password: 'No special characters, please.'
 
     labels:
+      comment_thread:
+        destroy: "Delete this thread"
+
       user:
         show_nsfw_content: "Show NSFW content"
         website_url: "Your website URL"
 
     placeholders:
+      comment_thread:
+        subject: "e.g. What species is this bird? Or; How are my colour choices?"
       user:
         name: "Your name or nickname"
         website_url: "http://yourgreatphotosite.com"
 
     hints:
+      comment_thread:
+        subject: >
+          On what subject would you like comments from your visitors? This could be
+          anything from "How are my leading lines?" to "Help me identify this bird!"
+
       metadata:
         keywords: >
           Keywords should be a comma-separated list of tags relevant to the image, 
@@ -62,6 +72,11 @@ en:
         category: >
           Setting a relevant category for your photo will help other people discover
           it more easily!
+
+        enable_comments: >
+          If you enable comments you need to set at least one subject for commenters
+          to respond on. Comments are private between you and the commenter, unless
+          you choose to make them public.
 
       user:
         show_nsfw_content: >
