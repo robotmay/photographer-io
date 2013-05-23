@@ -211,7 +211,14 @@ en:
         collections: "What collections does this photo belong in?"
         settings: "Settings"
         comments: "Comments"
-        comment_threads: "What subjects do you want comments on?"
+        threads: "What subjects do you want comments on?"
+        threads_hint: >
+          You can specify up to %{n} subjects for feedback/discussion on this photo.
+          We want to promote meaningful comments on Photographer.io, so try subjects 
+          like "What species of bird is this?" or "Constructive Criticism". Comments
+          are visible to you and the commenter by default, but you can make them public
+          if you think they're worth displaying; this can be done via the public view
+          of your photo.
 
       create:
         failed: "Upload error"

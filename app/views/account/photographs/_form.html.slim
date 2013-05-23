@@ -42,17 +42,24 @@
               = f.input :show_location_data, as: :radio_buttons, default: (f.object.user.show_location_data)
 
       div class="panel"
-        fieldset
-          legend= t("account.photographs.form.comments")
-          div class="row"
-            div class="large-3 columns"
+        div class="row"
+          div class="large-3 columns"
+            fieldset
+              legend= t("account.photographs.form.comments")
               = f.input :enable_comments, as: :radio_buttons
 
-            div class="large-9 columns"
+          div class="large-9 columns"
+            fieldset
+              legend= t("account.photographs.form.threads")
               = f.simple_fields_for :comment_threads do |ct|
-                = ct.input :subject, as: :string, label: false
-                - if ct.object.persisted?
-                  = ct.input :_destroy, as: :boolean, label: t("simple_form.labels.comment_thread.destroy")
+                div class="row"
+                  div class="large-9 columns"
+                    = ct.input :subject, as: :string, label: false
+                  div class="large-3 columns"
+                    - if ct.object.persisted?
+                      = ct.input :_destroy, as: :boolean, label: t("simple_form.labels.comment_thread.destroy")
+              span class="hint"
+                = t("account.photographs.form.threads_hint", n: ISO[:defaults][:max_comment_threads])
 
       = f.button :submit
 
