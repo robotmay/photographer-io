@@ -21,7 +21,7 @@ $(document).ready ->
     unless eventLock
       eventLock = true
       $(this).toggleClass("published success unpublished secondary")
-      $(this).parents(".comment").find("> .main footer .status").toggleClass("hidden")
+      $(this).parents(".comment").first().find("> .main footer .status").toggleClass("hidden")
       $(this).blur() # force remove focus to fix bug
       eventLock = false
 
