@@ -25,7 +25,11 @@ Iso::Application.routes.draw do
   end
 
   resources :comment_threads do
-    resources :comments, only: [:create, :update, :destroy]
+    resources :comments, only: [:create, :update, :destroy] do
+      member do
+        get :toggle
+      end
+    end
   end
 
   resources :collections, only: [:index, :show] do

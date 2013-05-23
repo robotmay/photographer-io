@@ -183,6 +183,7 @@ en:
         public: "Public"
         private: "Private"
         unsorted: "Unsorted"
+      view: "View public page"
       views: "Views"
       recommendations: "Recommendations"
       favourites: "Favourites"
@@ -263,9 +264,18 @@ en:
 
   comments:
     saving: "Saving..."
-    unpublished: "This comment is visible only to you and the photo owner"
+    unpublished: "This comment is visible only to the submitter and the photo owner"
     delete: "Delete"
     reply: "Reply"
+    publish: "Publish"
+    unpublish: "Unpublish"
+    none: >
+      There are currently no comments for this thread. Be the first and submit one
+      using the form above!
+
+    none_visible: >
+      There are currently no publically visible comments here. Curious? Learn more
+      about how commenting works on Photographer.io.
 
   favourites:
     create:

@@ -20,4 +20,9 @@ class Comment < ActiveRecord::Base
       false
     end
   end
+
+  def toggle_visibility
+    self.published = !published
+    save
+  end
 end

@@ -68,6 +68,16 @@ $comment-border-colour: $body-bg - rgb(5,5,5)
                 margin:
                   bottom: 0
                   right: 5px
+
+                &.published
+                  background-color: $success-color
+
+                  .unpublished
+                    display: none
+
+                &.unpublished
+                  .published
+                    display: none
             
             .label
               float: right
