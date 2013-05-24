@@ -14,11 +14,13 @@ class Comment < ActiveRecord::Base
 
   after_create :notify
   def notify
-    notifications.create(
-      user: comment_thread.user,
-      subject: I18n.t("comments.notifications.subject", user: user.name, on: comment_thread.threadable.title),
-      body: I18n.t("comments.notifications.body", user: user.name, on: comment_thread.threadable.title)
-    )
+    unless user == comment_thread.user
+      notifications.create(
+        user: comment_thread.user,
+        subject: I18n.t("comments.notifications.subject", user: user.name, on: comment_thread.threadable.title),
+        body: I18n.t("comments.notifications.body", user: user.name, on: comment_thread.threadable.title)
+      )
+    end
   end
 
   def can_be_seen_by?(current_user)
