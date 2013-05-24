@@ -3,6 +3,7 @@ class Ability
 
   def initialize(user)
     user ||= User.new
+    alias_action :create, :read, :update, :destroy, to: :crud
 
     can :read, Category
     can :read, Collection, public: true
@@ -15,7 +16,7 @@ class Ability
 
     can :manage, CommentThread, user_id: user.id
     can :read, CommentThread
-    can :manage, Comment, user_id: user.id
+    can :crud, Comment, user_id: user.id
     can :read, Comment, published: true 
 
     can :moderate, Comment do |comment|
