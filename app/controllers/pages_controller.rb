@@ -28,6 +28,11 @@ class PagesController < ApplicationController
           total: User.count,
           invited: User.where.not(invited_by_id: nil).count,
           accepted_invites: User.where.not(invitation_accepted_at: nil).count
+        },
+        comments: {
+          total: Comment.count,
+          published: Comment.published.count,
+          threads: CommentThread.count
         }
       }
 
