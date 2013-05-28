@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
-  <link href="http://robotmay.github.io/iso/atom.xml" rel="self"/>
-  <link href="http://robotmay.github.io/iso/"/>
-  <updated>2013-05-28T14:48:46+01:00</updated>
-  <id>http://robotmay.github.io/iso/</id>
+  <title><![CDATA[Photographer.io Blog]]></title>
+  <link href="http://blog.photographer.io/atom.xml" rel="self"/>
+  <link href="http://blog.photographer.io/"/>
+  <updated>2013-05-28T15:05:58+01:00</updated>
+  <id>http://blog.photographer.io/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
-    
+    <name><![CDATA[Robert May]]></name>
+    <email><![CDATA[support@photographer.io]]></email>
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
