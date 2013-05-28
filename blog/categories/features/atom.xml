@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Photographer.io Blog]]></title>
-  <link href="http://blog.photographer.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Features | Photographer.io Blog]]></title>
+  <link href="http://blog.photographer.io/blog/categories/features/atom.xml" rel="self"/>
   <link href="http://blog.photographer.io/"/>
   <updated>2013-05-28T17:44:27+01:00</updated>
   <id>http://blog.photographer.io/</id>
@@ -24,7 +24,7 @@
 
 <h2>Introducing &lsquo;Recommendations&rsquo;</h2>
 
-<p><img src="http://blog.photographer.io/images/posts/2/recommend_button.png" alt="Recommendation button" /></p>
+<p><img src="/images/posts/2/recommend_button.png" alt="Recommendation button" /></p>
 
 <p>Recommendations on <a href="https://photographer.io">Photographer.io</a> are akin to &lsquo;Likes&rsquo; elsewhere, though with a subtle difference: they are finite.</p>
 
@@ -63,7 +63,7 @@
 
 <p>What do you think? I&rsquo;m always open to feedback, ideas, or bug reports.</p>
 
-<p>You can reach me on Twitter as <a href="http://twitter.com/robotmay">@robotmay</a> or via email at <a href="mailto:rob@photographer.io"><a href="&#109;&#97;&#x69;&#108;&#116;&#x6f;&#x3a;&#x72;&#111;&#98;&#64;&#112;&#104;&#x6f;&#x74;&#111;&#103;&#114;&#x61;&#112;&#x68;&#101;&#x72;&#46;&#105;&#x6f;">&#114;&#x6f;&#98;&#x40;&#x70;&#104;&#x6f;&#116;&#111;&#103;&#x72;&#x61;&#x70;&#x68;&#x65;&#114;&#46;&#105;&#x6f;</a></a>.</p>
+<p>You can reach me on Twitter as <a href="http://twitter.com/robotmay">@robotmay</a> or via email at <a href="mailto:rob@photographer.io"><a href="&#x6d;&#x61;&#x69;&#x6c;&#116;&#x6f;&#x3a;&#x72;&#x6f;&#98;&#64;&#112;&#x68;&#x6f;&#x74;&#x6f;&#x67;&#114;&#97;&#112;&#x68;&#x65;&#x72;&#x2e;&#x69;&#111;">&#114;&#111;&#x62;&#64;&#x70;&#104;&#x6f;&#116;&#x6f;&#x67;&#x72;&#x61;&#112;&#104;&#x65;&#114;&#x2e;&#x69;&#111;</a></a>.</p>
 ]]></content>
   </entry>
   
