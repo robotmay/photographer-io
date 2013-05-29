@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def blog_path
+    ENV['BLOG_URL']
+  end
+
   def switch_filter_path(from, to)
     path = url_for(params.except(:page))
     path.gsub(from.to_s, to.to_s)
