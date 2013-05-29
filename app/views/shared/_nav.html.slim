@@ -81,6 +81,11 @@ nav id="layout-nav" class="top-bar"
               span class="icon"
               span class="number"
                 = current_user.received_favourites_count.to_i
+
+        li class="has-dropdown"
+          a class="notifications"
+          ul class="dropdown"
+            - if current_user.unread_notifications.count > 0
             
         li class="has-dropdown"
           = link_to current_user.name, account_root_path, active_on: true
