@@ -20,8 +20,16 @@ $(document).ready ->
   comments.on "ajax:success", ".toggle", (event, data, status, error) ->
     unless eventLock
       eventLock = true
-      $(this).toggleClass("published success unpublished secondary")
-      $(this).parents(".comment").first().find("> .main footer .status").toggleClass("hidden")
+      classes = "published success unpublished secondary"
+
+      if $(this).hasClass("published")
+        $(this).toggleClass(classes)
+        $(this).parents(".comment").first().find("> .main footer .status").toggleClass("hidden")
+      else
+        tree = $(this).parents(".comment")
+        tree.find("> .main footer .status").addClass("hidden")
+        tree.find("> .main .actions .toggle").removeClass("unpublished secondary").addClass("published success")
+
       $(this).blur() # force remove focus to fix bug
       eventLock = false
 

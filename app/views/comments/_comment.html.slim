@@ -46,4 +46,4 @@
         = render partial: "comments/form", locals: { comment: comment.comment_thread.comments.new(parent_id: comment.id) }
 
       div class="comments"
-        = render comment.descendants.order("created_at DESC")
+        = render comment.children.order("created_at DESC")
