@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: New Features | Photographer.io Blog]]></title>
+  <link href="http://blog.photographer.io/blog/categories/new-features/atom.xml" rel="self"/>
+  <link href="http://blog.photographer.io/"/>
+  <updated>2013-05-29T20:15:46+01:00</updated>
+  <id>http://blog.photographer.io/</id>
+  <author>
+    <name><![CDATA[Robert May]]></name>
+    <email><![CDATA[support@photographer.io]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Commenting on Photographer.io: A Slightly Different Approach]]></title>
+    <link href="http://blog.photographer.io/posts/2013/05/29/commenting-on-photographer-dot-io-a-slightly-different-approach/"/>
+    <updated>2013-05-29T19:42:00+01:00</updated>
+    <id>http://blog.photographer.io/posts/2013/05/29/commenting-on-photographer-dot-io-a-slightly-different-approach</id>
+    <content type="html"><![CDATA[<p>When I initially announced the beta of <a href="https://photographer.io">Photographer.io</a> on <a href="http://www.reddit.com/r/photography/comments/1dvms3/ive_built_a_new_photo_sharing_community_in_the/">Reddit</a> a few weeks back, one of the most popular discussions was on how the commenting system should work once it&rsquo;s implemented. It&rsquo;s nice to know I&rsquo;m not the only one who doesn&rsquo;t enjoy the current state of commenting on other sites. On Friday I (almost silently) launched the first iteration of a commenting system on Photographer.io, and it&rsquo;s hopefully a slightly different approach.</p>
+
+<!-- more -->
+
+
+<h2>Disabled by default</h2>
+
+<p>First, commenting is entirely opt-in at this time whilst it&rsquo;s in testing. I&rsquo;ve been taking this approach with nearly every new feature implemented so far; new features are often disabled by default for existing users to prevent any complaints surrounding privacy, or negatively affecting those users' experience on the site.</p>
+
+<p>However there is another reason why it&rsquo;s disabled by default; the subject system.</p>
+
+<h2>Commenting with a purpose</h2>
+
+<p><img src="/images/posts/1/commenting_options.png" alt="Commenting options in the control panel" /></p>
+
+<p>It&rsquo;s not exactly beautiful right now, but this is what you&rsquo;ll see when you go to edit a photograph in your control panel. If you wish to enable commenting, you must set between one and three subjects for commenters to respond to. Consider these more like a traditional thread in a message board; a specific subject for other users to respond on.</p>
+
+<p>What subjects you use is up to you; maybe you just want general comments like you get elsewhere, or perhaps you want constructive criticism of your technique, your colouring, or help identifying that pesky subject:</p>
+
+<p><img src="/images/posts/1/comments_form.png" alt="Comments form on the front end" /></p>
+
+<p>Want to try it out? <a href="https://photographer.io/account/sign_up">Create an account</a> and feel free to <a href="https://photographer.io/photographs/2423">test it on the photograph shown above</a>.</p>
+
+<p>Pretty much every website in existence has the ability to &lsquo;Like&rsquo; or &lsquo;Favourite&rsquo; or, in the case of Photographer.io, &lsquo;Recommend&rsquo; content. So why should the commenting system be open to an endless stream of comments like &lsquo;OMG LOVE IT&rsquo;, &lsquo;Great&rsquo;, or &lsquo;It&rsquo;s like dolphins and rainbows hugging in my soul"? I&rsquo;ll be the first to admit that sometimes I really just want to tell somebody in my own words why I love their photo so much, and there will be a private messaging system to allow you to do that soon. However, a comment is a public entity; on many other sites whatever you post is visible right underneath someone else&rsquo;s work. Shouldn&rsquo;t they have a say in what appears there?</p>
+
+<h2>Moderated by you</h2>
+
+<p><img src="/images/posts/1/unpublished_comment.png" alt="Unpublished comment" /></p>
+
+<p>You&rsquo;re in control of which comments are publicly visible. All submitted comments are, by default, visible only to the submitter, the owner of the photograph, and, if it&rsquo;s a reply, the person to whom you are replying. The owner of the photograph then decides whether to make the comment visible to everyone, or whether to keep it private. Perhaps this will result in valid criticism being kept private, but is that such a bad thing? I don&rsquo;t want new photographers to be put off of experimenting or learning by forcing them to have all critique visible on their photos; that should be up to them to decide.</p>
+
+<h2>Improvements coming soon</h2>
+
+<h4>Notifications</h4>
+
+<p>Right now you&rsquo;ll be notified by email of every new comment made on your photographs. There will be an opt-out for this in future, and a built-in notifications panel similar to what you have on Facebook or GitHub.</p>
+
+<h4>Reporting</h4>
+
+<p>A reporting system is planned for the near future to allow you to report abuse of the commenting (and photograph) system.</p>
+
+<h4>More configuration options</h4>
+
+<p>In future I&rsquo;d like to give users the ability to set default subjects for their photos so that they can enable comments by default. The number of subjects allowed may also become more flexible.</p>
+
+<h4>Email responses</h4>
+
+<p>I&rsquo;ll also be looking to allow users to respond to comments via email to make it easier to hold a conversation with commenters on your photographs.</p>
+
+<h2>Feedback</h2>
+
+<p>What do you think? This is clearly still a work in progress but I&rsquo;d love to get some opinions about how it works and what you would do to improve it.</p>
+
+<p>I am entirely open to feedback, ideas, and bug reports. You can reach me on Twitter as <a href="http://twitter.com/robotmay">@robotmay</a> or via email at <a href="mailto:rob@photographer.io"><a href="&#109;&#x61;&#105;&#x6c;&#116;&#111;&#x3a;&#x72;&#111;&#98;&#x40;&#112;&#x68;&#x6f;&#116;&#x6f;&#103;&#x72;&#x61;&#x70;&#x68;&#x65;&#x72;&#x2e;&#x69;&#111;">&#x72;&#111;&#98;&#x40;&#x70;&#104;&#111;&#x74;&#111;&#103;&#x72;&#x61;&#x70;&#x68;&#x65;&#114;&#x2e;&#x69;&#111;</a></a>.</p>
+]]></content>
+  </entry>
+  
+</feed>
