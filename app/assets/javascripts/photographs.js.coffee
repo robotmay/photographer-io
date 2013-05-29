@@ -26,3 +26,7 @@ $(document).ready ->
 
     $(window).resize ->
       image.trigger "resize:description"
+
+  # Recommendation/favourite buttons
+  $("body").on "ajax:success", ".interactions [data-remote]", (event, data, status, error) ->
+    $(this).parents(".interactions").replaceWith(data)

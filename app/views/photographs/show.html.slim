@@ -1,6 +1,6 @@
 section id="photographs-show"
   section class="row"
-    article class="large-9 columns"
+    article class="large-9 small-12 columns"
       section class="display"
         div class="image"
           - if @photograph.has_precalculated_sizes?
@@ -13,6 +13,8 @@ section id="photographs-show"
             - else
               = photo_tag @photograph, "1500x1500>"
 
+          = interactions_for @photograph
+
           - if @photograph.fetch_metadata.has_text?
             aside class="description"
               h4= @photograph.fetch_metadata.title
@@ -23,25 +25,11 @@ section id="photographs-show"
         - if @photograph.comments_enabled?
           = render @photograph.comment_threads
 
-    aside id="photographs-sidebar" class="large-3 columns"
+    aside id="photographs-sidebar" class="large-3 small-12 columns"
       = creator_details_for @photograph
 
-      - if user_signed_in? && @photograph.user != current_user
-        div class="interactions"
-          span class="recommendations"
-            - if current_user.recommended?(@photograph)
-              a class="button recommended success"
-                = t("photographs.recommended")
-            - else
-              = link_to t("photographs.recommend"), { action: :recommend }, { method: :post, class: "button recommend secondary" }
-
-          span class="favourites"
-            - if current_user.favourited?(@photograph)
-              = link_to photograph_favourite_path(@photograph, current_user.favourites.where(photograph_id: @photograph.id).first), method: :delete, class: "button unfavourite alert" do
-                | &nbsp;
-            - else
-              = link_to photograph_favourites_path(@photograph), method: :post, class: "button favourite secondary" do
-                | &nbsp;
+      div class="show-for-touch"
+        = interactions_for @photograph
       
       - cache([@photograph, @metadata, :sidebar], expires_in: 5.minutes) do
         h5= t("photographs.stats")
@@ -76,3 +64,9 @@ section id="photographs-show"
         - if @photograph.show_location_data && @photograph.metadata.has_location_data?
           h5= t("photographs.location")
           = render partial: "map", locals: { photograph: @photograph }
+
+- content_for(:after_body) do
+  - once :photo_interactions_hint do
+    ul[class="joyride-list" data-joyride]
+      li data-text="OK"
+        = simple_format t("photographs.interactions_hint")

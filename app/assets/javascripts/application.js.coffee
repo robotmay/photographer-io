@@ -21,6 +21,7 @@
 #= require_tree .
 
 $(document).foundation()
+$(document).foundation('joyride', 'start')
 
 window.calculateGridWidth = ->
   width = $(window).width()

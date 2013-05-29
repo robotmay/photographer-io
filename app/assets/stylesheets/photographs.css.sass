@@ -15,6 +15,26 @@
         left: 28px
         right: 5px
 
+.interactions
+  text-align: center
+
+  .recommendations
+    .recommend
+      color: rgb(0,0,0)
+    .recommended
+
+  .favourites
+    .favourite
+      background: 
+        image: image-url("favourite.png") 
+        position: center
+        repeat: no-repeat
+    .unfavourite
+      background:
+        image: image-url("unfavourite.png")
+        position: center
+        repeat: no-repeat
+
 #photographs-index
   header
     text-align: center
@@ -24,12 +44,33 @@
     text-align: center
 
     .image
+      position: relative
       display: inline-block
       max-width: 100%
       min-width: 30%
 
       img
         @include box-shadow
+
+      .interactions
+        position: absolute
+        top: 0
+        width: 100%
+        background: rgba(0,0,0,.3)
+        text-align: right
+        opacity: 0
+        transition: opacity .25s ease-in-out
+        -moz-transition: opacity .25s ease-in-out
+        -webkit-transition: opacity .25s ease-in-out
+
+        .inner
+          padding: 10px
+
+          .button
+            margin: 0
+
+      &:hover .interactions
+        opacity: 1
 
     .description
       display: none
@@ -53,26 +94,6 @@
 
     .button
       margin-bottom: 5px
-
-  .interactions
-    text-align: center
-
-    .recommendations
-      .recommend
-        color: rgb(0,0,0)
-      .recommended
-
-    .favourites
-      .favourite
-        background: 
-          image: image-url("favourite.png") 
-          position: center
-          repeat: no-repeat
-      .unfavourite
-        background:
-          image: image-url("unfavourite.png")
-          position: center
-          repeat: no-repeat
 
   table
     width: 100%
