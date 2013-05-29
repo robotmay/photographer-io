@@ -35,6 +35,14 @@ class Comment < ActiveRecord::Base
 
   def toggle_visibility
     self.published = !published
-    save
+    saved = save
+
+    if child? && saved && published
+      self.ancestors.find_each do |a|
+        a.update_attribute(:published, published)
+      end
+    end
+
+    saved
   end
 end
