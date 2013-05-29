@@ -315,6 +315,13 @@ en:
     none: "There are no photographs here!"
     no_results: "There were no results for your query."
     collections: "Listed in collections"
+    interactions_hint: >
+      To help reduce the amount of clutter on the page, the recommend and favourite
+      buttons have been removed from the sidebar and now display when hovering 
+      over the photo instead.
+
+
+      The statistics are also likely to move into this hover bar in the near future.
     location: "Location"
     recommend: "Recommend this photograph"
     recommended: "Recommended!"

@@ -73,6 +73,12 @@ module PhotographsHelper
     }
   end
 
+  def interactions_for(photograph)
+    render partial: "photographs/interactions", locals: {
+      photograph: photograph
+    }
+  end
+
   def metadata_table_for(photograph, opts = {})
     render partial: "photographs/metadata_table", locals: { 
       photograph: photograph,

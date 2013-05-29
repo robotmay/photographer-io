@@ -43,7 +43,9 @@ class PhotographsController < ApplicationController
     @photographs = Photograph.view_for(current_user).uniq.order("created_at DESC").page(params[:page])
     set_title(t("titles.explore"))
 
-    respond_with @photographs
+    respond_with @photographs do |f|
+      f.html { render :index }
+    end
   end
 
   def recommended
@@ -139,15 +141,13 @@ class PhotographsController < ApplicationController
     authorize! :recommend, @photograph
     @recommendation = current_user.recommendations.find_or_create_by_photograph_id(@photograph.id)
     if @recommendation
-      flash[:notice] = t("recommendations.quota", amount: current_user.remaining_recommendations_for_today) 
       respond_with @recommendation, status: :created do |f|
-        f.html { redirect_to :back }
+        f.html { render partial: "photographs/interactions", layout: false, locals: { photograph: @photograph } }
         f.json
       end
     else
-      flash[:alert] = @recommendation.errors
       respond_with @recommendation, status: :unprocessable_entity do |f|
-        f.html { redirect_to :back }
+        f.html { render partial: "photographs/interactions", layout: false, locals: { photograph: @photograph } }
         f.json { render json: @recommendation.errors }
       end
     end

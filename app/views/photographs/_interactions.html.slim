@@ -1,0 +1,18 @@
+- if user_signed_in? && photograph.user != current_user
+  div class="interactions"
+    div class="inner"
+      span class="recommendations"
+        - if current_user.recommended?(photograph)
+          a class="button recommended success"
+            = t("photographs.recommended")
+        - else
+          = link_to t("photographs.recommend"), recommend_photograph_path(photograph), { method: :post, class: "button recommend secondary", "data-remote" => true }
+
+      span class="favourites"
+        - if current_user.favourited?(photograph)
+          = link_to photograph_favourite_path(photograph, current_user.favourites.where(photograph_id: photograph.id).first), method: :delete, class: "button unfavourite alert", "data-remote" => true do
+            | &nbsp;
+        - else
+          = link_to photograph_favourites_path(photograph), method: :post, class: "button favourite secondary", "data-remote" => true do
+            | &nbsp;
+
