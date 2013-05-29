@@ -1,5 +1,5 @@
 class CollectionPhotograph < ActiveRecord::Base
-  belongs_to :collection, touch: true
+  belongs_to :collection
   belongs_to :photograph
 
   validate :photograph_and_collection_should_belong_to_same_user
@@ -7,5 +7,9 @@ class CollectionPhotograph < ActiveRecord::Base
     if photograph.user != collection.user
       errors.add(:base, t("collection_photographs.user_must_match"))
     end
+  end
+
+  after_create do
+    collection.touch
   end
 end
