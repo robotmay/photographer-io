@@ -32,16 +32,6 @@ section id="photographs-show"
         = interactions_for @photograph
       
       - cache([@photograph, @metadata, :sidebar], expires_in: 5.minutes) do
-        h5= t("photographs.stats")
-        table
-          tbody
-            tr
-              td= t("photographs.views")
-              td= @photograph.views.to_i
-            tr
-              td= t("photographs.favourites")
-              td= @photograph.favourites_count.to_i
-
         = metadata_table_for @photograph, format: :short
 
         - if @photograph.collections.count > 0
