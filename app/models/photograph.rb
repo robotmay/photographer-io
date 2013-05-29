@@ -127,6 +127,14 @@ class Photograph < ActiveRecord::Base
     boolean :public, using: :public?
   end
 
+  def favourites_count
+    super || 0
+  end
+
+  def recommendations_count
+    super || 0
+  end
+
   def image_storage_path(i)
     name = File.basename(image_uid, (image_ext || ".jpg"))
     [File.dirname(image_uid), "#{name}_#{i.width}x#{i.height}.#{i.format}"].join("/")

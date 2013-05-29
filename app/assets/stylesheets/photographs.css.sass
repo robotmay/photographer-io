@@ -56,11 +56,11 @@
         @include box-shadow
 
       .interactions
+        text-align: left
         position: absolute
         top: 0
         width: 100%
         background: rgba(0,0,0,.3)
-        text-align: right
         opacity: 0
         transition: opacity .25s ease-in-out
         -moz-transition: opacity .25s ease-in-out
@@ -75,15 +75,19 @@
       &:hover .interactions
         opacity: 1
 
+      .actual-interactions
+        text-align: right
+
       .stats
         @include stats
         text-align: left
-        display: block
+        display: inline-block
+        background: rgba(255,255,255,.8)
+        padding-right: 10px
 
         > span
           padding: $button-tny
           display: inline-block
-          margin: 0 !important
 
           .icon
             width: 31px
