@@ -35,6 +35,7 @@ class User < ActiveRecord::Base
   counter :received_recommendations_count
   counter :received_favourites_count
   counter :followers_count
+  value :last_checked_notifications_at
 
   validates :email, :name, presence: true
   validates :website_url, format: URI::regexp(%w(http https)), allow_blank: true
@@ -110,5 +111,10 @@ class User < ActiveRecord::Base
       favourites: received_favourites_count.to_i,
       followers: followers_count.to_i
     })
+  end
+
+  def unread_notifications
+    date = (last_checked_notifications_at.value || 1.year.ago).to_datetime
+    notifications.where("created_at > ?", date)
   end
 end

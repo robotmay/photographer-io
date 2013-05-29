@@ -49,6 +49,8 @@ gem 'devise-async'
 # gem 'devise-scrypt' TODO: Switch to scrypt, gem needs updating
 gem 'cancan'
 
+# omniauth
+
 # images
 gem 'fog'
 gem 'dragonfly'
