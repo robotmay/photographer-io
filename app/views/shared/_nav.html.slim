@@ -30,6 +30,18 @@ nav id="layout-nav" class="top-bar"
 
               div class="row"
                 div class="large-12 columns"
+                  label= t("nav.search")
+                  = form_tag search_photographs_path, method: :get do
+                    div class="row collapse"
+                      div class="small-8 columns"
+                        = text_field_tag :q, params[:q]
+
+                      div class="small-4 columns"
+                        = submit_tag t("nav.search"), class: "button secondary"
+                  .clear
+
+              div class="row"
+                div class="large-12 columns"
                   label= t("nav.categories")
     
               div class="row"
@@ -43,19 +55,10 @@ nav id="layout-nav" class="top-bar"
       = link_to t("nav.recommended"), recommended_photographs_path, active_on: true, \
         active_wrapper: :li
 
-      li class="divider"
-
-      li id="nav-search" class="has-form"
-        = form_tag search_photographs_path, method: :get do
-          div class="row collapse"
-            div class="small-8 columns"
-              = text_field_tag :q, params[:q]
-
-            div class="small-4 columns"
-              = submit_tag t("nav.search"), class: "button secondary"
+      li= link_to t("nav.blog"), blog_path
+      li= link_to t("nav.support"), "mailto:xz1ped65@incoming.intercom.io", id: "Intercom"
 
     ul class="right"
-      li= link_to t("nav.support"), "mailto:xz1ped65@incoming.intercom.io", id: "Intercom"
       - if user_signed_in?
         li id="mini-user-stats" class="has-form"
           = link_to account_root_path do
