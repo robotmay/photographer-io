@@ -11,6 +11,7 @@ $(document).ready ->
       el.find(".none").hide()
       el.prepend(data)
       $(this).find("textarea").val(null)
+      $(this).parents("[data-reply]").hide()
       eventLock = false
 
   thread.on "ajax:error", "#new_comment", (event, xhr, status, error) ->
