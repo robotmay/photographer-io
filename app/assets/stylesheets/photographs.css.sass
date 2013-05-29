@@ -18,6 +18,9 @@
 .interactions
   text-align: center
 
+  .stats
+    display: none
+
   .recommendations
     .recommend
       color: rgb(0,0,0)
@@ -71,6 +74,33 @@
 
       &:hover .interactions
         opacity: 1
+
+      .stats
+        @include stats
+        text-align: left
+        display: block
+
+        > span
+          padding: $button-tny
+          display: inline-block
+          margin: 0 !important
+
+          .icon
+            width: 31px
+            height: 31px
+
+          .number
+            font-size: 15px
+
+          &.views
+            .icon
+              background: url('/images/glyphicons/glyphicons_051_eye_open.png') left center no-repeat
+              @include image-2x(url('/images/glyphicons/glyphicons_051_eye_open@2x.png'), 31px, 31px)
+
+          &.favourites
+            .icon
+              background: url('/images/glyphicons/glyphicons_012_heart.png') left center no-repeat
+              @include image-2x(url('/images/glyphicons/glyphicons_012_heart@2x.png'), 31px, 31px)
 
     .description
       display: none
