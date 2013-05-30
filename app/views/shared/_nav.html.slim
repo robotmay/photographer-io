@@ -81,11 +81,6 @@ nav id="layout-nav" class="top-bar"
               span class="icon"
               span class="number"
                 = current_user.received_favourites_count.to_i
-
-        li class="has-dropdown"
-          a class="notifications"
-          ul class="dropdown"
-            - if current_user.unread_notifications.count > 0
             
         li class="has-dropdown"
           = link_to current_user.name, account_root_path, active_on: true
@@ -108,6 +103,10 @@ nav id="layout-nav" class="top-bar"
             active_wrapper: :li
 
             li= link_to t("nav.sign_out"), destroy_user_session_path, method: :delete
+
+        li id="notifications"
+          - unread = current_user.notifications.unread.count > 0
+          a class="#{unread ? 'unread' : 'read'}" data-dropdown="notifications-dropdown" href="#"
       
       - else
         = link_to t("nav.sign_in"), new_user_session_path, active_on: true, \
@@ -124,3 +123,21 @@ nav id="layout-nav" class="top-bar"
         | &#215;
       h4= t("beta_notes.title")
       = simple_format t("beta_notes.blurb")
+
+  - if user_signed_in?
+    div[id="notifications-dropdown" class="f-dropdown small" data-dropdown-content]
+      header
+        h5= t("notifications.title")
+
+      - if current_user.notifications.unread.count > 0
+        div class="notifications"
+          - current_user.notifications.unread.order("created_at DESC").each do |n|
+            div class="notification"
+              = link_to n.subject, notification_path(n), class: (n.read? ? "read" : "unread")
+        footer
+          = link_to t("notifications.mark_as_read"), mark_all_as_read_notifications_path
+
+      - else
+        span class="none"
+          = t("notifications.none")
+

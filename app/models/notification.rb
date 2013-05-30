@@ -6,6 +6,9 @@ class Notification < ActiveRecord::Base
 
   validates :user_id, :notifiable_id, :notifiable_type, :subject, presence: true
 
+  scope :read, -> { where(read: true) }
+  scope :unread, -> { where(read: false) }
+
   after_create :push
   def push
     PusherWorker.perform_async(user.channel_key, 'new_notification', {
@@ -19,5 +22,13 @@ class Notification < ActiveRecord::Base
     if user.receive_notification_emails
       NotificationMailer.delay.notify(id)
     end
+  end
+
+  def unread?
+    !read
+  end
+
+  def mark_as_read
+    self.update_attribute(:read, true)
   end
 end

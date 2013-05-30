@@ -58,6 +58,76 @@ body
   #mini-user-stats
     @include stats
 
+  #notifications
+    > a
+      cursor: pointer
+      width: 45px
+      height: 45px
+      text-indent: -9999px
+      background: image-url('glyphicons_halflings_inverted/glyphicons_halflings_140_dashboard.png') center no-repeat
+      @include image-2x(image-url('glyphicons_halflings_inverted/glyphicons_halflings_140_dashboard@2x.png'), 16px, 16px)
+      background-color: $topbar-bg + #111
+
+      &.unread
+        background: image-url('glyphicons_halflings/glyphicons_halflings_140_dashboard.png') center no-repeat
+        @include image-2x(image-url('glyphicons_halflings/glyphicons_halflings_140_dashboard@2x.png'), 16px, 16px)
+        background-color: $secondary-color
+
+    &:hover, &.active
+      > a
+        background-color: $topbar-bg + #222
+
+        &.unread
+          background-color: $secondary-color - #111
+
+#notifications-dropdown
+  padding: 5px
+  font-size: 0.9em
+  @include box-shadow
+
+  header
+    text-align: center
+    margin-bottom: 5px
+    padding-bottom: 5px
+    border-bottom: 1px solid #eee
+
+  footer
+    text-align: center
+    margin-top: 5px
+    padding:
+      top: 10px
+      bottom: 5px
+    border-top: 1px solid #eee
+
+    a
+      color: $primary-color
+
+  .none
+    display: block
+    text-align: center
+    color: #000
+
+  .notifications
+    .notification
+      a
+        padding: 8px 5px
+        color: #000
+        display: block
+        border-bottom: 1px solid darken(#fff, 5%)
+
+        &:hover
+          background: darken(#fff, 5%)
+      
+        &.read
+          border-right: 5px solid #fff
+
+        &.unread
+          border-right: 5px solid $primary-color + #333
+
+      &:last-child
+        a
+          border-bottom: 0
+
 #layout-footer
   opacity: 0.8
   color: $body-bg - #555

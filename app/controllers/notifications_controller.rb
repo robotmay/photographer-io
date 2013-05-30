@@ -19,8 +19,21 @@ class NotificationsController < ApplicationController
       root_path
     end
 
+    @notification.mark_as_read
+
     respond_with @notification do |f|
       f.html { redirect_to path }
+    end
+  end
+
+  def mark_all_as_read
+    @notifications = current_user.notifications.unread
+    @notifications.find_each do |n|
+      n.mark_as_read
+    end
+
+    respond_with @notifications do |f|
+      f.html { redirect_to :back }
     end
   end
 end
