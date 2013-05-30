@@ -266,7 +266,8 @@ en:
 
   comments:
     saving: "Saving..."
-    unpublished: "This comment is visible only to the submitter and the photo owner"
+    unpublished: "Visible only to the submitter and the photo owner"
+    child_unpublished: "Visible only to the submitter, photo owner, and parent comment owners"
     delete: "Delete"
     reply: "Reply"
     publish: "Publish"
@@ -285,6 +286,10 @@ en:
         %{user} has left a new comment on your photograph '%{on}'. It won't be made
         visible unless you choose to make it so, which you can do by visiting the 
         public view of the photograph.
+      reply:
+        subject: "%{user} has left a new reply to your comment on '%{on}'"
+        body: >
+          %{user} has left a new reply to your comment on '%{on}'.
 
   favourites:
     create:
@@ -305,6 +310,9 @@ en:
       failed: "There was a problem removing that user from your followings."
 
   notifications:
+    title: "Notifications"
+    none: "You have no notifications right now."
+    mark_as_read: "Mark all as read"
     email:
       subject: "Photographer.io: %{subject}"
       button: "View on Photographer.io"
@@ -449,8 +457,3 @@ en:
           gain an extra %{referral_bonus} uploads per month. 
           Instructions are in your account page after you create
           your account.
-  
-  notifications:
-    title: "Notifications"
-    none: "You have no notifications right now."
-    mark_as_read: "Mark all as read"

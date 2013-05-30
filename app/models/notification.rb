@@ -9,7 +9,7 @@ class Notification < ActiveRecord::Base
   scope :read, -> { where(read: true) }
   scope :unread, -> { where(read: false) }
 
-  after_create :push
+  after_commit :push, on: :create
   def push
     PusherWorker.perform_async(user.channel_key, 'new_notification', {
       subject: subject,
@@ -17,9 +17,9 @@ class Notification < ActiveRecord::Base
     })
   end
 
-  after_create :email
+  after_commit :email, on: :create
   def email
-    if user.receive_notification_emails
+    if user.receive_notification_emails && send_email?
       NotificationMailer.delay.notify(id)
     end
   end
