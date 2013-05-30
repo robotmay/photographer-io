@@ -21,7 +21,10 @@
 
             - status_class = comment.published ? "hidden" : ""
             div class="label secondary radius status #{status_class}"
-              = t("comments.unpublished")
+              - if comment.child?
+                = t("comments.child_unpublished") 
+              - else
+                = t("comments.unpublished")
 
           div class="large-4 columns right"
             div class="actions"
