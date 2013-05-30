@@ -16,6 +16,7 @@ en:
     recommended: "Photos recommended by other members"
     favourites: "Your favourite photographs"
     following: "Photos from people you follow"
+  untitled: "Untitled"
 
   nav:
     menu: "Menu"
@@ -448,3 +449,8 @@ en:
           gain an extra %{referral_bonus} uploads per month. 
           Instructions are in your account page after you create
           your account.
+  
+  notifications:
+    title: "Notifications"
+    none: "You have no notifications right now."
+    mark_as_read: "Mark all as read"

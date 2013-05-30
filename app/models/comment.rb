@@ -15,9 +15,10 @@ class Comment < ActiveRecord::Base
   after_create :notify
   def notify
     unless user == comment_thread.user
+      title = comment_thread.threadable.title.blank? ? I18n.t("untitled") : comment_thread.threadable.title
       notifications.create(
         user: comment_thread.user,
-        subject: I18n.t("comments.notifications.subject", user: user.name, on: comment_thread.threadable.title),
+        subject: I18n.t("comments.notifications.subject", user: user.name, on: title),
         body: I18n.t("comments.notifications.body", user: user.name, on: comment_thread.threadable.title)
       )
     end
