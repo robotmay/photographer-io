@@ -103,6 +103,10 @@ en:
           support any formatting past basic new line support. Markdown support is
           coming soon.
 
+        receive_notification_emails: >
+          Do you want to receive an email for new, important notifications; e.g. new
+          comments?
+
   helpers:
     submit:
       comment:
