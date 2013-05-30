@@ -18,7 +18,7 @@ class Comment < ActiveRecord::Base
 
     unless user == comment_thread.user
       # Notify owner
-      notifications.create!(
+      notifications.create(
         send_email: true,
         user: comment_thread.user,
         subject: I18n.t("comments.notifications.subject", user: user.name, on: title),
@@ -51,6 +51,15 @@ class Comment < ActiveRecord::Base
   def toggle_visibility
     self.published = !published
     saved = save
+
+    if saved && published
+      title = comment_thread.threadable.title.blank? ? I18n.t("untitled") : comment_thread.threadable.title
+
+      notifications.create(
+        user: user,
+        subject: I18n.t("comments.notifications.published.subject", on: title)
+      )
+    end
 
     if child? && saved && published
       self.ancestors.find_each do |a|
