@@ -4,7 +4,7 @@
   <title><![CDATA[Photographer.io Blog]]></title>
   <link href="http://blog.photographer.io/atom.xml" rel="self"/>
   <link href="http://blog.photographer.io/"/>
-  <updated>2013-05-29T20:23:18+01:00</updated>
+  <updated>2013-05-31T00:22:29+01:00</updated>
   <id>http://blog.photographer.io/</id>
   <author>
     <name><![CDATA[Robert May]]></name>
@@ -12,6 +12,26 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Introducing Notifications]]></title>
+    <link href="http://blog.photographer.io/posts/2013/05/31/introducing-notifications/"/>
+    <updated>2013-05-31T00:03:00+01:00</updated>
+    <id>http://blog.photographer.io/posts/2013/05/31/introducing-notifications</id>
+    <content type="html"><![CDATA[<p>This evening I&rsquo;ve knuckled down and built a notifications system similar to what you may have used on sites like Facebook. I&rsquo;ll be making lots of use of it throughout the site, though at the moment it&rsquo;s used primarily for letting you know when someone has commented on your photos.</p>
+
+<p><img src="http://blog.photographer.io/images/posts/3/notification_panel.png" alt="Notification pane" /></p>
+
+<!-- more -->
+
+
+<p>For more important notifications you will be sent an email about it, however you can disable this if you like:</p>
+
+<p><img src="http://blog.photographer.io/images/posts/3/notification_option.png" alt="Notification options" /></p>
+
+<p>Let me know if you find any bugs with it, or have any suggestions for how it can be used across the site.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Commenting on Photographer.io: A Slightly Different Approach]]></title>
@@ -73,7 +93,7 @@
 
 <p>What do you think? This is clearly still a work in progress but I&rsquo;d love to get some opinions about how it works and what you would do to improve it.</p>
 
-<p>I am entirely open to feedback, ideas, and bug reports. You can reach me on Twitter as <a href="http://twitter.com/robotmay">@robotmay</a> or via email at <a href="mailto:rob@photographer.io"><a href="&#109;&#x61;&#105;&#108;&#116;&#x6f;&#58;&#114;&#x6f;&#98;&#64;&#x70;&#x68;&#x6f;&#x74;&#111;&#103;&#x72;&#x61;&#112;&#104;&#x65;&#114;&#x2e;&#x69;&#111;">&#x72;&#111;&#98;&#64;&#x70;&#104;&#x6f;&#116;&#111;&#x67;&#x72;&#97;&#112;&#x68;&#101;&#114;&#46;&#105;&#x6f;</a></a>.</p>
+<p>I am entirely open to feedback, ideas, and bug reports. You can reach me on Twitter as <a href="http://twitter.com/robotmay">@robotmay</a> or via email at <a href="mailto:rob@photographer.io"><a href="&#x6d;&#97;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#114;&#111;&#x62;&#64;&#112;&#104;&#111;&#116;&#111;&#103;&#x72;&#x61;&#112;&#104;&#x65;&#x72;&#46;&#105;&#111;">&#x72;&#x6f;&#98;&#x40;&#112;&#x68;&#x6f;&#116;&#111;&#103;&#114;&#x61;&#112;&#104;&#101;&#114;&#46;&#105;&#x6f;</a></a>.</p>
 ]]></content>
   </entry>
   
@@ -127,7 +147,7 @@
 
 <p>What do you think? I&rsquo;m always open to feedback, ideas, or bug reports.</p>
 
-<p>You can reach me on Twitter as <a href="http://twitter.com/robotmay">@robotmay</a> or via email at <a href="mailto:rob@photographer.io"><a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#x6f;&#x3a;&#114;&#111;&#x62;&#x40;&#112;&#x68;&#x6f;&#116;&#111;&#x67;&#114;&#97;&#x70;&#104;&#101;&#114;&#46;&#x69;&#x6f;">&#x72;&#x6f;&#98;&#x40;&#x70;&#x68;&#111;&#116;&#x6f;&#103;&#x72;&#97;&#112;&#104;&#101;&#x72;&#46;&#x69;&#x6f;</a></a>.</p>
+<p>You can reach me on Twitter as <a href="http://twitter.com/robotmay">@robotmay</a> or via email at <a href="mailto:rob@photographer.io"><a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#111;&#x3a;&#x72;&#x6f;&#x62;&#64;&#112;&#104;&#111;&#116;&#111;&#103;&#114;&#x61;&#x70;&#104;&#101;&#114;&#46;&#105;&#111;">&#x72;&#111;&#x62;&#64;&#x70;&#x68;&#x6f;&#116;&#x6f;&#103;&#x72;&#97;&#x70;&#104;&#x65;&#x72;&#46;&#x69;&#x6f;</a></a>.</p>
 ]]></content>
   </entry>
   
