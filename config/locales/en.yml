@@ -290,6 +290,8 @@ en:
         subject: "%{user} has left a new reply to your comment on '%{on}'"
         body: >
           %{user} has left a new reply to your comment on '%{on}'.
+      published:
+        subject: "Your comment on '%{on}' has been published"
 
   favourites:
     create:
