@@ -15,9 +15,11 @@
                   = t("photographs.metadata.#{attr}")
             tbody
               - metadata_values_for_attr(photograph, attr, opts).each do |key, value|
-                tr
-                  td= t("photographs.metadata.#{key}")
-                  td= parse_and_display_metadata_value(key, value)
+                - val = parse_and_display_metadata_value(key, value)
+                - unless val.blank?
+                  tr
+                    td= t("photographs.metadata.#{key}")
+                    td= val
 
         thead
           tr
