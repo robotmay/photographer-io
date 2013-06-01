@@ -15,6 +15,7 @@ Iso::Application.routes.draw do
       get :random
       get :favourites
       get :following
+      get :seeking_feedback
     end
 
     member do

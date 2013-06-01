@@ -27,6 +27,8 @@ nav id="layout-nav" class="top-bar"
                     - if user_signed_in?
                       = link_to t("nav.following"), following_photographs_path, \
                         active_on: true, active_wrapper: :li
+                    
+                    = link_to t("nav.seeking_feedback"), seeking_feedback_photographs_path, active_on: true, active_wrapper: :li
 
               div class="row"
                 div class="large-12 columns"
