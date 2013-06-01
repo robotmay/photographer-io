@@ -1,7 +1,9 @@
 class PhotographsController < ApplicationController
   respond_to :html
   before_filter :authenticate_user!, only: [:favourites, :recommend, :following]
-  before_filter :hide_filters!, only: [:recommended, :favourites, :following, :search]
+  before_filter :hide_filters!, only: [
+    :recommended, :favourites, :following, :search, :seeking_feedback
+  ]
 
   before_filter :set_parents
   def set_parents
@@ -41,7 +43,7 @@ class PhotographsController < ApplicationController
 
   def explore
     @photographs = Photograph.view_for(current_user).uniq.order("created_at DESC").page(params[:page])
-    set_title(t("titles.explore"))
+    set_title t("titles.explore")
 
     respond_with @photographs do |f|
       f.html { render :index }
@@ -51,7 +53,7 @@ class PhotographsController < ApplicationController
   def recommended
     sorted_photographs = Photograph.recommended(current_user)
     @photographs = Kaminari.paginate_array(sorted_photographs).page(params[:page]).per(Photograph.default_per_page)
-    set_title(t("titles.recommended"))
+    set_title t("titles.recommended")
     respond_with @photographs do |f|
       f.html { render :index }
     end
@@ -59,7 +61,7 @@ class PhotographsController < ApplicationController
 
   def favourites
     @photographs = current_user.favourite_photographs.order("favourites.created_at DESC").page(params[:page])
-    set_title(t("titles.favourites"))
+    set_title t("titles.favourites")
     respond_with @photographs do |f|
       f.html { render :index }
     end
@@ -67,7 +69,15 @@ class PhotographsController < ApplicationController
 
   def following
     @photographs = current_user.followee_photographs.view_for(current_user).order("created_at DESC").page(params[:page])
-    set_title(t("titles.following"))
+    set_title t("titles.following")
+    respond_with @photographs do |f|
+      f.html { render :index }
+    end
+  end
+
+  def seeking_feedback
+    @photographs = Photograph.joins(:comment_threads).view_for(current_user).order("comment_threads.created_at DESC").page(params[:page])
+    set_title t("titles.seeking_feedback")
     respond_with @photographs do |f|
       f.html { render :index }
     end
