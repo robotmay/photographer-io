@@ -296,6 +296,8 @@ en:
         subject: "Your comment on '%{on}' has been published"
 
   favourites:
+    notifications:
+      subject: "%{user} has favourited '%{photo}'"
     create:
       succeeded: "The photo has been added to your favourites!"
       failed: "Failed to add photo to your favourites."

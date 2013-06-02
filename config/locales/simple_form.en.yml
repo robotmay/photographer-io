@@ -107,6 +107,9 @@ en:
           Do you want to receive an email for new, important notifications; e.g. new
           comments?
 
+        notify_favourites: >
+          Do you want other users to know when you've favourited their photos?
+
   helpers:
     submit:
       comment:

@@ -575,7 +575,8 @@ CREATE TABLE users (
     channel_key uuid DEFAULT uuid_generate_v4(),
     upload_quota integer,
     enable_comments boolean DEFAULT false,
-    receive_notification_emails boolean DEFAULT true
+    receive_notification_emails boolean DEFAULT true,
+    notify_favourites boolean DEFAULT true
 );
 
 
@@ -1172,3 +1173,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130523225313');
 INSERT INTO schema_migrations (version) VALUES ('20130530180641');
 
 INSERT INTO schema_migrations (version) VALUES ('20130530221819');
+
+INSERT INTO schema_migrations (version) VALUES ('20130602092220');

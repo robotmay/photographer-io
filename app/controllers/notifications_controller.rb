@@ -15,6 +15,8 @@ class NotificationsController < ApplicationController
     path = case @notification.notifiable.class.to_s
     when "Comment"
       photograph_path(@notification.notifiable.comment_thread.threadable)
+    when "Favourite"
+      photograph_path(@notification.notifiable.photograph)
     else
       root_path
     end
