@@ -104,7 +104,7 @@ You may not use this Site:
 4. To gain unauthorised access to other users' accounts or personal information.
 5. To gain account benefits or affect the photograph rankings through the use of multiple accounts.
 
-## Responsibility of Website Visitors
+## Responsibility of Visitors and Users
 The Company has not reviewed, and cannot review, all of the material posted to the Site, and cannot therefore be responsible for that material’s content, use or effects. By operating the Site, the Company does not represent or imply that it endorses the material there posted, or that it believes such material to be accurate, useful or non-harmful. You are responsible for taking precautions as necessary to protect yourself and your computer systems from viruses, worms, Trojan horses, and other harmful or destructive content. The Site may contain content that is offensive, indecent, or otherwise objectionable, as well as content containing technical inaccuracies, typographical mistakes, and other errors. The Site may also contain material that violates the privacy or publicity rights, or infringes the intellectual property and other proprietary rights, of third parties, or the downloading, copying or use of which is subject to additional terms and conditions, stated or unstated. The Company disclaims any responsibility for any harm resulting from the use by visitors of the Site, or from any downloading by those visitors of content there posted.
 
 ## Copyright and Content Ownership
