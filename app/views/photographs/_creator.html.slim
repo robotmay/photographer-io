@@ -2,21 +2,23 @@
 aside id="photographs-creator"
   div class="row"
     div class="large-7 columns"
-      h4= user.name
-      - if user.location.present?
-        h5= user.location
+      - cache([user, :creator_details]) do
+        h4= user.name
+        - if user.location.present?
+          h5= user.location
 
-      - if user.website_url.present?
-        h6= link_to t("users.visit_site"), user.website_url, target: "_blank"
+        - if user.website_url.present?
+          h6= link_to t("users.visit_site"), user.website_url, target: "_blank"
 
     div class="large-5 columns"
-      - if user.avatar.present?
-        div class="avatar"
-          = link_to user_path(user) do
-            = image_tag user.avatar.thumb("150x150#").jpg.url, alt: user.name
+      - cache([user, :avatar_and_links]) do
+        - if user.avatar.present?
+          div class="avatar"
+            = link_to user_path(user) do
+              = image_tag user.avatar.thumb("150x150#").jpg.url, alt: user.name
 
-      = link_to t("photographs.creator.profile"), user_path(user), class: "button tiny expand"
+        = link_to t("photographs.creator.profile"), user_path(user), class: "button tiny expand"
 
-      = link_to t("photographs.creator.photos"), user_photographs_path(user), class: "button tiny success expand"
+        = link_to t("photographs.creator.photos"), user_photographs_path(user), class: "button tiny success expand"
 
       = follow_user_button(photograph.user)

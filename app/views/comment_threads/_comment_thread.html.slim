@@ -8,8 +8,9 @@
         = render partial: "comments/form", locals: { comment: comment_thread.comments.new }
 
     section class="comments"
-      - if comment_thread.comments.roots.count > 0
-        = render comment_thread.comments.roots.order("created_at DESC")
-      - else
-        p class="none"
-          = t("comments.none")
+      - cache([comment_thread, current_user]) do
+        - if comment_thread.comments.roots.count > 0
+          = render comment_thread.comments.roots.order("created_at DESC").includes(:children, :user)
+        - else
+          p class="none"
+            = t("comments.none")

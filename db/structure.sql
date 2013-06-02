@@ -170,7 +170,9 @@ CREATE TABLE collections (
     name character varying(255),
     public boolean DEFAULT false,
     created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    updated_at timestamp without time zone,
+    shared boolean DEFAULT false,
+    encrypted_password character varying(255)
 );
 
 
@@ -1175,3 +1177,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130530180641');
 INSERT INTO schema_migrations (version) VALUES ('20130530221819');
 
 INSERT INTO schema_migrations (version) VALUES ('20130602092220');
+
+INSERT INTO schema_migrations (version) VALUES ('20130602171743');

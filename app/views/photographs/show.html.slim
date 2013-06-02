@@ -15,17 +15,21 @@ section id="photographs-show"
 
           = interactions_for @photograph
 
-          - if @photograph.fetch_metadata.has_text?
-            aside class="description"
-              h4= @photograph.fetch_metadata.title
+          - cache([@photograph, @photograph.metadata, :description]) do
+            - if @photograph.fetch_metadata.has_text?
+              aside class="description"
+                h4= @photograph.fetch_metadata.title
 
-              - if @photograph.fetch_metadata.description.present?
-                = simple_format @photograph.fetch_metadata.description
+                - if @photograph.fetch_metadata.description.present?
+                  = simple_format @photograph.fetch_metadata.description
 
         - if @photograph.comments_enabled?
           = render @photograph.comment_threads
 
     aside id="photographs-sidebar" class="large-3 small-12 columns"
+      - if user_signed_in? && current_user == @photograph.user
+        = link_to t("photographs.edit"), edit_account_photograph_path(@photograph), class: "button secondary expand"
+
       = creator_details_for @photograph
 
       div class="show-for-touch"
