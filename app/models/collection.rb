@@ -10,15 +10,36 @@ class Collection < ActiveRecord::Base
 
   paginates_per 50
 
+  attr_accessor :password
   value :cover_photo_id
 
   validates :user_id, :name, presence: true
 
   scope :public, -> { where(public: true) }
   scope :private, -> { where(private: true) }
+  scope :shared, -> { where(shared: true) }
   scope :view_for, -> (user) {
     joins(:photographs).merge(Photograph.view_for(user).except(:includes))
   }
+
+  before_save :update_password
+  def update_password
+    if @password.present?
+      self.encrypted_password = SCrypt::Password.create(@password)
+    end
+  end
+
+  def encrypted_password
+    SCrypt::Password.new read_attribute(:encrypted_password)
+  end
+
+  def authenticated?
+    encrypted_password == password
+  end
+
+  def requires_password?
+    !!encrypted_password
+  end
 
   def cover_photo(category = nil)
     Rails.cache.fetch([self, :cover_photo, category]) do

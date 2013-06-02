@@ -12,6 +12,17 @@ class Ability
     end
     can :read, User
 
+    can :read, Collection do |collection|
+      case
+      when collection.shared && collection.requires_password? && collection.authenticated?
+        true
+      when collection.shared && !collection.requires_password?
+        true
+      else
+        false
+      end
+    end
+
     can :recommend, Photograph
 
     can :manage, CommentThread, user_id: user.id

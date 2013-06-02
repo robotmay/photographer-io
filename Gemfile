@@ -48,6 +48,7 @@ gem 'devise_invitable', git: 'git://github.com/robotmay/devise_invitable.git', b
 gem 'devise-async'
 # gem 'devise-scrypt' TODO: Switch to scrypt, gem needs updating
 gem 'cancan'
+gem 'scrypt'
 
 # omniauth
 

@@ -30,7 +30,7 @@ class CollectionsController < ApplicationController
   def explore
     @collections = Collection.view_for(current_user).uniq.order("updated_at DESC").page(params[:page])
 
-    set_title(t("titles.explore"))
+    set_title t("titles.explore")
 
     respond_with @collections do |f|
       f.html { render :index }
@@ -43,5 +43,9 @@ class CollectionsController < ApplicationController
     respond_with @collection do |f|
       f.html { redirect_to collection_photographs_path(@collection) }
     end
+  end
+
+  def authenticate
+    #TODO
   end
 end

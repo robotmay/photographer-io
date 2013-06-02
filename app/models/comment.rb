@@ -37,14 +37,16 @@ class Comment < ActiveRecord::Base
   end
 
   def can_be_seen_by?(current_user)
-    if current_user == user || current_user == comment_thread.user
-      true
-    elsif child? && ancestors.map(&:user).include?(current_user)
-      true
-    elsif published?
-      true
-    else
-      false
+    Rails.cache.fetch([self, current_user]) do
+      if current_user == user || current_user == comment_thread.user
+        true
+      elsif child? && ancestors.map(&:user).include?(current_user)
+        true
+      elsif published?
+        true
+      else
+        false
+      end
     end
   end
 
