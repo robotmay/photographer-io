@@ -27,9 +27,9 @@ li class="photo" id="photograph-#{photograph.id}"
   - if photograph.processing? && request.xhr?
     javascript:
       $(document).ready(function() {
-        userChannel.bind("image_processed", function(data) {
-          if(data['id'] == #{photograph.id}) {
-            $("#photograph-#{photograph.id}").find("img").attr("src", data['thumbnail']).load(function() {
+        pubnub.events.bind("image_processed", function(data) {
+          if(data.id == #{photograph.id}) {
+            $("#photograph-#{photograph.id}").find("img").attr("src", data.thumbnail).load(function() {
               $(".photo-grid").trigger("reload:grid");
             });
           }

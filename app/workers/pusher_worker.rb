@@ -3,6 +3,12 @@ class PusherWorker
   sidekiq_options queue: :events
 
   def perform(channel, event, body = {})
-    Pusher.trigger(channel, event, body)
+    body[:type] = event
+
+    $pubnub.publish(
+      channel: channel,
+      message: body,
+      callback: -> (message) {}
+    )
   end
 end
