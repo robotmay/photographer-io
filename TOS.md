@@ -39,13 +39,15 @@ We (the Company) will attempt to respond to all support queries within 2 working
 
 ## Account Types and Restrictions
 
+### All Accounts
+1. The maximum size for uploaded photographs is 50MB, however we recommend that you try to keep them under 20MB for performance reasons.
+
 ### Free Accounts
 Users with free accounts have the following account restrictions:
 
 1. You may upload a maximum of 100 photographs per month (starting on the first day of each month).
 2. This limit can be increased through referring friends; up to 10 friends and up to a maximum of 200 photographs per month.
-3. There is no restriction on the size of photograph uploaded, though it is recommended that you keep the original filesize under 50MB (Megabytes) for performance reasons.
-4. Certain features are unavailable to free users, as outlined below under 'Paid Accounts'.
+3. Certain features are unavailable to free users, as outlined below under 'Paid Accounts'.
 
 ### Paid Accounts
 Users who choose to pay a subscription fee ("Subscribers") receive the following benefits:
@@ -60,7 +62,7 @@ The benefits available to Subscribers are liable to change and increase over tim
 
 ## Payments and Renewals
 ### General Terms
-Payment for services on the Site are made via Stripe Payments Europe, Ltd. By selecting a Subscription you agree to pay the Company the monthly or annual subscription fees indicated for that service. Payments will be charged on a pre-pay basis on the day you sign up for a Subscription and will cover the use of that service for a monthly or annual subscription period as indicated.
+Payment for services on the Site are made via Stripe Payments Europe, Ltd. By selecting a Subscription you agree to pay the Company the monthly or annual subscription fees indicated for that service. Payments will be charged on a pre-pay basis on the day you sign up for a Subscription and will cover the use of that service for a monthly or annual subscription period as selected.
 
 ### Automatic Renewal
 Your Subscription will automatically renew at the end of the subscription period unless you notify us in advance that you wish to cancel it. We will notify you a number of weeks in advance that your subscription is about to renew.
@@ -69,7 +71,7 @@ Unless you notify the Company before the end of the applicable subscription peri
 ## Fair Usage
 By using the Site, you (the User) agree to the following Fair Usage policy:
 
-1. You will not use the Site as a backup facility for your photographs.
+1. You will not use the Site as a backup facility for your photographs. The Site is not a dedicated backup service, and although we make every effort to store your photographs in such a way that they are always available, it is not the primary goal of the Site.
 2. You will not attempt to spam, or cause detrimental effects, to other users.
 3. You will not significantly exceed the average bandwidth usage of other users. Doing so may result in increased limitations on your account until you have rectified your bandwidth consumption.
 
@@ -92,7 +94,7 @@ If you have a security query, or want to notify us of a security issue relating 
 2. Your private collections and photographs will not be intentionally shown to other users or third parties.
 3. Your personal data will not be shared with anyone not outlined in our privacy policy.
 4. Your data will be backed up regularly.
-5. You will be notified of any new features added to the Site which will affect your privacy. These features will be opt-in for all existing users.
+5. You will be notified of any new features added to the Site which will affect your privacy. These features will most often be opt-in for all existing users.
 
 You may not use this Site:
 
@@ -103,11 +105,11 @@ You may not use this Site:
 5. To gain account benefits or affect the photograph rankings through the use of multiple accounts.
 
 ## Responsibility of Website Visitors
-The Company has not reviewed, and cannot review, all of the material, including computer software, posted to the Site, and cannot therefore be responsible for that material’s content, use or effects. By operating the Site, the Company does not represent or imply that it endorses the material there posted, or that it believes such material to be accurate, useful or non-harmful. You are responsible for taking precautions as necessary to protect yourself and your computer systems from viruses, worms, Trojan horses, and other harmful or destructive content. The Site may contain content that is offensive, indecent, or otherwise objectionable, as well as content containing technical inaccuracies, typographical mistakes, and other errors. The Site may also contain material that violates the privacy or publicity rights, or infringes the intellectual property and other proprietary rights, of third parties, or the downloading, copying or use of which is subject to additional terms and conditions, stated or unstated. The Company disclaims any responsibility for any harm resulting from the use by visitors of the Site, or from any downloading by those visitors of content there posted.
+The Company has not reviewed, and cannot review, all of the material posted to the Site, and cannot therefore be responsible for that material’s content, use or effects. By operating the Site, the Company does not represent or imply that it endorses the material there posted, or that it believes such material to be accurate, useful or non-harmful. You are responsible for taking precautions as necessary to protect yourself and your computer systems from viruses, worms, Trojan horses, and other harmful or destructive content. The Site may contain content that is offensive, indecent, or otherwise objectionable, as well as content containing technical inaccuracies, typographical mistakes, and other errors. The Site may also contain material that violates the privacy or publicity rights, or infringes the intellectual property and other proprietary rights, of third parties, or the downloading, copying or use of which is subject to additional terms and conditions, stated or unstated. The Company disclaims any responsibility for any harm resulting from the use by visitors of the Site, or from any downloading by those visitors of content there posted.
 
 ## Copyright and Content Ownership
 
-1. The Company claims no intellectual property rights over the Content you submit to the Site. All submitted material maintains the license under which you submit it, if any (see Creative Commons). By choosing to display your Content publicly, you agree to allow others to view your Content.
+1. The Company claims no intellectual property rights over the Content you submit to the Site. All submitted material maintains the license under which you submit it, if any (see [Creative Commons](http://creativecommons.org)). By choosing to display your Content publicly, you agree to allow others to view your Content.
 2. The Company respects intellectual property rights. Any claim of copyright infringment will be investigated swiftly, and we (the Company) reserve the right to remove any Content found to be an infringment of copyright laws. The Company also reserves the right to terminate an account found to be infringing copyright.
 3. Any alleged copyright infringment must be reported in writing to support@photographer.io with sufficient detail and evidence to allow the Company to respond quickly and accurately. 
 4. We (the Company) are not responsible for any legal fees or damages related to a copyright claim, nor may we be held responsible for any infringing content submitted to the Site. 
@@ -120,7 +122,7 @@ In no event will the Company, or its suppliers or licensors, be liable with resp
 You represent and warrant that (i) your use of the Website will be in strict accordance with the Company Privacy Policy, with this Agreement and with all applicable laws and regulations (including without limitation any local laws or regulations in your country, state, city, or other governmental area, regarding online conduct and acceptable content, and including all applicable laws regarding the transmission of technical data exported from the United Kingdom or the country in which you reside) and (ii) your use of the Site will not infringe or misappropriate the intellectual property rights of any third party.
 
 ## Indemnification
-You agree to indemnify and hold harmless the Company, its contractors, and its licensors, and their respective directors, officers, employees and agents from and against any and all claims and expenses, including attorneys’ fees, arising out of your use of the Website, including but not limited to your violation of this Agreement.
+You agree to indemnify and hold harmless the Company, its contractors, and its licensors, and their respective directors, officers, employees and agents from and against any and all claims and expenses, including legal fees, arising out of your use of the Website, including but not limited to your violation of this Agreement.
 
 ## License
 These terms are adapted in part from that of WordPress.com, licensed under the Creative Commons ShareAlike license. You may reuse or adapt these terms under the same license.
