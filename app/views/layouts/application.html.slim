@@ -91,12 +91,23 @@ body class=(yield(:body_class))
         s.parentNode.insertBefore(t, s);
       })();
 
-  = javascript_include_tag "https://d3dy5gmtp8yhk7.cloudfront.net/2.0/pusher.min.js"
-  = javascript_include_tag "application"
+  = javascript_include_tag "https://pubnub.a.ssl.fastly.net/pubnub-3.5.0.min.js"
   - if user_signed_in?
     javascript:
-      var pusher = new Pusher('#{Pusher.key}', { encrypted: true });
-      var userChannel = pusher.subscribe('#{current_user.channel_key}');
+      var pubnub = PUBNUB.init({ 
+        subscribe_key: '#{$pubnub.subscribe_key}',
+        ssl: true
+      });
 
+      function receive(message, envelope, source_channel) {
+        pubnub.events.fire(message.type, message);
+      }
+
+      pubnub.subscribe({
+        channel: '#{current_user.channel_key}',
+        callback: receive 
+      });
+
+  = javascript_include_tag "application"
   == yield(:javascript)
 

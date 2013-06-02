@@ -101,6 +101,7 @@ GEM
       execjs
     coffee-script-source (1.6.2)
     connection_pool (1.0.0)
+    cookiejar (0.3.0)
     daemons (1.1.9)
     dalli (2.6.2)
     database_cleaner (0.9.1)
@@ -110,6 +111,14 @@ GEM
     dragonfly (0.9.14)
       multi_json (~> 1.0)
       rack
+    em-http-request (1.0.3)
+      addressable (>= 2.2.3)
+      cookiejar
+      em-socksify
+      eventmachine (>= 1.0.0.beta.4)
+      http_parser.rb (>= 0.5.3)
+    em-socksify (0.2.1)
+      eventmachine (>= 1.0.0.beta.4)
     erubis (2.7.0)
     eventmachine (1.0.3)
     excon (0.20.1)
@@ -145,6 +154,7 @@ GEM
       guard (>= 1.1)
       spork (>= 0.8.4)
     hike (1.2.2)
+    http_parser.rb (0.5.3)
     i18n (0.6.4)
     identity_cache (0.0.1)
       ar_transaction_changes (= 0.0.1)
@@ -174,6 +184,8 @@ GEM
     link_to_active_state (1.0.7)
     listen (0.7.3)
     lumberjack (1.0.3)
+    macaddr (1.6.1)
+      systemu (~> 2.5.0)
     machinist (2.0)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -217,11 +229,15 @@ GEM
       slop (~> 3.4)
     pry-rails (0.2.2)
       pry (>= 0.9.10)
+    pubnub (3.3.0.7)
+      activesupport
+      em-http-request
+      eventmachine
+      json
+      uuid (~> 2.3.5)
+      yajl-ruby
     puma (2.0.0)
       rack (>= 1.1, < 2.0)
-    pusher (0.11.3)
-      multi_json (~> 1.0)
-      signature (~> 0.1.6)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
@@ -298,7 +314,6 @@ GEM
       json
       redis (>= 3.0)
       redis-namespace
-    signature (0.1.7)
     simple_form (3.0.0.beta1)
       actionpack (>= 4.0.0.beta, < 4.1)
       activemodel (>= 4.0.0.beta, < 4.1)
@@ -331,6 +346,7 @@ GEM
       kaminari (>= 0.14.0)
       sunspot
       sunspot_rails
+    systemu (2.5.2)
     temple (0.6.4)
     thin (1.5.1)
       daemons (>= 1.0.9)
@@ -354,10 +370,13 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    uuid (2.3.7)
+      macaddr (~> 1.0)
     warden (1.2.1)
       rack (>= 1.0)
     with_advisory_lock (0.0.6)
       activerecord (>= 3.0.0)
+    yajl-ruby (1.1.0)
     zurb-foundation (4.1.6)
       sass (>= 3.2.0)
 
@@ -401,8 +420,8 @@ DEPENDENCIES
   postmark-rails
   pry
   pry-rails
+  pubnub
   puma
-  pusher
   quiet_assets
   rack-cache
   rails (= 4.0.0.rc1)
