@@ -35,7 +35,7 @@ class DeviseExtensions::RegistrationsController < Devise::RegistrationsControlle
                                    :remove_avatar, :show_copyright_info, 
                                    :show_location_data, :show_nsfw_content, 
                                    :default_license_id, :website_url, :biography,
-                                   :receive_notification_emails)
+                                   :receive_notification_emails, :notify_favourites)
   end
 
   def configure_permitted_parameters
