@@ -139,6 +139,9 @@ GEM
       nokogiri (~> 1.5.0)
       ruby-hmac
     formatador (0.2.4)
+    google_plus (0.2.2)
+      json
+      rest-client (~> 1.6.1)
     guard (1.7.0)
       formatador (>= 0.2.4)
       listen (>= 0.6.0)
@@ -291,6 +294,8 @@ GEM
       redis (~> 3.0.0)
     redis-objects (0.7.0)
       redis (>= 3.0.2)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rsolr (1.0.9)
       builder (>= 2.1.2)
     rspec (2.13.0)
@@ -419,6 +424,7 @@ DEPENDENCIES
   ffaker
   fog
   friendly_id!
+  google_plus
   guard
   guard-rspec
   guard-sidekiq
