@@ -4,7 +4,7 @@
   <title><![CDATA[Photographer.io Blog]]></title>
   <link href="http://blog.photographer.io/atom.xml" rel="self"/>
   <link href="http://blog.photographer.io/"/>
-  <updated>2013-06-02T10:55:00+01:00</updated>
+  <updated>2013-06-03T14:44:50+01:00</updated>
   <id>http://blog.photographer.io/</id>
   <author>
     <name><![CDATA[Robert May]]></name>
@@ -12,6 +12,17 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[DNS Resolution Problems]]></title>
+    <link href="http://blog.photographer.io/posts/2013/06/03/dns-resolution-problems/"/>
+    <updated>2013-06-03T14:41:00+01:00</updated>
+    <id>http://blog.photographer.io/posts/2013/06/03/dns-resolution-problems</id>
+    <content type="html"><![CDATA[<p>For the past hour our DNS host (DNSimple.com) has been suffering a large Distributed Denial of Service attack on its nameservers. They&rsquo;ve managed to get basic service back up, but a component that is used to point the root domain (photographer.io) is currently disabled. I&rsquo;ve modified the DNS settings for now so that www.photographer.io still resolves correctly, though the root domain will remain down until they&rsquo;ve fixed this issue.</p>
+
+<p>My apologies for the downtime; I&rsquo;ll be looking for a way to prevent this causing such a detrimental effect in future.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Notifications for Favourites]]></title>
@@ -117,7 +128,7 @@
 
 <p>What do you think? This is clearly still a work in progress but I&rsquo;d love to get some opinions about how it works and what you would do to improve it.</p>
 
-<p>I am entirely open to feedback, ideas, and bug reports. You can reach me on Twitter as <a href="http://twitter.com/robotmay">@robotmay</a> or via email at <a href="mailto:rob@photographer.io"><a href="&#x6d;&#97;&#x69;&#108;&#116;&#x6f;&#58;&#114;&#x6f;&#x62;&#64;&#x70;&#x68;&#x6f;&#116;&#111;&#103;&#114;&#x61;&#x70;&#x68;&#x65;&#x72;&#46;&#105;&#111;">&#114;&#111;&#x62;&#64;&#x70;&#104;&#111;&#116;&#111;&#103;&#114;&#97;&#x70;&#x68;&#x65;&#x72;&#46;&#105;&#111;</a></a>.</p>
+<p>I am entirely open to feedback, ideas, and bug reports. You can reach me on Twitter as <a href="http://twitter.com/robotmay">@robotmay</a> or via email at <a href="mailto:rob@photographer.io"><a href="&#109;&#x61;&#105;&#x6c;&#116;&#x6f;&#58;&#x72;&#x6f;&#98;&#64;&#x70;&#x68;&#x6f;&#116;&#111;&#103;&#114;&#97;&#x70;&#x68;&#101;&#x72;&#46;&#x69;&#111;">&#114;&#111;&#x62;&#x40;&#112;&#x68;&#x6f;&#x74;&#111;&#x67;&#114;&#97;&#112;&#x68;&#101;&#114;&#x2e;&#105;&#x6f;</a></a>.</p>
 ]]></content>
   </entry>
   
@@ -171,7 +182,7 @@
 
 <p>What do you think? I&rsquo;m always open to feedback, ideas, or bug reports.</p>
 
-<p>You can reach me on Twitter as <a href="http://twitter.com/robotmay">@robotmay</a> or via email at <a href="mailto:rob@photographer.io"><a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#x3a;&#x72;&#x6f;&#98;&#x40;&#112;&#x68;&#111;&#116;&#x6f;&#x67;&#x72;&#x61;&#112;&#104;&#101;&#x72;&#x2e;&#x69;&#111;">&#x72;&#x6f;&#x62;&#x40;&#x70;&#104;&#x6f;&#x74;&#x6f;&#103;&#x72;&#97;&#x70;&#x68;&#101;&#114;&#x2e;&#x69;&#111;</a></a>.</p>
+<p>You can reach me on Twitter as <a href="http://twitter.com/robotmay">@robotmay</a> or via email at <a href="mailto:rob@photographer.io"><a href="&#x6d;&#97;&#105;&#108;&#x74;&#x6f;&#x3a;&#114;&#111;&#98;&#x40;&#112;&#x68;&#x6f;&#x74;&#111;&#103;&#x72;&#97;&#112;&#x68;&#x65;&#114;&#46;&#x69;&#111;">&#x72;&#111;&#x62;&#64;&#x70;&#104;&#111;&#x74;&#111;&#x67;&#114;&#x61;&#x70;&#x68;&#101;&#x72;&#x2e;&#x69;&#111;</a></a>.</p>
 ]]></content>
   </entry>
   
