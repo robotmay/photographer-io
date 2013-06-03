@@ -1,27 +1,32 @@
+- content_for(:body_extras) do
+  | itemscope itemtype="http://schema.org/ImageObject"
+
 section id="photographs-show"
   section class="row"
     article class="large-9 small-12 columns"
       section class="display"
         div class="image"
           - if @photograph.has_precalculated_sizes?
-            = photo_tag @photograph, :large
+            = photo_tag @photograph, :large, itemprop: "image"
           - else
             - if @photograph.landscape?
-              = photo_tag @photograph, "1500x"
+              = photo_tag @photograph, "1500x", itemprop: "image"
             - elsif @photograph.portrait?
-              = photo_tag @photograph, "x1000"
+              = photo_tag @photograph, "x1000", itemprop: "image"
             - else
-              = photo_tag @photograph, "1500x1500>"
+              = photo_tag @photograph, "1500x1500>", itemprop: "image"
 
           = interactions_for @photograph
 
           - cache([@photograph, @photograph.metadata, :description]) do
             - if @photograph.fetch_metadata.has_text?
               aside class="description"
-                h4= @photograph.fetch_metadata.title
+                h4 itemprop="name"
+                  = @photograph.fetch_metadata.title
 
                 - if @photograph.fetch_metadata.description.present?
-                  = simple_format @photograph.fetch_metadata.description
+                  div itemprop="description"
+                    = simple_format @photograph.fetch_metadata.description
 
         - if @photograph.comments_enabled?
           = render @photograph.comment_threads

@@ -38,9 +38,15 @@ module PhotographsHelper
 
       if match = url.match(/\d+x\d+.jpg/i)
         width, height = match.to_a.last.split(".").first.split("x")
-        image_tag url, alt: photograph.fetch_metadata.title, width: width, height: height
+        image_tag url, { 
+          alt: photograph.fetch_metadata.title,
+          width: width,
+          height: height
+        }.merge(opts)
       else
-        image_tag url, alt: photograph.fetch_metadata.title
+        image_tag url, {
+          alt: photograph.fetch_metadata.title
+        }.merge(opts)
       end
 
     rescue Processing
