@@ -1,7 +1,27 @@
-section class="authorisations"
-  table
-    - @authorisations.each do |auth|
-      tr
-        td= auth.provider.humanize
-        td= auth.info['email']
-        td= l auth.created_at
+section id="authorisations-index"
+  header class="row"
+    div class="large-12 columns"
+      h1= t("account.authorisations.title")
+
+  div class="row"
+    div class="large-5 columns"
+      div class="panel"
+        header
+          h4= t("account.authorisations.existing.title")
+
+        - if @authorisations.count > 0
+          table
+            thead
+              tr
+                th= t("account.authorisations.existing.provider")
+                th= t("account.authorisations.existing.email")
+                th= t("account.authorisations.existing.created_at")
+            tbody
+              - @authorisations.order("created_at ASC").each do |auth|
+                tr
+                  td= auth.provider.humanize
+                  td= auth.info['email']
+                  td= l auth.created_at.to_date
+        - else
+          span= t("account.authorisations.existing.none")
+

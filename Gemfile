@@ -41,6 +41,7 @@ gem 'intercom-rails', '~> 0.2.14'
 gem 'postmark-rails'
 gem 's3'
 gem 'pubnub'
+gem 'google_plus'
 
 # auth
 gem 'devise', git: 'git://github.com/plataformatec/devise.git', branch: 'rails4'

@@ -107,7 +107,7 @@ en:
       photographs: "Photographs"
       upload_quota: "Your usage this month"
       get_more_uploads: "Need more? <a href='%{path}'>Invite your friends!</a>"
-      authorisations: "External accounts"
+      authorisations: "Connected accounts"
 
     form:
       auth: "Sign in details"
@@ -159,6 +159,14 @@ en:
       create:
         succeeded: "You have successfully authorised that account"
         failed: "There was a problem authorising that account. Please try again."
+
+      title: "Connect your accounts on other sites"
+      existing:
+        title: "Connected accounts"
+        provider: "Site"
+        email: "Account"
+        created_at: "Linked on"
+        none: "You haven't connected any accounts yet"
 
     collections:
       delete: "Delete this collection"
