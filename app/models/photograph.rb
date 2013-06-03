@@ -177,9 +177,14 @@ class Photograph < ActiveRecord::Base
   after_destroy :expire_from_cdn
   def expire_from_cdn
     paths = [:standard_image, :homepage_image, :large_image, :thumbnail_image].map do |m|
-      uri = URI.parse(URI.escape(self.send(m).remote_url))
-      uri.path
+      url = self.send(m).remote_url
+      unless url.nil?
+        uri = URI.parse(URI.escape(url))
+        uri.path
+      end
     end
+
+    paths.compact!
 
     CDNExpiryWorker.perform_async(paths)
   end
