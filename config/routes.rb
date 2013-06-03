@@ -82,6 +82,8 @@ Iso::Application.routes.draw do
       end
     end
 
+    resources :authorisations, only: [:index]
+
     root to: "account#dashboard"
   end
 
@@ -89,6 +91,8 @@ Iso::Application.routes.draw do
   get "/u/:id" => "users#show"
   get "/c/:id" => "collections#show"
   get "/stats" => "pages#stats"
+
+  get "/auth/:provider/callback" => "account/authorisations#create"
 
   root to: "pages#home"
 end

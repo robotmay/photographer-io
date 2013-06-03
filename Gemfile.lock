@@ -124,6 +124,8 @@ GEM
     excon (0.20.1)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    faraday (0.8.7)
+      multipart-post (~> 1.1)
     ffaker (1.16.0)
     ffi (1.8.1)
     fog (1.10.1)
@@ -153,8 +155,10 @@ GEM
       childprocess (>= 0.2.3)
       guard (>= 1.1)
       spork (>= 0.8.4)
+    hashie (2.0.5)
     hike (1.2.2)
     http_parser.rb (0.5.3)
+    httpauth (0.2.0)
     i18n (0.6.4)
     identity_cache (0.0.1)
       ar_transaction_changes (= 0.0.1)
@@ -173,6 +177,8 @@ GEM
       railties (>= 3.1.0)
       turbolinks
     json (1.7.7)
+    jwt (0.1.8)
+      multi_json (>= 1.5)
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -201,11 +207,26 @@ GEM
     mocha (0.13.3)
       metaclass (~> 0.0.1)
     multi_json (1.7.3)
+    multipart-post (1.2.0)
     net-scp (1.1.0)
       net-ssh (>= 2.6.5)
     net-ssh (2.6.7)
     newrelic_rpm (3.6.1.88)
     nokogiri (1.5.9)
+    oauth2 (0.8.1)
+      faraday (~> 0.8)
+      httpauth (~> 0.1)
+      jwt (~> 0.1.4)
+      multi_json (~> 1.0)
+      rack (~> 1.2)
+    omniauth (1.1.4)
+      hashie (>= 1.2, < 3)
+      rack
+    omniauth-gplus (1.1.1)
+      omniauth-oauth2 (~> 1.1)
+    omniauth-oauth2 (1.1.1)
+      oauth2 (~> 0.8.0)
+      omniauth (~> 1.0)
     orm_adapter (0.4.0)
     pg (0.15.1)
     pg_array_parser (0.0.8)
@@ -415,6 +436,7 @@ DEPENDENCIES
   mini_exiftool_vendored
   multi_fetch_fragments!
   newrelic_rpm
+  omniauth-gplus
   pg
   pg_array_parser
   pg_search

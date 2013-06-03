@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
   has_many :comment_threads
   has_many :comments
   has_many :notifications
+  has_many :authorisations
 
   cache_has_many :photographs
   cache_has_many :collections

@@ -51,6 +51,7 @@ gem 'cancan'
 gem 'scrypt'
 
 # omniauth
+gem 'omniauth-gplus'
 
 # images
 gem 'fog'

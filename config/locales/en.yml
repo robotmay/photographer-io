@@ -107,6 +107,7 @@ en:
       photographs: "Photographs"
       upload_quota: "Your usage this month"
       get_more_uploads: "Need more? <a href='%{path}'>Invite your friends!</a>"
+      authorisations: "External accounts"
 
     form:
       auth: "Sign in details"
@@ -153,6 +154,11 @@ en:
           recommendations you can make per day.
         homepage: >
           The top recommended photographs are put into rotation for the homepage.
+
+    authorisations:
+      create:
+        succeeded: "You have successfully authorised that account"
+        failed: "There was a problem authorising that account. Please try again."
 
     collections:
       delete: "Delete this collection"
