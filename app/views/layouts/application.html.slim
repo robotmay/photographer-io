@@ -38,7 +38,7 @@ head
 
   == yield(:stylesheets)
 
-body class=(yield(:body_class))
+<body class="#{yield(:body_class)}" #{yield(:body_extras)}>
   == yield(:before_body)
 
   header id="layout-header"
@@ -110,4 +110,5 @@ body class=(yield(:body_class))
 
   = javascript_include_tag "application"
   == yield(:javascript)
+</body>
 
