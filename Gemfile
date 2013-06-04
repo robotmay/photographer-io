@@ -45,7 +45,6 @@ gem 'intercom-rails', '~> 0.2.14'
 gem 'postmark-rails'
 gem 's3'
 gem 'pubnub'
-gem 'google_plus'
 
 # auth
 gem 'devise', git: 'git://github.com/plataformatec/devise.git', branch: 'rails4'
@@ -56,7 +55,7 @@ gem 'cancan'
 gem 'scrypt'
 
 # omniauth
-gem 'omniauth-google-oauth2'
+gem 'omniauth-google-oauth2', github: 'murryivanoff/omniauth-google-oauth2'
 
 # images
 gem 'fog'

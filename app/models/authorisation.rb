@@ -1,23 +1,24 @@
 class Authorisation < ActiveRecord::Base
   belongs_to :user
 
+  store_accessor :credentials, :token
+  store_accessor :credentials, :expires_at
+
   validates :user_id, :provider, :uid, presence: true
 
+  after_initialize :setup
   def setup
     case provider
     when 'google_oauth2'
-      GooglePlus.api_key = ENV['GOOGLE_API_KEY']
-      GooglePlus.access_token = credentials['token']
+      $google_plus.access_token = get_token
     end
 
     return self
   end
 
-  def token
-    token = credentials['token']
-
-    if credentials['expires_at'].present?
-      if Time.at(credentials['expires_at'].to_i) < Time.now
+  def get_token
+    if expires_at.present?
+      if Time.at(expires_at.to_i) < Time.now
         response = HTTParty.post("https://accounts.google.com/o/oauth2/token", {
           body: {
             client_id: ENV['GOOGLE_CLIENT_ID'],
@@ -29,12 +30,11 @@ class Authorisation < ActiveRecord::Base
 
         if response.success?
           body = JSON.parse(response.body)
-          self.credentials['token'] = body['access_token']
-          self.credentials['expires_at'] = (Time.now + body['expires_in'].to_i).to_i
+          self.token = body['access_token']
+          self.expires_at = (Time.now + body['expires_in'].to_i).to_i
           save
-          reload
 
-          return credentials['token']
+          return 
         else
           nil
         end
@@ -42,6 +42,22 @@ class Authorisation < ActiveRecord::Base
     end
 
     token
+  end
+
+  def profile
+    @profile ||= case provider
+    when 'google_oauth2'
+      $google_plus.person
+    end
+
+    @profile
+  end
+
+  def mention(url)
+    case provider
+    when 'google_oauth2'
+      $google_plus.insert_moment(url)
+    end
   end
 
   class << self

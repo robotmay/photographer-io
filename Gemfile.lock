@@ -14,6 +14,14 @@ GIT
       with_advisory_lock (>= 0.0.6)
 
 GIT
+  remote: git://github.com/murryivanoff/omniauth-google-oauth2.git
+  revision: 84acd204bf235fae848a57a822a97596bb545afa
+  specs:
+    omniauth-google-oauth2 (0.1.17)
+      omniauth (~> 1.0)
+      omniauth-oauth2
+
+GIT
   remote: git://github.com/plataformatec/devise.git
   revision: 69f79ad446101b45bf7ec29d290dc2be96142686
   branch: rails4
@@ -139,9 +147,6 @@ GEM
       nokogiri (~> 1.5.0)
       ruby-hmac
     formatador (0.2.4)
-    google_plus (0.2.2)
-      json
-      rest-client (~> 1.6.1)
     guard (1.7.0)
       formatador (>= 0.2.4)
       listen (>= 0.6.0)
@@ -212,7 +217,7 @@ GEM
     minitest (4.7.4)
     mocha (0.13.3)
       metaclass (~> 0.0.1)
-    multi_json (1.7.3)
+    multi_json (1.7.6)
     multi_xml (0.5.3)
     multipart-post (1.2.0)
     net-scp (1.1.0)
@@ -229,9 +234,6 @@ GEM
     omniauth (1.1.4)
       hashie (>= 1.2, < 3)
       rack
-    omniauth-google-oauth2 (0.1.17)
-      omniauth (~> 1.0)
-      omniauth-oauth2
     omniauth-oauth2 (1.1.1)
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
@@ -299,8 +301,6 @@ GEM
       redis (~> 3.0.0)
     redis-objects (0.7.0)
       redis (>= 3.0.2)
-    rest-client (1.6.7)
-      mime-types (>= 1.16)
     rsolr (1.0.9)
       builder (>= 2.1.2)
     rspec (2.13.0)
@@ -430,7 +430,6 @@ DEPENDENCIES
   ffaker
   fog
   friendly_id!
-  google_plus
   guard
   guard-rspec
   guard-sidekiq
@@ -449,7 +448,7 @@ DEPENDENCIES
   mini_exiftool_vendored
   multi_fetch_fragments!
   newrelic_rpm
-  omniauth-google-oauth2
+  omniauth-google-oauth2!
   pg
   pg_array_parser
   pg_search
