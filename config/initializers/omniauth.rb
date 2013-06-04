@@ -1,3 +1,5 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :gplus, ENV['GPLUS_KEY'], ENV['GPLUS_SECRET']
+  provider :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_SECRET'], {
+    scope: "userinfo.email,userinfo.profile,plus.me,plus.login"
+  }
 end

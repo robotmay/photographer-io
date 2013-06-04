@@ -5,16 +5,40 @@ class Authorisation < ActiveRecord::Base
 
   def setup
     case provider
-    when 'gplus'
+    when 'google_oauth2'
+      GooglePlus.api_key = ENV['GOOGLE_API_KEY']
       GooglePlus.access_token = credentials['token']
     end
+
+    return self
   end
 
   def token
     token = credentials['token']
 
-    if credentials['expires'] == 'true'
+    if credentials['expires_at'].present?
+      if Time.at(credentials['expires_at'].to_i) < Time.now
+        response = HTTParty.post("https://accounts.google.com/o/oauth2/token", {
+          body: {
+            client_id: ENV['GOOGLE_CLIENT_ID'],
+            client_secret: ENV['GOOGLE_SECRET'],
+            refresh_token: credentials['refresh_token'],
+            grant_type: "refresh_token"
+          }
+        })
 
+        if response.success?
+          body = JSON.parse(response.body)
+          self.credentials['token'] = body['access_token']
+          self.credentials['expires_at'] = (Time.now + body['expires_in'].to_i).to_i
+          save
+          reload
+
+          return credentials['token']
+        else
+          nil
+        end
+      end
     end
 
     token
