@@ -28,15 +28,20 @@
 
   .favourites
     .favourite
-      background: 
-        image: image-url("favourite.png") 
-        position: center
+      background:
+        image: image-url('glyphicons_halflings/glyphicons_halflings_004_heart.png')
+        position: center 
         repeat: no-repeat
+      @include image-2x(image-url('glyphicons_halflings/glyphicons_halflings_004_heart@2x.png'), 16px, 16px)
     .unfavourite
       background:
-        image: image-url("unfavourite.png")
-        position: center
+        image: image-url('glyphicons_halflings_inverted/glyphicons_halflings_004_heart.png')
+        position: center 
         repeat: no-repeat
+      @include image-2x(image-url('glyphicons_halflings_inverted/glyphicons_halflings_004_heart@2x.png'), 16px, 16px)
+    
+  .share
+    margin-left: 5px
 
 #photographs-index
   header
@@ -79,32 +84,11 @@
         text-align: right
 
       .stats
-        @include stats
+        @include stats("glyphicons_halflings")
         text-align: left
         display: inline-block
         background: rgba(255,255,255,.8)
-        padding-right: 10px
-
-        > span
-          padding: $button-tny
-          display: inline-block
-
-          .icon
-            width: 31px
-            height: 31px
-
-          .number
-            font-size: 15px
-
-          &.views
-            .icon
-              background: url('/images/glyphicons/glyphicons_051_eye_open.png') left center no-repeat
-              @include image-2x(url('/images/glyphicons/glyphicons_051_eye_open@2x.png'), 31px, 31px)
-
-          &.favourites
-            .icon
-              background: url('/images/glyphicons/glyphicons_012_heart.png') left center no-repeat
-              @include image-2x(url('/images/glyphicons/glyphicons_012_heart@2x.png'), 31px, 31px)
+        padding: 4px 8px
 
     .description
       display: none

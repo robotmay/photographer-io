@@ -2,7 +2,7 @@ div class="interactions"
   div class="inner"
     div class="row"
       div class="large-4 columns"
-        - cache([photograph, :stats], expires_in: 5.minutes) do
+        - cache([photograph, :stats], expires_in: 10.minutes) do
           div class="stats"
             span class="views" title=(t("photographs.views"))
               span class="icon"
@@ -19,16 +19,16 @@ div class="interactions"
           div class="actual-interactions"
             span class="recommendations"
               - if current_user.recommended?(photograph)
-                a class="button recommended success"
+                a class="button small recommended success"
                   = t("photographs.recommended")
               - else
-                = link_to t("photographs.recommend"), recommend_photograph_path(photograph), { method: :post, class: "button recommend secondary", "data-remote" => true }
+                = link_to t("photographs.recommend"), recommend_photograph_path(photograph), { method: :post, class: "button small recommend secondary", "data-remote" => true }
 
             span class="favourites"
               - if current_user.favourited?(photograph)
-                = link_to photograph_favourite_path(photograph, current_user.favourites.where(photograph_id: photograph.id).first), method: :delete, class: "button unfavourite alert", "data-remote" => true do
+                = link_to photograph_favourite_path(photograph, current_user.favourites.where(photograph_id: photograph.id).first), method: :delete, class: "button small unfavourite alert", "data-remote" => true do
                   | &nbsp;
               - else
-                = link_to photograph_favourites_path(photograph), method: :post, class: "button favourite secondary", "data-remote" => true do
+                = link_to photograph_favourites_path(photograph), method: :post, class: "button small favourite secondary", "data-remote" => true do
                   | &nbsp;
 
