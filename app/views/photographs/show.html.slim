@@ -5,7 +5,7 @@ section id="photographs-show"
   section class="row"
     article class="large-9 small-12 columns"
       section class="display"
-        div[class="image" itemscope itemtype="http://schema.org/ImageObject"]
+        div class="image"
           - if @photograph.has_precalculated_sizes?
             = photo_tag @photograph, :large, itemprop: "image"
           - else
