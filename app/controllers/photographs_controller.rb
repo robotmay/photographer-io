@@ -142,7 +142,7 @@ class PhotographsController < ApplicationController
       end
     end
     
-    set_title(@photograph.metadata.title)
+    set_title t("photographs.title", title: @photograph.metadata.title, by: @photograph.user.name)
     respond_with @photograph
   end
 
