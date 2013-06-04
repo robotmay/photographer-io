@@ -21,4 +21,35 @@ module ApplicationHelper
       end
     end
   end
+
+  def w3c_date(date)
+    date.utc.strftime("%Y-%m-%dT%H:%M:%S+00:00")
+  end
+
+  def cache_each(enumerable, key, options = {}, &block)
+    keys = {}
+    enumerable.each do |e|
+      keys[e.id] = [e.cache_key, key].join("/")
+    end
+
+    hits = Rails.cache.read_multi(keys.values, options)
+
+    return_values = []
+
+    enumerable.each do |e|
+      this_key = keys[e.id]
+
+      value = if hits.include?(this_key)
+        hits[this_key]
+      else
+        val = block.call(e)
+        Rails.cache.write(this_key, val, options)
+        val
+      end
+
+      return_values << value
+    end
+
+    return return_values.join
+  end
 end

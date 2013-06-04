@@ -9,6 +9,16 @@ class PagesController < ApplicationController
     respond_with @top_photos
   end
 
+  def sitemap
+    @photographs = Photograph.public.order("created_at ASC").limit(10000)
+    @collections = Collection.public.order("created_at ASC").limit(10000)
+    @categories = Category.order("name ASC")
+
+    respond_to do |f|
+      f.xml
+    end
+  end
+
   def stats
     if ENV['STATS_API_KEY'].present? && params['api_key'] == ENV['STATS_API_KEY']
       latest_photo = Photograph.public.order("created_at DESC").first
