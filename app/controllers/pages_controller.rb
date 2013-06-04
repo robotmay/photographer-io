@@ -10,8 +10,8 @@ class PagesController < ApplicationController
   end
 
   def sitemap
-    @photographs = Photograph.public.order("created_at ASC").limit(10000)
-    @collections = Collection.public.order("created_at ASC").limit(10000)
+    @photographs = Photograph.public.order("created_at DESC").limit(10000)
+    @collections = Collection.public.order("created_at DESC").limit(10000)
     @categories = Category.order("name ASC")
 
     respond_to do |f|
