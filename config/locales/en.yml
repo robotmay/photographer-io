@@ -346,6 +346,7 @@ en:
         This is an automated notification email to inform you of the following:
 
   photographs:
+    title: "%{title} by %{by}"
     user_quota_exceeded: >
       Unfortunately you have hit your upload limit for this month :(
     none: "There are no photographs here!"
