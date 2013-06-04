@@ -30,7 +30,7 @@ module ApplicationHelper
 
   def cache_each(enumerable, key, options = {}, &block)
     keys = {}
-    enumerable.each do |e|
+    enumerable.find_each do |e|
       keys[e.id] = [e.cache_key, key].join("/")
     end
 
@@ -45,7 +45,7 @@ module ApplicationHelper
       end
     end
 
-    enumerable.each do |e|
+    enumerable.find_each do |e|
       this_key = keys[e.id]
 
       value = if hits.include?(this_key)

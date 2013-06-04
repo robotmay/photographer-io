@@ -1,4 +1,4 @@
-- cache(:sitemap, expires_in: 10.minutes) do
+- cache(:sitemap, expires_in: 15.minutes) do
   - base_url = "https://www.photographer.io"
   doctype xml
 
@@ -18,7 +18,7 @@
       lastmod= w3c_date(Time.now)
       changefreq= "always"
 
-    - cache_each(@photographs, :sitemap) do |photo|
+    - @photographs.find_each do |photo|
       url
         loc== [base_url, photograph_path(photo)].join
         lastmod= w3c_date(photo.updated_at)
@@ -30,7 +30,7 @@
       lastmod= w3c_date(@collections.last.updated_at)
       changefreq= "always"
 
-    - cache_each(@collections, :sitemap) do |collection|
+    - @collections.find_each do |collection|
       url
         loc== [base_url, collection_path(collection)].join
         lastmod= w3c_date(collection.updated_at)
