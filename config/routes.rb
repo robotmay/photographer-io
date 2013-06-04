@@ -91,6 +91,7 @@ Iso::Application.routes.draw do
   get "/u/:id" => "users#show"
   get "/c/:id" => "collections#show"
   get "/stats" => "pages#stats"
+  get "/sitemap" => "pages#sitemap"
 
   get "/auth/:provider/callback" => "account/authorisations#create"
 
