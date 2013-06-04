@@ -6,6 +6,8 @@ class Authorisation < ActiveRecord::Base
 
   validates :user_id, :provider, :uid, presence: true
 
+  scope :auto_post, -> { where(auto_post: true) }
+
   after_initialize :setup
   def setup
     case provider
@@ -56,7 +58,8 @@ class Authorisation < ActiveRecord::Base
   def mention(url)
     case provider
     when 'google_oauth2'
-      $google_plus.insert_moment(url)
+      response = $google_plus.insert_moment(url)
+      response.success?
     end
   end
 
