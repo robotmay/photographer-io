@@ -26,6 +26,8 @@ module ApplicationHelper
     date.utc.strftime("%Y-%m-%dT%H:%M:%S+00:00")
   end
 
+  require 'thread/channel'
+
   def cache_each(enumerable, key, options = {}, &block)
     keys = {}
     enumerable.each do |e|
@@ -35,6 +37,13 @@ module ApplicationHelper
     hits = Rails.cache.read_multi(keys.values, options)
 
     return_values = []
+    to_write = Thread.channel
+
+    Thread.new do
+      while cache_write = channel.receive
+        cache_write.call
+      end
+    end
 
     enumerable.each do |e|
       this_key = keys[e.id]
@@ -43,7 +52,7 @@ module ApplicationHelper
         hits[this_key]
       else
         val = block.call(e)
-        CacheWorker.perform_async(this_key, val, options)
+        to_write.send -> { Rails.cache.write(this_key, val, options) }
         val
       end
 
