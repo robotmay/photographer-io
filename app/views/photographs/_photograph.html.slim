@@ -1,10 +1,10 @@
-li class="photo"
-  = link_to photograph_path(photograph) do
+li[class="photo" itemprop="itemListElement" itemscope itemtype="http://schema.org/Photograph"]
+  = link_to photograph_path(photograph), itemprop: "url" do
     - if photograph.has_precalculated_sizes?
-      = photo_tag photograph, :thumbnail 
+      = photo_tag photograph, :thumbnail, itemprop: "image"
     - else
-      = photo_tag photograph, "500x500>", quality: 70
-  footer class="caption"
+      = photo_tag photograph, "500x500>", quality: 70, itemprop: "image"
+  footer class="caption" itemprop="description"
     - title = photograph.metadata.title
     = t("photographs.caption", \
         user: link_to(photograph.user.name, user_path(photograph.user)), \
