@@ -18,10 +18,10 @@ section id="photographs-show"
 
           = interactions_for @photograph
 
-          - cache([@photograph, @photograph.metadata, :description]) do
-            aside class="description"
-              table
-                tr
+          aside class="description"
+            table
+              tr
+                - cache([@photograph, @photograph.metadata, :description]) do
                   td class="text"
                     - if @photograph.fetch_metadata.has_text?
                       h4 itemprop="name"
@@ -31,7 +31,8 @@ section id="photographs-show"
                         div itemprop="description"
                           = simple_format @photograph.fetch_metadata.description
 
-                  td class="share"
+                td class="share"
+                  - unless user_signed_in? && !current_user.show_social_buttons
                     = render partial: "shared/social_buttons"
 
               div class="clear"

@@ -616,7 +616,8 @@ CREATE TABLE users (
     upload_quota integer,
     enable_comments boolean DEFAULT false,
     receive_notification_emails boolean DEFAULT true,
-    notify_favourites boolean DEFAULT true
+    notify_favourites boolean DEFAULT true,
+    show_social_buttons boolean DEFAULT true
 );
 
 
@@ -1264,3 +1265,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130602171743');
 INSERT INTO schema_migrations (version) VALUES ('20130603083149');
 
 INSERT INTO schema_migrations (version) VALUES ('20130604173711');
+
+INSERT INTO schema_migrations (version) VALUES ('20130604201040');

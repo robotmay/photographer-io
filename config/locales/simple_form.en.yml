@@ -110,6 +110,12 @@ en:
         notify_favourites: >
           Do you want other users to know when you've favourited their photos?
 
+        show_social_buttons: >
+          Do you want to see social sharing options underneath photos, e.g. Twitter,
+          Facebook, Google etc?
+
+          This could have privacy implications.
+
   helpers:
     submit:
       comment:
