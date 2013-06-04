@@ -4,7 +4,7 @@
   <title><![CDATA[Photographer.io Blog]]></title>
   <link href="http://blog.photographer.io/atom.xml" rel="self"/>
   <link href="http://blog.photographer.io/"/>
-  <updated>2013-06-03T14:49:50+01:00</updated>
+  <updated>2013-06-04T12:05:32+01:00</updated>
   <id>http://blog.photographer.io/</id>
   <author>
     <name><![CDATA[Robert May]]></name>
@@ -12,6 +12,31 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[DNS Fixes and Improvements]]></title>
+    <link href="http://blog.photographer.io/posts/2013/06/04/dns-fixes-and-improvements/"/>
+    <updated>2013-06-04T09:05:00+01:00</updated>
+    <id>http://blog.photographer.io/posts/2013/06/04/dns-fixes-and-improvements</id>
+    <content type="html"><![CDATA[<p>After an interesting day of DNS issues with our DNS host yesterday, I&rsquo;ve finally resolved the issues. I&rsquo;ve migrated our DNS over to a new provider and I believe everything should be resolving correctly now, including the root domain.</p>
+
+<!-- more -->
+
+
+<p>I&rsquo;ve moved the DNS over to <a href="https://www.cloudflare.com">CloudFlare</a> as they have proved stable for me in the past, though I may consider other alternatives in a week or so once the pain of migrating the DNS records twice in one day subsides (it wasn&rsquo;t fun).</p>
+
+<p>However there are some positives to take from yesterday:</p>
+
+<ol>
+<li><p>It persuaded me to switch back to using a non-root domain as the primary way of accessing the site. Using the www subdomain may not be as neat looking, but it scales more effectively with cloud hosting services and doesn&rsquo;t require any weird tweaks. Using the root domain was one of the reasons we suffered so much downtime yesterday, as <a href="http://dnsimple.com">DNSimple</a> uses a custom ALIAS record for handling root domains pointing to CNAME records, and this service died first when they were attacked.</p></li>
+<li><p>New CDN configuration which doesn&rsquo;t fall back on the root domain, due to the problems mentioned above.</p></li>
+<li><p>It happened whilst Photographer.io is still in beta. I&rsquo;m glad I&rsquo;ve been able to find out what needs fixing if the DNS provider goes down, and I&rsquo;ll be working on a better failover for the future.</p></li>
+</ol>
+
+
+<p>My apologies for the extended downtime yesterday. Let me know if you have any questions about the downtime or the solutions.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[DNS Resolution Problems]]></title>
@@ -128,7 +153,7 @@
 
 <p>What do you think? This is clearly still a work in progress but I&rsquo;d love to get some opinions about how it works and what you would do to improve it.</p>
 
-<p>I am entirely open to feedback, ideas, and bug reports. You can reach me on Twitter as <a href="http://twitter.com/robotmay">@robotmay</a> or via email at <a href="mailto:rob@photographer.io"><a href="&#109;&#x61;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#x72;&#x6f;&#x62;&#x40;&#x70;&#104;&#x6f;&#x74;&#x6f;&#103;&#x72;&#97;&#x70;&#104;&#101;&#x72;&#46;&#105;&#111;">&#x72;&#111;&#98;&#64;&#112;&#104;&#x6f;&#116;&#x6f;&#x67;&#x72;&#x61;&#112;&#104;&#101;&#x72;&#x2e;&#x69;&#x6f;</a></a>.</p>
+<p>I am entirely open to feedback, ideas, and bug reports. You can reach me on Twitter as <a href="http://twitter.com/robotmay">@robotmay</a> or via email at <a href="mailto:rob@photographer.io"><a href="&#x6d;&#97;&#x69;&#108;&#116;&#x6f;&#x3a;&#x72;&#111;&#98;&#x40;&#112;&#104;&#x6f;&#116;&#x6f;&#x67;&#x72;&#x61;&#x70;&#104;&#x65;&#x72;&#x2e;&#105;&#111;">&#114;&#x6f;&#98;&#x40;&#x70;&#104;&#x6f;&#116;&#111;&#x67;&#114;&#x61;&#112;&#104;&#x65;&#114;&#46;&#105;&#x6f;</a></a>.</p>
 ]]></content>
   </entry>
   
@@ -182,7 +207,7 @@
 
 <p>What do you think? I&rsquo;m always open to feedback, ideas, or bug reports.</p>
 
-<p>You can reach me on Twitter as <a href="http://twitter.com/robotmay">@robotmay</a> or via email at <a href="mailto:rob@photographer.io"><a href="&#109;&#x61;&#x69;&#108;&#116;&#111;&#x3a;&#x72;&#x6f;&#x62;&#64;&#112;&#x68;&#x6f;&#x74;&#x6f;&#103;&#114;&#97;&#x70;&#104;&#101;&#114;&#46;&#x69;&#111;">&#x72;&#111;&#98;&#x40;&#112;&#104;&#111;&#x74;&#x6f;&#103;&#114;&#97;&#112;&#x68;&#x65;&#114;&#x2e;&#105;&#x6f;</a></a>.</p>
+<p>You can reach me on Twitter as <a href="http://twitter.com/robotmay">@robotmay</a> or via email at <a href="mailto:rob@photographer.io"><a href="&#109;&#97;&#105;&#x6c;&#116;&#111;&#x3a;&#x72;&#x6f;&#x62;&#64;&#x70;&#x68;&#111;&#x74;&#111;&#x67;&#x72;&#x61;&#112;&#104;&#x65;&#x72;&#x2e;&#105;&#x6f;">&#114;&#111;&#98;&#x40;&#112;&#x68;&#x6f;&#116;&#111;&#103;&#114;&#x61;&#x70;&#x68;&#x65;&#x72;&#46;&#105;&#111;</a></a>.</p>
 ]]></content>
   </entry>
   
