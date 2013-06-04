@@ -90,17 +90,32 @@
         background: rgba(255,255,255,.8)
         padding: 4px 8px
 
-    .description
-      display: none
-      @include white-box
-      width: 100%
-      text-align: left
-      font-size: 0.9em
-      padding-bottom: 0
+      > .description
+        display: none
+        @include white-box
+        width: 100%
+        text-align: left
+        font-size: 0.9em
 
-      h4, p
-        margin-bottom: 0
-        padding-bottom: 10px
+        table
+          border: 0
+          padding: 0
+          margin: 0
+          width: 100%
+          tr
+            td
+              &.text
+                h4, p
+                  margin-bottom: 0
+                  padding-bottom: 10px
+
+                  &:last-child
+                    padding-bottom: 0
+
+              &.share
+                vertical-align: top
+                width: 100px
+                text-align: right
 
 #photographs-sidebar
   #photographs-creator

@@ -19,14 +19,22 @@ section id="photographs-show"
           = interactions_for @photograph
 
           - cache([@photograph, @photograph.metadata, :description]) do
-            - if @photograph.fetch_metadata.has_text?
-              aside class="description"
-                h4 itemprop="name"
-                  = @photograph.fetch_metadata.title
+            aside class="description"
+              table
+                tr
+                  td class="text"
+                    - if @photograph.fetch_metadata.has_text?
+                      h4 itemprop="name"
+                        = @photograph.fetch_metadata.title
 
-                - if @photograph.fetch_metadata.description.present?
-                  div itemprop="description"
-                    = simple_format @photograph.fetch_metadata.description
+                      - if @photograph.fetch_metadata.description.present?
+                        div itemprop="description"
+                          = simple_format @photograph.fetch_metadata.description
+
+                  td class="share"
+                    = render partial: "shared/social_buttons"
+
+              div class="clear"
 
         - if @photograph.comments_enabled?
           = render @photograph.comment_threads
