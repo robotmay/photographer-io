@@ -23,6 +23,7 @@ class Photograph < ActiveRecord::Base
 
   delegate :title, :description, :keywords, :format, :landscape?, :portrait?, 
            :square?, to: :metadata
+  delegate :url_helpers, to: 'Rails.application.routes'
 
   paginates_per 35
   image_accessor :image do
@@ -172,6 +173,18 @@ class Photograph < ActiveRecord::Base
   after_commit :create_sizes, on: :create
   def create_sizes
     PhotoExpansionWorker.perform_async(id)
+  end
+
+  after_save { MentionWorker.perform_async(id) }
+  def auto_mention
+    if self.public? && !auto_mentioned
+      user.authorisations.auto_post.each do |a|
+        a.mention url_helpers.photograph_url(self, host: ENV['DOMAIN'])
+        Rails.logger.info "Mentioned on #{a.provider} for #{a.uid}"
+      end
+
+      self.update_attribute(:auto_mentioned, true)
+    end
   end
 
   after_destroy :expire_from_cdn
