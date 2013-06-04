@@ -161,6 +161,9 @@ GEM
     hashie (2.0.5)
     hike (1.2.2)
     http_parser.rb (0.5.3)
+    httparty (0.11.0)
+      multi_json (~> 1.0)
+      multi_xml (>= 0.5.2)
     httpauth (0.2.0)
     i18n (0.6.4)
     identity_cache (0.0.1)
@@ -210,6 +213,7 @@ GEM
     mocha (0.13.3)
       metaclass (~> 0.0.1)
     multi_json (1.7.3)
+    multi_xml (0.5.3)
     multipart-post (1.2.0)
     net-scp (1.1.0)
       net-ssh (>= 2.6.5)
@@ -225,8 +229,9 @@ GEM
     omniauth (1.1.4)
       hashie (>= 1.2, < 3)
       rack
-    omniauth-gplus (1.1.1)
-      omniauth-oauth2 (~> 1.1)
+    omniauth-google-oauth2 (0.1.17)
+      omniauth (~> 1.0)
+      omniauth-oauth2
     omniauth-oauth2 (1.1.1)
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
@@ -430,6 +435,7 @@ DEPENDENCIES
   guard-rspec
   guard-sidekiq
   guard-spork
+  httparty
   identity_cache
   intercom-rails (~> 0.2.14)
   jbuilder (~> 1.0.1)
@@ -443,7 +449,7 @@ DEPENDENCIES
   mini_exiftool_vendored
   multi_fetch_fragments!
   newrelic_rpm
-  omniauth-gplus
+  omniauth-google-oauth2
   pg
   pg_array_parser
   pg_search
