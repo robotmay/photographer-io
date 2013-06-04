@@ -2,7 +2,7 @@
   - if @photographs.present? && @photographs.size > 0
     = paginate @photographs
 
-section id="photographs-index"
+section[id="photographs-index" itemscope itemtype="http://schema.org/ItemList"]
   header class="row"
     div class="large-12 columns"
       h1= @title

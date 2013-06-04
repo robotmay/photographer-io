@@ -1,12 +1,12 @@
 - if comment.can_be_seen_by?(current_user)
-  article id="comment-#{comment.id}" class="comment #{comment.published? ? 'published' : 'unpublished'}"
+  article[id="comment-#{comment.id}" class="comment #{comment.published? ? 'published' : 'unpublished'}" itemprop="comment" itemscope itemtype="http://schema.org/Comment"]
     div class="main"
       - cache([comment, comment.user, :avatar_and_body]) do
         - if comment.user.avatar.present?
           aside class="avatar"
             = image_tag comment.user.avatar.thumb("50x50#").jpg.url, width: 50, height: 50, alt: ""
 
-        section class="body"
+        section class="body" itemprop="text"
           = simple_format comment.body
 
         .clear
@@ -15,10 +15,10 @@
         div class="row"
           div class="large-8 columns left"
             - cache([comment, comment.user, :author_and_status]) do
-              span class="author"
+              span class="author" itemprop="author"
                 = link_to comment.user.name, user_path(comment.user)
 
-              time datetime=(comment.created_at.utc)
+              time datetime=(comment.created_at.utc) itemprop="datePublished"
                 = l comment.created_at, format: :long
 
               - status_class = comment.published ? "hidden" : ""

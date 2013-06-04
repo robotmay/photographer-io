@@ -28,7 +28,8 @@
         tbody
           - if photograph.category.present?
             tr
-              td= t("photographs.metadata.category")
+              td itemprop="genre"
+                = t("photographs.metadata.category")
               td= link_to photograph.category.name, category_path(photograph.category.slug)
 
           tr

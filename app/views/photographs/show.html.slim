@@ -1,11 +1,11 @@
 - content_for(:body_extras) do
-  | itemscope itemtype="http://schema.org/ImageObject"
+  | itemscope itemtype="http://schema.org/Photograph"
 
 section id="photographs-show"
   section class="row"
     article class="large-9 small-12 columns"
       section class="display"
-        div class="image"
+        div[class="image" itemscope itemtype="http://schema.org/ImageObject"]
           - if @photograph.has_precalculated_sizes?
             = photo_tag @photograph, :large, itemprop: "image"
           - else

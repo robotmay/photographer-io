@@ -19,6 +19,12 @@ en:
     seeking_feedback: "Photos seeking your feedback"
   untitled: "Untitled"
 
+  metadata:
+    description: >
+      Photographer.io is a new community for photography enthusiasts. Come join
+      our community; post your photographs, discover great shots by others, and 
+      get feedback on your images!
+
   nav:
     menu: "Menu"
     blog: "Blog"
