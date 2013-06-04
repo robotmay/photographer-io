@@ -1,44 +1,45 @@
-- base_url = "https://www.photographer.io"
-doctype xml
+- cache(:sitemap, expires_in: 10.minutes) do
+  - base_url = "https://www.photographer.io"
+  doctype xml
 
-urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  url
-    loc== base_url
-    lastmod= w3c_date(Time.now)
-    changefreq= "always"
-
-  url
-    loc== [base_url, explore_photographs_path].join
-    lastmod= w3c_date(@photographs.last.updated_at)
-    changefreq= "always"
-
-  url
-    loc== [base_url, recommended_photographs_path].join
-    lastmod= w3c_date(Time.now)
-    changefreq= "always"
-
-  - cache_each(@photographs, :sitemap) do |photo|
+  urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     url
-      loc== [base_url, photograph_path(photo)].join
-      lastmod= w3c_date(photo.updated_at)
-      changefreq= "hourly"
-      priority= "1"
-
-  url
-    loc== [base_url, explore_collections_path].join
-    lastmod= w3c_date(@collections.last.updated_at)
-    changefreq= "always"
-
-  - cache_each(@collections, :sitemap) do |collection|
-    url
-      loc== [base_url, collection_path(collection)].join
-      lastmod= w3c_date(collection.updated_at)
-      changefreq= "daily"
-      priority= "1"
-
-  - cache_each(@categories, :sitemap, expires_in: 1.day) do |category|
-    url
-      loc== [base_url, category_path(category)].join
+      loc== base_url
       lastmod= w3c_date(Time.now)
-      changefreq= "daily"
-      priority="1"
+      changefreq= "always"
+
+    url
+      loc== [base_url, explore_photographs_path].join
+      lastmod= w3c_date(@photographs.last.updated_at)
+      changefreq= "always"
+
+    url
+      loc== [base_url, recommended_photographs_path].join
+      lastmod= w3c_date(Time.now)
+      changefreq= "always"
+
+    - cache_each(@photographs, :sitemap) do |photo|
+      url
+        loc== [base_url, photograph_path(photo)].join
+        lastmod= w3c_date(photo.updated_at)
+        changefreq= "hourly"
+        priority= "1"
+
+    url
+      loc== [base_url, explore_collections_path].join
+      lastmod= w3c_date(@collections.last.updated_at)
+      changefreq= "always"
+
+    - cache_each(@collections, :sitemap) do |collection|
+      url
+        loc== [base_url, collection_path(collection)].join
+        lastmod= w3c_date(collection.updated_at)
+        changefreq= "daily"
+        priority= "1"
+
+    - cache_each(@categories, :sitemap, expires_in: 1.day) do |category|
+      url
+        loc== [base_url, category_path(category)].join
+        lastmod= w3c_date(Time.now)
+        changefreq= "daily"
+        priority="1"
