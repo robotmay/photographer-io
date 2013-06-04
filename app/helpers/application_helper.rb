@@ -35,7 +35,6 @@ module ApplicationHelper
     hits = Rails.cache.read_multi(keys.values, options)
 
     return_values = []
-    to_write = []
 
     enumerable.each do |e|
       this_key = keys[e.id]
@@ -44,15 +43,11 @@ module ApplicationHelper
         hits[this_key]
       else
         val = block.call(e)
-        to_write = -> { Rails.cache.write(this_key, val, options) }
+        CacheWorker.perform_async(this_key, val, options)
         val
       end
 
       return_values << value
-    end
-
-    Thread.new do
-      to_write.each(&:call)
     end
 
     return return_values.join
