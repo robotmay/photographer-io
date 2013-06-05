@@ -18,6 +18,8 @@ en:
     following: "Photos from people you follow"
     seeking_feedback: "Photos seeking your feedback"
   untitled: "Untitled"
+  social:
+    google_plus: "Google+"
 
   metadata:
     description: >
