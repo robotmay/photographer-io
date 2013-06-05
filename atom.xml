@@ -4,7 +4,7 @@
   <title><![CDATA[Photographer.io Blog]]></title>
   <link href="http://blog.photographer.io/atom.xml" rel="self"/>
   <link href="http://blog.photographer.io/"/>
-  <updated>2013-06-04T12:05:32+01:00</updated>
+  <updated>2013-06-05T09:16:36+01:00</updated>
   <id>http://blog.photographer.io/</id>
   <author>
     <name><![CDATA[Robert May]]></name>
@@ -12,6 +12,48 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Google+]]></title>
+    <link href="http://blog.photographer.io/posts/2013/06/05/google-plus/"/>
+    <updated>2013-06-05T08:56:00+01:00</updated>
+    <id>http://blog.photographer.io/posts/2013/06/05/google-plus</id>
+    <content type="html"><![CDATA[<p><a href="https://plus.google.com/100673063979311454242"><img src="http://blog.photographer.io/images/posts/6/plus_profile.png" alt="Google+ profile" /></a></p>
+
+<p><a href="https://plus.google.com/100673063979311454242">Photographer.io is now on Google+</a>. This is the first bit of social integration that I&rsquo;ve added to the site so far, and I started with Google+ for two good reasons:</p>
+
+<ol>
+<li>There are a lot of photographers on Google+</li>
+<li>Google is shifting a lot of their search engine focus to integration with Google+</li>
+</ol>
+
+
+<!-- more -->
+
+
+<p>There are two bits of integration so far, though only the first is currently live on the site:</p>
+
+<h3>Currently Live</h3>
+
+<h4>Share Button</h4>
+
+<p><img src="http://blog.photographer.io/images/posts/6/share_button.png" alt="Google+ share button" /></p>
+
+<p>First you&rsquo;ll notice that there&rsquo;s now a share button underneath every photograph. This is where other options will also go in the future. The photo pages now have extra markup to help Google find the relevant content in a page, so it picks up on the image accurately.</p>
+
+<h4>Sharing Options</h4>
+
+<p><img src="http://blog.photographer.io/images/posts/6/social_options.png" alt="User options" /></p>
+
+<p>Don&rsquo;t want to see social buttons anywhere on the site? You can disable it in your account settings. I understand some folks aren&rsquo;t a fan of these social sites (I block them myself in many places) and I take privacy concerns very seriously.</p>
+
+<h3>Coming Soon</h3>
+
+<h4>Activity Integration</h4>
+
+<p>Google+ allows your application to automatically post user activity (i.e. creating new photos) to G+. This requires you to sign in to your G+ account via Photographer.io. It&rsquo;s actually fully working, it just doesn&rsquo;t seem to have much of a point; those activities don&rsquo;t appear anywhere except an obscure page buried deep in their UI. I&rsquo;ll enable this in the near future once I&rsquo;ve tested it some more, on the off chance that someone finds it useful.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[DNS Fixes and Improvements]]></title>
@@ -153,7 +195,7 @@
 
 <p>What do you think? This is clearly still a work in progress but I&rsquo;d love to get some opinions about how it works and what you would do to improve it.</p>
 
-<p>I am entirely open to feedback, ideas, and bug reports. You can reach me on Twitter as <a href="http://twitter.com/robotmay">@robotmay</a> or via email at <a href="mailto:rob@photographer.io"><a href="&#x6d;&#97;&#x69;&#108;&#116;&#x6f;&#x3a;&#x72;&#111;&#98;&#x40;&#112;&#104;&#x6f;&#116;&#x6f;&#x67;&#x72;&#x61;&#x70;&#104;&#x65;&#x72;&#x2e;&#105;&#111;">&#114;&#x6f;&#98;&#x40;&#x70;&#104;&#x6f;&#116;&#111;&#x67;&#114;&#x61;&#112;&#104;&#x65;&#114;&#46;&#105;&#x6f;</a></a>.</p>
+<p>I am entirely open to feedback, ideas, and bug reports. You can reach me on Twitter as <a href="http://twitter.com/robotmay">@robotmay</a> or via email at <a href="mailto:rob@photographer.io"><a href="&#109;&#97;&#x69;&#108;&#x74;&#x6f;&#x3a;&#x72;&#111;&#x62;&#64;&#x70;&#x68;&#111;&#x74;&#x6f;&#x67;&#114;&#97;&#112;&#104;&#x65;&#x72;&#46;&#x69;&#111;">&#x72;&#x6f;&#98;&#x40;&#x70;&#104;&#x6f;&#x74;&#111;&#103;&#114;&#97;&#112;&#104;&#x65;&#114;&#x2e;&#105;&#111;</a></a>.</p>
 ]]></content>
   </entry>
   
@@ -207,7 +249,7 @@
 
 <p>What do you think? I&rsquo;m always open to feedback, ideas, or bug reports.</p>
 
-<p>You can reach me on Twitter as <a href="http://twitter.com/robotmay">@robotmay</a> or via email at <a href="mailto:rob@photographer.io"><a href="&#109;&#97;&#105;&#x6c;&#116;&#111;&#x3a;&#x72;&#x6f;&#x62;&#64;&#x70;&#x68;&#111;&#x74;&#111;&#x67;&#x72;&#x61;&#112;&#104;&#x65;&#x72;&#x2e;&#105;&#x6f;">&#114;&#111;&#98;&#x40;&#112;&#x68;&#x6f;&#116;&#111;&#103;&#114;&#x61;&#x70;&#x68;&#x65;&#x72;&#46;&#105;&#111;</a></a>.</p>
+<p>You can reach me on Twitter as <a href="http://twitter.com/robotmay">@robotmay</a> or via email at <a href="mailto:rob@photographer.io"><a href="&#109;&#97;&#105;&#108;&#116;&#x6f;&#x3a;&#x72;&#111;&#98;&#64;&#x70;&#104;&#111;&#x74;&#111;&#x67;&#114;&#x61;&#x70;&#x68;&#101;&#x72;&#46;&#x69;&#x6f;">&#x72;&#x6f;&#x62;&#64;&#x70;&#x68;&#x6f;&#x74;&#111;&#x67;&#114;&#x61;&#112;&#x68;&#x65;&#114;&#46;&#105;&#111;</a></a>.</p>
 ]]></content>
   </entry>
   

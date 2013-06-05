@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Social | Photographer.io Blog]]></title>
+  <link href="http://blog.photographer.io/blog/categories/social/atom.xml" rel="self"/>
+  <link href="http://blog.photographer.io/"/>
+  <updated>2013-06-05T09:16:36+01:00</updated>
+  <id>http://blog.photographer.io/</id>
+  <author>
+    <name><![CDATA[Robert May]]></name>
+    <email><![CDATA[support@photographer.io]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Google+]]></title>
+    <link href="http://blog.photographer.io/posts/2013/06/05/google-plus/"/>
+    <updated>2013-06-05T08:56:00+01:00</updated>
+    <id>http://blog.photographer.io/posts/2013/06/05/google-plus</id>
+    <content type="html"><![CDATA[<p><a href="https://plus.google.com/100673063979311454242"><img src="/images/posts/6/plus_profile.png" alt="Google+ profile" /></a></p>
+
+<p><a href="https://plus.google.com/100673063979311454242">Photographer.io is now on Google+</a>. This is the first bit of social integration that I&rsquo;ve added to the site so far, and I started with Google+ for two good reasons:</p>
+
+<ol>
+<li>There are a lot of photographers on Google+</li>
+<li>Google is shifting a lot of their search engine focus to integration with Google+</li>
+</ol>
+
+
+<!-- more -->
+
+
+<p>There are two bits of integration so far, though only the first is currently live on the site:</p>
+
+<h3>Currently Live</h3>
+
+<h4>Share Button</h4>
+
+<p><img src="/images/posts/6/share_button.png" alt="Google+ share button" /></p>
+
+<p>First you&rsquo;ll notice that there&rsquo;s now a share button underneath every photograph. This is where other options will also go in the future. The photo pages now have extra markup to help Google find the relevant content in a page, so it picks up on the image accurately.</p>
+
+<h4>Sharing Options</h4>
+
+<p><img src="/images/posts/6/social_options.png" alt="User options" /></p>
+
+<p>Don&rsquo;t want to see social buttons anywhere on the site? You can disable it in your account settings. I understand some folks aren&rsquo;t a fan of these social sites (I block them myself in many places) and I take privacy concerns very seriously.</p>
+
+<h3>Coming Soon</h3>
+
+<h4>Activity Integration</h4>
+
+<p>Google+ allows your application to automatically post user activity (i.e. creating new photos) to G+. This requires you to sign in to your G+ account via Photographer.io. It&rsquo;s actually fully working, it just doesn&rsquo;t seem to have much of a point; those activities don&rsquo;t appear anywhere except an obscure page buried deep in their UI. I&rsquo;ll enable this in the near future once I&rsquo;ve tested it some more, on the off chance that someone finds it useful.</p>
+]]></content>
+  </entry>
+  
+</feed>
