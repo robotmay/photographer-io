@@ -4,14 +4,21 @@
 
   .photo-grid
     .photo
-      .caption
-        opacity: 0.8
-        font-size: 0.8em
-        background: $body-bg + #222 image-url('glyphicons_halflings/glyphicons_halflings_009_th-large.png') 8px center no-repeat
-        @include image-2x(image-url('glyphicons_halflings/glyphicons_halflings_009_th-large@2x.png'), 16px, 16px)
+      .wrapper
         box-shadow: 0 0 6px 1px rgba(0,0,0,.1)
-        padding:
-          top: 2px
-          bottom: 2px
-          left: 28px
-          right: 5px
+        @include fade-transition
+
+        .caption
+          opacity: 0.8
+          font-size: 0.8em
+          background: $body-bg + #222 image-url('glyphicons_halflings/glyphicons_halflings_009_th-large.png') 8px center no-repeat
+          @include image-2x(image-url('glyphicons_halflings/glyphicons_halflings_009_th-large@2x.png'), 16px, 16px)
+          padding:
+            top: 2px
+            bottom: 2px
+            left: 28px
+            right: 5px
+
+      &:hover
+        .wrapper
+          box-shadow: 0 0 6px 1px rgba(0,0,0,.3)
