@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Social | Photographer.io Blog]]></title>
   <link href="http://blog.photographer.io/blog/categories/social/atom.xml" rel="self"/>
   <link href="http://blog.photographer.io/"/>
-  <updated>2013-06-05T09:16:36+01:00</updated>
+  <updated>2013-06-05T09:23:06+01:00</updated>
   <id>http://blog.photographer.io/</id>
   <author>
     <name><![CDATA[Robert May]]></name>
@@ -51,7 +51,7 @@
 
 <h4>Activity Integration</h4>
 
-<p>Google+ allows your application to automatically post user activity (i.e. creating new photos) to G+. This requires you to sign in to your G+ account via Photographer.io. It&rsquo;s actually fully working, it just doesn&rsquo;t seem to have much of a point; those activities don&rsquo;t appear anywhere except an obscure page buried deep in their UI. I&rsquo;ll enable this in the near future once I&rsquo;ve tested it some more, on the off chance that someone finds it useful.</p>
+<p>Google+ allows your application to automatically post user activity (i.e. creating new photos) to G+. This requires you to sign in to your G+ account via Photographer.io. It&rsquo;s fully integrated and working, it just doesn&rsquo;t seem to have much of a point; those activities don&rsquo;t appear anywhere except an obscure page buried deep in their UI. I&rsquo;ll enable this in the near future once I&rsquo;ve tested it some more, on the off chance that someone finds it useful.</p>
 ]]></content>
   </entry>
   

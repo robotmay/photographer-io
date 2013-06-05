@@ -4,7 +4,7 @@
   <title><![CDATA[Photographer.io Blog]]></title>
   <link href="http://blog.photographer.io/atom.xml" rel="self"/>
   <link href="http://blog.photographer.io/"/>
-  <updated>2013-06-05T09:16:36+01:00</updated>
+  <updated>2013-06-05T09:23:06+01:00</updated>
   <id>http://blog.photographer.io/</id>
   <author>
     <name><![CDATA[Robert May]]></name>
@@ -51,7 +51,7 @@
 
 <h4>Activity Integration</h4>
 
-<p>Google+ allows your application to automatically post user activity (i.e. creating new photos) to G+. This requires you to sign in to your G+ account via Photographer.io. It&rsquo;s actually fully working, it just doesn&rsquo;t seem to have much of a point; those activities don&rsquo;t appear anywhere except an obscure page buried deep in their UI. I&rsquo;ll enable this in the near future once I&rsquo;ve tested it some more, on the off chance that someone finds it useful.</p>
+<p>Google+ allows your application to automatically post user activity (i.e. creating new photos) to G+. This requires you to sign in to your G+ account via Photographer.io. It&rsquo;s fully integrated and working, it just doesn&rsquo;t seem to have much of a point; those activities don&rsquo;t appear anywhere except an obscure page buried deep in their UI. I&rsquo;ll enable this in the near future once I&rsquo;ve tested it some more, on the off chance that someone finds it useful.</p>
 ]]></content>
   </entry>
   
@@ -195,7 +195,7 @@
 
 <p>What do you think? This is clearly still a work in progress but I&rsquo;d love to get some opinions about how it works and what you would do to improve it.</p>
 
-<p>I am entirely open to feedback, ideas, and bug reports. You can reach me on Twitter as <a href="http://twitter.com/robotmay">@robotmay</a> or via email at <a href="mailto:rob@photographer.io"><a href="&#109;&#97;&#x69;&#108;&#x74;&#x6f;&#x3a;&#x72;&#111;&#x62;&#64;&#x70;&#x68;&#111;&#x74;&#x6f;&#x67;&#114;&#97;&#112;&#104;&#x65;&#x72;&#46;&#x69;&#111;">&#x72;&#x6f;&#98;&#x40;&#x70;&#104;&#x6f;&#x74;&#111;&#103;&#114;&#97;&#112;&#104;&#x65;&#114;&#x2e;&#105;&#111;</a></a>.</p>
+<p>I am entirely open to feedback, ideas, and bug reports. You can reach me on Twitter as <a href="http://twitter.com/robotmay">@robotmay</a> or via email at <a href="mailto:rob@photographer.io"><a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#x6f;&#58;&#114;&#111;&#98;&#x40;&#x70;&#104;&#111;&#116;&#111;&#103;&#114;&#97;&#x70;&#x68;&#x65;&#114;&#46;&#x69;&#111;">&#x72;&#111;&#98;&#64;&#x70;&#x68;&#111;&#116;&#111;&#x67;&#x72;&#97;&#x70;&#104;&#101;&#114;&#x2e;&#x69;&#x6f;</a></a>.</p>
 ]]></content>
   </entry>
   
@@ -249,7 +249,7 @@
 
 <p>What do you think? I&rsquo;m always open to feedback, ideas, or bug reports.</p>
 
-<p>You can reach me on Twitter as <a href="http://twitter.com/robotmay">@robotmay</a> or via email at <a href="mailto:rob@photographer.io"><a href="&#109;&#97;&#105;&#108;&#116;&#x6f;&#x3a;&#x72;&#111;&#98;&#64;&#x70;&#104;&#111;&#x74;&#111;&#x67;&#114;&#x61;&#x70;&#x68;&#101;&#x72;&#46;&#x69;&#x6f;">&#x72;&#x6f;&#x62;&#64;&#x70;&#x68;&#x6f;&#x74;&#111;&#x67;&#114;&#x61;&#112;&#x68;&#x65;&#114;&#46;&#105;&#111;</a></a>.</p>
+<p>You can reach me on Twitter as <a href="http://twitter.com/robotmay">@robotmay</a> or via email at <a href="mailto:rob@photographer.io"><a href="&#x6d;&#x61;&#105;&#x6c;&#116;&#x6f;&#58;&#114;&#111;&#98;&#x40;&#x70;&#x68;&#111;&#x74;&#111;&#103;&#114;&#97;&#112;&#x68;&#x65;&#x72;&#46;&#x69;&#x6f;">&#114;&#x6f;&#x62;&#64;&#x70;&#104;&#x6f;&#x74;&#x6f;&#x67;&#114;&#x61;&#112;&#104;&#x65;&#x72;&#x2e;&#105;&#x6f;</a></a>.</p>
 ]]></content>
   </entry>
   
