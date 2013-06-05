@@ -1,37 +1,38 @@
 li class="photo" id="photograph-#{photograph.id}"
-  input type="checkbox" name="mass_edit[photograph_ids][]" value=(photograph.id) style="display: none;"
-  = link_to edit_account_photograph_path(photograph) do
-    - if photograph.has_precalculated_sizes?
-      = photo_tag photograph, :thumbnail 
-    - else
-      = photo_tag photograph, "500x500>", quality: 70
-  footer class="caption"
-    - title = photograph.metadata.title
-    = link_to (title.blank? ? t("untitled") : title), account_photograph_path(photograph)
-    div class="stats"
-      span class="views" title=(t("account.photographs.views"))
-        span class="icon"
-        span class="number"
-          = photograph.views.to_i
+  div class="wrapper"
+    input type="checkbox" name="mass_edit[photograph_ids][]" value=(photograph.id) style="display: none;"
+    = link_to edit_account_photograph_path(photograph) do
+      - if photograph.has_precalculated_sizes?
+        = photo_tag photograph, :thumbnail 
+      - else
+        = photo_tag photograph, "500x500>", quality: 70
+    footer class="caption"
+      - title = photograph.metadata.title
+      = link_to (title.blank? ? t("untitled") : title), account_photograph_path(photograph)
+      div class="stats"
+        span class="views" title=(t("account.photographs.views"))
+          span class="icon"
+          span class="number"
+            = photograph.views.to_i
 
-      span class="recommendations" title=(t("account.photographs.recommendations"))
-        span class="icon"
-        span class="number"
-          = photograph.recommendations_count
+        span class="recommendations" title=(t("account.photographs.recommendations"))
+          span class="icon"
+          span class="number"
+            = photograph.recommendations_count
 
-      span class="favourites" title=(t("account.photographs.favourites"))
-        span class="icon"
-        span class="number"
-          = photograph.favourites_count
+        span class="favourites" title=(t("account.photographs.favourites"))
+          span class="icon"
+          span class="number"
+            = photograph.favourites_count
 
-  - if photograph.processing? && request.xhr?
-    javascript:
-      $(document).ready(function() {
-        pubnub.events.bind("image_processed", function(data) {
-          if(data.id == #{photograph.id}) {
-            $("#photograph-#{photograph.id}").find("img").attr("src", data.thumbnail).load(function() {
-              $(".photo-grid").trigger("reload:grid");
-            });
-          }
+    - if photograph.processing? && request.xhr?
+      javascript:
+        $(document).ready(function() {
+          pubnub.events.bind("image_processed", function(data) {
+            if(data.id == #{photograph.id}) {
+              $("#photograph-#{photograph.id}").find("img").attr("src", data.thumbnail).load(function() {
+                $(".photo-grid").trigger("reload:grid");
+              });
+            }
+          });
         });
-      });
