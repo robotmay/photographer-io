@@ -61,3 +61,12 @@
       .icon
         background: image-url('#{$colour}/glyphicons_halflings_004_heart.png') left center no-repeat
         @include image-2x(image-url('#{$colour}/glyphicons_halflings_004_heart@2x.png'), 16px, 16px)
+
+@mixin fade-transition
+  -webkit-transition: all .25s linear
+  -o-transition: all .25s linear
+  -moz-transition: all .25s linear
+  -ms-transition: all .25s linear
+  -kthtml-transition: all .25s linear
+  transition: all .25s linear
+

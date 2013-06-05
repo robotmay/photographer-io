@@ -1,13 +1,14 @@
 li class="photo"
-  = link_to collection_path(collection) do
-    - photograph = collection.cover_photo(@category)
-    - unless photograph.nil?
-      - if photograph.has_precalculated_sizes?
-        = photo_tag photograph, :thumbnail 
-      - else
-        = photo_tag photograph, "500x500>", quality: 70
-  footer class="caption"
-    = t("collections.caption", \
-        user: link_to(collection.user.name, user_path(collection.user)), \
-        collection: link_to(collection.name, collection_path(collection))).html_safe
+  div class="wrapper"
+    = link_to collection_path(collection) do
+      - photograph = collection.cover_photo(@category)
+      - unless photograph.nil?
+        - if photograph.has_precalculated_sizes?
+          = photo_tag photograph, :thumbnail 
+        - else
+          = photo_tag photograph, "500x500>", quality: 70
+    footer class="caption"
+      = t("collections.caption", \
+          user: link_to(collection.user.name, user_path(collection.user)), \
+          collection: link_to(collection.name, collection_path(collection))).html_safe
 
