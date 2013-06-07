@@ -4,6 +4,9 @@
 - content_for(:meta) do
   meta property="og:type" content="website"
   meta property="og:image" content=(@photograph.thumbnail_image.remote_url)
+  meta property="og:image:secure_url" content=(@photograph.thumbnail_image.remote_url)
+  meta property="og:image:type" content="image/jpeg"
+  meta property="og:url" content=(photograph_path(@photograph))
 
   - if @photograph.fetch_metadata.title.present?
     meta property="og:title" content=(@photograph.fetch_metadata.title)
