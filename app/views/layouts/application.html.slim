@@ -14,7 +14,8 @@ head
     / Set the viewport width to device width for mobile
     meta name="viewport" content="width=device-width, initial-scale=1.0"
     meta name="description" content=t("metadata.description")
-    meta name="og:site_name" content=t("site_name")
+    meta property="fb:app_id" content=(ENV['FACEBOOK_APP_ID'])
+    meta property="og:site_name" content=t("site_name")
     == yield(:meta)
 
     = stylesheet_link_tag "application"
