@@ -1,8 +1,23 @@
-div class="g-plus" data-action="share" data-annotation="none" data-height="24" data-clientid=(ENV['GOOGLE_CLIENT_ID'])
+div class="social-buttons"
+  div class="g-plus" data-action="share" data-annotation="none" data-height="24" data-clientid=(ENV['GOOGLE_CLIENT_ID'])
 
-javascript:
-  (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://apis.google.com/js/plusone.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  })();
+  div class="fb-like" data-href="https://www.photographer.io" data-send="false" data-width="90" data-show-faces="false" data-layout="button_count"
+
+- content_for(:javascript) do
+  javascript:
+    (function() {
+      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+      po.src = 'https://apis.google.com/js/client:plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+    })();
+
+  div id="fb-root"
+  javascript:
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=668401093186848";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
