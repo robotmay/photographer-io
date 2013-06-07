@@ -3,6 +3,7 @@
 
 - content_for(:meta) do
   - cache([@photograph, :meta]) do
+    -# OpenGraph
     meta property="og:type" content="website"
     meta property="og:image" content=image_url(@photograph.thumbnail_image)
     meta property="og:image:type" content="image/jpeg"
@@ -15,6 +16,15 @@
 
     - if @photograph.fetch_metadata.description.present?
       meta property="og:description" content=(@photograph.fetch_metadata.description)
+
+    -# Twitter
+    meta name="twitter:card" content="photo"
+    meta name="twitter:img:src" content=image_url(@photograph.thumbnail_image)
+
+    - if @photograph.fetch_metadata.title.present?
+      meta name="twitter:title" content=(@photograph.fetch_metadata.title)
+    - else
+      meta name="twitter:title" content=t("untitled")
 
 section id="photographs-show"
   section class="row"
