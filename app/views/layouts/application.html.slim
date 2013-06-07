@@ -7,25 +7,24 @@ doctype html
 == "<!--[if (gt IE 9)|!(IE)]><!--> <html lang=\"en\"> <!--<![endif]-->"
 
 head
-  - cache(:header, expires_in: 5.minutes) do
-    meta charset="utf-8"
-    link rel="icon" href=(asset_path("favicon.png"))
+  meta charset="utf-8"
+  link rel="icon" href=(asset_path("favicon.png"))
 
-    / Set the viewport width to device width for mobile
-    meta name="viewport" content="width=device-width, initial-scale=1.0"
+  / Set the viewport width to device width for mobile
+  meta name="viewport" content="width=device-width, initial-scale=1.0"
 
-    = stylesheet_link_tag "application"
-    = javascript_include_tag "custom.modernizr"
-    javascript:
-      var _prum = [['id', '51a868a2abe53d6b24000000'],
-                   ['mark', 'firstbyte', (new Date()).getTime()]];
-      (function() {
-          var s = document.getElementsByTagName('script')[0]
-            , p = document.createElement('script');
-          p.async = 'async';
-          p.src = '//rum-static.pingdom.net/prum.min.js';
-          s.parentNode.insertBefore(p, s);
-      })();
+  = stylesheet_link_tag "application"
+  = javascript_include_tag "custom.modernizr"
+  javascript:
+    var _prum = [['id', '51a868a2abe53d6b24000000'],
+                 ['mark', 'firstbyte', (new Date()).getTime()]];
+    (function() {
+        var s = document.getElementsByTagName('script')[0]
+          , p = document.createElement('script');
+        p.async = 'async';
+        p.src = '//rum-static.pingdom.net/prum.min.js';
+        s.parentNode.insertBefore(p, s);
+    })();
 
   meta name="description" content=t("metadata.description")
   meta property="fb:app_id" content=(ENV['FACEBOOK_APP_ID'])
