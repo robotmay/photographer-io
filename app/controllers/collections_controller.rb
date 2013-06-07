@@ -23,12 +23,12 @@ class CollectionsController < ApplicationController
       @collections = Collection.public
     end
 
-    @collections = @collections.view_for(current_user).uniq.order("created_at DESC").page(params[:page])
+    @collections = @collections.view_for(current_user).uniq.includes(:user).order("created_at DESC").page(params[:page])
     respond_with @collections
   end
 
   def explore
-    @collections = Collection.view_for(current_user).uniq.order("updated_at DESC").page(params[:page])
+    @collections = Collection.view_for(current_user).uniq.includes(:user).order("updated_at DESC").page(params[:page])
 
     set_title t("titles.explore")
 
