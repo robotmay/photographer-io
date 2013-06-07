@@ -1,7 +1,8 @@
 div class="social-buttons"
   div class="g-plus" data-action="share" data-annotation="none" data-height="24" data-clientid=(ENV['GOOGLE_CLIENT_ID'])
 
-  div class="fb-like" data-send="false" data-width="90" data-show-faces="false" data-layout="button_count"
+  a class="fb-share button small expand radius" href="https://www.facebook.com/sharer/sharer.php?u=" data-action="share"
+    = t("social.facebook_share")
 
 - content_for(:javascript) do
   javascript:
@@ -11,15 +12,8 @@ div class="social-buttons"
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
     })();
 
-
-- content_for(:before_body) do
-  div id="fb-root"
-  javascript:
-    (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=#{ENV['FACEBOOK_APP_ID']}";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-
+    $("body").on("click", ".fb-share[data-action = 'share']", function(e) {
+      e.preventDefault();
+      var url = $(this).attr("href");
+      window.open(url + location.href, 'sharer', 'width=626,height=436');
+    });
