@@ -1,6 +1,18 @@
 - content_for(:body_extras) do
   | itemscope itemtype="http://schema.org/Photograph"
 
+- content_for(:meta) do
+  meta property="og:type" content="website"
+  meta property="og:image" content=(@photograph.thumbnail_image.remote_url)
+
+  - if @photograph.fetch_metadata.title.present?
+    meta property="og:title" content=(@photograph.fetch_metadata.title)
+  - else
+    meta property="og:title" content=t("untitled")
+
+  - if @photograph.fetch_metadata.description.present?
+    meta property="og:description" content=(@photograph.fetch_metadata.description)
+
 section id="photographs-show"
   section class="row"
     article class="large-9 small-12 columns"
