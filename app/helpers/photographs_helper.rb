@@ -26,15 +26,7 @@ module PhotographsHelper
         photograph.thumbnail_image
       end
 
-      url = if ENV['CDN_HOST']
-        image.remote_url(host: ENV['CDN_HOST'])
-      else
-        image.remote_url
-      end
-
-      if request.protocol == "https://"
-        url.gsub!("http://", "https://")
-      end
+      url = image_url(image)
 
       if match = url.match(/\d+x\d+.jpg/i)
         width, height = match.to_a.last.split(".").first.split("x")
@@ -54,6 +46,20 @@ module PhotographsHelper
     rescue DeprecatedPhoto
       deprecated_photo_tag(photograph, size, opts = {})
     end
+  end
+
+  def image_url(image)
+    url = if ENV['CDN_HOST']
+      image.remote_url(host: ENV['CDN_HOST'])
+    else
+      image.remote_url
+    end
+
+    if request.protocol == "https://"
+      url.gsub!("http://", "https://")
+    end
+
+    url
   end
   
   def deprecated_photo_tag(photograph, size, opts = {})
