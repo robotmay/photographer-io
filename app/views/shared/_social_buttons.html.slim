@@ -1,19 +1,17 @@
 div class="social-buttons"
-  div class="g-plus" data-action="share" data-annotation="none" data-height="24" data-clientid=(ENV['GOOGLE_CLIENT_ID'])
+  a class="g-plus button small expand radius" href="https://plus.google.com/share?url=#{request.original_url}" data-action="share" data-width="500" data-height="400"
+    = t("social.share")
 
-  a class="fb-share button small expand radius" href="https://www.facebook.com/sharer/sharer.php?u=" data-action="share"
-    = t("social.facebook_share")
+  a class="fb-share button small expand radius" href="https://www.facebook.com/sharer/sharer.php?u=#{request.original_url}" data-action="share" data-width="626" data-height="436"
+    = t("social.share")
 
 - content_for(:javascript) do
   javascript:
-    (function() {
-      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-      po.src = 'https://apis.google.com/js/client:plusone.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-    })();
-
-    $("body").on("click", ".fb-share[data-action = 'share']", function(e) {
+    $("body").on("click", "[data-action = 'share']", function(e) {
       e.preventDefault();
       var url = $(this).attr("href");
-      window.open(url + location.href, 'sharer', 'width=626,height=436');
+      var width = $(this).data("width");
+      var height = $(this).data("height");
+      var sizeString = "width=" + width + ",height=" + height;
+      window.open(url, 'sharer', sizeString);
     });
