@@ -118,14 +118,24 @@
                 width: 100px
                 text-align: right
 
-                #___plus_0
-                  width: 83px !important
+                .button
+                  text-align: center
+                  padding-left: 24px
+                  background-position: left center
+                  background-repeat: no-repeat
+                  margin-bottom: 5px
 
-                  iframe
-                    width: 83px !important
+                  &.g-plus
+                    background-color: rgb(212,85,61)
+                    background-image: image-url("glyphicons_inverted/glyphicons_382_google_plus.png")
+                    @include image-2x(image-url('glyphicons_inverted/glyphicons_382_google_plus@2x.png'), 24px, 24px)
 
-                .fb-share
-                  background-color: rgb(59,89,152)
+
+                  &.fb-share
+                    background-color: rgb(59,89,152)
+                    background-image: image-url("glyphicons_inverted/glyphicons_410_facebook.png")
+                    @include image-2x(image-url('glyphicons_inverted/glyphicons_410_facebook@2x.png'), 24px, 24px)
+                    
 
 #photographs-sidebar
   #photographs-creator
