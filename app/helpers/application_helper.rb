@@ -37,10 +37,10 @@ module ApplicationHelper
     hits = Rails.cache.read_multi(keys.values, options)
 
     return_values = []
-    to_write = Thread.channel
+    write_channel = Thread.channel
 
-    Thread.new do
-      while cache_write = channel.receive
+    thread = Thread.new do
+      while cache_write = write_channel.receive
         cache_write.call
       end
     end
@@ -52,13 +52,14 @@ module ApplicationHelper
         hits[this_key]
       else
         val = block.call(e)
-        to_write.send -> { Rails.cache.write(this_key, val, options) }
+        write_channel.send -> { Rails.cache.write(this_key, val, options) }
         val
       end
 
       return_values << value
     end
 
+    thread.join
     return return_values.join
   end
 end
