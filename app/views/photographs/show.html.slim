@@ -4,7 +4,7 @@
 - content_for(:meta) do
   - cache([@photograph, :meta]) do
     meta property="og:type" content="website"
-    meta property="og:image" content=(@photograph.thumbnail_image.remote_url)
+    meta property="og:image" content=image_url(@photograph.thumbnail_image)
     meta property="og:image:type" content="image/jpeg"
     meta property="og:url" content=(photograph_url(@photograph))
 
