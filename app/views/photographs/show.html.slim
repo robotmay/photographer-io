@@ -2,19 +2,20 @@
   | itemscope itemtype="http://schema.org/Photograph"
 
 - content_for(:meta) do
-  meta property="og:type" content="website"
-  meta property="og:image" content=(@photograph.thumbnail_image.remote_url)
-  meta property="og:image:secure_url" content=(@photograph.thumbnail_image.remote_url)
-  meta property="og:image:type" content="image/jpeg"
-  meta property="og:url" content=(photograph_path(@photograph))
+  - cache([@photograph, :meta]) do
+    meta property="og:type" content="website"
+    meta property="og:image" content=(@photograph.thumbnail_image.remote_url)
+    meta property="og:image:secure_url" content=(@photograph.thumbnail_image.remote_url)
+    meta property="og:image:type" content="image/jpeg"
+    meta property="og:url" content=(photograph_path(@photograph))
 
-  - if @photograph.fetch_metadata.title.present?
-    meta property="og:title" content=(@photograph.fetch_metadata.title)
-  - else
-    meta property="og:title" content=t("untitled")
+    - if @photograph.fetch_metadata.title.present?
+      meta property="og:title" content=(@photograph.fetch_metadata.title)
+    - else
+      meta property="og:title" content=t("untitled")
 
-  - if @photograph.fetch_metadata.description.present?
-    meta property="og:description" content=(@photograph.fetch_metadata.description)
+    - if @photograph.fetch_metadata.description.present?
+      meta property="og:description" content=(@photograph.fetch_metadata.description)
 
 section id="photographs-show"
   section class="row"
