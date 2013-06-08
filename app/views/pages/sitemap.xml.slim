@@ -37,9 +37,10 @@
         changefreq= "daily"
         priority= "1"
 
-    - cache_each(@categories, :sitemap) do |category|
-      url
-        loc== [base_url, category_path(category.slug)].join
-        lastmod= w3c_date(Time.now)
-        changefreq= "daily"
-        priority="1"
+    - cache([:sitemap, :categories], expires_in: 1.day) do
+      - @categories.each do |category|
+        url
+          loc== [base_url, category_path(category.slug)].join
+          lastmod= w3c_date(Time.now)
+          changefreq= "daily"
+          priority="1"
