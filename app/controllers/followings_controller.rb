@@ -3,7 +3,7 @@ class FollowingsController < ApplicationController
   before_filter :authenticate_user!
 
   def create
-    @user = User.find(following_params[:user_id])
+    @user = User.find_by_id_or_username(following_params[:user_id])
     @following = current_user.follower_followings.find_or_initialize_by(followee_id: @user.id)
     authorize! :create, @following
 

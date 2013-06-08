@@ -7,7 +7,7 @@ module UsersHelper
           t("followings.unfollow")
         end
       else
-        link_to user_followings_path(user), method: :post, class: "button follow secondary tiny expand" do
+        link_to user_followings_path(user.username), method: :post, class: "button follow secondary tiny expand" do
           t("followings.follow")
         end
       end
