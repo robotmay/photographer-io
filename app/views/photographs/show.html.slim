@@ -27,6 +27,9 @@
     - else
       meta name="twitter:title" content=""
 
+    - if @photograph.fetch_metadata.description.present?
+      meta name="twitter:description" content=(truncate(@photograph.fetch_metadata.description, length: 200))
+
 section id="photographs-show"
   section class="row"
     article class="large-9 small-12 columns"
