@@ -486,6 +486,38 @@ ALTER SEQUENCE notifications_id_seq OWNED BY notifications.id;
 
 
 --
+-- Name: old_usernames; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE old_usernames (
+    id integer NOT NULL,
+    user_id integer,
+    username character varying(255),
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: old_usernames_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE old_usernames_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: old_usernames_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE old_usernames_id_seq OWNED BY old_usernames.id;
+
+
+--
 -- Name: photographs; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -729,6 +761,13 @@ ALTER TABLE ONLY notifications ALTER COLUMN id SET DEFAULT nextval('notification
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY old_usernames ALTER COLUMN id SET DEFAULT nextval('old_usernames_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY photographs ALTER COLUMN id SET DEFAULT nextval('photographs_id_seq'::regclass);
 
 
@@ -840,6 +879,14 @@ ALTER TABLE ONLY metadata
 
 ALTER TABLE ONLY notifications
     ADD CONSTRAINT notifications_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: old_usernames_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY old_usernames
+    ADD CONSTRAINT old_usernames_pkey PRIMARY KEY (id);
 
 
 --
@@ -1070,6 +1117,20 @@ CREATE INDEX index_notifications_on_user_id ON notifications USING btree (user_i
 
 
 --
+-- Name: index_old_usernames_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_old_usernames_on_user_id ON old_usernames USING btree (user_id);
+
+
+--
+-- Name: index_old_usernames_on_username; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_old_usernames_on_username ON old_usernames USING btree (username);
+
+
+--
 -- Name: index_photographs_on_category_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -1277,3 +1338,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130604173711');
 INSERT INTO schema_migrations (version) VALUES ('20130604201040');
 
 INSERT INTO schema_migrations (version) VALUES ('20130608105451');
+
+INSERT INTO schema_migrations (version) VALUES ('20130608154646');

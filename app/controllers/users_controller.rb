@@ -3,15 +3,21 @@ class UsersController < ApplicationController
   before_filter :hide_filters!, only: [:show]
 
   def show
-    @user = case
-    when params[:id].to_i > 0
-      User.find(params[:id])
-    else
-      User.find_by(username: params[:id])
+    @user = User.find_by_id_or_username(params[:id])
+
+    if @user.nil?
+      old_name = OldUsername.find_by(username: params[:id])
+      if old_name.present?
+        redirect_to short_user_path(old_name.user.username) and return
+      end
     end
 
-    authorize! :read, @user
-    @photographs = @user.photographs.view_for(current_user).order("created_at DESC").page(params[:page])
-    respond_with @user
+    if @user.present?
+      authorize! :read, @user
+      @photographs = @user.photographs.view_for(current_user).order("created_at DESC").page(params[:page])
+      respond_with @user
+    else
+      not_found
+    end
   end
 end

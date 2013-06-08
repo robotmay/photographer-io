@@ -81,6 +81,13 @@ en:
           you choose to make them public.
 
       user:
+        edit:
+          username: >
+            Your username is your unique identifier across the site, used in URLs and
+            to point to your profile page, 
+            e.g. https://www.photographer.io/u/rupert_bear.
+            It has to be unique, lowercase, and can only contain letters, numbers, and underscores.
+        
         username: >
           Can only contain letters, numbers, and underscores.
 

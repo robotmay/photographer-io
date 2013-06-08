@@ -4,7 +4,14 @@ class CollectionsController < ApplicationController
   before_filter :set_parents
   def set_parents
     if params[:user_id].present?
-      @user = User.fetch(params[:user_id])
+      @user = User.find_by_id_or_username(params[:user_id])
+
+      if @user.nil?
+        old_name = OldUsername.find_by(username: params[:user_id])
+        if old_name.present?
+          redirect_to user_collections_path(old_name.user.username) and return
+        end
+      end
     end
 
     if params[:category_id].present?
