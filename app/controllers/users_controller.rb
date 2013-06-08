@@ -14,6 +14,8 @@ class UsersController < ApplicationController
 
     if @user.present?
       authorize! :read, @user
+      set_title @user.name
+
       @photographs = @user.photographs.view_for(current_user).order("created_at DESC").page(params[:page])
       respond_with @user
     else
