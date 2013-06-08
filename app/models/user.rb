@@ -44,12 +44,27 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A[a-zA-Z0-9_]*[a-zA-Z][a-zA-Z0-9_]*\z/, message: I18n.t("users.username_format") }
   validates :website_url, format: URI::regexp(%w(http https)), allow_blank: true
   validate :username_has_not_been_used
+  validate :username_quota_not_exceeded
 
   def username_has_not_been_used
     old = OldUsername.find_by(username: username)
     if old.present? && old.user_id != id
       errors.add(:username, I18n.t("users.old_username_present"))
     end
+  end
+
+  def username_quota_not_exceeded
+    unless can_change_username?
+      errors.add(:username, I18n.t("users.username_quota_exceeded"))
+    end
+  end
+
+  def username_changes_remaining
+    ISO[:defaults][:username_change_quota] - old_usernames.count
+  end
+
+  def can_change_username?
+    username_changes_remaining > 0
   end
 
   before_create :set_defaults
