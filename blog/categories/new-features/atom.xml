@@ -4,7 +4,7 @@
   <title><![CDATA[Category: New Features | Photographer.io Blog]]></title>
   <link href="http://blog.photographer.io/blog/categories/new-features/atom.xml" rel="self"/>
   <link href="http://blog.photographer.io/"/>
-  <updated>2013-06-05T09:23:06+01:00</updated>
+  <updated>2013-06-08T18:41:16+01:00</updated>
   <id>http://blog.photographer.io/</id>
   <author>
     <name><![CDATA[Robert May]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Username Support]]></title>
+    <link href="http://blog.photographer.io/posts/2013/06/08/username-support/"/>
+    <updated>2013-06-08T18:14:00+01:00</updated>
+    <id>http://blog.photographer.io/posts/2013/06/08/username-support</id>
+    <content type="html"><![CDATA[<p>Usernames are now live! Finally, you can access your public profile via <a href="https://www.photographer.io/u/robotmay">https://www.photographer.io/u/robotmay</a> rather than /users/1.</p>
+
+<p>To facilitate this change I&rsquo;ve added a new &lsquo;username&rsquo; field, which must be a unique, lowercase name containing only letters, numbers, and underscores. This will then be used in URLs across the site. Your first username has been automatically generated from your current display name, but you can change this (up to 2 times) from your account settings page.</p>
+
+<p>Accessing a page via an old username will redirect to your new one. In the future old names will be freed up for new users to take them after a certain length of time.</p>
+
+<p>If you have any questions about how this system works; get in touch!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Notifications for Favourites]]></title>
@@ -117,7 +132,7 @@
 
 <p>What do you think? This is clearly still a work in progress but I&rsquo;d love to get some opinions about how it works and what you would do to improve it.</p>
 
-<p>I am entirely open to feedback, ideas, and bug reports. You can reach me on Twitter as <a href="http://twitter.com/robotmay">@robotmay</a> or via email at <a href="mailto:rob@photographer.io"><a href="&#109;&#97;&#105;&#108;&#116;&#x6f;&#58;&#x72;&#111;&#98;&#64;&#112;&#104;&#x6f;&#x74;&#x6f;&#103;&#114;&#97;&#x70;&#x68;&#101;&#x72;&#46;&#105;&#x6f;">&#x72;&#x6f;&#98;&#64;&#112;&#104;&#111;&#116;&#x6f;&#103;&#x72;&#x61;&#112;&#x68;&#x65;&#114;&#46;&#105;&#111;</a></a>.</p>
+<p>I am entirely open to feedback, ideas, and bug reports. You can reach me on Twitter as <a href="http://twitter.com/robotmay">@robotmay</a> or via email at <a href="mailto:rob@photographer.io"><a href="&#x6d;&#x61;&#105;&#x6c;&#116;&#111;&#x3a;&#114;&#x6f;&#98;&#x40;&#x70;&#x68;&#111;&#x74;&#x6f;&#103;&#114;&#97;&#x70;&#104;&#x65;&#114;&#x2e;&#x69;&#111;">&#114;&#x6f;&#x62;&#x40;&#112;&#104;&#111;&#x74;&#111;&#x67;&#x72;&#x61;&#x70;&#104;&#x65;&#114;&#x2e;&#x69;&#111;</a></a>.</p>
 ]]></content>
   </entry>
   
