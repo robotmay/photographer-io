@@ -10,7 +10,10 @@
 
         fieldset
           legend= t("account.form.username")
-          = f.input :username
+          = f.input :username, input_html: { disabled: (!resource.can_change_username?) }
+
+          span class="hint"
+            = t("users.username_quota", n: resource.username_changes_remaining)
 
     div class="large-8 columns"
       div class="panel"

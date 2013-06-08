@@ -414,7 +414,14 @@ en:
     old_username_present: >
       That username has been used in the past by someone else. We maintain redirects
       for old names for a limited time. Get in touch if you have any questions about
-      this name or process by emailing support@photographer.io.
+      this name or process by emailing 
+      <a href="mailto:support@photographer.io">support@photographer.io</a>.
+
+    username_quota_exceeded: >
+      You can't change your username any more times. Need help? Contact us at
+      <a href="mailto:support@photographer.io">support@photographer.io</a>.
+
+    username_quota: "You can change your username %{n} more time(s)"
 
     invitations:
       invited:
