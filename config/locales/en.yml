@@ -121,6 +121,7 @@ en:
 
     form:
       auth: "Sign in details"
+      username: "Username"
       public: "How do you want to be known to other users?"
       settings: "Account settings"
       create: "Sign up for a Photographer.io account"
@@ -410,6 +411,11 @@ en:
   users:
     visit_site: "Visit website"
     username_format: "Only letters, numbers, and underscores allowed."
+    old_username_present: >
+      That username has been used in the past by someone else. We maintain redirects
+      for old names for a limited time. Get in touch if you have any questions about
+      this name or process by emailing support@photographer.io.
+
     invitations:
       invited:
         title: "Friends you've already invited"

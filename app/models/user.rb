@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :notifications
   has_many :authorisations
+  has_many :old_usernames
 
   cache_index :username, unique: true
   cache_has_many :photographs
@@ -40,13 +41,35 @@ class User < ActiveRecord::Base
   value :last_checked_notifications_at
 
   validates :email, :name, presence: true
-  validates :username, presence: true, uniqueness: true, format: { with: /\A[a-zA-Z0-9_]*[a-zA-Z][a-zA-Z0-9_]*\z/, message: I18n.t("users.username_format") }
+  validates :username, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A[a-zA-Z0-9_]*[a-zA-Z][a-zA-Z0-9_]*\z/, message: I18n.t("users.username_format") }
   validates :website_url, format: URI::regexp(%w(http https)), allow_blank: true
+  validate :username_has_not_been_used
+
+  def username_has_not_been_used
+    old = OldUsername.find_by(username: username)
+    if old.present? && old.user_id != id
+      errors.add(:username, I18n.t("users.old_username_present"))
+    end
+  end
 
   before_create :set_defaults
   def set_defaults
     self.recommendation_quota = ISO[:defaults][:recommendation_quota]
     self.upload_quota = ISO[:defaults][:uploads_per_month]
+  end
+
+  before_validation :adjust_values
+  def adjust_values
+    if username_changed?
+      self.username = username.downcase
+    end
+  end
+
+  before_save :store_old_username
+  def store_old_username
+    if username_changed? && username_was.present?
+      old_usernames.find_or_create_by(username: username_was)
+    end
   end
 
   after_invitation_accepted :apply_referral_bonus
@@ -119,5 +142,16 @@ class User < ActiveRecord::Base
   def unread_notifications
     date = (last_checked_notifications_at.value || 1.year.ago).to_datetime
     notifications.where("created_at > ?", date)
+  end
+
+  class << self
+    def find_by_id_or_username(param)
+      case
+      when param.to_i > 0
+        User.find(param)
+      else
+        User.find_by(username: param)
+      end
+    end
   end
 end

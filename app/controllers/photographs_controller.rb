@@ -13,11 +13,13 @@ class PhotographsController < ApplicationController
     end
 
     if params[:user_id].present?
-      @user = case
-      when params[:user_id].to_i > 0
-        User.find(params[:user_id])
-      else
-        User.find_by(username: params[:user_id])
+      @user = User.find_by_id_or_username(params[:user_id])
+
+      if @user.nil?
+        old_name = OldUsername.find_by(username: params[:user_id])
+        if old_name.present?
+          redirect_to user_photographs_path(old_name.user.username) and return
+        end
       end
     end
 
