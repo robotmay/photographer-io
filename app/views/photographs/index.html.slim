@@ -30,7 +30,7 @@ section[id="photographs-index" itemscope itemtype="http://schema.org/ItemList"]
               - if content_for?(:grid_block)
                 == yield(:grid_block)
 
-              = render @photographs, cache: true, cache_options: { expires_in: 10.minutes }
+              = render @photographs, cache: -> (p) { [p, p.user] }
 
         div class="row"
           div class="large-12 columns"
