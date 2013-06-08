@@ -98,7 +98,7 @@ nav id="layout-nav" class="top-bar"
             = link_to t("nav.invite"), new_user_invitation_path, active_on: true, \
               active_wrapper: :li
 
-            = link_to t("nav.profile"), user_path(current_user), active_on: true, \
+            = link_to t("nav.profile"), short_user_path(current_user.username), active_on: true, \
               active_wrapper: :li
 
             = link_to t("nav.favourites"), favourites_photographs_path, active_on: true, \

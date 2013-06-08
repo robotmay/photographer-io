@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
   has_many :notifications
   has_many :authorisations
 
+  cache_index :username, unique: true
   cache_has_many :photographs
   cache_has_many :collections
 
@@ -39,6 +40,7 @@ class User < ActiveRecord::Base
   value :last_checked_notifications_at
 
   validates :email, :name, presence: true
+  validates :username, presence: true, uniqueness: true, format: { with: /\A[a-zA-Z0-9_]*[a-zA-Z][a-zA-Z0-9_]*\z/, message: I18n.t("users.username_format") }
   validates :website_url, format: URI::regexp(%w(http https)), allow_blank: true
 
   before_create :set_defaults

@@ -617,7 +617,8 @@ CREATE TABLE users (
     enable_comments boolean DEFAULT false,
     receive_notification_emails boolean DEFAULT true,
     notify_favourites boolean DEFAULT true,
-    show_social_buttons boolean DEFAULT true
+    show_social_buttons boolean DEFAULT true,
+    username character varying(255)
 );
 
 
@@ -1139,6 +1140,13 @@ CREATE UNIQUE INDEX index_users_on_reset_password_token ON users USING btree (re
 
 
 --
+-- Name: index_users_on_username; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE UNIQUE INDEX index_users_on_username ON users USING btree (username);
+
+
+--
 -- Name: metadata_gin_keywords; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -1267,3 +1275,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130603083149');
 INSERT INTO schema_migrations (version) VALUES ('20130604173711');
 
 INSERT INTO schema_migrations (version) VALUES ('20130604201040');
+
+INSERT INTO schema_migrations (version) VALUES ('20130608105451');

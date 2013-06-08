@@ -8,5 +8,5 @@ li[class="photo" itemprop="itemListElement" itemscope itemtype="http://schema.or
     footer class="caption" itemprop="description"
       - title = photograph.metadata.title
       = t("photographs.caption", \
-          user: link_to(photograph.user.name, user_path(photograph.user)), \
+          user: link_to(photograph.user.name, short_user_path(photograph.user.username)), \
           photo: link_to((title.blank? ? t("untitled") : title), photograph_path(photograph))).html_safe

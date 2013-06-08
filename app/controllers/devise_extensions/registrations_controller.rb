@@ -36,10 +36,12 @@ class DeviseExtensions::RegistrationsController < Devise::RegistrationsControlle
                                    :show_location_data, :show_nsfw_content, 
                                    :default_license_id, :website_url, :biography,
                                    :receive_notification_emails, :notify_favourites,
-                                   :show_social_buttons)
+                                   :show_social_buttons, :username)
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :email, :password, :password_confirmation) }
+    devise_parameter_sanitizer.for(:sign_up) do |u|
+      u.permit(:username, :name, :email, :password, :password_confirmation)
+    end
   end
 end
