@@ -15,11 +15,11 @@ aside[id="photographs-creator" itemprop="creator copyrightHolder" itemscope item
       - cache([user, :avatar_and_links]) do
         - if user.avatar.present?
           div class="avatar"
-            = link_to user_path(user) do
+            = link_to short_user_path(user.username) do
               = image_tag user.avatar.thumb("150x150#").jpg.url, alt: user.name, itemprop: "image"
 
-        = link_to t("photographs.creator.profile"), user_path(user), class: "button tiny expand", itemprop: "url"
+        = link_to t("photographs.creator.profile"), short_user_path(user.username), class: "button tiny expand", itemprop: "url"
 
-        = link_to t("photographs.creator.photos"), user_photographs_path(user), class: "button tiny success expand"
+        = link_to t("photographs.creator.photos"), user_photographs_path(user.username), class: "button tiny success expand"
 
       = follow_user_button(photograph.user)

@@ -71,7 +71,7 @@ gem 'kaminari'
 gem 'redcarpet'
 
 # models
-gem 'friendly_id', github: 'FriendlyId/friendly_id'
+gem 'friendly_id', github: 'FriendlyId/friendly_id', branch: 'rails4'
 gem 'closure_tree', github: 'mceachen/closure_tree', branch: 'wip_rails4'
 
 # assets

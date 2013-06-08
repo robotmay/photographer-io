@@ -19,6 +19,7 @@ section id="users-new"
       div class="large-6 columns"
         = simple_form_for resource, as: resource_name, url: registration_path(resource_name) do |f|
           fieldset
+            = f.input :username, input_html: { autocomplete: "off" }
             = f.input :name
             = f.input :email, input_html: { autocomplete: "off" }
             = f.input :password, input_html: { autocomplete: "off" }, required: true

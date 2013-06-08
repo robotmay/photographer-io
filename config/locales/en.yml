@@ -409,6 +409,7 @@ en:
 
   users:
     visit_site: "Visit website"
+    username_format: "Only letters, numbers, and underscores allowed."
     invitations:
       invited:
         title: "Friends you've already invited"

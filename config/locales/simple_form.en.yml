@@ -36,8 +36,10 @@ en:
       comment_thread:
         subject: "e.g. What species is this bird? Or; How are my colour choices?"
       user:
-        name: "Your name or nickname"
+        name: "Your name or nickname, e.g. Rupert B."
         website_url: "http://yourgreatphotosite.com"
+        username: >
+          A unique name used in URLs, e.g. rupert_bear
 
     hints:
       comment_thread:
@@ -79,6 +81,9 @@ en:
           you choose to make them public.
 
       user:
+        username: >
+          Can only contain letters, numbers, and underscores.
+
         show_nsfw_content: >
           Do you want to show content marked as Not Safe For Work? This could involve
           nudity, gore, or other content which might not be deemed suitable for the

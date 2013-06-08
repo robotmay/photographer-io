@@ -13,7 +13,12 @@ class PhotographsController < ApplicationController
     end
 
     if params[:user_id].present?
-      @user = User.fetch(params[:user_id])
+      @user = case
+      when params[:user_id].to_i > 0
+        User.find(params[:user_id])
+      else
+        User.find_by(username: params[:user_id])
+      end
     end
 
     if params[:category_id].present?

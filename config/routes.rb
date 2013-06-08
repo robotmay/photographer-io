@@ -87,9 +87,9 @@ Iso::Application.routes.draw do
     root to: "account#dashboard"
   end
 
-  get "/p/:id" => "photographs#show"
-  get "/u/:id" => "users#show"
-  get "/c/:id" => "collections#show"
+  get "/p/:id" => "photographs#show", as: :short_photo
+  get "/u/:id" => "users#show", as: :short_user
+  get "/c/:id" => "collections#show", as: :short_collection
   get "/stats" => "pages#stats"
   get "/sitemap" => "pages#sitemap"
 

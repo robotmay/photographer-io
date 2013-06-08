@@ -1,6 +1,7 @@
 GIT
   remote: git://github.com/FriendlyId/friendly_id.git
-  revision: d59c38a868d32dfc3c08d34f26aaf1b78e73664b
+  revision: 78d639d67a17135fe5e3b9731fd4328c315c74b1
+  branch: rails4
   specs:
     friendly_id (4.1.0.beta.2)
 

@@ -4,6 +4,7 @@
       div class="panel"
         fieldset
           legend= t("account.form.auth")
+          = f.input :username
           = f.input :email
           = f.input :password, input_html: { autocomplete: "off" }
           = f.input :password_confirmation
