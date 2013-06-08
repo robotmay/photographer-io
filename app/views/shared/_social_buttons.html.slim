@@ -1,8 +1,12 @@
+- url = URI::escape(request.original_url)
 div class="social-buttons"
-  a class="g-plus button small expand radius" href="https://plus.google.com/share?url=#{request.original_url}" data-action="share" data-width="500" data-height="400"
+  a class="g-plus button small expand radius" href="https://plus.google.com/share?url=#{url}" data-action="share" data-width="500" data-height="400"
     = t("social.share")
 
-  a class="fb-share button small expand radius" href="https://www.facebook.com/sharer/sharer.php?u=#{request.original_url}" data-action="share" data-width="626" data-height="436"
+  a class="fb-share button small expand radius" href="https://www.facebook.com/sharer/sharer.php?u=#{url}" data-action="share" data-width="626" data-height="436"
+    = t("social.share")
+
+  a class="twitter-share button small expand radius" href="https://twitter.com/intent/tweet?url=#{url}&via=#{t('social.twitter_account').gsub('@', '')}" data-action="share" data-width="550" data-height="420"
     = t("social.share")
 
 - content_for(:javascript) do
