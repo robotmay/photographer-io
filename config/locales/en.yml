@@ -23,6 +23,7 @@ en:
     twitter: "Twitter"
     share: "Share"
     twitter_account: "@photographer_io"
+  privacy_policy: "https://www.iubenda.com/privacy-policy/288645"
 
   metadata:
     description: >
@@ -108,6 +109,19 @@ en:
     - awesome
     - superb
     register: "Create your account"
+    about: "Learn about why we're different"
+    or: "or"
+    sign_up: "Create your free account"
+
+  about:
+    title: "About Photographer.io"
+    table:
+      photographerio:
+        title: "Photographer.io"
+        usage: "100 photos per month"
+        adverts: "Never"
+        security: "Always served over SSL"
+    sign_up: "Create your account"
 
   account:
     nav:

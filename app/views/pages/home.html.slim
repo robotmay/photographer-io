@@ -18,3 +18,12 @@ section id="pages-home"
         h4= simple_format t("home.blurb", \
           name: link_to(photo.user.name, short_user_path(photo.user.username)), image_path: photograph_path(photo),
           word: t("home.words").sample)
+
+        - unless user_signed_in?
+          div class="buttons"
+            = link_to t("home.about"), about_path, class: "button small"
+
+            span class="or"
+              = t("home.or")
+
+            = link_to t("home.sign_up"), new_user_registration_path, class: "button success small"
