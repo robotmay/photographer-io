@@ -41,7 +41,7 @@ We (the Company) will attempt to respond to all support queries within 2 working
 ### Account Types and Restrictions
 
 #### All Accounts
-1. The maximum size for uploaded photographs is 50MB, however we recommend that you try to keep them under 20MB for performance reasons.
+1. The maximum size for uploaded photographs is currently 30MB. The maximum size an image can be accessed at via the site is 2000 pixels in the largest axis, and for performance and plagiarism reasons we recommend you upload something around that size rather than the full-size original files. The original file you upload is not accessible by others, and it is only used for generating the smaller versions.
 2. You can 'Recommend' up to 10 photographs per day.
 
 #### Free Accounts
@@ -88,7 +88,7 @@ We make every effort possible to keep the Site secure and user data safe. The fo
 
 Though we (the Company) work hard to ensure your data is safe, we cannot be held responsible for any breach of your account through your failure to safeguard your account details.
 
-If you have a security query, or want to notify us of a security issue relating to the Site, please send all correspondance to security@photographer.io.
+If you have a security query, or want to notify us of a security issue relating to the Site, please send all correspondence to security@photographer.io.
 
 ### Your Rights
 

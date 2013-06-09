@@ -57,7 +57,7 @@ class Photograph < ActiveRecord::Base
 
   validates :user_id, :image_uid, presence: true
   validates :image_mime_type, inclusion: { in: ["image/jpeg"] }, on: :create
-  validates :image_size, numericality: { less_than_or_equal_to: 50.megabytes }, on: :create
+  validates :image_size, numericality: { less_than_or_equal_to: 30.megabytes }, on: :create
   validate :upload_quota_is_not_exceeded
 
   scope :processing, -> {
