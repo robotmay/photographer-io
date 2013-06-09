@@ -16,7 +16,7 @@
           div class="large-8 columns left"
             - cache([comment, comment.user, :author_and_status]) do
               span class="author" itemprop="author"
-                = link_to comment.user.name, user_path(comment.user)
+                = link_to comment.user.name, short_user_path(comment.user.username)
 
               time datetime=(comment.created_at.utc) itemprop="datePublished"
                 = l comment.created_at, format: :long
