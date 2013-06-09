@@ -20,5 +20,32 @@
           color: #FDE410
 
       .buttons
-        .secondary
-          color: rgb(0,0,0)
+        .button
+          color: white
+        .or
+          margin:
+            left: 10px
+            right: 10px
+          font:
+            style: oblique
+            size: 0.9em
+
+#pages-about
+  header
+    text-align: center
+
+  .points
+    @include white-box
+    
+    article
+      table
+        width: 100%
+
+      &.sign-up
+        margin-top: 60px
+
+        .button-container
+          text-align: center
+
+      .notes
+        font-size: 0.8em
