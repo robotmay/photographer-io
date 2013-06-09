@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  before_filter do
+    $gabba.identify_user(cookies[:__utma], cookies[:__utmz])
+  end
+
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, alert: exception.message
   end

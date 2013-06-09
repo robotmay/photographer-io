@@ -9,6 +9,9 @@ class PagesController < ApplicationController
     respond_with @top_photos
   end
 
+  def about
+  end
+
   def sitemap
     @photographs = Photograph.public.order("created_at DESC").limit(10000)
     @collections = Collection.public.order("created_at DESC").limit(10000)

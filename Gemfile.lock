@@ -148,6 +148,7 @@ GEM
       nokogiri (~> 1.5.0)
       ruby-hmac
     formatador (0.2.4)
+    gabba (1.0.1)
     guard (1.7.0)
       formatador (>= 0.2.4)
       listen (>= 0.6.0)
@@ -431,6 +432,7 @@ DEPENDENCIES
   ffaker
   fog
   friendly_id!
+  gabba
   guard
   guard-rspec
   guard-sidekiq
