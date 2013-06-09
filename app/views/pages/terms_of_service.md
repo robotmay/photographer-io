@@ -2,7 +2,7 @@
 
 ### Acceptance of Terms
 
-By using Photographer.io ("Site") you are agreeing to be bound by these terms of service and our [privacy policy](). Photographer.io is owned and operated by Afternoon Robot Ltd, a United Kingdom limited company ("Company"). By using the Site you agree to the use of 'cookies' stored in your Web Browser ("Browser"), as detailed in our Privacy Policy.
+By using Photographer.io ("Site") you are agreeing to be bound by these terms of service and our [privacy policy](). Photographer.io is owned and operated by Afternoon Robot Ltd ("Company"), a United Kingdom limited company, company number 08542571. By using the Site you agree to the use of 'cookies' stored in your Web Browser ("Browser"), as detailed in our Privacy Policy.
 
 ### Description of Service
 
