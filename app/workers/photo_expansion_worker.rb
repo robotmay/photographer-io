@@ -22,9 +22,13 @@ class PhotoExpansionWorker
 
       photo.thumbnail_image = photo.standard_image.thumb("500x500>").encode(:jpg, "-quality 70")
 
-      photo.processing = false
-      photo.save!
-      photo.trigger_image_processed_push
+      if photo.standard_image.present? && photo.homepage_image.present? && photo.large_image.present? && photo.thumbnail_image.present?
+        photo.processing = false
+        photo.save!
+        photo.trigger_image_processed_push
+      else
+        raise "Missing image sizes"
+      end
     end
   end
 end
