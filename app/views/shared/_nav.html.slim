@@ -117,29 +117,3 @@ nav id="layout-nav" class="top-bar"
         li class="has-form"
           = link_to t("nav.sign_up"), new_user_registration_path, active_on: true, \
             class: "button tiny success"
-
-- content_for(:after_body) do
-  - cache([:beta_notes, :modal]) do
-    div id="beta-notes" class="reveal-modal"
-      a class="close-reveal-modal"
-        | &#215;
-      h4= t("beta_notes.title")
-      = simple_format t("beta_notes.blurb")
-
-  - if user_signed_in?
-    div[id="notifications-dropdown" class="f-dropdown small" data-dropdown-content]
-      header
-        h5= t("notifications.title")
-
-      - if current_user.notifications.unread.count > 0
-        div class="notifications"
-          - current_user.notifications.unread.order("created_at DESC").each do |n|
-            div class="notification"
-              = link_to n.subject, notification_path(n), class: (n.read? ? "read" : "unread")
-        footer
-          = link_to t("notifications.mark_as_read"), mark_all_as_read_notifications_path
-
-      - else
-        span class="none"
-          = t("notifications.none")
-
