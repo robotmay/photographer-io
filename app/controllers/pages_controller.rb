@@ -12,6 +12,13 @@ class PagesController < ApplicationController
   def about
   end
 
+  def terms
+    @terms_html = Rails.cache.fetch([:terms_of_service, 'v1']) do
+      tos = File.read Rails.root.join("app/views/pages/terms_of_service.md")
+      $markdown.render(tos)
+    end
+  end
+
   def sitemap
     @photographs = Photograph.public.order("created_at DESC").limit(10000)
     @collections = Collection.public.order("created_at DESC").limit(10000)

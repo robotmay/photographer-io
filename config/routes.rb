@@ -93,6 +93,7 @@ Iso::Application.routes.draw do
   get "/stats" => "pages#stats", as: :stats
   get "/sitemap" => "pages#sitemap", as: :sitemap
   get "/about" => "pages#about", as: :about
+  get "/terms" => "pages#terms", as: :terms
 
   get "/auth/:provider/callback" => "account/authorisations#create"
 
