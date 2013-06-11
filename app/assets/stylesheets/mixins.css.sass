@@ -70,3 +70,22 @@
   -kthtml-transition: all .25s linear
   transition: all .25s linear
 
+@mixin photo-grid-item($caption_bg_colour: #fff, $icon_folder: "glyphicons_halflings")
+  .wrapper
+    box-shadow: 0 0 6px 1px rgba(0,0,0,.1)
+    @include fade-transition
+
+    .caption
+      opacity: 0.8
+      font-size: 0.8em
+      background: $caption_bg_colour image-url('#{$icon_folder}/glyphicons_halflings_045_camera.png') 8px center no-repeat
+      @include image-2x(image-url('#{$icon_folder}/glyphicons_halflings_045_camera@2x.png'), 16px, 16px)
+      padding:
+        top: 2px
+        bottom: 2px
+        left: 28px
+        right: 5px
+
+  &:hover
+    .wrapper
+      box-shadow: 0 0 6px 1px rgba(0,0,0,.3)
