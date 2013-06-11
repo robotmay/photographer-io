@@ -163,9 +163,13 @@ body.blur
 
   .photo-grid
     .photo
+      @include photo-grid-item(#000, "glyphicons_halflings_inverted")
       .wrapper
         .caption
-          opacity: 0.9
+          opacity: 0.8
+          color: #fff
+          a
+            color: $secondary-color
 
 
 // Sticky footer
