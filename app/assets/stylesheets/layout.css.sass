@@ -141,6 +141,15 @@ body
     bottom: 10px
 
 body.blur
+  #blur
+    opacity: 0.8
+    position: fixed
+    top: 0
+    left: 0
+    min-height: 100%
+    min-width: 100%
+    z-index: -2
+
   #layout-footer
     background: #000
 
@@ -165,6 +174,7 @@ body.blur
     .photo
       @include photo-grid-item(#000, "glyphicons_halflings_inverted")
       .wrapper
+        box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.3)
         .caption
           opacity: 0.8
           color: #fff
