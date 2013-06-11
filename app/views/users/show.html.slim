@@ -29,7 +29,7 @@ section id="users-show"
                 h6 class="website"
                   = link_to t("users.visit_site"), @user.website_url, target: "_blank"
           
-              = follow_user_button(@user)
+              = follow_user_button(@user, "small")
 
             section id="user-biography"
               = simple_format @user.biography
