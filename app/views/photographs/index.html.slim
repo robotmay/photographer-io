@@ -3,9 +3,12 @@
     = paginate @photographs
 
 section[id="photographs-index" itemscope itemtype="http://schema.org/ItemList"]
-  header class="row"
-    div class="large-12 columns"
-      h1= @title
+  - if content_for?(:title)
+    == yield(:title)
+  - else
+    header class="row"
+      div class="large-12 columns"
+        h1= @title
 
   section class="row"
     div class="large-12 columns"

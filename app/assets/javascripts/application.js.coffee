@@ -18,24 +18,6 @@
 #= require s3_direct_upload
 #= require typeahead
 #= require foundation
+#= require blur
+#= require base
 #= require_tree .
-
-$(document).foundation()
-$(document).foundation('joyride', 'start')
-
-window.calculateGridWidth = ->
-  width = $(window).width()
-  switch
-    when width > 768
-      flexibleWidth = '20%'
-    when width > 500
-      flexibleWidth = '50%'
-    else
-      flexibleWidth = '100%'
-
-window.wookmarkOptions = (itemWidth) ->
-  {
-    align: 'center',
-    container: $(".photo-grid"),
-    flexibleWidth: itemWidth
-  }

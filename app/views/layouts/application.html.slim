@@ -38,9 +38,7 @@ head
   = csrf_meta_tag
 
   title
-    - if content_for?(:title)
-      = t("page_title", title: yield(:title))
-    - elsif @title.present?
+    - if @title.present?
       = t("page_title", title: @title)
     - else
       = t("default_title")

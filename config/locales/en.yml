@@ -425,6 +425,7 @@ en:
     quota: "You can recommend %{amount} more photographs today!"
 
   users:
+    avatar: "Avatar"
     visit_site: "Visit website"
     username_format: "Only letters, numbers, and underscores allowed."
     old_username_present: >
