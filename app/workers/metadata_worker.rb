@@ -4,12 +4,12 @@ class MetadataWorker
   sidekiq_options queue: :photos
 
   def perform(metadata_id)
-    timeout(60) do
+    timeout(120) do
       metadata = Metadata.find(metadata_id)
       metadata.extract_from_photograph
       metadata.processing = false
-      metadata.save
-      metadata.photograph.trigger_image_processed_push
+      metadata.save!
+      metadata.photograph.complete_image_processing
     end
   end
 end
