@@ -64,7 +64,7 @@ class Photograph < ActiveRecord::Base
     where(processing: true)
   }
   scope :not_processing, -> {
-    where(processing: false)
+    where(processing: false).joins(:metadata).where(metadata: { processing: false })
   }
   scope :public, -> {
     not_processing.joins(:collections).where(collections: { public: true })
@@ -208,6 +208,10 @@ class Photograph < ActiveRecord::Base
     end
   end
 
+  def has_image_sizes?
+    standard_image.present? && homepage_image.present? && large_image.present? && thumbnail_image.present?
+  end
+
   def processing?
     processing || metadata.processing
   end
@@ -243,6 +247,14 @@ class Photograph < ActiveRecord::Base
   def decrement_score(by = 1)
     set_highest_rank
     Photograph.rankings.decrement(id, by)
+  end
+
+  def complete_image_processing
+    if has_image_sizes? && !metadata.processing
+      self.processing = false
+      save
+      trigger_image_processed_push
+    end
   end
 
   def trigger_image_processed_push
