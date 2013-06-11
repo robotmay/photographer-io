@@ -11,8 +11,8 @@ section id="users-show"
     div class="large-12 columns"
       header id="user-profile"
         div class="row"
-          div class="small-12 large-3 columns"
-            - if @user.avatar.present?
+          - if @user.avatar.present?
+            div class="small-12 large-3 columns"
               div class="avatar"
                 = link_to user_photographs_path(@user) do
                   = image_tag @user.avatar.thumb("250x250#").jpg.url, width: "250", height: "250", alt: t("users.avatar")
