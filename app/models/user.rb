@@ -159,6 +159,11 @@ class User < ActiveRecord::Base
     notifications.where("created_at > ?", date)
   end
 
+  def profile_background_photo
+    #TODO
+    photographs.public.order("RANDOM()").first
+  end
+
   class << self
     def find_by_id_or_username(param)
       case

@@ -1,31 +1,37 @@
-- content_for(:grid_block) do
-  li class="user-block"
-    section id="user-panel"
-      h1 class="name"
-        = @user.name
-      - if @user.location.present?
-        h5 class="location"
-          = @user.location
+- if @user.profile_background_photo.present?
+  - content_for(:body_class, "blur")
+  - content_for(:before_body) do
+    canvas id="blur" data-src=image_url(@user.profile_background_photo.thumbnail_image)
 
-      - if @user.website_url.present?
-        h6 class="website"
-          = link_to t("users.visit_site"), @user.website_url, target: "_blank"
-
-      div class="row"
-        div class="large-12 columns"
-          - if @user.avatar.present?
-            div class="avatar"
-              = link_to user_photographs_path(@user) do
-                = image_tag @user.avatar.thumb("500x500#").jpg.url
-      
-      div class="row"
-        div class="large-6 columns"
-          = follow_user_button(@user)
-
-  - if !@user.biography.blank?
-    li class="user-block"
-      section id="user-biography"
-        = simple_format @user.biography
+- content_for(:title) do
+  header
 
 section id="users-show"
+  div class="row"
+    div class="large-12 columns"
+      header id="user-profile"
+        div class="row"
+          div class="small-12 large-3 columns"
+            - if @user.avatar.present?
+              div class="avatar"
+                = link_to user_photographs_path(@user) do
+                  = image_tag @user.avatar.thumb("250x250#").jpg.url, width: "250", height: "250", alt: t("users.avatar")
+
+          div class="small-12 large-9 columns"
+            section id="user-panel"
+              h1 class="name"
+                = @user.name
+              - if @user.location.present?
+                h5 class="location"
+                  = @user.location
+
+              - if @user.website_url.present?
+                h6 class="website"
+                  = link_to t("users.visit_site"), @user.website_url, target: "_blank"
+          
+              = follow_user_button(@user)
+
+            section id="user-biography"
+              = simple_format @user.biography
+
   = render file: "photographs/index"
