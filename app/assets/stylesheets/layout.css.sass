@@ -146,3 +146,34 @@ body.blur
 
     a
       color: $secondary-color
+
+  .pagination
+    li
+      a
+        color: $primary-color - #111
+        background: rgba(255,255,255,.5)
+
+        &:hover
+          background: rgba(255,255,255,1)
+
+      &.current
+        a
+          font-weight: normal
+          background: rgba(255,255,255,1)
+
+
+// Sticky footer
+html, body
+  height: 100%
+
+  #wrapper
+    min-height: 100%
+    margin-bottom: 100px
+
+    &:after
+      content: ""
+      display: block
+      height: 100px
+
+  #layout-footer
+    height: 100px

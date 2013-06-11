@@ -46,28 +46,29 @@ head
 <body class="#{yield(:body_class)}" #{yield(:body_extras)}>
   == yield(:before_body)
 
-  header id="layout-header"
-    = render partial: "shared/nav"
+  div id="wrapper"
+    header id="layout-header"
+      = render partial: "shared/nav"
 
-  - unless flash.empty?
-    div class="row"
-      div class="twelve columns"
-        - if flash[:alert].present?
-          div class="alert-box alert" data-alert=""
-            = flash[:alert]
-            a href="#" class="close"
-              | &times;
+    - unless flash.empty?
+      div class="row"
+        div class="twelve columns"
+          - if flash[:alert].present?
+            div class="alert-box alert" data-alert=""
+              = flash[:alert]
+              a href="#" class="close"
+                | &times;
 
-        - if flash[:notice].present?
-          div class="alert-box" data-alert=""
-            = flash[:notice]
-            a href="#" class="close"
-              | &times;
+          - if flash[:notice].present?
+            div class="alert-box" data-alert=""
+              = flash[:notice]
+              a href="#" class="close"
+                | &times;
 
-  - if content_for?(:main)
-    == yield(:main)
-  - else
-    == yield
+    - if content_for?(:main)
+      == yield(:main)
+    - else
+      == yield
 
   footer id="layout-footer"
     div class="row"
