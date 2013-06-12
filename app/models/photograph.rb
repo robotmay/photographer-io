@@ -188,7 +188,9 @@ class Photograph < ActiveRecord::Base
   end
 
   after_commit on: :update do
-    CompleteProcessingWorker.perform_async(id)
+    if processing
+      CompleteProcessingWorker.perform_async(id)
+    end
   end
 
   def complete_image_processing
