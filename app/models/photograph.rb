@@ -187,7 +187,7 @@ class Photograph < ActiveRecord::Base
     end
   end
 
-  after_commit :complete_image_processing, on: :save
+  after_commit :complete_image_processing, on: :update
   def complete_image_processing
     if processing
       reload
