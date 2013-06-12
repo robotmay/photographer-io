@@ -48,7 +48,6 @@ gem 's3'
 gem 'pubnub'
 gem 'gabba'
 gem 'stripe'
-gem 'hirefire-resource'
 
 # auth
 gem 'devise', git: 'git://github.com/plataformatec/devise.git', branch: 'rails4'
