@@ -9,7 +9,6 @@ class MetadataWorker
       metadata.extract_from_photograph
       metadata.processing = false
       metadata.save!
-      metadata.photograph.complete_image_processing
     end
   end
 end
