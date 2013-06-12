@@ -168,6 +168,7 @@ GEM
       spork (>= 0.8.4)
     hashie (2.0.5)
     hike (1.2.2)
+    hirefire-resource (0.1.1)
     http_parser.rb (0.5.3)
     httparty (0.11.0)
       multi_json (~> 1.0)
@@ -443,6 +444,7 @@ DEPENDENCIES
   guard-rspec
   guard-sidekiq
   guard-spork
+  hirefire-resource
   httparty
   identity_cache
   intercom-rails (~> 0.2.14)
