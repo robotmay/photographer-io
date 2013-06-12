@@ -10,24 +10,17 @@ class PhotoExpansionWorker
       photo.save!
 
       if photo.standard_image.width > photo.standard_image.height
-        photo.homepage_image = photo.standard_image.thumb("2000x").encode(:jpg, "-quality 80")
-        photo.large_image = photo.standard_image.thumb("1500x").encode(:jpg, "-quality 80")
+        ImageWorker.perform_async(photo.id, :standard_image, :homepage_image, "2000x", "-quality 80")
+        ImageWorker.perform_async(photo.id, :standard_image, :large_image, "1500x", "-quality 80")
       elsif photo.standard_image.height > photo.standard_image.width
-        photo.homepage_image = photo.standard_image.thumb("2000x1400#").encode(:jpg, "-quality 80")
-        photo.large_image = photo.standard_image.thumb("x1000").encode(:jpg, "-quality 80")
+        ImageWorker.perform_async(photo.id, :standard_image, :homepage_image, "2000x1400#", "-quality 80")
+        ImageWorker.perform_async(photo.id, :standard_image, :large_image, "x1000", "-quality 80")
       else
-        photo.homepage_image = photo.standard_image.thumb("2000x1400#").encode(:jpg, "-quality 80")
-        photo.large_image = photo.standard_image.thumb("1500x1500>").encode(:jpg, "-quality 80")
+        ImageWorker.perform_async(photo.id, :standard_image, :homepage_image, "2000x1400#", "-quality 80")
+        ImageWorker.perform_async(photo.id, :standard_image, :large_image, "1500x1500>", "-quality 80")
       end
 
-      photo.thumbnail_image = photo.standard_image.thumb("500x500>").encode(:jpg, "-quality 70")
-
-      if photo.has_image_sizes?
-        photo.save!
-        photo.complete_image_processing
-      else
-        raise "Missing image sizes"
-      end
+      ImageWorker.perform_async(photo.id, :standard_image, :thumbnail_image, "500x500>", "-quality 70")
     end
   end
 end
