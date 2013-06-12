@@ -187,6 +187,18 @@ class Photograph < ActiveRecord::Base
     end
   end
 
+  after_commit :complete_image_processing, on: :save
+  def complete_image_processing
+    if processing
+      reload
+      if has_image_sizes? && !metadata.processing
+        self.processing = false
+        save
+        trigger_image_processed_push
+      end
+    end
+  end
+
   after_destroy :expire_from_cdn
   def expire_from_cdn
     paths = [:standard_image, :homepage_image, :large_image, :thumbnail_image].map do |m|
@@ -247,14 +259,6 @@ class Photograph < ActiveRecord::Base
   def decrement_score(by = 1)
     set_highest_rank
     Photograph.rankings.decrement(id, by)
-  end
-
-  def complete_image_processing
-    if has_image_sizes? && !metadata.processing
-      self.processing = false
-      save
-      trigger_image_processed_push
-    end
   end
 
   def trigger_image_processed_push
