@@ -11,7 +11,7 @@ class ImageWorker
         image = source.thumb(size).encode(:jpg, encode_opts)
         photo.send("#{target}=", image)
         photo.save!
-        photo.complete_image_processing
+        photo.reload.complete_image_processing
       else
         raise "Source doesn't exist yet"
       end
