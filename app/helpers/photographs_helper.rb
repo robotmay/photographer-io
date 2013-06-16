@@ -50,6 +50,8 @@ module PhotographsHelper
   end
 
   def image_url(image)
+    return if image.nil?
+
     url = if ENV['CDN_HOST']
       image.remote_url(host: ENV['CDN_HOST'])
     else
