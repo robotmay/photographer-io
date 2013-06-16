@@ -26,6 +26,7 @@ module PhotographsHelper
         photograph.thumbnail_image
       end
 
+      raise Processing if image.nil?
       url = image_url(image)
 
       if match = url.match(/\d+x\d+.jpg/i)
