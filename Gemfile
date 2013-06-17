@@ -11,6 +11,7 @@ gem 'capistrano'
 gem 'capistrano-foreman'
 gem 'dotenv-rails'
 gem 'foreman' 
+gem 'bluepill'
 
 # utilities
 gem 'thread'
