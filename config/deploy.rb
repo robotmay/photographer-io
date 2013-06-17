@@ -20,7 +20,7 @@ set :deploy_via, :remote_cache
 set :bundle_without, [:development, :test, :acceptance]
 
 set :foreman_sudo, sudo
-set :foreman_upstart_path, '/etc/init/app'
+set :foreman_upstart_path, '/etc/init'
 set :foreman_options, {
   app: "app/#{application}",
   log: "#{shared_path}/log",
@@ -31,6 +31,8 @@ set :default_environment, {
   
 }
 
+set :certs_path, "#{shared_path}/certs"
+
 role :web
 role :app
 role :db
@@ -38,23 +40,15 @@ role :db
 server "pio-web-1", :web, :app, :db, primary: true
 server "pio-web-2", :web, :app
 
-# if you want to clean up old releases on each deploy uncomment this:
-# after "deploy:restart", "deploy:cleanup"
-
-# if you're still using the script/reaper helper you will need
-# these http://github.com/rails/irs_process_scripts
-
-# If you are using Passenger mod_rails uncomment this:
-# namespace :deploy do
-#   task :start do ; end
-#   task :stop do ; end
-#   task :restart, :roles => :app, :except => { :no_release => true } do
-#     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-#   end
-# end
-#
-
 namespace :deploy do
+  task :initial, roles: :app do
+    deploy.setup
+    deploy.update
+    upload_certs
+    foreman.export
+    deploy.restart
+  end
+
   task :restart, roles: :app, except: { no_release: true } do
     foreman.restart
   end
@@ -66,8 +60,10 @@ task :upload_env_vars do
 end
 
 task :upload_certs do
+  run "[ -d #{certs_path} ] || mkdir -p #{certs_path}"
+
   %w{bundle.pem server.crt server.key}.each do |file|
-    upload(file, "#{shared_path}/#{file}", via: :scp)
+    upload("certs/#{file}", "#{certs_path}/#{file}", via: :scp)
   end
 end
 
@@ -75,7 +71,7 @@ namespace :foreman do
   desc "Export the Procfile to Ubuntu's upstart scripts"
   task :export, roles: :app do
     cmd = 'foreman'
-    run "if [[ -d #{foreman_upstart_path} ]]; then #{sudo} mkdir -p #{foreman_upstart_path}; fi"
+    run "[ -d #{foreman_upstart_path} ] || #{sudo} mkdir -p #{foreman_upstart_path}"
     run "cd #{current_path} && #{cmd} export upstart #{foreman_upstart_path} #{format(foreman_options)}"
   end
 

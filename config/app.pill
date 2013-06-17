@@ -1,0 +1,25 @@
+require 'bluepill'
+
+Bluepill.application("photographer.io") do |app|
+  app.working_dir = "/var/www/app"
+  app.uid = "deploy"
+  app.gid = "deploy"
+
+  app.process("nginx") do |process|
+    process.start_command = "sudo service nginx start"
+    process.stop_command = "sudo service nginx stop"
+    process.restart_command = "sudo service nginx restart"
+    process.pid_file = "/var/run/nginx.pid"
+    process.start_grace_time = 10.seconds
+    process.stop_grace_time = 10.seconds
+  end
+
+  app.process("photographer.io") do |process|
+    process.start_command = "sudo service app/photographer.io start"
+    process.stop_command = "sudo service app/photographer.io stop"
+    process.restart_command = "sudo service app/photographer.io restart"
+    process.pid_file = "/var/run/app/web_server.pid"
+    process.start_grace_time = 60.seconds
+    process.stop_grace_time = 60.seconds
+  end
+end
