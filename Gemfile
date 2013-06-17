@@ -9,7 +9,7 @@ gem 'sinatra', '>= 1.3.0', require: nil
 # deployment
 gem 'capistrano'
 gem 'capistrano-foreman'
-gem 'dotenv-rails', groups: [:development, :test]
+gem 'dotenv-rails'
 
 # utilities
 gem 'thread'
