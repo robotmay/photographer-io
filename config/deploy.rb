@@ -61,7 +61,7 @@ namespace :deploy do
   end
 end
 
-before 'deploy:assets:precompile', :upload_env_vars
+before 'dotenv:symlink', :upload_env_vars
 task :upload_env_vars do
   upload(".env.#{rails_env}", "#{shared_path}/.env", :via => :scp)
 end
