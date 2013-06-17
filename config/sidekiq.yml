@@ -1,5 +1,5 @@
 :verbose: false
-:pidfile: /var/run/sidekiq.pid
+:pidfile: /var/run/app/sidekiq.pid
 :concurrency: 25
 :queues:
   - [events, 3]
