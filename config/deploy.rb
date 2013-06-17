@@ -5,13 +5,18 @@ set :application, "photographer.io"
 set :repository,  "git@github.com:robotmay/iso.git"
 set :scm, :git
 set :branch, "production"
+set :port, 7890
 
 set :user, "deploy"
 set :use_sudo, false
-set :ssh_options, { forward_agent: true }
+
+ssh_options[:forward_agent] = true
+default_run_options[:pty] = true
 
 set :deploy_to, "/var/www/#{application}"
 set :deploy_via, :remote_cache
+
+set :bundle_without, [:development, :test, :acceptance]
 
 set :foreman_sudo, 'sudo'
 set :foreman_upstart_path, '/etc/init'
@@ -21,11 +26,16 @@ set :foreman_options, {
   user: user
 }
 
+set :default_environment, {
+  
+}
+
+role :web
 role :app
 role :db
 
-server "pio-web-1", :app, :db, primary: true
-#server "pio-web-2", :app
+server "pio-web-1", :web, :app, :db, primary: true
+#server "pio-web-2", :web, :app
 
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"
@@ -42,9 +52,15 @@ server "pio-web-1", :app, :db, primary: true
 #   end
 # end
 #
+
 namespace :deploy do
   task :restart, roles: :app, except: { no_release: true } do
     foreman.export
     foreman.restart
   end
+end
+
+after 'deploy:update_code', :upload_env_vars
+task :upload_env_vars do
+  upload(".env.#{rails_env}", "#{release_path}/.env.#{rails_env}", :via => :scp)
 end
