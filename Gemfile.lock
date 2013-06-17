@@ -97,6 +97,12 @@ GEM
       mocha (~> 0.13.2)
     builder (3.1.4)
     cancan (1.6.9)
+    capistrano (2.15.4)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.1.0)
     celluloid (0.14.1)
       timers (>= 1.0.0)
     childprocess (0.3.9)
@@ -167,6 +173,7 @@ GEM
       guard (>= 1.1)
       spork (>= 0.8.4)
     hashie (2.0.5)
+    highline (1.6.19)
     hike (1.2.2)
     http_parser.rb (0.5.3)
     httparty (0.11.0)
@@ -225,7 +232,11 @@ GEM
     multipart-post (1.2.0)
     net-scp (1.1.0)
       net-ssh (>= 2.6.5)
+    net-sftp (2.1.2)
+      net-ssh (>= 2.6.5)
     net-ssh (2.6.7)
+    net-ssh-gateway (1.2.0)
+      net-ssh (>= 2.6.5)
     newrelic_rpm (3.6.1.88)
     nokogiri (1.5.9)
     oauth2 (0.8.1)
@@ -427,6 +438,7 @@ PLATFORMS
 DEPENDENCIES
   airbrake
   cancan
+  capistrano
   closure_tree!
   coffee-rails (~> 4.0.0.beta1)
   dalli

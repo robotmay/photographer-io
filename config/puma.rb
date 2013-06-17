@@ -1,6 +1,8 @@
 environment     $RAILS_ENV
-threads         8, 16
+threads         16, 16
 daemonize       true
-pidfile         "/tmp/web_server.pid"
-bind            "unix:///tmp/web_server.sock"
-stdout_redirect "#{ENV['RAILS_STACK_PATH']}/log/puma.stdout.log", "#{ENV['RAILS_STACK_PATH']}/log/puma.stderr.log"
+pidfile         "/var/run/web_server.pid"
+bind            "unix:///var/run/web_server.sock"
+
+# Add a worker per CPU core
+workers         %x{grep -c processor /proc/cpuinfo}.strip
