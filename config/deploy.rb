@@ -1,5 +1,6 @@
 require 'bundler/capistrano'
 require 'capistrano/foreman'
+require 'dotenv/capistrano'
 
 set :application, "photographer.io"
 set :repository,  "git@github.com:robotmay/iso.git"
@@ -62,5 +63,5 @@ end
 
 before 'deploy:assets:precompile', :upload_env_vars
 task :upload_env_vars do
-  upload(".env.#{rails_env}", "#{release_path}/.env", :via => :scp)
+  upload(".env.#{rails_env}", "#{shared_path}/.env", :via => :scp)
 end
