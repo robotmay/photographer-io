@@ -103,6 +103,7 @@ GEM
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
+    capistrano-foreman (0.0.3)
     celluloid (0.14.1)
       timers (>= 1.0.0)
     childprocess (0.3.9)
@@ -439,6 +440,7 @@ DEPENDENCIES
   airbrake
   cancan
   capistrano
+  capistrano-foreman
   closure_tree!
   coffee-rails (~> 4.0.0.beta1)
   dalli
