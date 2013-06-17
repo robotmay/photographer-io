@@ -125,6 +125,9 @@ GEM
     devise-async (0.7.0)
       devise (>= 2.2)
     diff-lcs (1.2.4)
+    dotenv (0.8.0)
+    dotenv-rails (0.8.0)
+      dotenv (= 0.8.0)
     dragonfly (0.9.14)
       multi_json (~> 1.0)
       rack
@@ -448,6 +451,7 @@ DEPENDENCIES
   devise!
   devise-async
   devise_invitable!
+  dotenv-rails
   dragonfly
   ffaker
   fog
