@@ -10,6 +10,7 @@ gem 'sinatra', '>= 1.3.0', require: nil
 gem 'capistrano'
 gem 'capistrano-foreman'
 gem 'dotenv-rails'
+gem 'foreman' 
 
 # utilities
 gem 'thread'
