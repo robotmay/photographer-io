@@ -54,6 +54,25 @@ namespace :deploy do
   end
 end
 
+after "deploy:update", "bluepill:quit", "bluepill:start"
+namespace :bluepill do
+  desc "Stop processes that bluepill is monitoring and quit bluepill"
+  task :quit, :roles => [:app] do
+    sudo "bluepill stop"
+    sudo "bluepill quit"
+  end
+ 
+  desc "Load bluepill configuration and start it"
+  task :start, :roles => [:app] do
+    sudo "bluepill load #{release_path}/config/app.pill"
+  end
+ 
+  desc "Prints bluepills monitored processes statuses"
+  task :status, :roles => [:app] do
+    sudo "bluepill status"
+  end
+end
+
 before 'dotenv:symlink', :upload_env_vars
 task :upload_env_vars do
   upload(".env.#{rails_env}", "#{shared_path}/.env", via: :scp)
