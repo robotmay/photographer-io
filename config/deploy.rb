@@ -41,35 +41,21 @@ server "pio-web-1", :web, :app, :db, primary: true
 server "pio-web-2", :web, :app
 
 namespace :deploy do
-  task :initial, roles: :app do
+  task :bootstrap, roles: :app do
     deploy.setup
     deploy.update
     upload_certs
     foreman.export
     deploy.restart
+    deploy.restart_nginx
+  end
+
+  task :restart_nginx, roles: :app do
+    run "#{sudo} service nginx restart"
   end
 
   task :restart, roles: :app, except: { no_release: true } do
     foreman.restart
-  end
-end
-
-after "deploy:update", "bluepill:quit", "bluepill:start"
-namespace :bluepill do
-  desc "Stop processes that bluepill is monitoring and quit bluepill"
-  task :quit, :roles => [:app] do
-    sudo "bluepill stop"
-    sudo "bluepill quit"
-  end
- 
-  desc "Load bluepill configuration and start it"
-  task :start, :roles => [:app] do
-    sudo "bluepill load #{current_path}/config/app.pill"
-  end
- 
-  desc "Prints bluepills monitored processes statuses"
-  task :status, :roles => [:app] do
-    sudo "bluepill status"
   end
 end
 
