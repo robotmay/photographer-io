@@ -90,6 +90,7 @@ Iso::Application.routes.draw do
   get "/p/:id" => "photographs#show", as: :short_photo
   get "/u/:id" => "users#show", as: :short_user
   get "/c/:id" => "collections#show", as: :short_collection
+  get "/status" => "pages#up", as: :status
   get "/stats" => "pages#stats", as: :stats
   get "/sitemap" => "pages#sitemap", as: :sitemap
   get "/about" => "pages#about", as: :about

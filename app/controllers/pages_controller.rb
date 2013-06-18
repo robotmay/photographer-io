@@ -29,6 +29,10 @@ class PagesController < ApplicationController
     end
   end
 
+  def up
+    head :ok
+  end
+
   def stats
     if ENV['STATS_API_KEY'].present? && params['api_key'] == ENV['STATS_API_KEY']
       latest_photo = Photograph.public.order("created_at DESC").first
