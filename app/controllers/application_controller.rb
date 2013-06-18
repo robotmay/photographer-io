@@ -3,7 +3,8 @@ class ApplicationController < ActionController::Base
   layout :set_layout
   helper_method :set_title, :hide_filters?
 
-  before_filter do
+  before_filter :fetch_categories
+  def fetch_categories
     @categories = Rails.cache.fetch([:categories, :list], expires_in: 5.minutes) do
       Category.order("name ASC").load
     end

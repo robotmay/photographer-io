@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   respond_to :html
+  skip_before_filter :fetch_categories, only: [:up, :stats]
 
   def home
     @top_photos = Rails.cache.fetch([:home, :top_photos], expires_in: 10.minutes) do
