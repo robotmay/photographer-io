@@ -5,4 +5,4 @@ pidfile         "/var/run/app/web_server.pid"
 bind            "unix:///var/run/app/web_server.sock"
 
 # Add a worker per CPU core
-workers         %x{grep -c processor /proc/cpuinfo}.strip
+#workers         %x{grep -c processor /proc/cpuinfo}.strip
