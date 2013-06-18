@@ -64,7 +64,7 @@ namespace :bluepill do
  
   desc "Load bluepill configuration and start it"
   task :start, :roles => [:app] do
-    sudo "bluepill load #{release_path}/config/app.pill"
+    sudo "bluepill load #{current_path}/config/app.pill"
   end
  
   desc "Prints bluepills monitored processes statuses"
