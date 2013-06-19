@@ -1,7 +1,7 @@
 require 'bundler/capistrano'
 #require 'capistrano/foreman'
 require 'dotenv/capistrano'
-require 'sidekiq/capistrano'
+#require 'sidekiq/capistrano'
 
 set :application, "photographer.io"
 set :repository,  "git@github.com:robotmay/iso.git"
@@ -61,15 +61,18 @@ namespace :deploy do
 
   task :start, roles: :app do
     run "#{sudo} start puma app=#{current_path}"
+    run "#{sudo} start sidekiq app=#{current_path} index=0"
   end
 
   task :stop, roles: :app do
     run "#{sudo} stop puma app=#{current_path}"
+    run "#{sudo} stop sidekiq app=#{current_path} index=0"
   end
 
   task :restart, roles: :app do
     run "#{sudo} stop puma app=#{current_path}; true && sleep 1 && rm /var/run/app/web_server.sock; true"
     deploy.start
+    run "#{sudo} restart sidekiq app=#{current_path} index=0"
     #run "#{sudo} start puma app=#{current_path} || #{sudo} restart puma app=#{current_path}"
   end
 end
