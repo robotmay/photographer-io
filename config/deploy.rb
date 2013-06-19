@@ -38,7 +38,7 @@ role :app
 role :db
 
 server "pio-web-1", :web, :app, :db, primary: true
-server "pio-web-2", :web, :app
+#server "pio-web-2", :web, :app
 
 namespace :deploy do
   task :bootstrap, roles: :app do
@@ -67,7 +67,7 @@ namespace :deploy do
   end
 
   task :restart, roles: :app do
-    run "#{sudo} restart puma app=#{current_path}"
+    run "#{sudo} start puma app=#{current_path} || #{sudo} restart puma app=#{current_path}"
   end
 end
 
