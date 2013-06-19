@@ -38,7 +38,7 @@ role :app
 role :db
 
 server "pio-web-1", :web, :app, :db, primary: true
-#server "pio-web-2", :web, :app
+server "pio-web-2", :web, :app
 
 namespace :deploy do
   task :bootstrap, roles: :app do
@@ -55,7 +55,7 @@ namespace :deploy do
   end
 
   task :kill_dead_sockets, roles: :app do
-    run "cd /var/run/app; #{sudo} rm web_server.sock"
+    run "cd /var/run/app; rm web_server.sock"
   end
 
   task :start, roles: :app do
@@ -67,7 +67,9 @@ namespace :deploy do
   end
 
   task :restart, roles: :app do
-    run "#{sudo} start puma app=#{current_path} || #{sudo} restart puma app=#{current_path}"
+    run "#{sudo} stop puma app=#{current_path}; true && sleep 1 && rm /var/run/app/web_server.sock; true"
+    deploy.start
+    #run "#{sudo} start puma app=#{current_path} || #{sudo} restart puma app=#{current_path}"
   end
 end
 
