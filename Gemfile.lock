@@ -125,7 +125,7 @@ GEM
     connection_pool (1.1.0)
     cookiejar (0.3.0)
     daemons (1.1.9)
-    dalli (2.6.2)
+    dalli (2.6.4)
     database_cleaner (0.9.1)
     devise-async (0.7.0)
       devise (>= 2.2)
@@ -478,6 +478,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   kaminari
+  kgio
   letter_opener
   link_to_active_state
   machinist

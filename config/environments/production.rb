@@ -5,7 +5,7 @@ Iso::Application.configure do
   config.cache_classes = true
 
   # Other caching configuration
-  memcache_servers = ["82.196.6.183:11211:10", "82.196.9.92:11211:5"]
+  memcache_servers = ["lb.photographer.io:11211"]
   config.cache_store = :dalli_store, memcache_servers
   config.action_controller.perform_caching = true
   config.action_dispatch.rack_cache = {
