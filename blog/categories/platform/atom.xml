@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Platform | Photographer.io Blog]]></title>
+  <link href="http://blog.photographer.io/blog/categories/platform/atom.xml" rel="self"/>
+  <link href="http://blog.photographer.io/"/>
+  <updated>2013-06-20T00:45:49+01:00</updated>
+  <id>http://blog.photographer.io/</id>
+  <author>
+    <name><![CDATA[Robert May]]></name>
+    <email><![CDATA[support@photographer.io]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Changing Server Stacks is Not Fun]]></title>
+    <link href="http://blog.photographer.io/posts/2013/06/19/changing-server-stacks-is-not-fun/"/>
+    <updated>2013-06-19T23:46:00+01:00</updated>
+    <id>http://blog.photographer.io/posts/2013/06/19/changing-server-stacks-is-not-fun</id>
+    <content type="html"><![CDATA[<p>Every evening for the past week has been spent preparing to move <a href="https://www.photographer.io">Photographer.io</a> to a new server architecture. We were previously on <a href="https://www.heroku.com">Heroku</a>, and we&rsquo;re now running on a custom server setup on <a href="https://www.digitalocean.com/?refcode=0d41e836e212">Digital Ocean</a>.</p>
+
+<p>The past few days have made me both excited and incredibly frustrated with running a web application. Here&rsquo;s a few details on why.</p>
+
+<!-- more -->
+
+
+<h3>Heroku</h3>
+
+<p>I like Heroku. We use Heroku a lot <a href="http://wearebarenaked.com">at my day job</a> and it&rsquo;s a really good way of launching an app. It is, however,  <em>incredibly expensive</em>. Now I&rsquo;m talking primarily about web/worker processes here, as I think <a href="https://postgres.heroku.com">Heroku Postgres</a> is actually reasonable value and it&rsquo;s a fantastic service. I understand that there&rsquo;s a lot more to the stack on Heroku than just running your web process, but it&rsquo;s $35 a month for poorer performance than what you can achieve for $5 on Digital Ocean, or $15 on most other VPS providers.</p>
+
+<h3>Digital Ocean</h3>
+
+<p>It&rsquo;s very cheap. This is a real boon for me as it lets me run the server stack I want; load balancers, web servers, redundant database servers, and a general utility/cache server; all for less than half what it costs on Heroku. And the performance benefits that come along with it are just the icing on the cake.</p>
+
+<p>Digital Ocean are currently experiencing massive growth and I&rsquo;m sure that&rsquo;s going to result in a bit of instability over the next few weeks/months whilst they scale. I&rsquo;m not too fussed right now though, as Photographer.io still hasn&rsquo;t formally launched or been promoted in any significant way. It&rsquo;s a good time to try out a new architecture and get used to its quirks before (hopefully) gaining a lot of traffic.</p>
+
+<h3>The Pain</h3>
+
+<p>I must admit that I&rsquo;m not the happiest of sysadmins. There are some pieces of software which are a joy to set up (<a href="http://haproxy.1wt.eu/">HAProxy</a>, <a href="http://memcached.org/">Memcached</a>, <a href="http://redis.io">Redis</a>), and then there are those which make me swear and perform any number of hexes on the developers who designed them (<a href="http://www.postgresql.org/">PostgreSQL</a>). Having to set up my own Postgres server made me seriously regret ever having chosen it; MariaDB would have been a much simpler choice.</p>
+
+<p>I have not suffered in vain, however, as the site is now significantly quicker to respond than it was whilst on Heroku and I&rsquo;m much happier with the costs involved.</p>
+
+<h3>The New Setup</h3>
+
+<p>This is what&rsquo;s currently running for the initial launch of this stack:</p>
+
+<ul>
+<li>2x 512MB HAProxy Load Balancers (nothing clever for failover at the moment, just a DNS toggle)</li>
+<li>2x 2GB Web/Worker Servers, running Ruby 2.0, Puma, Sidekiq</li>
+<li>2x 1GB Database Servers, Postgres 9.2</li>
+<li>1x 512MB Utility Server, Memcached/Redis</li>
+</ul>
+
+
+<p>It&rsquo;s not perfect but it leaves plenty of room for scaling. I&rsquo;d like to move over to JRuby to make better use of the resources available but there are a few bugs I need to iron out before I can switch.</p>
+
+<h4>Other Bits</h4>
+
+<p><a href="https://www.cloudflare.com">CloudFlare</a> sits in front of the load balancers to help provide a variety of extra services (notably better security). Backups of data are handled using <a href="https://www.tarsnap.com">Tarsnap</a> for excellent data security and as I&rsquo;ve got nothing but great things to say about it.</p>
+
+<h3>Token Poorly Labelled Charts</h3>
+
+<p>Here&rsquo;s a totally unreliable but somewhat interesting comparison of the past hour, from two days ago whilst running on Heroku:</p>
+
+<p><img src="/images/posts/7/heroku_stack.png" alt="Heroku Performance" /></p>
+
+<p>And the same data for the past hour today on Digital Ocean (when I remembered to re-enable NewRelic):</p>
+
+<p><img src="/images/posts/7/do_stack.png" alt="Digital Ocean Performance" /></p>
+
+<p>Finally the performance data is starting to look how you&rsquo;d expect from an application written in a modern scripting language: the application is by far the slowest component.</p>
+
+<h3>Processing Photos Was Expensive</h3>
+
+<p>On Heroku processing the often very large photos people uploaded was quite expensive. If someone batch uploads 100 photographs, a worker will be churning away for quite a while on a number of jobs at once. To manage this at all on Heroku required a 1GB worker dyno at $72 per month. On Digital Ocean I&rsquo;m running the workers on the same servers as the web processes (2GB RAM shared between the processes) and it&rsquo;s $20 per month. You could run a server with 8GB of RAM for $8 more than 1GB costs you on Heroku.</p>
+
+<h3>Time Will Tell</h3>
+
+<p>Now that the switch is complete, I&rsquo;ll be spending the next few weeks keeping a close eye on log files and server stats (<a href="https://boundary.com">Boundary</a> is pretty cool, though I just look at the pretty graphs) and adjusting things as I go along. One of the best things I&rsquo;ve taken away from this is that Digital Ocean is letting me play at running a server architecture more akin to those run by high traffic apps without having to stump up the cash to do so. It&rsquo;s certainly more complicated than running on Heroku, and I&rsquo;m really hoping that technologies like <a href="http://docker.io">Docker</a> gain a lot of traction in the near future. Setting up this server stack over the past week brought me very close to chucking it all in and going to live in the woods and carve wooden spoons*.</p>
+
+<p><sup>I do that anyway, but it&rsquo;s not a hugely profitable career</sup></p>
+]]></content>
+  </entry>
+  
+</feed>
