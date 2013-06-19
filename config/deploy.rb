@@ -61,7 +61,7 @@ namespace :deploy do
 
   task :start, roles: :app do
     run "#{sudo} start puma app=#{current_path}"
-    run "#{sudo} start sidekiq app=#{current_path} index=0"
+    run "#{sudo} start sidekiq app=#{current_path} index=0;true"
   end
 
   task :stop, roles: :app do
