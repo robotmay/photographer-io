@@ -58,9 +58,7 @@ module PhotographsHelper
       image.remote_url
     end
 
-    if request.protocol == "https://"
-      url.gsub!("http://", "https://")
-    end
+    url.gsub!(/https?:\/\//, "//")
 
     url
   end
