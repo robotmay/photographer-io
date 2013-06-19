@@ -5,10 +5,11 @@ Iso::Application.configure do
   config.cache_classes = true
 
   # Other caching configuration
-  config.cache_store = :dalli_store, "lb.photographer.io"
+  memcache_servers = ["82.196.6.183:11211:10", "82.196.9.92:11211:5"]
+  config.cache_store = :dalli_store, memcache_servers
   config.action_controller.perform_caching = true
   config.action_dispatch.rack_cache = {
-    metastore: Dalli::Client.new(["lb.photographer.io"]),
+    metastore: Dalli::Client.new(memcache_servers),
     entitystore: 'file:tmp/cache/rack/body',
     allow_reload: false
   }
