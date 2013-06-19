@@ -1,5 +1,5 @@
 environment     $RAILS_ENV
-threads         16, 16
+threads         16, 32
 pidfile         "/var/run/app/web_server.pid"
 state_path      "/var/run/app/web_server.state"
 bind            "unix:///var/run/app/web_server.sock"

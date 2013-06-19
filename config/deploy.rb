@@ -1,6 +1,7 @@
 require 'bundler/capistrano'
 #require 'capistrano/foreman'
 require 'dotenv/capistrano'
+require 'sidekiq/capistrano'
 
 set :application, "photographer.io"
 set :repository,  "git@github.com:robotmay/iso.git"
