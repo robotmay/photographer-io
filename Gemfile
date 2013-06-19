@@ -37,6 +37,7 @@ gem 'redis-objects'
 
 # caching
 gem 'dalli'
+gem 'kgio'
 gem 'identity_cache'
 gem 'rack-cache'
 gem 'multi_fetch_fragments', github: 'robotmay/multi_fetch_fragments'
