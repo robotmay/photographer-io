@@ -54,6 +54,10 @@ namespace :deploy do
     run "#{sudo} service nginx restart"
   end
 
+  task :kill_dead_sockets, roles: :app do
+    run "cd /var/run/app; #{sudo} rm web_server.sock"
+  end
+
   task :restart, roles: :app, except: { no_release: true } do
     foreman.restart
   end
@@ -75,7 +79,7 @@ end
 namespace :foreman do
   desc "Export the Procfile to Ubuntu's upstart scripts"
   task :export, roles: :app do
-    cmd = 'foreman'
+    cmd = "RAILS_ENV=#{rails_env} foreman"
     run "[ -d #{foreman_upstart_path} ] || #{sudo} mkdir -p #{foreman_upstart_path}"
     run "cd #{current_path} && #{cmd} export upstart #{foreman_upstart_path} #{format(foreman_options)}"
   end
