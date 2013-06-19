@@ -58,8 +58,16 @@ namespace :deploy do
     run "cd /var/run/app; #{sudo} rm web_server.sock"
   end
 
-  task :restart, roles: :app, except: { no_release: true } do
-    foreman.restart
+  task :start, roles: :app do
+    run "#{sudo} start puma app=#{current_path}"
+  end
+
+  task :stop, roles: :app do
+    run "#{sudo} stop puma app=#{current_path}"
+  end
+
+  task :restart, roles: :app do
+    run "#{sudo} restart puma app=#{current_path}"
   end
 end
 
@@ -73,33 +81,5 @@ task :upload_certs do
 
   %w{bundle.pem server.crt server.key}.each do |file|
     upload("certs/#{file}", "#{certs_path}/#{file}", via: :scp)
-  end
-end
-
-namespace :foreman do
-  desc "Export the Procfile to Ubuntu's upstart scripts"
-  task :export, roles: :app do
-    cmd = "RAILS_ENV=#{rails_env} foreman"
-    run "[ -d #{foreman_upstart_path} ] || #{sudo} mkdir -p #{foreman_upstart_path}"
-    run "cd #{current_path} && #{cmd} export upstart #{foreman_upstart_path} #{format(foreman_options)}"
-  end
-
-  desc "Start the application services"
-  task :start, roles: :app do
-    run "#{sudo} service #{foreman_options[:app]} start"
-  end
-
-  desc "Stop the application services"
-  task :stop, roles: :app do
-    run "#{sudo} service #{foreman_options[:app]} stop"
-  end
-
-  desc "Restart the application services"
-  task :restart, roles: :app do
-    run "#{sudo} service #{foreman_options[:app]} start || #{sudo} service #{foreman_options[:app]}  restart"
-  end
-
-  def format(opts)
-    opts.map { |opt, value| "--#{opt}=#{value}" }.join " "
   end
 end
