@@ -55,6 +55,7 @@ gem 's3'
 gem 'pubnub'
 gem 'gabba'
 gem 'stripe'
+gem 'keen'
 
 # auth
 gem 'devise', git: 'git://github.com/plataformatec/devise.git', branch: 'rails4'
