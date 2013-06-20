@@ -215,6 +215,8 @@ GEM
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    keen (0.7.5)
+      multi_json (~> 1.0)
     kgio (2.8.0)
     launchy (2.3.0)
       addressable (~> 2.3)
@@ -478,6 +480,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   kaminari
+  keen
   kgio
   letter_opener
   link_to_active_state

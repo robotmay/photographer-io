@@ -18,6 +18,16 @@ class Recommendation < ActiveRecord::Base
   after_create do
     photograph.user.received_recommendations_count.increment
     photograph.user.push_stats
+    KeenWorker.perform_async(:recommendations, { 
+      photograph: {
+        id: photograph.id,
+        category: photograph.category.try(:name)
+      },
+      user: {
+        id: user.id,
+        name: user.name
+      }
+    })
   end
 
   private
