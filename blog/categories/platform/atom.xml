@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Platform | Photographer.io Blog]]></title>
   <link href="http://blog.photographer.io/blog/categories/platform/atom.xml" rel="self"/>
   <link href="http://blog.photographer.io/"/>
-  <updated>2013-06-20T01:01:14+01:00</updated>
+  <updated>2013-06-20T01:07:42+01:00</updated>
   <id>http://blog.photographer.io/</id>
   <author>
     <name><![CDATA[Robert May]]></name>
@@ -79,7 +79,7 @@
 
 <p>Now that the switch is complete, I&rsquo;ll be spending the next few weeks keeping a close eye on log files and server stats (<a href="https://boundary.com">Boundary</a> is pretty cool, though I just look at the pretty graphs) and adjusting things as I go along. One of the best things I&rsquo;ve taken away from this is that Digital Ocean is letting me play at running a server architecture more akin to those run by high traffic apps without having to stump up the cash to do so. It&rsquo;s certainly more complicated than running on Heroku, and I&rsquo;m really hoping that technologies like <a href="http://docker.io">Docker</a> gain a lot of traction in the near future. Setting up this server stack over the past week brought me very close to chucking it all in and going to live in the woods and carve wooden spoons*.</p>
 
-<p><sup><a href="https://www.photographer.io/photographs/2781">I do that anyway</a>, but it&rsquo;s not a hugely profitable career</sup></p>
+<p><sup><a href="https://www.photographer.io/photographs/2782">I do that anyway</a>, but it&rsquo;s not a hugely profitable career</sup></p>
 ]]></content>
   </entry>
   
