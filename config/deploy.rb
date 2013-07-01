@@ -6,7 +6,7 @@ require 'dotenv/capistrano'
 set :application, "photographer.io"
 set :repository,  "git@github.com:robotmay/iso.git"
 set :scm, :git
-set :branch, "production"
+set :branch, "master"
 set :port, 7890
 
 set :user, "deploy"
