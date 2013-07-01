@@ -59,6 +59,7 @@ module PhotographsHelper
     end
 
     url.gsub!(/https?:\/\//, "//")
+    url.gsub!("////", "//")
 
     url
   end
