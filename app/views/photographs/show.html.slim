@@ -7,7 +7,7 @@
     meta property="og:type" content="website"
     meta property="og:image" content=image_url(@photograph.large_image)
     meta property="og:image:type" content="image/jpeg"
-    meta property="og:url" content=photograph_url(@photograph)
+    meta property="og:url" content=photograph_url(@photograph, host: ENV['DOMAIN'])
 
     - if @photograph.fetch_metadata.title.present?
       meta property="og:title" content=(@photograph.fetch_metadata.title)
@@ -20,7 +20,7 @@
     -# Twitter
     meta name="twitter:card" content="photo"
     meta name="twitter:image" content=image_url(@photograph.large_image)
-    meta name="twitter:url" content=photograph_url(@photograph)
+    meta name="twitter:url" content=photograph_url(@photograph, host: ENV['DOMAIN'])
 
     - if @photograph.fetch_metadata.title.present?
       meta name="twitter:title" content=(@photograph.fetch_metadata.title)
