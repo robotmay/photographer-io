@@ -34,16 +34,19 @@ section id="photographs-show"
   section class="row"
     article class="large-9 small-12 columns"
       section class="display"
+        div style="display: none;" itemprop="image"
+          = image_url(@photograph.large_image).gsub("//", "http://")
+
         div class="image"
           - if @photograph.has_precalculated_sizes?
-            = photo_tag @photograph, :large, itemprop: "image"
+            = photo_tag @photograph, :large
           - else
             - if @photograph.landscape?
-              = photo_tag @photograph, "1500x", itemprop: "image"
+              = photo_tag @photograph, "1500x"
             - elsif @photograph.portrait?
-              = photo_tag @photograph, "x1000", itemprop: "image"
+              = photo_tag @photograph, "x1000"
             - else
-              = photo_tag @photograph, "1500x1500>", itemprop: "image"
+              = photo_tag @photograph, "1500x1500>"
 
           = interactions_for @photograph
 
