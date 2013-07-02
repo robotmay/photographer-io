@@ -63,6 +63,15 @@ module PhotographsHelper
 
     url
   end
+
+  def hidden_image_meta_tag(image)
+    url = image_url(image)
+    if url.present?
+      content_tag(:div, style: "display: none;", itemprop: "image") do
+        url.gsub("//", "http://")
+      end
+    end
+  end
   
   def deprecated_photo_tag(photograph, size, opts = {})
     return nil if photograph.nil?
