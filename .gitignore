@@ -19,3 +19,4 @@
 /.env*
 /certs
 /config/database.yml
+/config/deploy.rb
