@@ -1,0 +1,10 @@
+language: ruby
+rvm:
+  - 2.0.0
+services:
+  - redis-server
+  - memcached
+  - postgresql
+
+before_script:
+  - psql -c 'create database photographerio_test;' -U postgres
