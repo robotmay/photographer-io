@@ -2,37 +2,37 @@
 
 ### Acceptance of Terms
 
-By using Photographer.io ("Site") you are agreeing to be bound by these terms of service and our [privacy policy](). Photographer.io is owned and operated by Afternoon Robot Ltd ("Company"), a United Kingdom limited company, company number 08542571. By using the Site you agree to the use of 'cookies' stored in your Web Browser ("Browser"), as detailed in our Privacy Policy.
+By using Photographer.io ("Site") you are agreeing to be bound by these terms of service and our [Privacy Policy](). Photographer.io is owned and operated by Afternoon Robot Ltd ("Company"), United Kingdom, company number 08542571. By using the Site you agree to the use of 'cookies' stored in your Web Browser ("Browser"), as detailed in our Privacy Policy.
 
 ### Description of Service
 
-Photographer.io is an online social community for photographers to share their photographs ("Content") with each other. 
+Photographer.io is an online social community for photographers to share and display their photographs ("Content").
 
 ### Account Terms
 
-1. You must be 13 years or older to use this Site.
+1. You must be 16 years of age or older, or 13 years of age or older with the consent of a parent or legal guardian, to use the Site.
+  * Parents or legal guardians are responsible for the Site usage of their authorised minors.
 2. You must be a human. Automated scripts or robots are not permitted.
 3. You must provide a valid email address in order to create an account.
 4. You are responsible for maintaining the security of your account and password.
-5. You are responsible for all Content submitted to the Site from your account.
-6. You cannot use the Site for any illegal or unauthorised purpose, including copyright or trademark infringment.
+5. You are responsible for all Content submitted from your account.
+6. You cannot use the Site for any illegal or unauthorised purpose (as outlined under "Your Rights"), including copyright or trademark infringment.
 
 ### Scope of Service
 
-Photographer.io provides support for the following browser versions:
+Photographer.io supports the following browser versions:
 
 * Firefox 9.0+
 * Chrome 10.0+
-* Chromium 10.0+
 * Safari 5.0+
 * Internet Explorer 10.0+
 * Opera 12.0+
 
-These are the browsers in which Photographer.io is frequently tested. The site may well work on other browsers or versions, though support is not guaranteed. Any display issues should be reported to support@photographer.io.
+Any display or functionality issues should be reported to [support@photographer.io](mailto: support@photographer.io).
 
 ### Availability
 
-Though we (the Company) make every effort to ensure the reliability and availability of this Site, we cannot guarantee the Site's availability. By agreeing to these terms you acknowledge that we (the Company) utilise third party vendors to supply the platform on which the Site is hosted.
+Though we make every effort to ensure the reliability and availability of this Site, we cannot guarantee the Site's availability. By agreeing to these terms you acknowledge that third party vendors are used to supply the platform on which the Site is hosted.
 
 ### Support
 
@@ -41,26 +41,26 @@ We (the Company) will attempt to respond to all support queries within 2 working
 ### Account Types and Restrictions
 
 #### All Accounts
-1. The maximum size for uploaded photographs is currently 30MB. The maximum size an image can be accessed at via the site is 2000 pixels in the largest axis, and for performance and plagiarism reasons we recommend you upload something around that size rather than the full-size original files. The original file you upload is not accessible by others, and it is only used for generating the smaller versions.
-2. You can 'Recommend' up to 10 photographs per day.
+1. 30MB is currently the maximum size for uploaded photographs. The maximum size an image can be viewed on the site is 2000 pixels in the largest axis. For performance and plagiarism reasons we recommend you upload something around those pixel dimensions instead of the full-size original files. Original files are not accessible by others, and are only used for generating smaller versions.
+2. You can "Recommend" up to 10 photographs per day. 
+  * "Recommendations" affect the photos which appear in the "Recommended" section and help others discover your favourite images.
 
 #### Free Accounts
-Users with free accounts have the following account restrictions:
+The following account restrictions apply to members with free accounts:
 
-1. You may upload a maximum of 100 photographs per month (starting on the first day of each month).
-2. This limit can be increased through referring friends; up to 10 friends and up to a maximum of 200 photographs per month.
-3. Certain features are unavailable to free users, as outlined below under 'Paid Accounts'.
+1. You may upload a maximum of 100 photographs per month. This limit resets at the start of every month.
+2. The upload limit can be increased through referring friends. You gain an extra 10 uploads per month for each friend you refer, up to a maximum of 10 friends.
 
 #### Paid Accounts (coming soon)
-Users who choose to pay a subscription fee ("Subscribers") receive the following benefits:
+Members who choose to pay a subscription fee ("Paid Account") receive the following benefits:
 
-1. Unlimited photograph uploads per month, though we retain the right to limit any user we consider to be abusing the Site, as outlined under 'Fair Usage'.
+1. Unlimited uploads per month, though we retain the right to limit any user we consider to be abusing the Site, as outlined under "Fair Usage".
 2. Additional features across the site, including:
   1. The ability to share private collections.
   2. The option to increase the number of photographs displayed per page.
   3. The ability to filter categories, preventing them from displaying for the User whilst signed in.
 
-The benefits available to Subscribers are liable to change and increase over time, and all Users will be notified of alterations.
+The benefits available to Paid Accounts are liable to be modified over time. All members will be notified of modifications prior to implementation.
 
 ### Payments and Renewals
 #### General Terms
@@ -94,7 +94,7 @@ If you have a security query, or want to notify us of a security issue relating 
 
 1. You have the right to cancel your account at any time, resulting in the removal of all your Content from the site.
 2. Your private collections and photographs will not be intentionally shown to other users or third parties.
-3. Your personal data will not be shared with anyone not outlined in our privacy policy.
+3. Your personal data will not be shared with anyone not outlined in our Privacy Policy.
 4. Your data will be backed up regularly.
 5. You will be notified of any new features added to the Site which will affect your privacy. These features will most often be opt-in for all existing users.
 
