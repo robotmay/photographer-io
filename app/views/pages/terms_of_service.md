@@ -58,37 +58,37 @@ Members who choose to pay a subscription fee ("Paid Account") receive the follow
 2. Additional features across the site, including:
   1. The ability to share private collections.
   2. The option to increase the number of photographs displayed per page.
-  3. The ability to filter categories, preventing them from displaying for the User whilst signed in.
+  3. The ability to filter categories, preventing them from displaying for the Member whilst signed in.
 
 The benefits available to Paid Accounts are liable to be modified over time. All members will be notified of modifications prior to implementation.
 
 ### Payments and Renewals
 #### General Terms
-Payment for services on the Site are made via Stripe Payments Europe, Ltd. By selecting a Subscription you agree to pay the Company the monthly or annual subscription fees indicated for that service. Payments will be charged on a pre-pay basis on the day you sign up for a Subscription and will cover the use of that service for a monthly or annual subscription period as selected.
+Payment for Site services are made via Stripe Payments Europe, Ltd. By selecting a Paid Account you agree to pay the monthly or annual subscription fees for the chosen service. Payments will be charged on a pre-pay basis on the day you sign up for a Paid Account and will cover the use of that subscription for a monthly or annual duration.
 
 #### Automatic Renewal
-Your Subscription will automatically renew at the end of the subscription period unless you notify us in advance that you wish to cancel it. We will notify you a number of weeks in advance that your subscription is about to renew.
-Unless you notify the Company before the end of the applicable subscription period that you want to cancel a Subscription, your Subscription will automatically renew and you authorize us to collect the then-applicable annual or monthly subscription fee for such Subscription (as well as any taxes) using any credit card or other payment mechanism we have on record for you. Subscriptions can be cancelled at any time in the Account section of the Site.
+Your Paid Account will automatically renew at the end of the monthly or annual period unless you notify us in advance that you wish to cancel it. We will notify you two weeks in advance that your subscription is about to renew.
+Unless you notify the Company before the end of the applicable subscription period that you want to cancel a Paid Account, your Paid Account will automatically renew and you authorize us to collect the applicable annual or monthly subscription fee (as well as any taxes). Subscriptions can be cancelled at any time in the Account section of the Site. Your account will remain a Paid Account until the end of the paid subscription period.
 
 ### Fair Usage
-By using the Site, you (the User) agree to the following Fair Usage policy:
+By using the Site, you (the Member) agree to the following Fair Usage policy:
 
 1. You will not use the Site as a backup facility for your photographs. The Site is not a dedicated backup service, and although we make every effort to store your photographs in such a way that they are always available, it is not the primary goal of the Site.
-2. You will not attempt to spam, or cause detrimental effects, to other users.
-3. You will not significantly exceed the average bandwidth usage of other users. Doing so may result in increased limitations on your account until you have rectified your bandwidth consumption.
+2. You will not attempt to spam, harass, or cause detrimental effects to other users.
+3. You will not significantly exceed the average bandwidth usage of other users. Members will be notified if their usage exceeds account restrictions, and limitations will be placed until account usage has been rectified.
 
 ### Security
 
-We make every effort possible to keep the Site secure and user data safe. The following is an outline of some of the steps we take:
+We make every effort possible to keep the Site secure and member data safe. The following is an outline of the steps we take:
 
-1. All User interaction with the Site takes place over SSL, including the display of Content and external services (see Privacy Policy).
-2. All User passwords are stored using strong encryption.
-3. All User information relating to payments is handled via SSL and stored securely by our payments provider Stripe Payments Europe, Ltd.
-4. No personal payment data touches our (the Site's) servers.
+1. All Member interaction with the Site takes place over SSL, including the display of Content and external services (see [Privacy Policy](https://www.iubenda.com/privacy-policy/288645)).
+2. All Member passwords are stored with strong encryption using [bcrypt](http://bcrypt.sourceforge.net/).
+3. All Member information relating to payments is handled via SSL and stored securely by Stripe Payments Europe, Ltd.
+4. No personal payment data touches the Site's servers.
 
-Though we (the Company) work hard to ensure your data is safe, we cannot be held responsible for any breach of your account through your failure to safeguard your account details.
+Though we work hard to ensure your data is safe, we cannot be held responsible for any breach of your account through your failure to safeguard your account details.
 
-If you have a security query, or want to notify us of a security issue relating to the Site, please send all correspondence to security@photographer.io.
+If you have a security query, or want to notify us of a security issue relating to the Site, please send all correspondence to <security@photographer.io>.
 
 ### Your Rights
 
@@ -96,7 +96,7 @@ If you have a security query, or want to notify us of a security issue relating 
 2. Your private collections and photographs will not be intentionally shown to other users or third parties.
 3. Your personal data will not be shared with anyone not outlined in our Privacy Policy.
 4. Your data will be backed up regularly.
-5. You will be notified of any new features added to the Site which will affect your privacy. These features will most often be opt-in for all existing users.
+5. You will be notified of any Site changes which will affect your privacy. These changes will most often be opt-in for all existing users.
 
 You may not use this Site:
 
@@ -106,16 +106,16 @@ You may not use this Site:
 4. To gain unauthorised access to other users' accounts or personal information.
 5. To gain account benefits or affect the photograph rankings through the use of multiple accounts.
 
-### Responsibility of Visitors and Users
-The Company has not reviewed, and cannot review, all of the material posted to the Site, and cannot therefore be responsible for that material’s content, use or effects. By operating the Site, the Company does not represent or imply that it endorses the material there posted, or that it believes such material to be accurate, useful or non-harmful. You are responsible for taking precautions as necessary to protect yourself and your computer systems from viruses, worms, Trojan horses, and other harmful or destructive content. The Site may contain content that is offensive, indecent, or otherwise objectionable, as well as content containing technical inaccuracies, typographical mistakes, and other errors. 
+### Responsibility of Visitors and Members
+The Company has not reviewed, and cannot review, all of the Content posted to the Site, and therefore cannotbe responsible for said Content. By operating the Site, the Company does not represent or imply that it endorses the uploaded Content, or that it believes such material to be accurate, useful or non-harmful. You are responsible for taking precautions as necessary to protect yourself from viruses, worms, Trojan horses, and other harmful or destructive malware. The Site may contain content that is offensive, indecent, or otherwise objectionable, as well as content containing technical inaccuracies, and other errors. 
 
-The Company cannot guarantee that it can monitor content submitted to the Site 24 hours a day, 365 days a year. Some objectionable material may appear due to factors beyond our control, but should you (the User) wish to report any violation of our terms then email the details of the violation to support@photographer.io.
+Some objectionable material may appear due to factors beyond our control, but should you (the Member) wish to report any violation of our terms then email the details of the violation to <support@photographer.io>.
 
 ### Copyright and Content Ownership
 
 1. The Company claims no intellectual property rights over the Content you submit to the Site. All submitted material maintains the license under which you submit it, if any (see [Creative Commons](http://creativecommons.org)). By choosing to display your Content publicly, you agree to allow others to view your Content.
-2. The Company respects intellectual property rights. Any claim of copyright infringment will be investigated swiftly, and we (the Company) reserve the right to remove any Content found to be an infringment of copyright laws. The Company also reserves the right to terminate an account found to be infringing copyright.
-3. Any alleged copyright infringment must be reported in writing to support@photographer.io with sufficient detail and evidence to allow the Company to respond quickly and accurately. 
+2. The Company respects intellectual property rights. Any claim of copyright infringement will be investigated swiftly, and we reserve the right to remove any Content found to be an infringement of copyright laws. We also reserve the right to investigate and terminate an account found to be infringing copyright.
+3. Any alleged copyright infringement must be reported to <support@photographer.io> with sufficient detail and evidence to allow the Company to respond quickly and accurately. 
 4. We (the Company) are not responsible for any legal fees or damages related to a copyright claim, nor may we be held responsible for any infringing content submitted to the Site. 
 5. Content on the Site is stored within the European Union ("EU"), and is therefore subject to EU law and regulations.
 
@@ -123,10 +123,10 @@ The Company cannot guarantee that it can monitor content submitted to the Site 2
 In no event will the Company, or its suppliers or licensors, be liable with respect to any subject matter of this agreement under any contract, negligence, strict liability or other legal or equitable theory for: (i) any special, incidental or consequential damages; (ii) the cost of procurement for substitute services; (iii) for interruption of use or loss or corruption of data; or (iv) for any amounts that exceed the fees paid by you to the Company under this agreement during the twelve (12) month period prior to the cause of action. The Company shall have no liability for any failure or delay due to matters beyond their reasonable control. The foregoing shall not apply to the extent prohibited by applicable law.
 
 ### General Representation and Warranty
-You represent and warrant that (i) your use of the Website will be in strict accordance with the Company Privacy Policy, with this Agreement and with all applicable laws and regulations (including without limitation any local laws or regulations in your country, state, city, or other governmental area, regarding online conduct and acceptable content, and including all applicable laws regarding the transmission of technical data exported from the United Kingdom or the country in which you reside) and (ii) your use of the Site will not infringe or misappropriate the intellectual property rights of any third party.
+You represent and warrant that (i) your use of the Website will be in strict accordance with the Company's [Privacy Policy](https://www.iubenda.com/privacy-policy/288645), with this Agreement, and with all applicable laws and regulations (including any local laws or regulations in your country, state, city, or other governmental area, regarding online conduct and acceptable content, and including all applicable laws regarding the transmission of technical data exported from the United Kingdom or the country in which you reside) and (ii) your use of the Site will not infringe or misappropriate the intellectual property rights of any third party.
 
 ### Indemnification
-You agree to indemnify and hold harmless the Company, its contractors, and its licensors, and their respective directors, officers, employees and agents from and against any and all claims and expenses, including legal fees, arising out of your use of the Website, including but not limited to your violation of this Agreement.
+You agree to indemnify and hold harmless the Company, its contractors, and its licensors, and their respective directors, officers, employees and agents from and against any and all claims and expenses, including legal fees, arising out of your use of the Website.
 
 ### License
 These terms are adapted in part from that of WordPress.com, licensed under the Creative Commons ShareAlike license. You may reuse or adapt these terms under the same license.
