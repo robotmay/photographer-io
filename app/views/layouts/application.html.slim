@@ -105,7 +105,7 @@ head
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-41499549-1', 'photographer.io');
+      ga('create', '#{ENV['GOOGLE_ANALYTICS_ID']}', 'photographer.io');
       ga('send', 'pageview');
 
   = javascript_include_tag "https://pubnub.a.ssl.fastly.net/pubnub-3.5.0.min.js"

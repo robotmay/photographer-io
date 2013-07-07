@@ -3,27 +3,28 @@
 section id="pages-home"
   article id="hero-photograph"
     - photo = @top_photos.sample || Photograph.view_for(current_user).first
-    = link_to photograph_path(photo) do
-      - if photo.has_precalculated_sizes?
-        = photo_tag photo, :homepage
-      - else
-        - if photo.landscape?
-          = photo_tag photo, "2000x", quality: 80
+    - if photo.present?
+      = link_to photograph_path(photo) do
+        - if photo.has_precalculated_sizes?
+          = photo_tag photo, :homepage
         - else
-          = photo_tag photo, "2000x1400#", quality: 80
-  
-    div id="hero-blurb"
-      header
-        h2= t("home.title")
-        h4= simple_format t("home.blurb", \
-          name: link_to(photo.user.name, short_user_path(photo.user.username)), image_path: photograph_path(photo),
-          word: t("home.words").sample)
+          - if photo.landscape?
+            = photo_tag photo, "2000x", quality: 80
+          - else
+            = photo_tag photo, "2000x1400#", quality: 80
+    
+      div id="hero-blurb"
+        header
+          h2= t("home.title")
+          h4= simple_format t("home.blurb", \
+            name: link_to(photo.user.name, short_user_path(photo.user.username)), image_path: photograph_path(photo),
+            word: t("home.words").sample)
 
-        - unless user_signed_in?
-          div class="buttons"
-            = link_to t("home.about"), about_path, class: "button small"
+          - unless user_signed_in?
+            div class="buttons"
+              = link_to t("home.about"), about_path, class: "button small"
 
-            span class="or"
-              = t("home.or")
+              span class="or"
+                = t("home.or")
 
-            = link_to t("home.sign_up"), new_user_registration_path, class: "button success small"
+              = link_to t("home.sign_up"), new_user_registration_path, class: "button success small"
