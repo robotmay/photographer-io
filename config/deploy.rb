@@ -1,7 +1,5 @@
 require 'bundler/capistrano'
-#require 'capistrano/foreman'
 require 'dotenv/capistrano'
-#require 'sidekiq/capistrano'
 
 set :application, "photographer.io"
 set :repository,  "git@github.com:robotmay/iso.git"
@@ -46,7 +44,6 @@ namespace :deploy do
     deploy.setup
     deploy.update
     upload_certs
-    foreman.export
     deploy.restart
     deploy.restart_nginx
   end
@@ -70,6 +67,7 @@ namespace :deploy do
   end
 
   task :restart, roles: :app do
+    #NOTE: Due to bug with Puma not removing its sock file properly
     find_servers(roles: :app).each do |server|
       run "#{sudo} stop puma app=#{current_path}; true && sleep 1 && rm /var/run/app/web_server.sock; true", hosts: server
       run "#{sudo} start puma app=#{current_path}", hosts: server
