@@ -228,6 +228,7 @@ en:
         public: "Public"
         private: "Private"
         unsorted: "Unsorted"
+        collections: "Collections"
       view: "View public page"
       views: "Views"
       recommendations: "Recommendations"

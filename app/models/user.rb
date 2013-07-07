@@ -94,6 +94,12 @@ class User < ActiveRecord::Base
     invited_by.increase_upload_quota(n)
   end
 
+  after_create :create_default_records
+  def create_default_records
+    collections.create(name: "Public", public: true)
+    collections.create(name: "Private", public: false)
+  end
+
   def upload_count_for_this_month
     photographs.for_month(Date.today.beginning_of_month..Date.today.end_of_month).count
   end
