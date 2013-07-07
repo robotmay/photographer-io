@@ -1,0 +1,4 @@
+test:
+  adapter: postgresql
+  database: photographerio_test
+  username: postgres
