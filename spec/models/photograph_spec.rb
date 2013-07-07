@@ -21,7 +21,8 @@ describe Photograph do
 
     subject { photograph }
 
-    it { should validate_presence_of(:user_id) }
-    it { should validate_presence_of(:image_uid) }
+    [:user_id, :image_uid].each do |attr|
+      it { should validate_presence_of(attr) }
+    end
   end
 end

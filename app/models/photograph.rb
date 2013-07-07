@@ -356,7 +356,7 @@ class Photograph < ActiveRecord::Base
 
   private
   def upload_quota_is_not_exceeded
-    if user.remaining_uploads_for_this_month == 0
+    if user.present? && user.remaining_uploads_for_this_month == 0
       errors.add(:base, I18n.t("photographs.user_quota_exceeded"))
     end
   end

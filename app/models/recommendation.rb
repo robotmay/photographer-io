@@ -32,7 +32,7 @@ class Recommendation < ActiveRecord::Base
 
   private
   def recommendation_quota_is_not_exceeded
-    if user.remaining_recommendations_for_today == 0
+    if user.present? && user.remaining_recommendations_for_today == 0
       errors.add(:base, I18n.t("recommendations.user_quota_exceeded"))
     end
   end
