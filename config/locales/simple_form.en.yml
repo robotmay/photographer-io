@@ -25,6 +25,9 @@ en:
     #     password: 'No special characters, please.'
 
     labels:
+      collection:
+        public: "Do you want this collection to appear publicly on the site?"
+
       comment_thread:
         destroy: "Delete this thread"
 

@@ -33,17 +33,11 @@ nav id="photographs-nav" class="panel"
     = link_to t("account.photographs.nav.all"), account_photographs_path, \
       active_on: true, active_wrapper: :li
 
-    = link_to t("account.photographs.nav.public"), public_account_photographs_path, \
-      active_on: true, active_wrapper: :li
-
-    = link_to t("account.photographs.nav.private"), private_account_photographs_path, \
-      active_on: true, active_wrapper: :li
-
     = link_to t("account.photographs.nav.unsorted"), unsorted_account_photographs_path, \
       active_on: true, active_wrapper: :li
 
-    li class="divider"
-
+  h6= t("account.photographs.nav.collections")
+  ul class="side-nav"
     - current_user.collections.order("name").each do |collection|
       = link_to collection.name, account_collection_photographs_path(collection), \
         active_on: true, active_wrapper: :li

@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 
 ruby "2.0.0"
 
-gem 'rails', '4.0.0.rc1'
+gem 'rails', '4.0.0'
 gem 'sinatra', '>= 1.3.0', require: nil
 
 # deployment
