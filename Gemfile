@@ -11,11 +11,11 @@ gem 'capistrano'
 gem 'capistrano-foreman'
 gem 'dotenv-rails'
 gem 'foreman' 
-gem 'bluepill'
 
 # utilities
 gem 'thread'
 gem 'httparty'
+gem 'oj'
 
 # debugging
 gem 'pry'
@@ -44,8 +44,6 @@ gem 'multi_fetch_fragments', github: 'robotmay/multi_fetch_fragments'
 
 # services
 gem 'puma'
-gem 'unicorn'
-gem 'thin'
 gem 'sidekiq'
 gem 'airbrake'
 gem 'newrelic_rpm'

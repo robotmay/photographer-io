@@ -16,5 +16,5 @@
 /tmp
 
 /public/system
-.env
+/.env*
 /certs
