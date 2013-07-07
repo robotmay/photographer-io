@@ -70,9 +70,12 @@ namespace :deploy do
   end
 
   task :restart, roles: :app do
-    run "#{sudo} stop puma app=#{current_path}; true && sleep 1 && rm /var/run/app/web_server.sock; true"
-    deploy.start
-    run "#{sudo} restart sidekiq app=#{current_path} index=0"
+    find_servers(roles: :app).each do |server|
+      run "#{sudo} stop puma app=#{current_path}; true && sleep 1 && rm /var/run/app/web_server.sock; true", hosts: server
+      run "#{sudo} start puma app=#{current_path}", hosts: server
+      run "#{sudo} start sidekiq app=#{current_path} index=0;true", hosts: server
+      run "#{sudo} restart sidekiq app=#{current_path} index=0", hosts: server
+    end
     #run "#{sudo} start puma app=#{current_path} || #{sudo} restart puma app=#{current_path}"
   end
 end
