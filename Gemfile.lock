@@ -120,7 +120,7 @@ GEM
     connection_pool (1.1.0)
     cookiejar (0.3.0)
     dalli (2.6.4)
-    database_cleaner (0.9.1)
+    database_cleaner (1.0.1)
     devise-async (0.7.0)
       devise (>= 2.2)
     diff-lcs (1.2.4)

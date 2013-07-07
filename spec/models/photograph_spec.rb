@@ -16,14 +16,12 @@ describe Photograph do
   end
 
   describe "validations" do
-    let(:user) { User.make }
+    let(:user) { User.make! }
+    let(:photograph) { Photograph.make(user: user) }
 
-    before(:all) do
-      subject.stub(:user).and_return(user)
-    end
+    subject { photograph }
 
-    [:user_id, :image_uid].each do |attr|
-      it { should validate_presence_of(attr) }
-    end
+    it { should validate_presence_of(:user_id) }
+    it { should validate_presence_of(:image_uid) }
   end
 end

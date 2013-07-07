@@ -1,6 +1,8 @@
 require "machinist/active_record"
 
 User.blueprint do
+  name { Faker::Name.name }
+  username { "threepwood_#{sn}" }
   email { Faker::Internet.email }
   password { "password" }
   password_confirmation { "password" }
