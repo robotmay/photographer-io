@@ -1,5 +1,7 @@
 require 'rubygems'
 require 'spork'
+require 'coveralls'
+Coveralls.wear!
 
 Spork.prefork do
   # Loading more in this block will cause your tests to run faster. However,

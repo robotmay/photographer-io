@@ -54,9 +54,10 @@ gem 'pubnub'
 gem 'gabba'
 gem 'stripe'
 gem 'keen'
+gem 'coveralls', require: false
 
 # auth
-gem 'devise', git: 'git://github.com/plataformatec/devise.git', branch: 'rails4'
+gem 'devise', '3.0.0.rc'
 gem 'devise_invitable', git: 'git://github.com/robotmay/devise_invitable.git', branch: 'rails4'
 gem 'devise-async'
 # gem 'devise-scrypt' TODO: Switch to scrypt, gem needs updating
