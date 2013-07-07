@@ -14,7 +14,7 @@ class PagesController < ApplicationController
   end
 
   def terms
-    @terms_html = Rails.cache.fetch([:terms_of_service, 'v1']) do
+    @terms_html = Rails.cache.fetch([:terms_of_service, 'v2']) do
       tos = File.read Rails.root.join("app/views/pages/terms_of_service.md")
       $markdown.render(tos)
     end
