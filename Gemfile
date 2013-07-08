@@ -111,6 +111,13 @@ group :development, :test do
   gem 'guard-spork'
   gem 'guard-rspec'
   gem 'guard-sidekiq'
-  gem 'rb-inotify', '~> 0.9'
   gem 'letter_opener'
+
+  group :linux do
+    gem 'rb-inotify', '~> 0.9'
+  end
+
+  group :darwin do
+    gem 'rb-fsevent'
+  end
 end
