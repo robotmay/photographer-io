@@ -13,7 +13,7 @@ module PhotographsHelper
 
     begin
       raise DeprecatedPhoto if !photograph.has_precalculated_sizes?
-      raise Processing if photograph.processing?
+      raise Processing if photograph.nil? || photograph.processing?
       
       image = case size
       when :homepage
