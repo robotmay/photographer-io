@@ -30,3 +30,11 @@ If you have any questions don't hesitate to ask via Twitter or at <support@photo
 [![Build Status](https://www.travis-ci.org/afternoonrobot/photographer-io.png?branch=master)](https://www.travis-ci.org/afternoonrobot/photographer-io)
 [![Coverage Status](https://coveralls.io/repos/afternoonrobot/photographer-io/badge.png)](https://coveralls.io/r/afternoonrobot/photographer-io)
 [![Code Climate](https://codeclimate.com/github/afternoonrobot/photographer-io.png)](https://codeclimate.com/github/afternoonrobot/photographer-io)
+
+## Contributing
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
