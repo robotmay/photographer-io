@@ -72,7 +72,7 @@ module Account
 
     private
     def collection_params
-      params.require(:collection).permit(:name, :public)
+      params.require(:collection).permit(:name, :visible)
     end
   end
 end

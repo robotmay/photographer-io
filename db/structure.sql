@@ -205,7 +205,7 @@ CREATE TABLE collections (
     id integer NOT NULL,
     user_id integer,
     name character varying(255),
-    public boolean DEFAULT false,
+    visible boolean DEFAULT false,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     shared boolean DEFAULT false,
@@ -977,17 +977,17 @@ CREATE INDEX index_collection_photographs_on_photograph_id ON collection_photogr
 
 
 --
--- Name: index_collections_on_public; Type: INDEX; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE INDEX index_collections_on_public ON collections USING btree (public);
-
-
---
 -- Name: index_collections_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE INDEX index_collections_on_user_id ON collections USING btree (user_id);
+
+
+--
+-- Name: index_collections_on_visible; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_collections_on_visible ON collections USING btree (visible);
 
 
 --
@@ -1340,3 +1340,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130604201040');
 INSERT INTO schema_migrations (version) VALUES ('20130608105451');
 
 INSERT INTO schema_migrations (version) VALUES ('20130608154646');
+
+INSERT INTO schema_migrations (version) VALUES ('20130708120849');
