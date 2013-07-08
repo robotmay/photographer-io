@@ -1,0 +1,14 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: photographerio_development
+  pool: 50
+  username: postgres
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: photographerio_test
+  pool: 5
+  username: postgres
+

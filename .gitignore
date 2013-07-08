@@ -16,7 +16,8 @@
 /tmp
 
 /public/system
-/.env*
+/.env
+/.env.production
 /certs
 /config/database.yml
 /config/deploy.rb
