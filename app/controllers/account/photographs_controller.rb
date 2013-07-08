@@ -23,7 +23,7 @@ module Account
     end
 
     def public
-      @photographs = current_user.photographs.public.order("created_at desc").page(params[:page])
+      @photographs = current_user.photographs.visible.order("created_at desc").page(params[:page])
       authorize! :manage, current_user.photographs.new
       respond_with @photographs do |f|
         f.html { render :index }
