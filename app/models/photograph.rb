@@ -230,7 +230,7 @@ class Photograph < ActiveRecord::Base
   end
 
   def processing?
-    processing || metadata.processing
+    processing || metadata.nil? || metadata.processing
   end
 
   def comments_enabled?
