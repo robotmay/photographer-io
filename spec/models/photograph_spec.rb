@@ -43,6 +43,50 @@ describe Photograph do
         it { should respond_to(image) }
       end
     end
+
+    describe "processing" do
+      describe "#processing?" do
+        let(:metadata) { Metadata.make(photograph: photograph) }
+        before(:each) { photograph.stub(:metadata) { metadata } }
+
+        context "images processing" do
+          before(:each) do
+            metadata.stub(:processing) { false }
+          end
+
+          it "returns true when image sizes have yet to be generated" do
+            photograph.stub(:processing) { true }
+            photograph.processing?.should be_true
+          end
+
+          it "returns false when image sizes are generated" do
+            photograph.stub(:processing) { false }
+            photograph.processing?.should be_false
+          end
+        end
+
+        context "metadata processing" do
+          before(:each) do
+            photograph.stub(:processing) { false }
+          end
+
+          it "returns true when metadata is marked as processing" do
+            metadata.stub(:processing) { true }
+            photograph.processing?.should be_true
+          end
+
+          it "returns true if metadata is missing for whatever reason" do
+            photograph.stub(:metadata) { nil }
+            photograph.processing?.should be_true
+          end
+
+          it "returns false if metadata is present and not processing" do
+            metadata.stub(:processing) { false }
+            photograph.processing?.should be_false
+          end
+        end
+      end
+    end
   end
 
   describe "atomic counters" do
