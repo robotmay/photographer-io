@@ -83,11 +83,11 @@ section id="photographs-show"
       - cache([@photograph, @metadata, :sidebar], expires_in: 5.minutes) do
         = metadata_table_for @photograph, format: :short
 
-        - if @photograph.collections.count > 0
+        - if @photograph.collections.public.count > 0
           h5= t("photographs.collections")
           table
             tbody
-              - @photograph.collections.each do |collection|
+              - @photograph.collections.public.each do |collection|
                 tr
                   td= link_to collection.name, collection_path(collection)
 
