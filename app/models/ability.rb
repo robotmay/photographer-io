@@ -6,9 +6,9 @@ class Ability
     alias_action :create, :read, :update, :destroy, to: :crud
 
     can :read, Category
-    can :read, Collection, public: true
+    can :read, Collection, visible: true
     can :read, Photograph do |photograph|
-      photograph.public?
+      photograph.visible?
     end
     can :read, User
 
@@ -37,7 +37,7 @@ class Ability
     can :read, Notification, user_id: user.id
 
     can :create, Favourite do |favourite|
-      favourite.user == user && favourite.photograph.public? && favourite.photograph.user != user
+      favourite.user == user && favourite.photograph.visible? && favourite.photograph.user != user
     end
     can :destroy, Favourite, user_id: user.id
 

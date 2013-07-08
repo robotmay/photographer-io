@@ -21,8 +21,8 @@ class PagesController < ApplicationController
   end
 
   def sitemap
-    @photographs = Photograph.public.order("created_at DESC").limit(10000)
-    @collections = Collection.public.order("created_at DESC").limit(10000)
+    @photographs = Photograph.visible.order("created_at DESC").limit(10000)
+    @collections = Collection.visible.order("created_at DESC").limit(10000)
     @categories = Category.order("name ASC")
 
     respond_to do |f|
@@ -36,7 +36,7 @@ class PagesController < ApplicationController
 
   def stats
     if ENV['STATS_API_KEY'].present? && params['api_key'] == ENV['STATS_API_KEY']
-      latest_photo = Photograph.public.order("created_at DESC").first
+      latest_photo = Photograph.visible.order("created_at DESC").first
 
       stats = {
         cache: Rails.cache.stats,

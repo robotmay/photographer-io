@@ -21,13 +21,13 @@ class CollectionsController < ApplicationController
 
   def index
     if @user.present?
-      @collections = @user.collections.public
+      @collections = @user.collections.visible
       set_title(@user.name)
     elsif @category.present?
-      @collections = @category.collections.public
+      @collections = @category.collections.visible
       set_title(@category.name)
     else
-      @collections = Collection.public
+      @collections = Collection.visible
     end
 
     @collections = @collections.view_for(current_user).uniq.includes(:user).order("created_at DESC").page(params[:page])

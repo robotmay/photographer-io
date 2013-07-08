@@ -96,8 +96,8 @@ class User < ActiveRecord::Base
 
   after_create :create_default_records
   def create_default_records
-    collections.create(name: "Public", public: true)
-    collections.create(name: "Private", public: false)
+    collections.create(name: "Public", visible: true)
+    collections.create(name: "Private", visible: false)
   end
 
   def upload_count_for_this_month
@@ -166,8 +166,8 @@ class User < ActiveRecord::Base
   end
 
   def profile_background_photo
-    #TODO
-    photographs.public.order("RANDOM()").first
+    #TODO Allow user to choose this
+    photographs.visible.order("RANDOM()").first
   end
 
   class << self

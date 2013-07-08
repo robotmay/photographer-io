@@ -66,11 +66,11 @@ class Photograph < ActiveRecord::Base
   scope :not_processing, -> {
     where(processing: false).joins(:metadata).where(metadata: { processing: false })
   }
-  scope :public, -> {
-    not_processing.joins(:collections).where(collections: { public: true })
+  scope :visible, -> {
+    not_processing.joins(:collections).where(collections: { visible: true })
   }
-  scope :private, -> {
-    joins(:collections).where(collections: { public: false })
+  scope :hidden, -> {
+    joins(:collections).where(collections: { visible: false })
   }
   scope :in_collections, -> { 
     joins(:collections)
@@ -142,7 +142,7 @@ class Photograph < ActiveRecord::Base
   end
 
   def public?
-    collections.where(public: true).count > 0
+    collections.visible.count > 0
   end
 
   def exif
@@ -347,9 +347,9 @@ class Photograph < ActiveRecord::Base
     # Not sure why but combining scopes for this breaks it, so hardcoding it
     def view_for(user)
       if user.nil? || !user.show_nsfw_content
-        where(safe_for_work: true).joins(:collections).where(collections: { public: true }).where(processing: false).includes(:metadata, :user)
+        where(safe_for_work: true).joins(:collections).where(collections: { visible: true }).where(processing: false).includes(:metadata, :user)
       else
-        joins(:collections).where(collections: { public: true }).where(processing: false).includes(:metadata, :user)
+        joins(:collections).where(collections: { visible: true }).where(processing: false).includes(:metadata, :user)
       end
     end
   end
