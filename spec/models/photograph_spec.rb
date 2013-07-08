@@ -25,4 +25,15 @@ describe Photograph do
       it { should validate_presence_of(attr) }
     end
   end
+
+  describe "delegations" do
+    let(:photograph) { Photograph.make }
+    let(:metadata) { Metadata.make(photograph: photograph) }
+
+    subject { photograph }
+
+    [:title, :description, :keywords, :format, :landscape?, :portrait?, :square?].each do |field|
+      it { should respond_to(field) }
+    end
+  end
 end
