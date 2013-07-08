@@ -106,10 +106,11 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'machinist'
   gem 'ffaker'
+  gem 'spork-rails', github: 'sporkrb/spork-rails'
   gem 'guard'
   gem 'guard-spork'
   gem 'guard-rspec'
   gem 'guard-sidekiq'
-  gem 'rb-inotify', '~> 0.8.8'
+  gem 'rb-inotify', '~> 0.9'
   gem 'letter_opener'
 end
