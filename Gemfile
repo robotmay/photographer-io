@@ -1,6 +1,14 @@
 source 'https://code.stripe.com'
 source 'https://rubygems.org'
 
+def darwin_only(require_as)
+  RbConfig::CONFIG['host_os'] =~ /darwin/ && require_as
+end
+
+def linux_only(require_as)
+  RbConfig::CONFIG['host_os'] =~ /linux/ && require_as
+end
+
 ruby "2.0.0"
 
 gem 'rails', '4.0.0'
@@ -10,7 +18,7 @@ gem 'sinatra', '>= 1.3.0', require: nil
 gem 'capistrano'
 gem 'capistrano-foreman'
 gem 'dotenv-rails'
-gem 'foreman' 
+gem 'foreman'
 
 # utilities
 gem 'thread'
@@ -112,12 +120,6 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'guard-sidekiq'
   gem 'letter_opener'
-
-  group :linux do
-    gem 'rb-inotify', '~> 0.9'
-  end
-
-  group :darwin do
-    gem 'rb-fsevent'
-  end
+  gem 'rb-inotify', '~> 0.9', :require => linux_only('rb-inotify')
+  gem 'rb-fsevent', :require => darwin_only('rb-fsevent')
 end
