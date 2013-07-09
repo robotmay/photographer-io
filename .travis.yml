@@ -13,4 +13,4 @@ before_script:
 
 notifications:
   webhooks:
-    - http://afternoon-hubot.herokuapp.com/hubot/travis?room=%23photographer-io
+    - http://afternoon-hubot.herokuapp.com/hubot/travis
