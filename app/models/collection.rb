@@ -42,6 +42,7 @@ class Collection < ActiveRecord::Base
   end
 
   def cover_photo(category = nil)
+    #TODO Should use cover_photo_id if not nil
     Rails.cache.fetch([self, :cover_photo, category]) do
       photos = photographs.safe_for_work.not_processing.order("created_at DESC")
       if category.present?

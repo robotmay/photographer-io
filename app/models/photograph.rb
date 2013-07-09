@@ -141,9 +141,10 @@ class Photograph < ActiveRecord::Base
     [File.dirname(image_uid), "#{name}_#{i.width}x#{i.height}.#{i.format}"].join("/")
   end
 
-  def public?
+  def visible?
     collections.visible.count > 0
   end
+  alias_method :visible?, :public? #TODO: Deprecate usage of public?
 
   def exif
     Photograph.benchmark "Parsing image for EXIF" do
