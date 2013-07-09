@@ -31,6 +31,11 @@ If you have any questions don't hesitate to ask via Twitter or at <support@photo
 [![Coverage Status](https://coveralls.io/repos/afternoonrobot/photographer-io/badge.png)](https://coveralls.io/r/afternoonrobot/photographer-io)
 [![Code Climate](https://codeclimate.com/github/afternoonrobot/photographer-io.png)](https://codeclimate.com/github/afternoonrobot/photographer-io)
 
+## Translations
+There is now an [active translation project](https://www.transifex.com/projects/p/photographerio/) on [Transifex](https://www.transifex.com). Come along and contribute to localising this app for your language, or start up a new translation if it doesn't exist. Support for actually switching the language on Photographer.io is planned for a milestone in the next month.
+
+The default is technically British English, which I feel I should point out before anyone goes switching all the 's' to 'z'!
+
 ## Development
 To run this app you'll likely need a rough understanding of how Rails apps work these days. You will also need:
 
