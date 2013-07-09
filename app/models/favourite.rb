@@ -1,6 +1,4 @@
 class Favourite < ActiveRecord::Base
-  include IdentityCache
-
   belongs_to :user
   belongs_to :photograph, counter_cache: true
   has_many :notifications, as: :notifiable

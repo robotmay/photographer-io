@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  include IdentityCache
   include Redis::Objects
 
   has_many :photographs, dependent: :destroy
@@ -22,10 +21,6 @@ class User < ActiveRecord::Base
   has_many :notifications
   has_many :authorisations
   has_many :old_usernames
-
-  cache_index :username, unique: true
-  cache_has_many :photographs
-  cache_has_many :collections
 
   devise :database_authenticatable, :invitable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :async

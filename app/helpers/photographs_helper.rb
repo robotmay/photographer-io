@@ -32,13 +32,13 @@ module PhotographsHelper
       if match = url.match(/\d+x\d+.jpg/i)
         width, height = match.to_a.last.split(".").first.split("x")
         image_tag url, { 
-          alt: photograph.fetch_metadata.title,
+          alt: photograph.metadata.title,
           width: width,
           height: height
         }.merge(opts)
       else
         image_tag url, {
-          alt: photograph.fetch_metadata.title
+          alt: photograph.metadata.title
         }.merge(opts)
       end
 
@@ -87,7 +87,7 @@ module PhotographsHelper
       image.encode(:jpg, "-quality 90")
     end
 
-    image_tag image.url, alt: photograph.fetch_metadata.title
+    image_tag image.url, alt: photograph.metadata.title
   end
 
   def creator_details_for(photograph)
@@ -110,7 +110,7 @@ module PhotographsHelper
   end
 
   def metadata_values_for_attr(photograph, attr, opts = {})
-    attributes = photograph.fetch_metadata.send(attr)
+    attributes = photograph.metadata.send(attr)
     if opts[:format].present? && opts[:format] == :short
       attributes.keep_if do |key, value|
         SHORT_METADATA_KEYS.include?(key.to_sym)

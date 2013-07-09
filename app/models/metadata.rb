@@ -1,5 +1,4 @@
 class Metadata < ActiveRecord::Base
-  include IdentityCache
   include GPSParser
   include PgSearch
 
