@@ -43,7 +43,7 @@ class Collection < ActiveRecord::Base
 
   def cover_photo(category = nil)
     Rails.cache.fetch([self, :cover_photo, category]) do
-      photos = photographs.safe_for_work.where(processing: false).order("created_at DESC")
+      photos = photographs.safe_for_work.not_processing.order("created_at DESC")
       if category.present?
         photos = photos.where(category_id: category.id)
       end
@@ -55,9 +55,12 @@ class Collection < ActiveRecord::Base
         photos.first
       end
       
-      self.cover_photo_id = photo.id
-      
-      photo
+      if photo.present?
+        self.cover_photo_id = photo.id
+        photo
+      else
+        nil
+      end
     end
   end
 end

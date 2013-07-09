@@ -1,5 +1,10 @@
 require "machinist/active_record"
 
+Collection.blueprint do
+  user
+  name { Faker::Lorem.word }
+end
+
 Metadata.blueprint do
   photograph
   title { Faker::Lorem.sentence }
