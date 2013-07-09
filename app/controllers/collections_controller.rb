@@ -15,7 +15,7 @@ class CollectionsController < ApplicationController
     end
 
     if params[:category_id].present?
-      @category = Category.fetch_by_slug(params[:category_id])
+      @category = Category.find(params[:category_id])
     end
   end
 
@@ -45,7 +45,7 @@ class CollectionsController < ApplicationController
   end
 
   def show
-    @collection = Collection.fetch(params[:id])
+    @collection = Collection.find(params[:id])
     authorize! :read, @collection
     respond_with @collection do |f|
       f.html { redirect_to collection_photographs_path(@collection) }

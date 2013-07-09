@@ -85,8 +85,6 @@ GEM
       activesupport
       builder
       json
-    ar_transaction_changes (0.0.1)
-      activerecord (>= 3.0.0)
     arel (4.0.0)
     atomic (1.1.10)
     bcrypt-ruby (3.1.0)
@@ -105,7 +103,6 @@ GEM
       timers (>= 1.0.0)
     childprocess (0.3.9)
       ffi (~> 1.0, >= 1.0.11)
-    cityhash (0.6.0)
     coderay (1.0.9)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
@@ -196,9 +193,6 @@ GEM
       multi_xml (>= 0.5.2)
     httpauth (0.2.0)
     i18n (0.6.4)
-    identity_cache (0.0.1)
-      ar_transaction_changes (= 0.0.1)
-      cityhash (= 0.6.0)
     intercom-rails (0.2.18)
       activesupport (> 3.0)
     jbuilder (1.0.2)
@@ -473,7 +467,6 @@ DEPENDENCIES
   guard-sidekiq
   guard-spork
   httparty
-  identity_cache
   intercom-rails (~> 0.2.14)
   jbuilder (~> 1.0.1)
   jquery-rails

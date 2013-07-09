@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   respond_to :html
 
   def show
-    @category = Category.fetch_by_slug(params[:id])
+    @category = Category.find(params[:id])
     authorize! :read, @category
 
     path = if request.referer =~ /\/photographs/i

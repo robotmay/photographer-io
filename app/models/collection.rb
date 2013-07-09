@@ -1,12 +1,9 @@
 class Collection < ActiveRecord::Base
-  include IdentityCache
   include Redis::Objects
 
   belongs_to :user
   has_many :collection_photographs
   has_many :photographs, through: :collection_photographs
-
-  cache_belongs_to :user
 
   paginates_per 50
 
@@ -42,6 +39,7 @@ class Collection < ActiveRecord::Base
   end
 
   def cover_photo(category = nil)
+    #TODO Should use cover_photo_id if not nil
     Rails.cache.fetch([self, :cover_photo, category]) do
       photos = photographs.safe_for_work.not_processing.order("created_at DESC")
       if category.present?

@@ -1,3 +1,5 @@
+# Seed data should be safe to run multiple times
+
 licenses = [
   { name: "Attribution", code: "CC BY" },
   { name: "Attribution-ShareAlike", code: "CC BY-SA" },
@@ -8,7 +10,7 @@ licenses = [
 ]
 
 licenses.each do |license|
-  License.find_or_create_by_name_and_code(license[:name], license[:code])
+  License.find_or_create_by(name: license[:name], code: license[:code])
 end
 
 categories = [
@@ -36,9 +38,10 @@ categories = [
   "Ocean",
   "Underwater",
   "Fashion",
-  "Macro"
+  "Macro",
+  "Food"
 ]
 
 categories.each do |category|
-  Category.find_or_create_by_name(category)
+  Category.find_or_create_by(name: category)
 end

@@ -8,7 +8,7 @@ class PhotographsController < ApplicationController
   before_filter :set_parents
   def set_parents
     if params[:collection_id].present?
-      @collection = Collection.fetch(params[:collection_id])
+      @collection = Collection.find(params[:collection_id])
       authorize! :read, @collection
     end
 
@@ -24,7 +24,7 @@ class PhotographsController < ApplicationController
     end
 
     if params[:category_id].present?
-      @category = Category.fetch_by_slug(params[:category_id])
+      @category = Category.find(params[:category_id])
     end
   end
 
@@ -139,7 +139,7 @@ class PhotographsController < ApplicationController
   end
 
   def show
-    @photograph = Photograph.fetch(params[:id])
+    @photograph = Photograph.find(params[:id])
     authorize! :read, @photograph
 
     unless user_signed_in? && current_user == @photograph.user
@@ -154,7 +154,7 @@ class PhotographsController < ApplicationController
   end
 
   def recommend
-    @photograph = Photograph.fetch(params[:id])
+    @photograph = Photograph.find(params[:id])
     authorize! :recommend, @photograph
     @recommendation = current_user.recommendations.find_or_create_by_photograph_id(@photograph.id)
     if @recommendation
