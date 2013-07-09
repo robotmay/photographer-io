@@ -4,7 +4,7 @@
   <title><![CDATA[Category: News | Photographer.io Blog]]></title>
   <link href="http://blog.photographer.io/blog/categories/news/atom.xml" rel="self"/>
   <link href="http://blog.photographer.io/"/>
-  <updated>2013-07-08T00:48:23+01:00</updated>
+  <updated>2013-07-09T23:23:48+01:00</updated>
   <id>http://blog.photographer.io/</id>
   <author>
     <name><![CDATA[Robert May]]></name>
@@ -12,6 +12,19 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Translating Photographer.io]]></title>
+    <link href="http://blog.photographer.io/posts/2013/07/09/translating-photographer-dot-io/"/>
+    <updated>2013-07-09T23:17:00+01:00</updated>
+    <id>http://blog.photographer.io/posts/2013/07/09/translating-photographer-dot-io</id>
+    <content type="html"><![CDATA[<p>Thanks to some hard-working and enthusiastic volunteers, <a href="https://www.transifex.com/projects/p/photographerio/">work has already begun on translating</a> the application into a variety of other languages. Anyone can join in and help translate the site into their favoured language!</p>
+
+<p>I&rsquo;m incredibly grateful to all the effort the translators are putting into this. I built the application from the start with an international audience in mind, and in theory enabling multi-lingual support is straight-forward once the translations are complete. The ability to switch the site language is planned for the next couple of weeks.</p>
+
+<p>If you want to help out then <a href="https://www.transifex.com/projects/p/photographerio/">head on over to the Transifex page</a>. If your language doesn&rsquo;t have an active project yet then be the first to create it!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[We're now Open Source!]]></title>
@@ -32,7 +45,7 @@
 
 <h3>It will improve the quality and security of the site by opening the code to peer review.</h3>
 
-<p>I care a lot about security and code quality, but talking about security and testing those claims are two very different subjects. If you find a security flaw then please get in touch at <a href="&#109;&#97;&#105;&#108;&#x74;&#111;&#x3a;&#115;&#x65;&#x63;&#x75;&#x72;&#x69;&#x74;&#121;&#64;&#112;&#x68;&#111;&#x74;&#x6f;&#x67;&#x72;&#x61;&#x70;&#104;&#101;&#114;&#46;&#x69;&#x6f;">&#x73;&#x65;&#x63;&#x75;&#114;&#x69;&#x74;&#x79;&#x40;&#112;&#104;&#111;&#x74;&#x6f;&#103;&#x72;&#x61;&#x70;&#x68;&#x65;&#114;&#46;&#105;&#111;</a>.</p>
+<p>I care a lot about security and code quality, but talking about security and testing those claims are two very different subjects. If you find a security flaw then please get in touch at <a href="&#x6d;&#x61;&#105;&#108;&#x74;&#x6f;&#x3a;&#115;&#101;&#x63;&#x75;&#114;&#105;&#x74;&#121;&#x40;&#x70;&#104;&#111;&#x74;&#111;&#103;&#114;&#x61;&#112;&#104;&#x65;&#x72;&#46;&#105;&#x6f;">&#x73;&#101;&#99;&#117;&#x72;&#x69;&#x74;&#x79;&#64;&#112;&#x68;&#111;&#116;&#111;&#103;&#114;&#97;&#x70;&#104;&#x65;&#x72;&#46;&#x69;&#111;</a>.</p>
 
 <h3>It&rsquo;s great to finally have a project worth open sourcing.</h3>
 
