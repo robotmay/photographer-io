@@ -103,6 +103,7 @@ GEM
       timers (>= 1.0.0)
     childprocess (0.3.9)
       ffi (~> 1.0, >= 1.0.11)
+    chronic (0.9.1)
     coderay (1.0.9)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
@@ -433,6 +434,9 @@ GEM
       macaddr (~> 1.0)
     warden (1.2.1)
       rack (>= 1.0)
+    whenever (0.8.2)
+      activesupport (>= 2.3.4)
+      chronic (>= 0.6.3)
     with_advisory_lock (0.0.6)
       activerecord (>= 3.0.0)
     yajl-ruby (1.1.0)
@@ -516,4 +520,5 @@ DEPENDENCIES
   thread
   turbolinks
   uglifier (>= 1.0.3)
+  whenever
   zurb-foundation (~> 4.1.6)
