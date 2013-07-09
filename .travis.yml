@@ -10,3 +10,7 @@ services:
 before_script:
   - cp config/database.travis.yml config/database.yml
   - psql -c 'create database photographerio_test;' -U postgres
+
+notifications:
+  webhooks:
+    - http://afternoon-hubot.herokuapp.com/hubot/travis?room=%23photographer-io
