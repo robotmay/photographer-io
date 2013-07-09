@@ -19,7 +19,7 @@ section id="account-dashboard"
             td= current_user.photographs.visible.uniq.count
           tr
             td= t("account.dashboard.statistics.private_photo_count")
-            td= current_user.photographs.private.uniq.count
+            td= current_user.photographs.hidden.uniq.count
           tr
             td= t("account.dashboard.statistics.views")
             td= current_user.photograph_views.to_i
