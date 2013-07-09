@@ -1,6 +1,4 @@
 class CommentThread < ActiveRecord::Base
-  include IdentityCache
-
   belongs_to :user
   belongs_to :threadable, polymorphic: true
   has_many :comments, dependent: :destroy

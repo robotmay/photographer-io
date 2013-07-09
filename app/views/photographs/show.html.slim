@@ -9,26 +9,26 @@
     meta property="og:image:type" content="image/jpeg"
     meta property="og:url" content=photograph_url(@photograph, host: ENV['DOMAIN'])
 
-    - if @photograph.fetch_metadata.title.present?
-      meta property="og:title" content=(@photograph.fetch_metadata.title)
+    - if @photograph.metadata.title.present?
+      meta property="og:title" content=(@photograph.metadata.title)
     - else
       meta property="og:title" content=t("untitled")
 
-    - if @photograph.fetch_metadata.description.present?
-      meta property="og:description" content=(@photograph.fetch_metadata.description)
+    - if @photograph.metadata.description.present?
+      meta property="og:description" content=(@photograph.metadata.description)
 
     -# Twitter
     meta name="twitter:card" content="photo"
     meta name="twitter:image" content=image_url(@photograph.large_image)
     meta name="twitter:url" content=photograph_url(@photograph, host: ENV['DOMAIN'])
 
-    - if @photograph.fetch_metadata.title.present?
-      meta name="twitter:title" content=(@photograph.fetch_metadata.title)
+    - if @photograph.metadata.title.present?
+      meta name="twitter:title" content=(@photograph.metadata.title)
     - else
       meta name="twitter:title" content=""
 
-    - if @photograph.fetch_metadata.description.present?
-      meta name="twitter:description" content=(truncate(@photograph.fetch_metadata.description, length: 200))
+    - if @photograph.metadata.description.present?
+      meta name="twitter:description" content=(truncate(@photograph.metadata.description, length: 200))
 
 section id="photographs-show"
   section class="row"
@@ -54,13 +54,13 @@ section id="photographs-show"
               tr
                 - cache([@photograph, @photograph.metadata, :description]) do
                   td class="text"
-                    - if @photograph.fetch_metadata.has_text?
+                    - if @photograph.metadata.has_text?
                       h4 itemprop="name"
-                        = @photograph.fetch_metadata.title
+                        = @photograph.metadata.title
 
-                      - if @photograph.fetch_metadata.description.present?
+                      - if @photograph.metadata.description.present?
                         div itemprop="description"
-                          = simple_format @photograph.fetch_metadata.description
+                          = simple_format @photograph.metadata.description
 
                 td class="share"
                   - unless user_signed_in? && !current_user.show_social_buttons
@@ -91,10 +91,10 @@ section id="photographs-show"
                 tr
                   td= link_to collection.name, collection_path(collection)
 
-        - if @photograph.fetch_metadata.keywords.size > 0
+        - if @photograph.metadata.keywords.size > 0
           h5= t("photographs.metadata.keywords")
           ul id="photographs-keywords" class="inline-list"
-            - @photograph.fetch_metadata.keywords.each do |keyword|
+            - @photograph.metadata.keywords.each do |keyword|
               li
                 = link_to search_photographs_path(keyword: keyword) do
                   span class="label radius"

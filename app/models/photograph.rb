@@ -1,5 +1,4 @@
 class Photograph < ActiveRecord::Base
-  include IdentityCache
   include Redis::Objects
 
   belongs_to :user, counter_cache: true
@@ -13,13 +12,6 @@ class Photograph < ActiveRecord::Base
   has_many :favourited_by_users, through: :favourites, source: :user
   has_many :comment_threads, as: :threadable
   has_many :comments, through: :comment_threads
-
-  cache_belongs_to :user
-  cache_belongs_to :license
-  cache_belongs_to :category
-  cache_has_one :metadata, embed: true
-  cache_has_many :collections, inverse_name: :photographs
-  cache_has_many :recommendations
 
   delegate :title, :description, :keywords, :format, :landscape?, :portrait?, 
            :square?, to: :metadata
@@ -144,7 +136,7 @@ class Photograph < ActiveRecord::Base
   def visible?
     collections.visible.count > 0
   end
-  alias_method :visible?, :public? #TODO: Deprecate usage of public?
+  alias_method :public?, :visible? #TODO: Deprecate usage of public?
 
   def exif
     Photograph.benchmark "Parsing image for EXIF" do

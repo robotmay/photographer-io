@@ -1,12 +1,9 @@
 class Collection < ActiveRecord::Base
-  include IdentityCache
   include Redis::Objects
 
   belongs_to :user
   has_many :collection_photographs
   has_many :photographs, through: :collection_photographs
-
-  cache_belongs_to :user
 
   paginates_per 50
 

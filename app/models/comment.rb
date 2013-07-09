@@ -1,6 +1,4 @@
 class Comment < ActiveRecord::Base
-  include IdentityCache
-
   belongs_to :user
   belongs_to :comment_thread, touch: true
   has_many :notifications, as: :notifiable
