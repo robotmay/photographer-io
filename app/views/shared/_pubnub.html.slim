@@ -1,0 +1,18 @@
+- if user_signed_in? && $pubnub.subscribe_key.present?
+  = javascript_include_tag "https://pubnub.a.ssl.fastly.net/pubnub-3.5.0.min.js"
+
+  javascript:
+    var pubnub = PUBNUB.init({ 
+      subscribe_key: '#{$pubnub.subscribe_key}',
+      ssl: true
+    });
+
+    function receive(message, envelope, source_channel) {
+      pubnub.events.fire(message.type, message);
+    }
+
+    pubnub.subscribe({
+      channel: '#{current_user.channel_key}',
+      callback: receive 
+    });
+
