@@ -3,7 +3,7 @@ if ENV['S3_ENABLED']
     c.access_key_id = ENV['S3_KEY']
     c.secret_access_key = ENV['S3_SECRET']
     c.bucket = ENV['S3_BUCKET']
-    c.region = "s3-eu-west-1"
+    c.region = ENV['S3_REGION']
   end
 
   # Used for debugging
