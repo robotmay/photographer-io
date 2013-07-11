@@ -296,6 +296,10 @@ en:
         none: "You haven't connected any accounts yet"
 
     collections:
+      default:
+        public: "Public"
+        private: "Private"
+
       delete: "Delete this collection"
       form:
         general: "Collection details"
