@@ -75,7 +75,8 @@ Copy one of those files to .env and populate it:
 
 `cp .env.example .env`
 
-In theory the app will work without S3 enabled, let me know if this isn't the case.
+##### S3 is used in development
+Due to the plugins used for handling uploads, S3 support is required even in development. It's not ideal, but you'll need to fill out those S3 keys in your .env file with details for your S3 bucket.
 
 Now start it up with Foreman:
 
