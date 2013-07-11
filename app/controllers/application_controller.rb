@@ -10,8 +10,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  before_filter do
+  before_filter :google_analytics_identification
+  def google_analytics_identification
     $gabba.identify_user(cookies[:__utma], cookies[:__utmz])
+  end
+
+  before_filter :set_locale
+  def set_locale
+    I18n.locale = params[:locale] || (user_signed_in? ? current_user.locale : I18n.default_locale)
   end
 
   rescue_from CanCan::AccessDenied do |exception|
@@ -20,6 +26,12 @@ class ApplicationController < ActionController::Base
 
   def not_found
     raise ActionController::RoutingError.new('Not Found')
+  end
+
+  def default_url_options(opts = {})
+    opts.merge({
+      locale: I18n.locale
+    })
   end
 
   protected

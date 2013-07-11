@@ -650,7 +650,8 @@ CREATE TABLE users (
     receive_notification_emails boolean DEFAULT true,
     notify_favourites boolean DEFAULT true,
     show_social_buttons boolean DEFAULT true,
-    username character varying(255)
+    username character varying(255),
+    locale character varying(255) DEFAULT 'en'::character varying
 );
 
 
@@ -1342,3 +1343,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130608105451');
 INSERT INTO schema_migrations (version) VALUES ('20130608154646');
 
 INSERT INTO schema_migrations (version) VALUES ('20130708120849');
+
+INSERT INTO schema_migrations (version) VALUES ('20130711162130');
