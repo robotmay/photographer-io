@@ -117,12 +117,111 @@ en:
 
   about:
     title: "About Photographer.io"
-    table:
+    subtitle: "Some of the reasons why we think you should join us:"
+    free:
+      title: "It's free and fair"
+      body: >
+        Free accounts aren't treated like secondary citizens here. Everyone has 
+        equal input into how the site works and the direction we take.
+        If you have any suggestions, bug reports, or other feedback then we'd
+        love to hear it! Send it over to
+        <a href="mailto:support@photographer.io">support@photographer.io</a>.
+    
+    open_source:
+      title: "We're open source"
+      body: >
+        Our code is open source and available under an MIT license 
+        <a href='https://github.com/afternoonrobot/photographer-io'>on GitHub</a>. 
+        Help fix bugs, add new features, and make this the community you want it to be.
+    
+    advertising:
+      title: "No advertising"
+      body: >
+        We hate advertising, which is why you'll <b>never</b> see it on 
+        Photographer.io. The site will soon be supported by subscriptions, and we
+        may use affiliate links for camera gear etc in future; but we will never run
+        adverts.
+    
+    money:
+      title: "We make money in an obvious way"
+      body: >
+        There's no hocus pocus here. Subscriptions will be coming soon (and at a
+        very reasonable price), and these are how the site will be funded. There
+        are no investors, no advertisers, and no selling of your data.
+
+    likes:
+      title: "Likes are dead, long live the Recommendation"
+      body: >
+        We don't use 'Likes' on Photographer.io. Instead every user can make a
+        maximum of %{quota} recommendations per day.
+        A recommendation helps promote the photo on our 
+        <a href="/photographs/recommended">recommended page</a> but will soon
+        recommend the photo to your followers too.
+
+
+        Recommendations should be given out for photos which you think are great,
+        not necessarily the ones you love the most; that's what Favourites are for!
+
+    comments:
+      title: "Our commenting system is different"
+      body: >
+        Comments on Photographer.io work more like threads on a traditional 
+        message board/forum; you choose a subject for people to comment on. This
+        is aimed to help increase the amount of useful feedback you get, rather
+        than "OMG LOVE IT". Comments are only visible to the creator and the photo
+        owner by default (and the parent comment's owner if it's a reply). This
+        means that you get to choose which comments appear on your photos. They
+        are <i>your</i> photos after all; shouldn't you choose what appears
+        alongside them?
+
+    privacy:
+      title: "Privacy and security are really important to us"
+      body: >
+        We take privacy and security seriously. The entire site and all related
+        services (such as image hosting) are served over SSL, passwords are stored
+        using <a href="http://bcrypt.sourceforge.net/">bcrypt</a>, and we respond
+        to any security issues immediately.
+
+
+        Privacy: <a href="#{t('privacy_policy')}">Check out our privacy policy</a>
+        or <a href="mailto:privacy@photographer.io">email us with any queries</a>.
+        
+        Security: If you have any security issues or bugs to report, please email
+        them to 
+        <a href="mailto:security@photographer.io">security@photographer.io</a>.
+  
+    compare:
+      title: "How do we compare to other photo communities?"
+
+      flickr:
+        title: "Flickr"
+        uploads: "1TB"
+        albums: "Unlimited"
+        advertising: "Yes"
+        ssl: "Optional"
+      500px:
+        title: "500px"
+        uploads: "20 photos per week"
+        albums: "Limited"
+        advertising: "No"
+        ssl: "No"
       photographerio:
         title: "Photographer.io"
-        usage: "100 photos per month"
-        adverts: "Never"
-        security: "Always served over SSL"
+        uploads: "100 photos per month *"
+        albums: "Unlimited"
+        advertising: "No"
+        ssl: "Always"
+      free_accounts: "Free Accounts"
+      uploads: "Photo uploads"
+      albums: "Albums/Sets/Collections"
+      advertising: "Advertising"
+      else: "Everything Else"
+      ssl: "Site-wide SSL"
+      notes: >
+        * Can be increased by inviting your friends! Details are in your 
+        account page.
+
+    interested: "Interested? Create your free account!"
     sign_up: "Create your account"
 
   account:
@@ -396,6 +495,7 @@ en:
       all: "All"
     metadata:
       title: "Photograph Details"
+      details: "Details"
       keywords: "Keywords"
       camera: "Camera"
       creator: "Creator"
