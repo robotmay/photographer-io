@@ -7,4 +7,9 @@ class Category < ActiveRecord::Base
   friendly_id :name, use: :slugged
 
   validates :name, presence: true
+
+  def name
+    name = read_attribute(:name)
+    I18n.t(name.downcase.underscore, scope: [:categories], default: name)
+  end
 end

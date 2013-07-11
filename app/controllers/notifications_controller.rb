@@ -18,7 +18,7 @@ class NotificationsController < ApplicationController
     when "Favourite"
       photograph_path(@notification.notifiable.photograph)
     else
-      root_path
+      home_path
     end
 
     @notification.mark_as_read

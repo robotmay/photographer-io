@@ -2,7 +2,7 @@ nav id="layout-nav" class="top-bar"
   ul class="title-area"
     li class="name"
       h1 id="logo"
-        = link_to t("site_name"), root_path
+        = link_to t("site_name"), home_path
 
     li class="toggle-topbar menu-icon"
       = link_to "#" do
@@ -10,7 +10,7 @@ nav id="layout-nav" class="top-bar"
 
   section class="top-bar-section"
     ul class="left"
-      - cache([:nav, :explore, current_user, request.fullpath], expires_in: 10.minutes) do
+      - cache([I18n.locale, :nav, :explore, current_user, request.fullpath], expires_in: 10.minutes) do
         li class="has-dropdown"
           = link_to t("nav.explore"), explore_collections_path, active_on: /\/explore/i
           ul class="dropdown explore-menu"

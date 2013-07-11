@@ -1,4 +1,4 @@
-- cache(:about, expires_in: 10.minutes) do
+- cache([I18n.locale, :about], expires_in: 10.minutes) do
   section id="pages-about"
     header class="row"
       div class="large-12 columns"
@@ -7,128 +7,84 @@
     div class="row"
       section class="points small-12 large-8 large-offset-2 columns"
         header
-          h2= "Some of the reasons why we think you should join us:"
+          h2= t("about.subtitle")
 
         article
-          h3= "It's free and fair"
-          p
-            | Free accounts aren't treated like secondary citizens here. Everyone has 
-              equal input into how the site works and the direction we take.
-              If you have any suggestions, bug reports, or other feedback then we'd
-              love to hear it! Send it over to
-              <a href="mailto:support@photographer.io">support@photographer.io</a>.
+          h3= t("about.free.title")
+          = simple_format t("about.free.body")
 
         article
-          h3= "We're open source"
-          p
-            | Our code is open source and available under an MIT license #{link_to 'on GitHub', 'https://github.com/afternoonrobot/photographer-io'}. Help fix bugs, add new features, and
-              make this the community you want it to be.
+          h3= t("about.open_source.title")
+          = simple_format t("about.open_source.body")
 
         article
-          h3= "No advertising"
-          p
-            | We hate advertising, which is why you'll <b>never</b> see it on 
-              Photographer.io. The site will soon be supported by subscriptions, and we
-              may use affiliate links for camera gear etc in future; but we will never run
-              adverts.
+          h3= t("about.advertising.title")
+          = simple_format t("about.advertising.body")
 
         article
-          h3= "We make money in an obvious way"
-          p
-            | There's no hocus pocus here. Subscriptions will be coming soon (and at a
-              very reasonable price), and these are how the site will be funded. There
-              are no investors, no advertisers, and no selling of your data.
+          h3= t("about.money.title")
+          = simple_format t("about.money.body")
 
         article
-          h3= "Likes are dead, long live the Recommendation"
-          p
-            | We don't use 'Likes' on Photographer.io. Instead every user can make a
-              maximum of #{ISO[:defaults][:recommendation_quota]} recommendations per day.
-              A recommendation helps promote the photo on our 
-              <a href="/photographs/recommended">recommended page</a> but will soon
-              recommend the photo to your followers too.
-
-          p
-            | Recommendations should be given out for photos which you think are great,
-              not necessarily the ones you love the most; that's what Favourites are for!
+          h3= t("about.likes.title")
+          = simple_format t("about.likes.body", quota: ISO[:defaults][:recommendation_quota])
+        article
+          h3= t("about.comments.title")
+          = simple_format t("about.comments.body")
 
         article
-          h3= "Our commenting system is different"
-          p
-            | Comments on Photographer.io work more like threads on a traditional 
-              message board/forum; you choose a subject for people to comment on. This
-              is aimed to help increase the amount of useful feedback you get, rather
-              than "OMG LOVE IT". Comments are only visible to the creator and the photo
-              owner by default (and the parent comment's owner if it's a reply). This
-              means that you get to choose which comments appear on your photos. They
-              are <i>your</i> photos after all; shouldn't you choose what appears
-              alongside them?
+          h3= t("about.privacy.title")
+          = simple_format t("about.privacy.body")
 
         article
-          h3= "Privacy and security are really important to us"
-          p
-            | We take privacy and security seriously. The entire site and all related
-              services (such as image hosting) are served over SSL, passwords are stored
-              using <a href="http://bcrypt.sourceforge.net/">bcrypt</a>, and we respond
-              to any security issues immediately.
-          p
-            | Privacy: <a href="#{t('privacy_policy')}">Check out our privacy policy</a>
-              or <a href="mailto:privacy@photographer.io">email us with any queries</a>.
-            br
-            | Security: If you have any security issues or bugs to report, please email
-              them to 
-              <a href="mailto:security@photographer.io">security@photographer.io</a>.
-
-        article
-          h3= "How do we compare to other photo communities?"
+          h3= t("about.compare.title")
 
           table
             thead
               tr
                 th
-                th= "Flickr"
-                th= "500px"
-                th= "Photographer.io"
+                th= t("about.compare.flickr.title")
+                th= t("about.compare.500px.title")
+                th= t("about.compare.photographerio.title")
             tbody
               thead
                 tr
                   th colspan="4"
-                    = "Free Accounts"
+                    = t("about.compare.free_accounts")
               tr
-                th= "Photo uploads"
-                td= "1TB"
-                td= "20 photos per week"
-                td= "100 photos per month *"
+                th= t("about.compare.uploads")
+                td= t("about.compare.flickr.uploads")
+                td= t("about.compare.500px.uploads")
+                td= t("about.compare.photographerio.uploads")
 
               tr
-                th= "Albums/Sets/Collections"
-                td= "Unlimited"
-                td= "Limited"
-                td= "Unlimited"
+                th= t("about.compare.albums")
+                td= t("about.compare.flickr.albums")
+                td= t("about.compare.500px.albums")
+                td= t("about.compare.photographerio.albums")
+
+              tr
+                th= t("about.compare.advertising")
+                td= t("about.compare.flickr.advertising")
+                td= t("about.compare.500px.advertising")
+                td= t("about.compare.photographerio.advertising")
 
               thead
                 tr
                   th colspan="4"
-                    = "Everything Else"
+                    = t("about.compare.else")
               tr
-                th= "Advertising"
-                td= "Yes"
-                td= "No"
-                td= "Never"
-              tr
-                th= "Site-wide SSL"
-                td= "Optional"
-                td= "No"
-                td= "Always"
+                th= t("about.compare.ssl")
+                td= t("about.compare.flickr.ssl")
+                td= t("about.compare.500px.ssl")
+                td= t("about.compare.photographerio.ssl")
                 
           aside class="notes"
-            p
-              | * Can be increased by inviting your friends! Details are in your 
-                account page.
+            = simple_format t("about.compare.notes")
 
         article class="sign-up"
           header
-            h3= "Interested? Create your free account!"
+            h3= t("about.interested")
 
           div class="button-container"
             = link_to t("about.sign_up"), new_user_registration_path, class: "button success large radius"
