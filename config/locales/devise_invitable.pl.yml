@@ -1,0 +1,17 @@
+pl:
+  devise:
+    invitations:
+      send_instructions: 'Wysłano zaproszenie na adres %{email}.'
+      invitation_token_invalid: 'Podany identyfikator zaproszenia jest nieprawidłowy!'
+      updated: 'Udało się ustawić hasło. Jesteś teraz zalogowany.'
+      no_invitations_remaining: "Nie ma więcej zaproszeń"
+      invitation_removed: 'Twoje zaproszenie zostało usunięte.'
+      new:
+        header: "Wyślij zaproszenie"
+        submit_button: "Wyślij zaproszenie"
+      edit:
+        header: "Ustaw swoje hasło"
+        submit_button: "Ustaw moje hasło"
+    mailer:
+      invitation_instructions:
+        subject: 'Znajomy zaprosił cię do serwisu Photographer.io'
