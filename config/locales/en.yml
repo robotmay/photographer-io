@@ -26,6 +26,11 @@ en:
     twitter_account: "@photographer_io"
   privacy_policy: "https://www.iubenda.com/privacy-policy/288645"
 
+  locales:
+    en: "English"
+    nl: "Nederlands"
+    pl: "Polski"
+
   metadata:
     description: >
       Photographer.io is a new community for photography enthusiasts. Come join

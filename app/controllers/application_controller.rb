@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_locale
   def set_locale
-    I18n.locale = params[:locale] || I18n.default_locale
+    I18n.locale = params[:locale] || (user_signed_in? ? current_user.locale : I18n.default_locale)
   end
 
   rescue_from CanCan::AccessDenied do |exception|
