@@ -140,14 +140,14 @@ nl:
         foto's; zou jij niet moeten bepalen wat er mee gebeurt?
     privacy:
       title: "Privacy en veiligheid zijn oor ons van belang"
-      body: >+
+      body: >
         Wij nemen privacy en veiligheid heel serieus. De volledige site en gerelateerde
         diensten (zoals de hosting van beeldmateriaal) gebeurt over SSL, wachtwoorden
         zijn versleuteld met <a href="http://bcrypt.sourceforge.net/">bcrypt</a> opgeslagen,
         en we reageren onmiddelijk op beveiligings problemen.
 
 
-        Privacy: <a href="#{t('privacy_policy')}">Bekijk ons privacy beleid</a> of
+        Privacy: <a href="https://www.iubenda.com/privacy-policy/288645">Bekijk ons privacy beleid</a> of
         <a href="mailto:privacy@photographer.io">Stuur een email met je vragen</a>.
 
         Veilighied: Heb je vragen of meldingen met betrekking tot de beveiliging,
