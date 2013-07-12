@@ -130,7 +130,7 @@ pl:
     advertising:
       title: "Nie wyświetlamy reklam"
       body: >
-        Nienawidzimy reklam i dlatego <b>nigdy</> ich nie zobaczysz na Photographer.io.
+        Nienawidzimy reklam i dlatego <b>nigdy</b> ich nie zobaczysz na Photographer.io.
         Ten serwis będzie wkrótce finansowany przez subskrypcje i możemy kiedyś użyć
         zaprzyjaźnionych odnośników do sprzętu fotograficznego, ale nigdy nie wprowadzimy
         reklam.
@@ -143,10 +143,43 @@ pl:
         danych.
     likes:
       title: "Umarły polubienia, niech żyją rekomandacje"
+      body: >
+        Na Photographer.io nie używamy "lajków". Zamiast tego każdy użytkownik może
+        wystawić maksymalnie %{quota} rekomendacji dziennie. Rekomendacja pomaga promować
+        zdjęcie na naszej  <a href="/photographs/recommended">stronie polecanych prac</a>,
+        ale wkrótce będzie także polecać zdjęcie użytkownikom, którzy cię śledzą w
+        tym serwisie.
+
+
+        Rekomendacje powinny być wystawiane zdjęciom, które uważasz za świetne, a
+        nie koniecznie tym, które najbardziej lubisz, bo do tego z kolei służy oznaczanie
+        jako ulubione!
     comments:
       title: "Nasz system komentarzy jest inny"
+      body: >
+        Komentarze na  Photographer.io działają bardziej jak wątki na tradycyjnych
+        forach internetowych; ty wybierasz na jaki temat chcesz usłyszeć komentarze.
+        Ma to pomóc zwiększyć liczbę użytecznych informacji zwrotnych, zamiast "SUPER
+        FOTA". Komentarze są domyślnie widoczne tylko dla komentującego i właściciela
+        zdjęcia (oraz poprzednich autorów w wątku, jeśli to odpowiedź). Oznacza to,
+        że samodzielnie wybierasz, które komentarze pod zdjęciem będą wyświetlane.
+        Ostatecznie to <i>twoje</i> zdjęcia; dlaczego nie miałbyś decydować co widać
+        wraz z nimi?
     privacy:
       title: "Prywatność i bezpieczeństwo są dla nas naprawdę ważne"
+      body: >
+        Bierzemy prywatność i bezpieczeństwo na serio. Cały serwis i powiązane usługi
+        (takie jak hosting obrazów) są serwowane łączami SSL, hasła są przechowywane
+        za pomocą <a href="http://bcrypt.sourceforge.net/">bcrypt</a>, a na wszelkie
+        luki bezpieczeństwa odpowiadamy natychmiast.
+
+
+        Prywatność: <a href="https://www.iubenda.com/privacy-policy/288645">sprawdź
+        naszą politykę prywatności</a> lub <a href="mailto:privacy@photographer.io">wyślij
+        nam e-mail z pytaniami</a>.
+
+        Bezpieczeństwo: jeśli masz jakieś problemy z bezpieczeństwem lub chcesz zgłosić
+        błędy, wyślij e-mail na adres <a href="mailto:security@photographer.io">security@photographer.io</a>.
     compare:
       title: "Jak wypadamy w porównaniu z innymi serwisami fotograficznymi?"
       flickr:
@@ -197,8 +230,8 @@ pl:
     dashboard:
       title: "Twój panel użytkownika"
       blurb: >
-        Jako członek możesz wysyłać i organizować swoje zdjęcia przed ich publikacją
-        na profilu publicznym.
+        Jako członek serwisu możesz wysyłać i organizować swoje zdjęcia przed ich
+        publikacją na profilu publicznym.
       statistics:
         title: "Statystyki"
         views: "Liczba wszystkich odsłon twoich zdjęć"
