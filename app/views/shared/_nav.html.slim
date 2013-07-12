@@ -89,20 +89,18 @@ nav id="layout-nav" class="top-bar"
           ul class="dropdown"
             = link_to t("nav.dashboard"), account_root_path, active_on: true, \
               active_wrapper: :li
-            = link_to t("nav.photographs"), account_photographs_path, active_on: true, \
-              active_wrapper: :li
 
             = link_to t("nav.edit_account"), edit_user_registration_path, \
               active_on: true, active_wrapper: :li
 
-            = link_to t("nav.invite"), new_user_invitation_path, active_on: true, \
-              active_wrapper: :li
-
             = link_to t("nav.profile"), short_user_path(current_user.username), active_on: true, \
               active_wrapper: :li
 
+            = link_to t("nav.photographs"), account_photographs_path, active_on: true, \
+              active_wrapper: :li
+
             = link_to t("nav.favourites"), favourites_photographs_path, active_on: true, \
-            active_wrapper: :li
+              active_wrapper: :li
 
             li= link_to t("nav.sign_out"), destroy_user_session_path, method: :delete
 
