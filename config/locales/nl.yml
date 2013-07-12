@@ -21,6 +21,10 @@ nl:
     twitter_account: "@photographer_io"
     github: "GitHub"
   privacy_policy: "https://www.iubenda.com/privacy-policy/288645"
+  locales:
+    en: "Engels"
+    nl: "Nederlands"
+    pl: "Pools"
   metadata:
     description: >
       Photographer.io is een nieuwe gemeenschap voor fotografie liefhebbers. Word
@@ -83,12 +87,102 @@ nl:
     sign_up: "Maak je gratis account aan"
   about:
     title: "Over Photographer.io"
-    table:
+    subtitle: "Een paar redenen om je bij ons aan te sluiten:"
+    free:
+      title: "Het is gratis en eerlijk"
+      body: >
+        Gratis accounts worden hier niet als tweederangs burgers behandeld. Iedereen
+        heeft evenveel inspraak in het werken van de site en de richten die we in
+        gaan. Als je suggesties, foutmeldingen, of andere reacties hebt dan horen
+        we dat graag! Stuur deze naar <a href="mailto:support@photographer.io">support@photographer.io</a>.
+    open_source:
+      title: "Wij zijn Open Source"
+      body: >
+        Onze broncode is open source en verkrijgbaar onder een MIT licentie op  <a
+        href='https://github.com/afternoonrobot/photographer-io'>on GitHub</a>. Help
+        met bug fixes, voeg nieuwe opties toe, en maak dit de gemeenschap die je hebben
+        wilt.
+    advertising:
+      title: "Geen advertenties"
+      body: >
+        Wij haten reclames, daarom zul je deze ook <b>nooit</b> zien op Photograper.io.
+        De site zal binnenkort ondersteund worden door abonnementen, en we zullen
+        mogelijk gebruik maken van affiliate links voor camera aperatuur etc. in de
+        toekomst; maar we zullen nooit advertenties op de site laten zien.
+    money:
+      title: "We verdienen ons geld op een duidelijke manier"
+      body: >
+        Er is hier geen hocus pocus. Abonnementen zullen binnenkort ingevoerd worden
+        (met zeer redelijke bedragen), en dat is de manier waarop de site zal worden
+        gefinancierd. Er zijn geen investeerders, geen adverteerders, en geen verkoop
+        van jouw gegevens.
+    likes:
+      title: "Likes zijn dood, lang leve de Aanbevelingen"
+      body: >
+        Wij gebruiken geen 'Likes' op Photographer.io. In plaats daar van kan elke
+        gebruiker een maximum van %{quota} aanbevelingen per dag doen. Een aanbeveling
+        helpt de foto te promoten op onze <a href="/photographs/recommended"> aanbevolen
+        pagina</a> maar zal binnenkort de foto ook aan je volgers aanbevelen.
+
+
+        Aanbevelingen zijn bedoelt voor foto's die je geweldig vind, maar niet noodzakelijk
+        de foto's die je mooi vind; daar is de Favorieten lijst voor!
+    comments:
+      title: "Ons commentaar systeem is anders"
+      body: >
+        Commentaar op Photographer.io werken meer als draden op een traditioneel bulletin
+        bord/forum; Je kiest een onderwerp waar mensen op kunnen reageren. Dit is
+        bedoelt om de hoeveelheid bruikbare reacties te vergroten, in tegenstelling
+        tot "OMG LOVE IT". Reacties zijn alleen zichtbaar voor de persoon die de reactie
+        heeft geplaatst en de eigenaar van de foto (en de oorspronkelijke reactie
+        eigenaar, als het een antwoord op een reactie is). Je kunt dus zelf bepalen
+        welke reacties er zichtbaar zijn op je foto's. Het zijn ten slotte <i>jouw</i>
+        foto's; zou jij niet moeten bepalen wat er mee gebeurt?
+    privacy:
+      title: "Privacy en veiligheid zijn oor ons van belang"
+      body: >+
+        Wij nemen privacy en veiligheid heel serieus. De volledige site en gerelateerde
+        diensten (zoals de hosting van beeldmateriaal) gebeurt over SSL, wachtwoorden
+        zijn versleuteld met <a href="http://bcrypt.sourceforge.net/">bcrypt</a> opgeslagen,
+        en we reageren onmiddelijk op beveiligings problemen.
+
+
+        Privacy: <a href="#{t('privacy_policy')}">Bekijk ons privacy beleid</a> of
+        <a href="mailto:privacy@photographer.io">Stuur een email met je vragen</a>.
+
+        Veilighied: Heb je vragen of meldingen met betrekking tot de beveiliging,
+        stuur dan een email aan   <a href="mailto:security@photographer.io">security@photographer.io</a>.
+
+    compare:
+      title: "Hoe staan wij in vergelijking met andere gemeenschappen?"
+      flickr:
+        title: "Flickr"
+        uploads: "1TB"
+        albums: "Ongelimiteerd"
+        advertising: "Ja"
+        ssl: "Optioneel"
+      500px:
+        title: "500px"
+        uploads: "20 foto's per week"
+        albums: "Gelimiteerd"
+        advertising: "Nee"
+        ssl: "Nee"
       photographerio:
         title: "Photographer.io"
-        usage: "100 foto's per maand"
-        adverts: "Nooit"
-        security: "Altijd over SSL"
+        uploads: "100 foto's per maand *"
+        albums: "Ongelimiteerd"
+        advertising: "Nee"
+        ssl: "Altijd"
+      free_accounts: "Gratis Accounts"
+      uploads: "Foto uploads"
+      albums: "Albums/Sets/Collecties"
+      advertising: "Advertenties"
+      else: "De rest"
+      ssl: "SSL over de gehele site"
+      notes: >
+        * Kan verhoogd worden door je vrienden uit te nodigen! Details vind je in
+        je account pagina.
+    interested: "Geïnteresseerd? Maak je gratis account aan!"
     sign_up: "Maak je account aan"
   account:
     nav:
@@ -154,6 +248,9 @@ nl:
         created_at: "Verbonden op "
         none: "Je hebt nog geen accounts verbonden"
     collections:
+      default:
+        public: "Publiek"
+        private: "Prive"
       delete: "Verwijder deze collectie"
       form:
         general: "Collectie details"
@@ -323,6 +420,7 @@ nl:
       all: "Alle"
     metadata:
       title: "Foto Details"
+      details: "Details"
       keywords: "Trefwoorden"
       camera: "Camera"
       image: "Beeld"
