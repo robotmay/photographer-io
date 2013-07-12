@@ -1,0 +1,58 @@
+pl:
+  devise:
+    confirmations:
+      confirmed: "Twoje konto zostało potwierdzone. Jesteś teraz zalogowany."
+      send_instructions: "W ciągu kilku minut otrzymasz wiadomość e-mail z instrukcją jak potwierdzić twoje konto."
+      send_paranoid_instructions: "Jeśli twój adres e-mail istnieje w naszej bazie, w ciągu kilku minut otrzymasz wiadomość e-mail z instrukcją jak potwierdzić twoje konto."
+    failure:
+      already_authenticated: " Jesteś teraz zalogowany."
+      inactive: "Twoje konto nie zostało jeszcze aktywowane."
+      invalid: "Nieprawidłowy adres e-mail lub hasło."
+      invalid_token: "Nieprawidłowy identyfikator uwierzytelnienia."
+      locked: "Twoje konto zostało zablokowane."
+      not_found_in_database: "Nieprawidłowy adres e-mail lub hasło."
+      timeout: "Twoja sesja wygasła, aby kontynuować zaloguj się ponownie."
+      unauthenticated: "Aby przejść dalej musisz się zarejestrować lob zalogować."
+      unconfirmed: "Aby przejść dalej musisz potwierdzić swoje konto."
+    mailer:
+      confirmation_instructions:
+        subject: "Instrukcje potwierdzania konta"
+      reset_password_instructions:
+        subject: "Instrukcje odzyskiwania hasła"
+      unlock_instructions:
+        subject: "Instrukcje odblokowania konta"
+    omniauth_callbacks:
+      failure: "Nieudane uwierzytelnienie z konta %{kind}. Przyczyna: \"%{reason}\"."
+      success: "Udane uwierzytelnienie z konta %{kind}."
+    passwords:
+      no_token: "Nie możesz wejść na tę stronę inaczej niż z wiadomości e-mail dotyczącej odzyskiwania hasła. Jeśli wchodzisz poprzez tę wiadomość upewnij się, że używasz pełnego adresu URL podanego w tej wiadomości."
+      send_instructions: "W ciągu kilku minut otrzymasz wiadomość e-mail z instrukcją jak ustawić nowe hasło."
+      send_paranoid_instructions: "Jeśli twój adres e-mail istnieje w naszej bazie, w ciągu kilku minut otrzymasz wiadomość e-mail z odnośnikiem do odzyskiwania hasła."
+      updated: "Udało się zmienić hasło. Jesteś teraz zalogowany."
+      updated_not_active: "Zmiana twojego hasła udała się."
+    registrations:
+      destroyed: "Żegnaj! Twoje konto zostało anulowane. Mamy nadzieję, że wkrótce znów nas odwiedzisz."
+      signed_up: "Witaj! Twoje logowanie powiodło się."
+      signed_up_but_inactive: "Zalogowałeś się prawidłowo, ale nie możemy cię wpuścić dalej, ponieważ twoje konto nie zostało jeszcze aktywowane."
+      signed_up_but_locked: "Zalogowałeś się prawidłowo, ale nie możemy cię wpuścić dalej, ponieważ twoje konto zostało zablokowane."
+      signed_up_but_unconfirmed: "Na twój adres e-mail została wysłana wiadomość z odnośnikiem potwierdzającym konto. Aby aktywować konto, kliknij na otrzymany odnośnik."
+      update_needs_confirmation: "Twoje konto zostało zaktualizowane, ale musimy zweryfikować twój nowy adres e-mail. Aby to zrobić sprawdź swoje konto pocztowe i kliknij na odnośnik potwierdzenia."
+      updated: "Aktualizacja ustawień twojego konta udała się."
+    sessions:
+      signed_in: "Logowanie udało się."
+      signed_out: "Wylogowanie udało się."
+    unlocks:
+      send_instructions: "W ciągu kilku minut otrzymasz wiadomość e-mail z instrukcją jak odblokować twoje konto."
+      send_paranoid_instructions: "Jeśli twój adres e-mail istnieje w naszej bazie, w ciągu kilku minut otrzymasz wiadomość e-mail z instrukcją jak odblokować twoje konto."
+      unlocked: "Udało się odblokować twoje konto. Aby przejść dalej zaloguj się."
+  errors:
+    messages:
+      already_confirmed: "jest już potwierdzone, teraz spróbuj się zalogować"
+      confirmation_period_expired: "musi zostać potwierdzone w czasie %{period}, wyślij nową prośbę o potwierdzenie"
+      expired: "wygasło, wyślij nową prośbę o potwierdzenie"
+      not_found: "nie znaleziono"
+      not_locked: "nie zostało zablokowane"
+      not_saved:
+        one: "1 błąd nie pozwala zapisać %{resource}:"
+        few: "%{count} błędy nie pozwalają zapisać %{resource}:"
+        other: "%{count} błędów nie pozwala zapisać %{resource}:"

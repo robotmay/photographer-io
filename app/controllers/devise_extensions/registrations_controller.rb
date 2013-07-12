@@ -27,7 +27,7 @@ class DeviseExtensions::RegistrationsController < Devise::RegistrationsControlle
   end
 
   def after_update_path_for(resource)
-    edit_user_registration_path
+    edit_user_registration_path(locale: resource.locale)
   end
 
   private
@@ -38,7 +38,7 @@ class DeviseExtensions::RegistrationsController < Devise::RegistrationsControlle
                                    :show_location_data, :show_nsfw_content, 
                                    :default_license_id, :website_url, :biography,
                                    :receive_notification_emails, :notify_favourites,
-                                   :show_social_buttons, :username)
+                                   :show_social_buttons, :username, :locale)
   end
 
   def configure_permitted_parameters

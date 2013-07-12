@@ -1,0 +1,57 @@
+nl:
+  devise:
+    confirmations:
+      confirmed: "Je account is bevestigd. Je bent nu aangemeld."
+      send_instructions: "Je ontvangt binnen een paar minuten een email met instructies om je account te bevestigen."
+      send_paranoid_instructions: "Indien jouw email adres voorkomt in onze database, ontvang je binnen een paar minuten een email met instructies om je account te bevestigen."
+    failure:
+      already_authenticated: "Je bent al aangemeld."
+      inactive: "Je account is not niet geactiveerd."
+      invalid: "Ongeldig email of wachtwoord."
+      invalid_token: "Ongeldig authenticatie token."
+      locked: "Je account is geblokeerd."
+      not_found_in_database: "Ongeldig email of wachtwoord."
+      timeout: "Je sessie is verlopen, meld je opnieuw aan om verder te gaan."
+      unauthenticated: "Je moet je aanmelden of inschrijven voordat je verder kunt."
+      unconfirmed: "Je moet je account bevestigen voordat je verder kunt."
+    mailer:
+      confirmation_instructions:
+        subject: "Bevestigings instructies"
+      reset_password_instructions:
+        subject: "Wachtwoord reset instructies"
+      unlock_instructions:
+        subject: "Deblokkeer instructies"
+    omniauth_callbacks:
+      failure: "Jouw niet kunnen verifiëren van %{kind} omdate \"%{reason}\"."
+      success: "Geverifieerd van %{kind} account."
+    passwords:
+      no_token: "Je kunt niet op deze pagina komen dan via een wachtwoord reset email. Mocht je wel via een wachtwoord reset email komen, zorg er dan voor dat je de volledige URL gebruikt."
+      send_instructions: "Je krijgt binnen een paar minuten een email met instructies om je wachtwoord te resetten."
+      send_paranoid_instructions: "Als je email adres voorkomt in onze database, ontvang je binnen een paar minuten een wachtwoord herstel link via email."
+      updated: "Je wachtwoord is aangepast. Je bent nu aangemeld."
+      updated_not_active: "Je wachtwoord was aangepast."
+    registrations:
+      destroyed: "Dag! Je account is verwijdert. We hopen je snel weer terug te zien."
+      signed_up: "Welkom! Je bent aangemeld."
+      signed_up_but_inactive: "Je bent ingeschreven. We hebben je nog niet kunnen aamelden omdat je account nog niet geactiveerd is."
+      signed_up_but_locked: "Je bent ingeschreven. We hebben je niet kunnen aanmelden omdat je account geblokkeerd is."
+      signed_up_but_unconfirmed: "Een bericht met een bevestiging is naar je email adres verstuurt. Open de link om je account te activeren."
+      update_needs_confirmation: "Je hebt je account gewijzigd, maar we moeten je nieuwe email adres bevestigen. Kijk je email na en klik op de bevestigingslink om je wijziging definitief door te voeren."
+      updated: "Je account is geupdate. "
+    sessions:
+      signed_in: "Aangemeld."
+      signed_out: "Afgemeld."
+    unlocks:
+      send_instructions: "Je krijgt binnen een paar minuten een email met instructies om je account te deblokkeren."
+      send_paranoid_instructions: "Als je account bestaat, ontvang je binnen een paar minuten een email met daarin instructies om je account te deblokkeren."
+      unlocked: "Je account is gedeblokkeerd. Meld je aan om verder te gaan."
+  errors:
+    messages:
+      already_confirmed: "was al bevestigd, probeer je aan te melden"
+      confirmation_period_expired: "moest binnen %{period} worden bevestigd, vraag een nieuwe aan a.u.b."
+      expired: "is verlopen, vraag een nieuwe aan"
+      not_found: "niet gevonden"
+      not_locked: "was niet geblokkeerd"
+      not_saved:
+        one: "1 fout verhinderde het opslaan van %{resource}: "
+        other: "%{count} fouten verhinderden het opslaan van %{resource}:"

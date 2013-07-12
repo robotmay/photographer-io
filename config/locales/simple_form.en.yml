@@ -131,6 +131,11 @@ en:
 
           This could have privacy implications.
 
+        locale: >
+          Choose the language you wish to browse the site in. If your language isn't
+          here, why not help translate Photographer.io into it? Find more details
+          <a href="https://github.com/afternoonrobot/photographer-io#translations">our GitHub repository</a>.
+
   helpers:
     submit:
       comment:

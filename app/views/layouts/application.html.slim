@@ -16,16 +16,7 @@ head
 
   = stylesheet_link_tag "application"
   = javascript_include_tag "custom.modernizr"
-  javascript:
-    var _prum = [['id', '51a868a2abe53d6b24000000'],
-                 ['mark', 'firstbyte', (new Date()).getTime()]];
-    (function() {
-        var s = document.getElementsByTagName('script')[0]
-          , p = document.createElement('script');
-        p.async = 'async';
-        p.src = '//rum-static.pingdom.net/prum.min.js';
-        s.parentNode.insertBefore(p, s);
-    })();
+  = render partial: "shared/pingdom"
 
   meta name="description" content=t("metadata.description")
   meta property="fb:app_id" content=(ENV['FACEBOOK_APP_ID'])
@@ -74,59 +65,25 @@ head
   footer id="layout-footer"
     div class="row"
       div class="large-4 columns"
-        p
-          ul class="inline-list"
-            li= link_to t("nav.about"), about_path
-            li= link_to t("terms"), terms_path
-            li= link_to t("privacy"), t("privacy_policy")
-            li= link_to t("social.google_plus"), "https://plus.google.com/100673063979311454242"
-            li= link_to t("social.twitter"), "https://twitter.com/photographer_io"
+        ul class="inline-list"
+          li= link_to t("nav.about"), about_path
+          li= link_to t("terms"), terms_path
+          li= link_to t("privacy"), t("privacy_policy")
+          li= link_to t("social.github"), "https://github.com/afternoonrobot/photographer-io"
+          li= link_to t("social.google_plus"), "https://plus.google.com/100673063979311454242"
+          li= link_to t("social.twitter"), "https://twitter.com/photographer_io"
+
+        ul class="inline-list"
+          - t("locales").each do |key, name|
+            = link_to name, url_for(locale: key), active_on: /\/#{key}\/.*/i, active_wrapper: :li
 
       div class="large-8 columns" style="text-align: right;"
         = simple_format t("copyright")
 
   == yield(:after_body)
 
-  - if Rails.env.production?
-    javascript:
-      var _gauges = _gauges || [];
-      (function() {
-        var t   = document.createElement('script');
-        t.type  = 'text/javascript';
-        t.async = true;
-        t.id    = 'gauges-tracker';
-        t.setAttribute('data-site-id', '5181a657f5a1f545c3000007');
-        t.src = '//secure.gaug.es/track.js';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(t, s);
-      })();
-
-    javascript:
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', '#{ENV['GOOGLE_ANALYTICS_ID']}', 'photographer.io');
-      ga('send', 'pageview');
-
-  = javascript_include_tag "https://pubnub.a.ssl.fastly.net/pubnub-3.5.0.min.js"
-  - if user_signed_in?
-    javascript:
-      var pubnub = PUBNUB.init({ 
-        subscribe_key: '#{$pubnub.subscribe_key}',
-        ssl: true
-      });
-
-      function receive(message, envelope, source_channel) {
-        pubnub.events.fire(message.type, message);
-      }
-
-      pubnub.subscribe({
-        channel: '#{current_user.channel_key}',
-        callback: receive 
-      });
-
+  = render partial: "shared/analytics"
+  = render partial: "shared/pubnub"
   = javascript_include_tag "application"
   == yield(:javascript)
 </body>

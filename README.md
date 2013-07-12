@@ -42,9 +42,10 @@ To run this app you'll likely need a rough understanding of how Rails apps work 
 
 * Postgresql 9.2+ (it uses a number of DB specific features)
 * Redis
-* Memcached (actually still used in the dev environment, though that may change)
+* Memcached (required for sessions)
 * Solr (if you want search, otherwise it's safe-ish to ignore for now)
-* Ruby 2.0.0 (untested on anything lower, might be fine on 1.9.3)
+* MRI Ruby 2.0.0 (untested on anything lower, might be fine on 1.9.3)
+  * It currently does __not__ run on JRuby. A port was attempted a few weeks back and it's not especially straight-forward, but it would be nice to support it in future.
 
 First, clone the repo (ideally from your own fork):
 
@@ -75,7 +76,8 @@ Copy one of those files to .env and populate it:
 
 `cp .env.example .env`
 
-In theory the app will work without S3 enabled, let me know if this isn't the case.
+##### S3 is used in development
+Due to the plugins used for handling uploads, S3 support is required even in development. It's not ideal, but you'll need to fill out those S3 keys in your .env file with details for your S3 bucket.
 
 Now start it up with Foreman:
 
@@ -96,6 +98,13 @@ Then you can start up the automated tests with Guard:
 Or manually with:
 
 `rake spec`
+
+## Production
+
+Instructions for running in production will be coming soon. It does run on Heroku, and you might be able to get it going with little more than the instructions above.
+If you do decide to host your own version of the app; great! My only request is that you switch out the branding (Photographer.io) to your own name, just to ease confusion.
+
+I'd like to make it easier for people to maintain their own forks of the app whilst still being able to receive upstream features and bugfixes. To aid this I'll be revising a lot of the existing configuration to give you more options.
 
 ## Contributing
 

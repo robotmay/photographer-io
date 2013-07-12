@@ -1,0 +1,112 @@
+pl:
+  simple_form:
+    'yes': 'Tak'
+    'no': 'Nie'
+    required:
+      text: 'wymagane'
+      mark: '*'
+    error_notification:
+      default_message: "Przyjrzyj się tym problemom:"
+    labels:
+      collection:
+        visible: "Czy chcesz, aby ta kolekcja była widoczna w serwisie jako publiczna?"
+      comment_thread:
+        destroy: "Usuń ten wątek"
+      user:
+        show_nsfw_content: "Pokazuj zawartość, która może urazić inne osoby (NSFW - ang. Not Safe For Work)"
+        website_url: "Adres twojej strony internetowej"
+    placeholders:
+      comment_thread:
+        subject: "np. \"Jakiego gatunku jest ten ptak?\" albo \"Co sądzisz o tonacji kolorystycznej?\""
+      user:
+        name: "Nazwisko lub pseudonim, np. Rupert B."
+        website_url: "http://twoja_strona_fotograficzna.pl"
+        username: >
+          Unikalna nazwa użytkownika, np. mis_rupert
+    hints:
+      comment_thread:
+        subject: >
+          Jakich komentarzy oczekujesz od przeglądających? Może to być cokolwiek,
+          np. "Co sądzicie o kompozycji zdjęcia?" albo "Pomóżcie mi zidentyfikować
+          tego ptaka!"
+      metadata:
+        keywords: >
+          Słowa kluczowe powinny być listą słów określających dane zdjęcie i rozdzielonych
+          przecinkami, np. natura, ptaki, kos
+      photograph:
+        safe_for_work: >
+          Zadbaj o użytkowników przeglądających ten serwis w pracy; zaznacz to zdjęcie
+          jako "nieodpowiednie w pracy", jeśli zawiera treści dla dorosłych, które
+          ktoś w biurze mógłby uznać za nieodpowiednie.
+        license: >
+          Domyślnie zachowujesz wszelkie prawa do swoich fotografii. Jeśli chcesz
+          dodać licencję typu Creative Commons, możesz to zaznaczyć powyżej.
+        show_location_data: >
+          Czy chcesz pokazywać miejsce wykonania zdjęcia? Możesz zmienić domyślną
+          wartość tej opcji w ustawieniach twojego konta.
+        show_copyright_info: >
+          Czy chcesz pokazywać informację o prawach autorskich, jeśli jest ona zawarta
+          w metadanych zdjęcia? Można w niej zapisać informacje o użytkowniku, np.
+          nazwisko i miejsce zamieszkania (miasto/kraj).
+        category: >
+          Wybranie odpowiedniej kategorii pomoże łatwiej znajdować twoje zdjęcie!
+        enable_comments: >
+          Jeśli umożliwisz dodawanie komentarzy, musisz ustawić przynajmniej jeden
+          temat dla odpowiadających. Komentarze są prywatne, widoczne tylko dla ciebie
+          i komentującego, chyba, że zamienisz je na publiczne.
+      user:
+        edit:
+          username: >
+            Nazwa użytkownika to twój unikalny identyfikator w tym serwisie, jest
+            używana w adresach URL i do wskazywania twojego profilu, np.  https://www.photographer.io/u/mis_rupert.
+            Musi być unikalna, być pisana małymi literami i może zawierać tylko litery,
+            cyfry i znaki podkreślenia.
+        username: >+
+          Może zawierać tylko litery, cyfry i znaki podkreślenia.
+
+        show_nsfw_content: >
+          Czy chcesz oglądać zawartość oznaczoną jako "nieodpowiednia w pracy" (Not
+          Safe For Work)? Mogą to być zdjęcia zawierające nagość, przemoc lub inny
+          rodzaj obrazów, który ktoś może uznać za nieodpowiedni do oglądania w pracy.
+        default_license_id: >
+          Domyślnie zachowujesz wszelkie prawa do swoich fotografii. Jeśli chcesz
+          dodać licencję typu Creative Commons, możesz to zaznaczyć powyżej. Będzie
+          to miało zastosowanie do wszystkich nowych zdjęć, które wyślesz, ale dla
+          każdego z nich możesz zmienić licencję.
+        show_location_data: >
+          Czy chcesz pokazywać domyślne miejsce wykonania zdjęcia? Możesz zmieniać
+          wartość tej opcji dla każdego zdjęcia.
+        show_copyright_info: >
+          Czy chcesz pokazywać informację o prawach autorskich, jeśli jest ona zawarta
+          w metadanych zdjęcia? Można w niej zapisać informacje o użytkowniku, np.
+          nazwisko i miejsce zamieszkania (miasto/kraj).
+        biography: >
+          Na stronie twojego profilu będzie wyświetlana notka biograficzna. Obecnie
+          nie można tam stosować żadnego formatowania poza znakiem nowego wiersza.
+          Wkrótce zostanie dodana obsługa języka znaczników "Markdown".
+        receive_notification_emails: >
+          Czy chcesz otrzymywać wiadomości e-mail o nowych istotnych wydarzeniach,
+          np. o nowych komentarzach?
+        notify_favourites: >
+          Czy chcesz powiadamiać innych użytkowników o tym, że zaznaczyłeś ich zdjęcie
+          jako ulubione?
+        show_social_buttons: >
+          Czy chcesz widzieć pod zdjęciami opcje serwisów społecznościowych, np. Twitter,
+          Facebook, Google itp.?
+
+          Może to wywoływać skutki dotyczące twojej prywatności.
+        locale: >
+          Wybierz język, w jakim chcesz korzystać z serwisu. Jeśli twojego języka
+          jeszcze tu nie ma, to może zechcesz pomóc w tłumaczeniu? Więcej informacji
+          na ten temat znajdziesz <a href="https://github.com/afternoonrobot/photographer-io#translations">w
+          naszym repozytorium GitHub</a>.
+  helpers:
+    submit:
+      comment:
+        create: "Wyślij komentarz"
+        update: "Aktualizuj"
+      mass_edit:
+        create: "Aktualizuj"
+      user:
+        update: "Aktualizuj ustawienia twojego konta"
+        create: "Załóż swoje konto"
