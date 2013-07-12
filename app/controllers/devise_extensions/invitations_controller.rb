@@ -11,6 +11,8 @@ class DeviseExtensions::InvitationsController < Devise::InvitationsController
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:accept_invitation) { |u| u.permit(:name, :email, :password, :password_confirmation, :invitation_token) }
+    devise_parameter_sanitizer.for(:accept_invitation) do |u| 
+      u.permit(:username, :name, :email, :password, :password_confirmation, :invitation_token)
+    end
   end
 end
