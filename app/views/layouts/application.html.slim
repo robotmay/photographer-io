@@ -64,14 +64,17 @@ head
   footer id="layout-footer"
     div class="row"
       div class="large-4 columns"
-        p
-          ul class="inline-list"
-            li= link_to t("nav.about"), about_path
-            li= link_to t("terms"), terms_path
-            li= link_to t("privacy"), t("privacy_policy")
-            li= link_to t("social.github"), "https://github.com/afternoonrobot/photographer-io"
-            li= link_to t("social.google_plus"), "https://plus.google.com/100673063979311454242"
-            li= link_to t("social.twitter"), "https://twitter.com/photographer_io"
+        ul class="inline-list"
+          li= link_to t("nav.about"), about_path
+          li= link_to t("terms"), terms_path
+          li= link_to t("privacy"), t("privacy_policy")
+          li= link_to t("social.github"), "https://github.com/afternoonrobot/photographer-io"
+          li= link_to t("social.google_plus"), "https://plus.google.com/100673063979311454242"
+          li= link_to t("social.twitter"), "https://twitter.com/photographer_io"
+
+        ul class="inline-list"
+          - t("locales").each do |key, name|
+            = link_to name, url_for(locale: key), active_on: /\/#{key}\/.*/i, active_wrapper: :li
 
       div class="large-8 columns" style="text-align: right;"
         = simple_format t("copyright")
