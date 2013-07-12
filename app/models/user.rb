@@ -91,8 +91,8 @@ class User < ActiveRecord::Base
 
   after_create :create_default_records
   def create_default_records
-    collections.create(name: I18n.t("collections.default.public"), visible: true)
-    collections.create(name: I18n.t("collections.default.private"), visible: false)
+    collections.create(name: I18n.t("account.collections.default.public"), visible: true)
+    collections.create(name: I18n.t("account.collections.default.private"), visible: false)
   end
 
   def upload_count_for_this_month

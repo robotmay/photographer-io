@@ -95,6 +95,11 @@ pl:
           Facebook, Google itp.?
 
           Może to wywoływać skutki dotyczące twojej prywatności.
+        locale: >
+          Wybierz język, w jakim chcesz korzystać z serwisu. Jeśli twojego języka
+          jeszcze tu nie ma, to może zechcesz pomóc w tłumaczeniu? Więcej informacji
+          na ten temat znajdziesz <a href="https://github.com/afternoonrobot/photographer-io#translations">w
+          naszym repozytorium GitHub</a>.
   helpers:
     submit:
       comment:
