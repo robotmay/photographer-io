@@ -24,6 +24,10 @@ pl:
     twitter_account: "@photographer_io"
     github: "GitHub"
   privacy_policy: "https://www.iubenda.com/privacy-policy/288645"
+  locales:
+    en: "angielski"
+    nl: "holenderski"
+    pl: "polski"
   metadata:
     description: >
       Photographer.io to nowa społeczność miłośników fotografii. Dołącz do nas; publikuj
@@ -109,12 +113,103 @@ pl:
     sign_up: "Załóż darmowe konto"
   about:
     title: "O serwisie Photographer.io"
-    table:
+    subtitle: "Oto niektóre z powodów, dla których naszym zdaniem warto dołączyć do naszego serwisu:"
+    free:
+      title: "Jest darmowy i uczciwy"
+      body: >
+        Użytkownicy darmowych kont nie są tu traktowani jak obywatele drugiej kategorii.
+        Każdy ma równy wkład w to, jak serwis działa, i w kierunek zmian jaki obieramy.
+        Jeśli masz jakieś sugestie, zgłoszenia błędów lub inne komentarze na temat
+        serwisu, to bardzo chcemy o tym usłyszeć! Wyślij wiadomość na adres <a href="mailto:support@photographer.io">support@photographer.io</a>.
+    open_source:
+      title: "Nasz kod jest otwarty"
+      body: >
+        Nasz kod jest wolnym oprogramowaniem i jest dostępny na licencji MIT <a href='https://github.com/afternoonrobot/photographer-io'>na
+        GitHubie</a>. Pomóż naprawiać błędy, dodawać nowe funkcje i budować tu społeczność,
+        w jakiej chciałbyś uczestniczyć.
+    advertising:
+      title: "Nie wyświetlamy reklam"
+      body: >
+        Nienawidzimy reklam i dlatego <b>nigdy</b> ich nie zobaczysz na Photographer.io.
+        Ten serwis będzie wkrótce finansowany przez subskrypcje i możemy kiedyś użyć
+        zaprzyjaźnionych odnośników do sprzętu fotograficznego, ale nigdy nie wprowadzimy
+        reklam.
+    money:
+      title: "Zarabiamy w zrozumiały sposób"
+      body: >
+        Nie ma tu żadnych sztuczek. Wkrótce zostanie uruchomiony mechanizm subskrypcji
+        (i to z bardzo rozsądnymi opłatami) i właśnie w ten sposób będziemy zbierać
+        fundusze. Nie ma żadnych inwestorów, reklamodawców ani sprzedawania twoich
+        danych.
+    likes:
+      title: "Umarły polubienia, niech żyją rekomandacje"
+      body: >
+        Na Photographer.io nie używamy "lajków". Zamiast tego każdy użytkownik może
+        wystawić maksymalnie %{quota} rekomendacji dziennie. Rekomendacja pomaga promować
+        zdjęcie na naszej  <a href="/photographs/recommended">stronie polecanych prac</a>,
+        ale wkrótce będzie także polecać zdjęcie użytkownikom, którzy cię śledzą w
+        tym serwisie.
+
+
+        Rekomendacje powinny być wystawiane zdjęciom, które uważasz za świetne, a
+        nie koniecznie tym, które najbardziej lubisz, bo do tego z kolei służy oznaczanie
+        jako ulubione!
+    comments:
+      title: "Nasz system komentarzy jest inny"
+      body: >
+        Komentarze na  Photographer.io działają bardziej jak wątki na tradycyjnych
+        forach internetowych; ty wybierasz na jaki temat chcesz usłyszeć komentarze.
+        Ma to pomóc zwiększyć liczbę użytecznych informacji zwrotnych, zamiast "SUPER
+        FOTA". Komentarze są domyślnie widoczne tylko dla komentującego i właściciela
+        zdjęcia (oraz poprzednich autorów w wątku, jeśli to odpowiedź). Oznacza to,
+        że samodzielnie wybierasz, które komentarze pod zdjęciem będą wyświetlane.
+        Ostatecznie to <i>twoje</i> zdjęcia; dlaczego nie miałbyś decydować co widać
+        wraz z nimi?
+    privacy:
+      title: "Prywatność i bezpieczeństwo są dla nas naprawdę ważne"
+      body: >
+        Bierzemy prywatność i bezpieczeństwo na serio. Cały serwis i powiązane usługi
+        (takie jak hosting obrazów) są serwowane łączami SSL, hasła są przechowywane
+        za pomocą <a href="http://bcrypt.sourceforge.net/">bcrypt</a>, a na wszelkie
+        luki bezpieczeństwa odpowiadamy natychmiast.
+
+
+        Prywatność: <a href="https://www.iubenda.com/privacy-policy/288645">sprawdź
+        naszą politykę prywatności</a> lub <a href="mailto:privacy@photographer.io">wyślij
+        nam e-mail z pytaniami</a>.
+
+        Bezpieczeństwo: jeśli masz jakieś problemy z bezpieczeństwem lub chcesz zgłosić
+        błędy, wyślij e-mail na adres <a href="mailto:security@photographer.io">security@photographer.io</a>.
+    compare:
+      title: "Jak wypadamy w porównaniu z innymi serwisami fotograficznymi?"
+      flickr:
+        title: "Flickr"
+        uploads: "1 TB"
+        albums: "bez ograniczeń"
+        advertising: "Tak"
+        ssl: "opcjonalne"
+      500px:
+        title: "500px"
+        uploads: "20 zdjęć na tydzień"
+        albums: "ograniczone"
+        advertising: "Nie"
+        ssl: "Nie"
       photographerio:
         title: "Photographer.io"
-        usage: "100 zdjęć miesięcznie"
-        adverts: "nigdy"
-        security: "Zawsze z szyfrowaniem SSL"
+        uploads: "100 zdjęć na miesiąc *"
+        albums: "bez ograniczeń"
+        advertising: "Nie"
+        ssl: "zawsze"
+      free_accounts: "darmowe konta"
+      uploads: "wysyłanie zdjęć"
+      albums: "albumy/zestawy/kolekcje"
+      advertising: "reklamy"
+      else: "wszystko pozostałe"
+      ssl: "szyfrowanie SSL"
+      notes: >
+        * może być zwiększone przez zaproszenie znajomych! Szczegóły znajdują się
+        na stronie twojego konta.
+    interested: "Brzmi zachęcająco? Załóż darmowe konto!"
     sign_up: "Załóż swoje konto"
   account:
     nav:
@@ -135,8 +230,8 @@ pl:
     dashboard:
       title: "Twój panel użytkownika"
       blurb: >
-        Jako członek możesz wysyłać i organizować swoje zdjęcia przed ich publikacją
-        na profilu publicznym.
+        Jako członek serwisu możesz wysyłać i organizować swoje zdjęcia przed ich
+        publikacją na profilu publicznym.
       statistics:
         title: "Statystyki"
         views: "Liczba wszystkich odsłon twoich zdjęć"
@@ -179,6 +274,9 @@ pl:
         created_at: "Połączone"
         none: "Nie skojarzyłeś jeszcze żadnych kont"
     collections:
+      default:
+        public: "Publiczne"
+        private: "Prywatne"
       delete: "Usuń tę kolekcję"
       form:
         general: "Szczegóły kolekcji"
@@ -346,6 +444,7 @@ pl:
       all: "Wszystkie"
     metadata:
       title: "Szczegóły zdjęcia"
+      details: "Szczegóły"
       keywords: "Słowa kluczowe"
       camera: "Aparat"
       image: "Zdjęcie"

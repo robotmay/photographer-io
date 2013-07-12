@@ -55,7 +55,7 @@ en:
     support: "Support"
     beta: "Beta"
     favourites: "Favourites"
-    profile: "Your profile"
+    profile: "Your public profile"
     mini_stats:
       views: "Total number of times your photos have been viewed"
       followers: "Total number of people following your updates"
@@ -189,7 +189,7 @@ en:
         to any security issues immediately.
 
 
-        Privacy: <a href="#{t('privacy_policy')}">Check out our privacy policy</a>
+        Privacy: <a href="https://www.iubenda.com/privacy-policy/288645">Check out our privacy policy</a>
         or <a href="mailto:privacy@photographer.io">email us with any queries</a>.
         
         Security: If you have any security issues or bugs to report, please email
