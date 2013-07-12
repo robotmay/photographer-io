@@ -27,7 +27,7 @@ class DeviseExtensions::RegistrationsController < Devise::RegistrationsControlle
   end
 
   def after_update_path_for(resource)
-    edit_user_registration_path
+    edit_user_registration_path(locale: resource.locale)
   end
 
   private

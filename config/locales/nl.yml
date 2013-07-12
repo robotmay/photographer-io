@@ -1,0 +1,510 @@
+nl:
+  site_name: "Photographer.io"
+  default_title: "De foto's gemeenschap voor liefhebbers - Photographer.io"
+  page_title: "%{title} - Photographer.io"
+  copyright: "Op alle foto's berust het auteursrecht van de desbetreffende maker, en mag niet zonder toestemming heruitgegeven worden, gekopieerd, of vermenigvuldigd op welke wijze dan ook.\n © Photographer.io, Afternoon Robot Ltd, 2013. Pictogrammen geleverd door <a href=\"http://glyphicons.com\"\
+    >glyphicons.com</a>. \n"
+  privacy: "Privacybeleid"
+  terms: "Algemene voorwaarden"
+  confirm_delete: "Weet je het zeker?"
+  titles:
+    explore: "Ontdek"
+    recommended: "Foto's aanbevolen door andere leden"
+    favourites: "Jouw favoriete foto's"
+    following: "Foto's van personen die jij volgt"
+    seeking_feedback: "Foto's die vragen om jouw reactie"
+  untitled: "Zonder titel"
+  social:
+    google_plus: "Google+"
+    twitter: "Twitter"
+    share: "Deel"
+    twitter_account: "@photographer_io"
+    github: "GitHub"
+  privacy_policy: "https://www.iubenda.com/privacy-policy/288645"
+  locales:
+    en: "Engels"
+    nl: "Nederlands"
+    pl: "Pools"
+  metadata:
+    description: >
+      Photographer.io is een nieuwe gemeenschap voor fotografie liefhebbers. Word
+      lid van de gemeenschap; publiceer je foto's, ontdek geweldige shots van andere,
+      en krijg reacties op je eigen werk!
+  nav:
+    menu: "Menu"
+    blog: "Blog"
+    explore: "Ontdek"
+    account: "Account"
+    photographs: "Beheer foto's"
+    sign_in: "Aanmelden"
+    sign_out: "Afmelden"
+    sign_up: "Maak je account aan"
+    edit_account: "Account instellingen"
+    search: "Zoek"
+    recommended: "Aanbevolen"
+    categories: "Ontdenk op category"
+    support: "Ondersteuning"
+    beta: "Beta"
+    favourites: "Favorieten"
+    profile: "Jouw profiel"
+    mini_stats:
+      views: "Totaal aantal keer dat je foto's bekeken zijn"
+      followers: "Totaal aantal personen die je updates volgen"
+      recommendations: "Totaal aantal aanbevelingen die je hebt ontvangen"
+      favourites: "Totaal aantal keer dat je foto's als favoriet zijn gekozen"
+    general: "Ontdek"
+    latest: "Nieuwste foto's"
+    random: "Ga naar een willekeurige foto!"
+    following: "Foto's van mensen die jij volgt"
+    invite: "Nodig een vriend uit"
+    dashboard: "Dashboard"
+    seeking_feedback: "Foto's wachtend op reacties"
+    about: "Over"
+  beta_notes:
+    title: "Dit is een vroege beta versie!"
+    blurb: "Dank je wel voor het uitproberen van de vroege beta van Photographer.io. Alle feedback, bug reports, of functionaliteit ideeën zijn zeer welkom. \n\nIk wil hiervan de beste en meest aangename foto gemeenschap op de wereld maken. Er worden continue verbeteringen aangebracht  en\
+      \ ik lees elke email. Mocht je hulp nodig hebben, stuur mij dan een support email/bericht, of vind me <a href=\"http://twitter.com/robotmay\">op Twitter</a>.\n\nHet hoofd doel van Photographer.io is het verminderen van complexiteit van foto sites die in wezen tegemoet komen aan een\
+      \ selectief groep populaire individuen, waardoor het moeilijk is voor nieuwe gebruikers om op te vallen. Ook probeert het af te stappen van het niet effectieve ranking systemen dat door sommige sites gebruikt word. Je kunt hier foto's aanbevelen; Een aanbeveling is een eindige hulpbron\
+      \ en beïnvloed de ranking van een foto over een bepaalde periode. Dit is een gedeelte dat ik goed in de gaten hou om er voor te zorgen dat iedereen zijn foto's getoond kan krijgen.\n\nFuncionaliteit die binnenkort ingevoerd word: betere uploader, reacties (met een doel),  een geavanceerder\
+      \ ranking systeem voor foto's, en algemene verbeteringen door de gehele site.\n\nNogmaals bedankt voor het uitproberen van Photographer.io!\nRobert May\n"
+  home:
+    title: >
+      Een nieuwe foto gemeenschap voor het delen van je foto's.
+    blurb: >
+      Upload, organiseer, en deel je foto's naast andere, zoals %{name} deed met dit
+      <a href="%{image_path}">%{word} werk</a>.
+    words:
+    - fantastisch
+    - geweldig
+    - mooi
+    - uitstekend
+    - spectaculair
+    - gaaf
+    - meesterlijk
+    register: "Maak je account aan"
+    about: "Leer waarom wij anders zijn"
+    or: "of"
+    sign_up: "Maak je gratis account aan"
+  about:
+    title: "Over Photographer.io"
+    subtitle: "Een paar redenen om je bij ons aan te sluiten:"
+    free:
+      title: "Het is gratis en eerlijk"
+      body: >
+        Gratis accounts worden hier niet als tweederangs burgers behandeld. Iedereen
+        heeft evenveel inspraak in het werken van de site en de richten die we in
+        gaan. Als je suggesties, foutmeldingen, of andere reacties hebt dan horen
+        we dat graag! Stuur deze naar <a href="mailto:support@photographer.io">support@photographer.io</a>.
+    open_source:
+      title: "Wij zijn Open Source"
+      body: >
+        Onze broncode is open source en verkrijgbaar onder een MIT licentie op  <a
+        href='https://github.com/afternoonrobot/photographer-io'>on GitHub</a>. Help
+        met bug fixes, voeg nieuwe opties toe, en maak dit de gemeenschap die je hebben
+        wilt.
+    advertising:
+      title: "Geen advertenties"
+      body: >
+        Wij haten reclames, daarom zul je deze ook <b>nooit</b> zien op Photograper.io.
+        De site zal binnenkort ondersteund worden door abonnementen, en we zullen
+        mogelijk gebruik maken van affiliate links voor camera aperatuur etc. in de
+        toekomst; maar we zullen nooit advertenties op de site laten zien.
+    money:
+      title: "We verdienen ons geld op een duidelijke manier"
+      body: >
+        Er is hier geen hocus pocus. Abonnementen zullen binnenkort ingevoerd worden
+        (met zeer redelijke bedragen), en dat is de manier waarop de site zal worden
+        gefinancierd. Er zijn geen investeerders, geen adverteerders, en geen verkoop
+        van jouw gegevens.
+    likes:
+      title: "Likes zijn dood, lang leve de Aanbevelingen"
+      body: >
+        Wij gebruiken geen 'Likes' op Photographer.io. In plaats daar van kan elke
+        gebruiker een maximum van %{quota} aanbevelingen per dag doen. Een aanbeveling
+        helpt de foto te promoten op onze <a href="/photographs/recommended"> aanbevolen
+        pagina</a> maar zal binnenkort de foto ook aan je volgers aanbevelen.
+
+
+        Aanbevelingen zijn bedoelt voor foto's die je geweldig vind, maar niet noodzakelijk
+        de foto's die je mooi vind; daar is de Favorieten lijst voor!
+    comments:
+      title: "Ons commentaar systeem is anders"
+      body: >
+        Commentaar op Photographer.io werken meer als draden op een traditioneel bulletin
+        bord/forum; Je kiest een onderwerp waar mensen op kunnen reageren. Dit is
+        bedoelt om de hoeveelheid bruikbare reacties te vergroten, in tegenstelling
+        tot "OMG LOVE IT". Reacties zijn alleen zichtbaar voor de persoon die de reactie
+        heeft geplaatst en de eigenaar van de foto (en de oorspronkelijke reactie
+        eigenaar, als het een antwoord op een reactie is). Je kunt dus zelf bepalen
+        welke reacties er zichtbaar zijn op je foto's. Het zijn ten slotte <i>jouw</i>
+        foto's; zou jij niet moeten bepalen wat er mee gebeurt?
+    privacy:
+      title: "Privacy en veiligheid zijn oor ons van belang"
+      body: >+
+        Wij nemen privacy en veiligheid heel serieus. De volledige site en gerelateerde
+        diensten (zoals de hosting van beeldmateriaal) gebeurt over SSL, wachtwoorden
+        zijn versleuteld met <a href="http://bcrypt.sourceforge.net/">bcrypt</a> opgeslagen,
+        en we reageren onmiddelijk op beveiligings problemen.
+
+
+        Privacy: <a href="#{t('privacy_policy')}">Bekijk ons privacy beleid</a> of
+        <a href="mailto:privacy@photographer.io">Stuur een email met je vragen</a>.
+
+        Veilighied: Heb je vragen of meldingen met betrekking tot de beveiliging,
+        stuur dan een email aan   <a href="mailto:security@photographer.io">security@photographer.io</a>.
+
+    compare:
+      title: "Hoe staan wij in vergelijking met andere gemeenschappen?"
+      flickr:
+        title: "Flickr"
+        uploads: "1TB"
+        albums: "Ongelimiteerd"
+        advertising: "Ja"
+        ssl: "Optioneel"
+      500px:
+        title: "500px"
+        uploads: "20 foto's per week"
+        albums: "Gelimiteerd"
+        advertising: "Nee"
+        ssl: "Nee"
+      photographerio:
+        title: "Photographer.io"
+        uploads: "100 foto's per maand *"
+        albums: "Ongelimiteerd"
+        advertising: "Nee"
+        ssl: "Altijd"
+      free_accounts: "Gratis Accounts"
+      uploads: "Foto uploads"
+      albums: "Albums/Sets/Collecties"
+      advertising: "Advertenties"
+      else: "De rest"
+      ssl: "SSL over de gehele site"
+      notes: >
+        * Kan verhoogd worden door je vrienden uit te nodigen! Details vind je in
+        je account pagina.
+    interested: "Geïnteresseerd? Maak je gratis account aan!"
+    sign_up: "Maak je account aan"
+  account:
+    nav:
+      title: "Jouw Account"
+      home: "Dashboard"
+      settings: "Account instellingen"
+      invite: "Nodig je vrienden uit"
+      photographs: "Foto's"
+      upload_quota: "Jouw verbruik deze maand"
+      get_more_uploads: "Meer nodig? <a href='%{path}'>Nodig je vrienden uit!</a>"
+      authorisations: "Verbonden accounts"
+    form:
+      auth: "Aanmeld details"
+      username: "Gebruikersnaam"
+      public: "Onder welke naam wil je bekend zijn bij andere gebruikers?"
+      settings: "Account instellingen"
+      create: "Meld je aan voor een Photographer.io account"
+    dashboard:
+      title: "Je Account Dashboard"
+      blurb: >
+        Als lid kun je je foto's uploaden en organiseren voordat je ze publiceert
+        op de publiek toegankelijke site.
+      statistics:
+        title: "Statistieken"
+        views: "Totaal aantal keer dat je foto's bekeken zijn"
+        photo_count: "Foto's"
+        public_photo_count: "Publieke foto's"
+        private_photo_count: "Privé foto's"
+        recommendations: "Totaal aanbevelingen ontvangen"
+        favourites: "Totaal favorieten van jouw foto's"
+      recommendations:
+        title: "Jouw Aanbevelingen"
+        quota: "Je kunt momenteel %{n} foto's per dag aanbevelen"
+        remaining: "Je hebt nog %{n} aanbevelingen over voor vandaag"
+        total: "Je hebt in totaal %{n} aanbevelingen gedaan"
+      usage:
+        title: "Verbruik"
+        quota: "Je kunt een totaal van %{n} foto's per maand uploaden"
+        remaining: "Je hebt nog %{n} resterende uploads deze maand"
+        get_more: "Meer nodig? <a href='%{path}'>Nodig je vrienden uit!</a>"
+      hints:
+        title: "Hints voor nieuwe gebruikers"
+        public_collections: >
+          Je foto's zullen niet publiekelijk toegankelijk zijn totdat je ze aan een
+          publieke collectie hebt toegevoegd! Dit om er voor te zorgen dat je niet
+          per ongeluk foto's laat zien die nog niet voor het publiek bedoelt zijn.
+        recommendations: >
+          Je kunt foto's van andere aanbevelen. Dit werkt net als een 'Like' op een
+          foto elders, behalve dat je hier een beperkt aantal aanbevelingen per dag
+          kunt doen.
+        homepage: >+
+          De hoogst aanbevolen foto's worden in een rotatie op de homepage gezet.
+
+    authorisations:
+      create:
+        succeeded: "Je hebt met succes het account verbonden"
+        failed: "Er was een probleem met het verbinden van het account. Probeer het nog eens."
+      title: "Verbind je accounts van andere sites"
+      existing:
+        title: "Verbonden accounts"
+        provider: "Site"
+        email: "Account"
+        created_at: "Verbonden op "
+        none: "Je hebt nog geen accounts verbonden"
+    collections:
+      default:
+        public: "Publiek"
+        private: "Prive"
+      delete: "Verwijder deze collectie"
+      form:
+        general: "Collectie details"
+      modal:
+        new:
+          button: "Collectie aanmaken"
+          title: "Nieuwe collectie aanmaken"
+        edit:
+          button: "Aanpassen"
+          title: "Collectie aanpassen"
+      create:
+        succeeded: "Je nieuwe collectie is aangemaakt"
+        failed: "Er heeft zich een probleem voorgedaan bij het aanmaken van je collectie. Kijk hieronder voor eventuele foutmeldingen."
+      update:
+        succeeded: "Je collectie is aangepast."
+        failed: "Er heeft zich een probleem voorgedaan bij het aanpassen van je verzameling."
+      destroy:
+        succeeded: "De verzameling is verwijderd."
+        failed: "Er heeft zich een probleem voorgedaan bij het verwijderen van je collectie."
+    photographs:
+      nav:
+        title: "Foto's"
+        all: "Alle"
+        public: "Publiek"
+        private: "Privé "
+        unsorted: "Niet gesorteerd"
+        collections: "Collecties"
+      view: "Bekijk publieke pagina"
+      views: "Bekeken"
+      recommendations: "Aanbevelingen"
+      favourites: "Favorieten"
+      upload: "Upload"
+      delete: "Verwijder deze foto"
+      dropzone: >
+        Sleep je foto's naar deze pagina om ze te uploaden. Lees meer hierover in
+        onze %{guidelines}.
+      public_warning: >
+        Deze collectie staat publiekelijk zichtbaar. Alle foto's hierin zullen op
+        de publiek toegankelijke site zichtbaar zijn.
+      unsorted_warning: >
+        Dit is een gefilterde verzameling en geen collectie, foto's die hier geüpload
+        worden zullen in de ongesorteerde verzameling worden geplaatst.
+      edit_mode:
+        button: "Aanpas mode"
+        change_collections: "Voeg toe aan verzamelingen"
+        collection_note: >
+          Dit zal de foto's niet uit hun collecties verwijderen tenzij je een aanpassing
+          maakt aan een collectie en de specifieke collectie uitvinkt.
+        delete: "Verwijder"
+      form:
+        general: "Details"
+        collections: "In welke collecties hoort deze foto?"
+        settings: "Instellingen"
+        comments: "Reacties"
+        threads: "Op welke onderwerpen wil je reacties ontvangen?"
+        threads_hint: >
+          Je kunt in totaal %{n} onderwerpen aangeven voor reacties/discussies op/over
+          deze foto. We willen veelbetekenende reacties stimuleren op Photographer.io,
+          dus probeer onderwerpen als "Wat voor vogelsoort is dit?" of "Opbouwende
+          kritiek graag". Reacties zijn standaard alleen zichtbaar voor jouw en de
+          persoon die reageert, maar je kunt deze publiekelijk zichtbaar maken als
+          je denkt dat deze het waard zijn; dit kun je doen via de publieke weergave
+          van je foto.
+      create:
+        failed: "Upload fout"
+      update:
+        succeeded: "Je aanpassingen zijn opgeslagen!"
+        failed: "Er heeft zich een probleem voorgedaan bij het opslaan van je foto. Kijk hieronder voor eventuele foutmeldingen."
+      mass_update:
+        no_photos_selected: "Er waren geen foto's geselecteerd."
+        collections:
+          succeeded: "Foto verzamelingen zijn bijgewerkt."
+          failed: "Er deed zich een fout voor tijdens het bewerken van de collecties."
+      destroy:
+        succeeded: "De foto is verwijderd."
+        failed: "Er heeft zich een probleem voorgedaan bij het verwijderen van de foto."
+      guidelines:
+        link: "Foto richtlijnen"
+        title: "Richtlijnen voor foto's"
+        body: "Hieronder volgen wat ruwe richtlijnen voor het uploaden van foto's naar \nPhotographer.io. Volg deze om er voor te zorgen dat je beelden er op hun best uit komen te zien!\n\n* Momenteel is het enige ondersteunde formaat JPEG/JPG.\n* Gebruik de high quality setting als je het\
+          \ bestand als JPG opslaat, wij passen automatisch de qualiteit aan.\n* Het word aangeraden om de foto's met minimaal 2000 pixels aan de langste zijde op te slaan. Dit zorgt ervoor dat de foto's niet uitvergroot worden op de site.\n* Het grootste beeld formaat dat publiekelijk zichtbaar\
+          \ is op de site is 2000px, deze word gebruikt door de homepage beelden. Binnenkort zal het mogelijk zijn om je hier voor af te melden.\n* Voor de enkelvoudige foto pagina's worden de beelden met een maximaal 1500px aan de langste zijde weergegeven.\n* Je kunt JPGs op volledige grootte\
+          \ uit je camera uploaden; upload quotas worden gecalculeerd op het aantal bestanden, niet het formaat per bestand. Het is echter aan te raden om een wat kleiner formaat te gebruiken, dit om upload- en bewerkings tijd te besparen.\n* De orginele foto kan alleen door jouw bekeken\
+          \ worden op de site, wij genereren kleinere, geoptimaliseerde bestanden voor gebruik op de site.\n"
+  collections:
+    caption: "%{user} updatet %{collection}"
+  collection_photographs:
+    user_must_match: "Je kunt geen foto toevoegen aan die collectie"
+  comments:
+    saving: "Opslaan..."
+    unpublished: "Alleen zichtbaar aan de indiener en de eigenaar van de foto"
+    child_unpublished: "Alleen zichtbaar aan de indiener, eigenaar van de foto, en de eigenaar van de originele reactie"
+    delete: "Verwijder"
+    reply: "Reageer"
+    publish: "Publiceer"
+    unpublish: "Publiceren ongedaan maken"
+    none: >
+      Er zijn momenteel geen reacties op deze draad. Word de eerste en reageer via
+      het formulier hierboven!
+    none_visible: >
+      Er zijn momenteel geen publiekelijk zichtbare reacties hier. Nieuwschierig?
+      Leer hoe reacties werken op Photographer.io.
+    notifications:
+      subject: "%{user} heeft een nieuwe reactie geplaatsd op '%{on}'"
+      body: >+
+        %{user} heeft een nieuwe reactie geplaatst op je foto '%{on}'. Deze is niet
+        publiekelijk zichtbaar, tenzij je daar voor kiest via de publiekelijke weergave
+        van de foto.
+
+      reply:
+        subject: "%{user} heeft een nieuwe reactie geplaatst op jouw commentaar op '%{on}'"
+        body: >
+          %{user} heeft een nieuwe reactie geplaatst op jouw commentaar op '%{on}'
+      published:
+        subject: "Jouw reactie op '%{on}' is gepubliceerd"
+  favourites:
+    notifications:
+      subject: "%{user} heeft '%{photo}' als favoriet gekozen"
+    create:
+      succeeded: "De foto is toegevoegd aan je lijst met favorieten!"
+      failed: "Kon de foto niet toevoegen aan je lijst met favorieten."
+    destroy:
+      succeeded: "Favoriet verwijdert! "
+      failed: "Kon de foto niet uit de lijst met favorieten verwijderen."
+  followings:
+    follow: "Volgen"
+    unfollow: "Niet meer volgen"
+    create:
+      succeeded: "Je volgt nu %{name}!"
+      failed: "Er ging wat mis met het volgen van deze gebruiker. Neem contact op met support alsjeblieft."
+    destroy:
+      succeeded: "Je volgt deze gebruiker niet meer."
+      failed: "Er ging wat mis met het verwijderen van deze gebruiker uit de volgers lijst."
+  notifications:
+    title: "Berichten"
+    none: "Je hebt momenteel geen berichten."
+    mark_as_read: "Markeer alles als gelezen"
+    email:
+      subject: "Photographer.io: %{subject}"
+      button: "Bekijk op Photographer.io"
+      body: >
+        Dit is een geautomatiseerd bericht om je het volgende mede te delen:
+  photographs:
+    title: "%{title} door %{by}"
+    user_quota_exceeded: >
+      Helaas ben je aan je upload limiet voor deze maand :(
+    none: "Er zijn geen foto's hier!"
+    no_results: "Er waren geen resultaten op je zoekopdracht."
+    collections: "Geplaatst in alle collecties"
+    interactions_hint: >
+      Om de pagina overzichtelijk te houden zijn de Aanbevelen en Favoriet knoppen
+      uit de zijbalk verwijdert en worden nu getoond als je de muis over de foto plaatst.
+    share: "Deel"
+    edit: "Bewerk deze foto"
+    location: "Locatie"
+    recommend: "Beveel deze foto aan"
+    recommended: "Aanbevolen!"
+    favourite: "Favoriet"
+    unfavourite: "Favoriet verwijderen"
+    stats: "Statistieken"
+    views: "Bekeken"
+    favourites: "Favorieten"
+    caption: "%{photo} door %{user}"
+    sub_nav:
+      filter: "Filter:"
+      grouped: "Groeperen per collectie"
+      all: "Alle"
+    metadata:
+      title: "Foto Details"
+      details: "Details"
+      keywords: "Trefwoorden"
+      camera: "Camera"
+      image: "Beeld"
+      settings: "Instellingen"
+      model: "Model"
+      lens_type: "Lens"
+      aperture: "Diafragma"
+      focal_length: "Brandpunt afstand"
+      shutter_speed: "Sluitertijd"
+      fov: "FOV"
+      iso: "ISO"
+      copyright_notice: "Copyright"
+      rights: "Rechten"
+      creator: "Maker"
+      creator_city: "Stad"
+      creator_country: "Land"
+      date_time_original: "Genomen bij "
+      lat: "Breedtegraad"
+      lng: "Lengtegraad"
+      license: "Licentie"
+      default_license: "Alle rechten voorbehouden"
+    creator:
+      profile: "Bekijk profiel"
+      photos: "Bekijk meer foto's"
+  recommendations:
+    user_quota_exceeded: "Je kunt geen aanbevelingen meer doen vandaag!"
+    quota: "Je kunt nog %{amount} foto's aanbevelen vandaag!"
+  users:
+    avatar: "Avatar"
+    visit_site: "Bezoek de website"
+    username_format: "Alleen letters, nummers, en underscore zijn toegestaan."
+    old_username_present: >
+      Deze gebruikersnaam is in het verleden al een keer gebruikt door iemand anders.
+      Wij houden voor een korte tijd een doorstuur service lijst bij voor oude gebruikersnamen.
+      Neem contact op met ons als je vragen hebt over deze naam of het proces door
+      een email te sturen aan <a href="mailto:support@photographer.io">support@photographer.io</a>.
+    username_quota_exceeded: >
+      Je kunt je gebruikersnaam niet meer veranderen. Hulp nodig? Neem contact op
+      met <a href="mailto:support@photographer.io">support@photographer.io</a>.
+    username_quota: "Je kunt je gebruikersnaam nog %{n} keer aanpassen"
+    invitations:
+      invited:
+        title: "Vrienden die je al hebt uitgenodigd"
+        email: "Email adres"
+        status: "Status"
+        confirmed: "Geaccepteerd!"
+        unconfirmed: "Nog niet geaccepteerd"
+        none: |
+          Je hebt nog niemand uitgenodigd! Gebruik het formulier aan de rechterkant om te beginnen.
+      new:
+        title: "Nodig je vrienden uit"
+        invite: "Stuur een uitnodiging"
+        limit: >
+          Er is momenteel een limiet van %{n} uitnodigingen per gebruiker omdat deze
+          dienst nog nieuw is. Dit zal waarschijnlijk veranderd worden in de toekomst
+          afhankelijk van het gebruik hiervan.
+        spiel:
+          title: "Neem je vrienden mee en krijg een beloning!"
+          body: "Geniet je van Photographer.io? Deel je liefde en \nhaal je vrienden over!\n\nElke vriend die lid word krijg je %{referral_bonus} extra uploads \nper maand.\n"
+      edit:
+        title: "Maak je account aan"
+        accept: "Accepteer de uitnodiging en maak je account aan"
+        spiel:
+          title: "Accepteer je uitnodiging en sluit je aan!"
+          body: "Als gratis lid van Photographer.io kun je:\n\n* %{uploads} foto's per maand uploaden\n* Ongelimiteerd aantal collecties aanmaken\n* Updates van andere gebruikers volgen\n* Foto's aan je favorieten lijst toevoegen\n* Promote je favoriete foto's met het aanbeveel systeem\n\
+            * Geef reacties en kritiek op foto's\n\nWil je ongelimiteerde uploads, meer opties, en wil je de site ondersteunen? \nBetaalde accounts komen er spoedig aan!\n\nOnze algemene- en gebruikers voorwaarden zullen spoedig online staan. Tot die tijd kun je er van uit gaan dat we jouw\
+            \ foto's niet zullen stelen, en alles wat je upload naar deze site moet van jouw zijn.\n\nVragen? [Email ons!](mailto:support@photographer.io)\n\n##### Stuur je vrienden door voor extra uploads\nVoor elke vriend die lid word, krijgen zowel jij als je vriend %{referral_bonus} extra\
+            \ uploads per maand. \nInstructies kun je vinden in je account pagina\nnadat je een account hebt aangemaakt.\n"
+    sessions:
+      new:
+        title: "Meld je aan met je account"
+        sign_in: "Aanmelden"
+        spiel:
+          title: "Welkom terug!"
+          body: |
+            Als je een bestaande gebruiker bent, meld je aan met het
+            formulier hiernaast
+
+            Nog geen account?  [Meld je aan!](%{sign_up_path})
+    new:
+      title: "Maak je Photographer.io account aan"
+      spiel:
+        title: "Sluit je aan!"
+        body: "Als gratis lid van Photographer.io kun je:\n\n* %{uploads} foto's per maand uploaden\n* Ongelimiteerd aantal collecties aanmaken\n* Updates van andere gebruikers volgen\n* Foto's aan je favorieten lijst toevoegen\n* Promote je favoriete foto's met het aanbeveel systeem\n* Geef\
+          \ reacties en kritiek op foto's\n\nWil je ongelimiteerde uploads, meer opties, en wil je de site ondersteunen? \nBetaalde accounts komen er spoedig aan!\n\n##### Stuur je vrienden door voor extra uploads\nVoor elke vriend die lid word, krijgen zowel \njij als je vriend %{referral_bonus}\
+          \ extra uploads per maand. \nInstructies kun je vinden in je account pagina\nnadat je een account hebt aangemaakt.\n\n##### Deze site is momenteel in de Beta fase\nOnze algemene- en gebruikers voorwaarden zullen spoedig online staan. Tot die tijd kun je er van uit gaan dat we jouw\
+          \ foto's niet zullen stelen, en alles wat je upload naar deze site moet van jouw zijn.\n\nVragen? [Email ons!](mailto:support@photographer.io)\n"
