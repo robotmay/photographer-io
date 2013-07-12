@@ -1,0 +1,113 @@
+nl:
+  simple_form:
+    'yes': 'Ja'
+    'no': 'Nee'
+    required:
+      text: 'benodigd'
+      mark: '*'
+    error_notification:
+      default_message: "Lees de onderstaande problemen door:"
+    labels:
+      collection:
+        visible: "Wil je deze collectie publiekelijk zichtbaar maken op de site?"
+      comment_thread:
+        destroy: "Verwijder deze draad"
+      user:
+        show_nsfw_content: "Laat NSFW gemarkeerde inhoud zien"
+        website_url: "Jouw website URL"
+    placeholders:
+      comment_thread:
+        subject: "bijv. Welke vogelsoort is dit? Of: Wat vinden jullie van mijn kleur keuzes?"
+      user:
+        name: "Jouw naam of nickname, bijv. Rupert B."
+        website_url: "http://jouwgeweldigefotosite.nl"
+        username: >
+          Een unieke naam die gebruikt word in URLs, bijv. rupert_bear
+    hints:
+      comment_thread:
+        subject: >
+          Op welke onderwerpen wil je commentaar van je bezoekers ontvangen? Dit kan
+          van alles zijn, van "Hoe is mijn diagonale compositie?" tot "Help! Welke
+          vogelsoort is dit?"
+      metadata:
+        keywords: >
+          Trefwoorden moeten komma gescheiden woorden zijn die betrekking hebben tot
+          de inhoud van de foto, bijv. natuur, vogels, merel
+      photograph:
+        safe_for_work: >
+          Help je mede gebruikers die deze site op hun werk bezoeken; markeer deze
+          foto als NSFW/onveilig voor werk als er inhoud voor volwassenen in bevind
+          en niet geschikt gevonden kan worden in een kantoor omgeving.
+        license: >
+          Standaard behoud je alle rechten tot je eigen foto's. Mocht je een Creative
+          Commons licentie willen toekennen aan je foto, dan kun je dat hier boven
+          doen.
+        show_location_data: >
+          Wil je de locatie waar deze foto genomen was kenbaar maken? Je kunt de standaard
+          instelling hiervoor aanpassingen bij je account instellingen.
+        show_copyright_info: >
+          WIl je de copyright informatie, indien deze beschikbaar is in de metadata
+          van de foto, zichtbaar maken? Deze kan persoonlijke informatie bevatten,
+          zoals je naam en je woonplaats (stad/land).
+        category: >
+          Een relevante categorie zorgt ervoor dat je foto's makkelijker door andere
+          gebruikers ontdekt kunnen worden!
+        enable_comments: >
+          Als je reacties activeert moet je minstens een onderwerp instellen waar
+          op gereageerd kan worden. Reacties zijn privé tussen jouw en de persoon
+          die reageert,  tenzij je deze publiek zichtbaar maakt.
+      user:
+        edit:
+          username: >
+            Je gebruikersnaam is een unieke ID voor de gehele site, het word gebruikt
+            in URLs en verwijst naar jouw profiel pagina, bijv. https://www.photographer.io/u/rupert_bear.
+            Deze moet uniek zijn, in kleine letters, en mag allen bestaan uit letters,
+            nummers, en underscores.
+        username: >
+          Mag alleen letters, nummers, en underscores bevatten.
+        show_nsfw_content: >
+          Wil je NSFW/onveilig voor werk gemarkeerd materiaal bekijken? Dit kan naaktheid
+          of andere inhoud bevatten die niet geschikt is voor een kantoor- of werk
+          omgeving.
+        default_license_id: >
+          Standaard behoud je alle rechten op je eigen foto's. Mocht je een Creative
+          Commons licentie willen toevoegen, dan kun je dat hierboven doen. Dit zal
+          dan standaard op alle nieuwe foto's die je upload worden toegepast, maar
+          kan per foto worden aangepast.
+        show_location_data: >
+          Wil je standaard de locatie waar de foto was genomen laten zien? Dit kan
+          per foto apart worden aangepast.
+        show_copyright_info: >
+          WIl je de copyright informatie, indien deze beschikbaar is in de metadata
+          van de foto, zichtbaar maken? Deze kan persoonlijke informatie bevatten,
+          zoals je naam en je woonplaats (stad/land).
+        biography: >
+          Je biografie zal zichtbaar zijn op je profiel pagina. Er is momenteel geen
+          opmaak ondersteuning, alleen nieuwe regels zijn geïmplementeerd. Markdown
+          ondersteuning volgt spoedig.
+        receive_notification_emails: >
+          Wil je emails ontvangen voor nieuwe, belangrijke berichten; bijv. nieuwe
+          reacties?
+        notify_favourites: >
+          Wil je dat andere gebruikers worden geïnformeerd als je hun foto toevoegd
+          aan je favorieten lijst?
+        show_social_buttons: >
+          Wil je social sharing opties onder je foto's zien, bijv. Twitter, Facebook,
+          Google etc?
+
+          Did kan privacy gevoelig zijn.
+        locale: >
+          Kies de taal die je op de site wilt gebruiken. Mocht de taal die je zoekt
+          er niet tussen staan, help je ons dan en vertaal Photographer.io er naar
+          toe? Voor meer details kijk op <a href="https://github.com/afternoonrobot/photographer-io#translations">onze
+          GitHub repository</a>.
+  helpers:
+    submit:
+      comment:
+        create: "Reageer"
+        update: "Update"
+      mass_edit:
+        create: "Update"
+      user:
+        update: "Update je account details"
+        create: "Maak je account aan"

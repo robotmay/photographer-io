@@ -62,6 +62,6 @@
               = f.input :show_social_buttons, as: :radio_buttons
 
             div class="large-3 columns"
-              = f.input :locale, as: :select, collection: t("locales", default: []).map(&:reverse)
+              = f.input :locale, as: :select, collection: t("locales", default: []).map(&:reverse), include_blank: false
 
   = f.button :submit
