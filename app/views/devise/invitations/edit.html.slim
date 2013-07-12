@@ -19,6 +19,7 @@ section id="invitations-edit"
         = simple_form_for resource, as: resource_name, url: invitation_path(resource_name), html: { method: :put } do |f|
           = f.hidden_field :invitation_token
           fieldset
+            = f.input :username
             = f.input :name
             = f.input :email, input_html: { autocomplete: "off" }
             = f.input :password, input_html: { autocomplete: "off" }, required: true
