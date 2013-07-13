@@ -26,7 +26,7 @@ pl:
   privacy_policy: "https://www.iubenda.com/privacy-policy/288645"
   locales:
     en: "angielski"
-    nl: "holenderski"
+    nl_NL: "holenderski"
     pl: "polski"
   metadata:
     description: >
