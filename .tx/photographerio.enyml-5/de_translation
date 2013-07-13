@@ -1,0 +1,185 @@
+de:
+  site_name: "Photographer.io"
+  default_title: "Die Foto-Community für Enthusiasten - Photographer.io"
+  page_title: "%{title} - Photographer.io"
+  copyright: "Alle Fotos sind nach Urheberrecht des respektiven Erschaffers geschützt und\
+    \ dürfen gegebenenfalls nicht ohne Erlaubnis kopiert und weiterveröffentlicht werden.\
+    \ \n© Photographer.io, Afternoon Robot Ltd, 2013. Icons mit freundlicher Genehmigung\
+    \ von  <a href=\"http://glyphicons.com\">glyphicons.com</a>.\n"
+  privacy: "Datenschutz"
+  terms: "AGBs"
+  confirm_delete: "Sind Sie sicher?"
+  titles:
+    explore: "Entdecken"
+  untitled: "Ohne Titel"
+  social:
+    google_plus: "Google+"
+    twitter: "Twitter"
+    share: "Teilen"
+    twitter_account: "@photographer_io"
+  privacy_policy: "https://www.iubenda.com/privacy-policy/288645"
+  nav:
+    menu: "Menü"
+    blog: "Blog"
+    explore: "Entdecken"
+    account: "Konto"
+    photographs: "Fotos verwalten"
+    sign_in: "Anmelden"
+    sign_out: "Abmelden"
+    sign_up: "Benutzerkonto erstellen"
+    edit_account: "Kontoeinstellungen"
+    search: "Suchen"
+    recommended: "Empfohlen"
+    categories: "Nach Kategorie entdecken"
+    support: "Support"
+    beta: "Beta"
+    favourites: "Favoriten"
+    mini_stats:
+      views: "Totale Anzahl der Aufrufe Ihrer Fotos"
+      followers: "Totale Anzahl der Personen welche Ihre Updates verfolgen"
+      recommendations: "Totale Anzahl der Empfehlungen die Sie erhalten haben"
+      favourites: "Totale Anzahl wie oft Ihre Fotos favorisiert wurden"
+    general: "Entdecken"
+    latest: "Neuste Fotos"
+    random: "Gehe zu einem zufälligen Foto!"
+    invite: "Ein Freund einladen"
+    dashboard: "Übersicht"
+    about: "Über"
+  home:
+    register: "Benutzerkonto erstellen"
+    or: "oder"
+    sign_up: "Gratis Benutzerkonto erstellen"
+  about:
+    title: "Über Photographer.io"
+    sign_up: "Benutzerkonto erstellen"
+  account:
+    nav:
+      title: "Ihr Benutzerkonto"
+      home: "Übersicht"
+      settings: "Kontoeinstellungen"
+      invite: "Freunde einladen"
+      photographs: "Fotos"
+      upload_quota: "Ihre monatliche Nutzung"
+    form:
+      auth: "Anmeldedetails"
+      username: "Benutzername"
+      settings: "Kontoeinstellungen"
+    dashboard:
+      title: "Ihre Benutzerkonto Übersicht"
+      statistics:
+        title: "Statistiken"
+        photo_count: "Fotos"
+        public_photo_count: "Öffentliche Fotos"
+        private_photo_count: "Private Fotos"
+      usage:
+        title: "Nutzung"
+    authorisations:
+      existing:
+        provider: "Seite"
+        email: "Benutzerkonto"
+        created_at: "Verknüpft am"
+    collections:
+      delete: "Diese Kollektion löschen"
+      form:
+        general: "Kollektiondetails"
+      modal:
+        new:
+          button: "Kollektion erstellen"
+          title: "Neue Kollektion erstellen"
+        edit:
+          button: "Bearbeiten"
+          title: "Kollektion bearbeiten"
+    photographs:
+      nav:
+        title: "Fotos"
+        all: "Alle"
+        public: "Öffentlich"
+        private: "Privat"
+        unsorted: "Unsortiert"
+        collections: "Kollektion"
+      view: "Öffentliche Seite ansehen"
+      views: "Ansichten"
+      recommendations: "Empfehlungen"
+      favourites: "Favoriten"
+      upload: "Hochladen"
+      delete: "Dieses Foto löschen"
+      edit_mode:
+        button: "Editiermodus"
+        change_collections: "Zur Kollektion hinzufügen"
+        delete: "Löschen"
+      form:
+        general: "Details"
+        settings: "Einstellungen"
+        comments: "Kommentare"
+  comments:
+    saving: "Speichern..."
+    delete: "Löschen"
+    reply: "Antworten"
+    publish: "Veröffentlichen"
+    unpublish: "Veröffentlichung aufheben"
+  followings:
+    follow: "Verfolgen"
+    unfollow: "Verfolgung aufheben"
+  notifications:
+    title: "Notifikationen"
+    mark_as_read: "Alle als gelesen markieren"
+  photographs:
+    title: "%{title} von %{by}"
+    share: "Teilen"
+    edit: "Dieses Foto editieren"
+    recommend: "Dieses Foto empfehlen"
+    recommended: "Empfohlen!"
+    favourite: "Favorisieren"
+    unfavourite: "Favorisierung aufheben"
+    stats: "Statistiken"
+    views: "Ansichten"
+    favourites: "Favoriten"
+    caption: "%{photo} von %{user}"
+    sub_nav:
+      filter: "Filter:"
+      grouped: "Gruppieren nach Kollektion"
+      all: "Alle"
+    metadata:
+      title: "Fotodetails"
+      keywords: "Stichwort"
+      camera: "Kamera"
+      image: "Bild"
+      settings: "Einstellungen"
+      model: "Modell"
+      lens_type: "Linsen"
+      aperture: "Blende"
+      focal_length: "Brennweite"
+      shutter_speed: "Verschlusszeit"
+      fov: "FOV"
+      iso: "ISO"
+      copyright_notice: "Urheberrecht"
+      rights: "Rechte"
+      creator: "Ersteller"
+      creator_city: "Stadt"
+      creator_country: "Land"
+      lat: "Latitude"
+      lng: "Longitude"
+      license: "Lizenz"
+      default_license: "Alle Rechte vorbehalten"
+    creator:
+      profile: "Profil anzeigen"
+      photos: "Mehr Fotos anzeigen"
+  users:
+    avatar: "Avatar"
+    visit_site: "Zur Webseite"
+    invitations:
+      invited:
+        email: "E-Mail-Adresse"
+        status: "Status"
+        confirmed: "Akzeptiert!"
+        unconfirmed: "Noch nicht akzeptiert!"
+      new:
+        title: "Freunde einladen"
+        invite: "Einladung senden"
+      edit:
+        title: "Benutzerkonto erstellen"
+    sessions:
+      new:
+        sign_in: "Anmelden"
+        spiel:
+          title: "Willkommen zurück!"
