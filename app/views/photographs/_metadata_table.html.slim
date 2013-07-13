@@ -1,5 +1,5 @@
 - opts ||= {}
-- cache([photograph, photograph.metadata, opts], expires_in: 1.hour) do
+- cache([I18n.locale, photograph, photograph.metadata, opts], expires_in: 1.hour) do
   div class="row"
     aside class="metadata large-12 columns"
       header

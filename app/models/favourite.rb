@@ -22,13 +22,15 @@ class Favourite < ActiveRecord::Base
 
   after_create :notify
   def notify
-    if user.notify_favourites
-      title = photograph.title.blank? ? I18n.t("untitled") : photograph.title
+    I18n.with_locale(photograph.user.locale) do
+      if user.notify_favourites
+        title = photograph.title.blank? ? I18n.t("untitled") : photograph.title
 
-      notifications.create(
-        user: photograph.user,
-        subject: I18n.t("favourites.notifications.subject", user: user.name, photo: title)
-      )
+        notifications.create(
+          user: photograph.user,
+          subject: I18n.t("favourites.notifications.subject", user: user.name, photo: title)
+        )
+      end
     end
   end
 end

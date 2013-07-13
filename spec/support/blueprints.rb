@@ -5,13 +5,25 @@ Collection.blueprint do
   name { Faker::Lorem.word }
 end
 
+Favourite.blueprint do
+  user
+  photograph
+end
+
 Metadata.blueprint do
   photograph
   title { Faker::Lorem.sentence }
   description { Faker::Lorem.paragraph }
 end
 
+Notification.blueprint do
+  user
+  subject { Faker::Lorem.sentence }
+  body { Faker::Lorem.paragraph }
+end
+
 Photograph.blueprint do
+  user
 end
 
 Recommendation.blueprint do
