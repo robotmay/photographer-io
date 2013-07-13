@@ -1,4 +1,4 @@
-nl:
+nl_NL:
   site_name: "Photographer.io"
   default_title: "De foto's gemeenschap voor liefhebbers - Photographer.io"
   page_title: "%{title} - Photographer.io"
@@ -46,7 +46,7 @@ nl:
     support: "Ondersteuning"
     beta: "Beta"
     favourites: "Favorieten"
-    profile: "Jouw profiel"
+    profile: "Jouw publiek profiel"
     mini_stats:
       views: "Totaal aantal keer dat je foto's bekeken zijn"
       followers: "Totaal aantal personen die je updates volgen"
