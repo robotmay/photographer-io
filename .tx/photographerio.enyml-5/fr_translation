@@ -1,0 +1,363 @@
+fr:
+  site_name: "Photographer.io"
+  default_title: "La communauté photo pour les amateurs - Photographer.io"
+  page_title: "%{title} - Photographer.io"
+  privacy: "Confidentialité"
+  terms: "Conditions d'utilisation"
+  confirm_delete: "Êtes-vous certain ?"
+  titles:
+    explore: "Explorer"
+    recommended: "Photos recommandées par d'autres membres"
+    favourites: "Vos photos préférées"
+    following: "Photos de personnes que vous suivez"
+    seeking_feedback: "Photos qui cherchent votre réaction"
+  untitled: "Sans titre"
+  social:
+    google_plus: "Google+"
+    twitter: "Twitter"
+    share: "Partager"
+    twitter_account: "@photographer_io"
+    github: "GitHub"
+  privacy_policy: "https://www.iubenda.com/privacy-policy/288645"
+  locales:
+    en: "Anglais"
+    pl: "Polonais"
+  metadata:
+    description: >
+      Photographer.io est une nouvelle communauté pour les passionnés de la photographie.
+      Venez rejoindre notre communauté; postez vos photos, découvrez de superbes clichés
+      par d'autres et obtenez des retours sur vos photos!
+  nav:
+    menu: "Menu"
+    blog: "Blog"
+    explore: "Explorer"
+    account: "Compte"
+    photographs: "Gérer vos photos"
+    sign_in: "Connexion"
+    sign_out: "Déconnexion"
+    sign_up: "Créez votre compte"
+    edit_account: "Paramètres de compte"
+    search: "Rechercher"
+    recommended: "Recommander"
+    categories: "Rechercher selon la catégorie"
+    support: "Aide"
+    beta: "Version bêta"
+    favourites: "Préférées"
+    mini_stats:
+      views: "Nombre total de fois que vos photos ont été consultées"
+      followers: "Nombre total de personnes qui suivent vos mises à jour"
+      recommendations: "Nombre total de recommandations que vous avez reçues"
+      favourites: "Nombre total de fois que vos photos ont été ajoutées aux favoris"
+    general: "Explorer"
+    latest: "Dernières photos"
+    random: "Aller à la photo aléatoire"
+    following: "Photos de gens qui vous suivez"
+    invite: "Invitez un ami"
+    dashboard: "Tableau de bord"
+    seeking_feedback: "Photos qui cherchent une réaction"
+    about: "À propos de nous"
+  beta_notes:
+    title: "Il s'agit de version bêta à étape précoce!"
+  home:
+    title: >
+      Une nouvelle communauté photo pour partager vos photos.
+    blurb: >
+      Envoyer, organiser et partager vos photos à côté d'autres, comme %{name} a fait
+      avec cette <a href="%{image_path}">%{word} image</ a>.?
+    words:
+    - fantastique
+    - merveilleux
+    - génial
+    - excellent
+    - spectaculaire
+    - impressionnant
+    - superbe
+    register: "Créez votre compte"
+    about: "Renseignez-vous sur pourquoi on est différent"
+    or: "ou"
+    sign_up: "Créez votre compte gratuis"
+  about:
+    title: "À propos de Photographer.io"
+    subtitle: "Quelques raisons qui nous font penser que vous devez nous rejoindre:"
+    open_source:
+      title: "Nous somme open source"
+    advertising:
+      title: "Pas de publicité"
+    likes:
+      title: "Les «j'aime» sont morts, longue vie aux recommandations !"
+    comments:
+      title: "Notre système de commentaires est différent"
+    privacy:
+      title: "Vie privée et sécurité sont vraiment importants pour nous"
+    compare:
+      title: "Comment nous comparer aux autres communautés photographiques ?"
+      flickr:
+        title: "Flickr"
+        uploads: "1 To"
+        albums: "Illimité"
+        advertising: "Oui"
+        ssl: "Optionnel"
+      500px:
+        title: "500px"
+        uploads: "20 photos par semaine"
+        albums: "Limité"
+        advertising: "Non"
+        ssl: "Non"
+      photographerio:
+        uploads: "100 photos par mois *"
+        albums: "Illimité"
+        advertising: "Non"
+        ssl: "Toujours"
+      free_accounts: "Comptes gratuits"
+      advertising: "Publicité"
+      else: "Tout le reste"
+      ssl: "SSL global"
+    interested: "Intéressé ? Créez votre compte gratuit !"
+    sign_up: "Créez votre compte"
+  account:
+    nav:
+      title: "Votre Compte"
+      home: "Tableau de bord"
+      settings: "Paramètres de compte"
+      invite: "Invitez vos amis"
+      photographs: "Photos"
+      upload_quota: "Votre utilisation du mois"
+      get_more_uploads: "Avez besoin de plus? <a href='%{path}'>Invitez vos amis!</a>"
+      authorisations: "Comptes connectés"
+    form:
+      auth: "Détails de connexion"
+      username: "Nom d'utilisateur"
+      public: "Comment voulez-vous être connait aux autres?"
+      settings: "Paramètres de compte"
+      create: "Créez un compte Photographer.io"
+    dashboard:
+      title: "Votre tableau de bord compte"
+      statistics:
+        title: "Statistiques"
+        views: "Vues au total de vos photos"
+        photo_count: "Photos"
+        public_photo_count: "Photos publiques"
+        private_photo_count: "Photographies privées"
+        recommendations: "Recommandations reçu au total"
+        favourites: "Nombre total de favoris sur vos photos"
+      recommendations:
+        title: "Vos recommandations"
+        quota: "Vous pouvez recommander %{n} photos par jour actuellement"
+        remaining: "Vous avez %{n} recommandations restantes pour aujourd'hui"
+        total: "Vous avez recommandé %{n} photos en tout"
+      usage:
+        title: "Utilisation"
+        quota: "Vous pouvez télécharger un total de %{n} photos chaque mois"
+        remaining: "Vous avez %{n} téléchargements restantes pour ce mois"
+        get_more: "Avez besoin de plus? <a href='%{path}'>Invitez des amis!</a>"
+      hints:
+        title: "Suggestions pour les nouveaux utilisateurs"
+    authorisations:
+      create:
+        succeeded: "Vous avez autorisé ce compte avec succès"
+        failed: "Il y a eu un problème pour autoriser ce compte. Réessayez."
+      title: "Connecter vos comptes d'autres sites"
+      existing:
+        title: "Comptes connectés"
+        provider: "Site"
+        email: "Compte"
+        created_at: "Relié à"
+        none: "Vous n'avez pas encore connecté de compte"
+    collections:
+      default:
+        public: "Publique"
+        private: "Privé"
+      delete: "Effacer cette collection"
+      form:
+        general: "Détails de la collection"
+      modal:
+        new:
+          button: "Créer une collection"
+          title: "Créer une nouvelle collection"
+        edit:
+          button: "Éditer"
+          title: "Éditer la collection"
+      create:
+        succeeded: "Votre nouvelle collection a été créée avec succès."
+        failed: "Il y a eu un problème pour créer votre collection. Vérifiez plus bas si il y a des erreurs."
+      update:
+        succeeded: "Votre collection a été mise à jour avec succès."
+        failed: "Il y a eu un problème pour mettre à jour votre collection."
+      destroy:
+        succeeded: "Cette collection a été effacée avec succès."
+        failed: "Il y a eu un problème pour effacer votre collection."
+    photographs:
+      nav:
+        title: "Photos"
+        all: "Tous"
+        public: "Publiques"
+        private: "Privées"
+        unsorted: "Non triées"
+        collections: "Collections"
+      view: "Voir page publique"
+      views: "Affichages"
+      recommendations: "Recommandations"
+      favourites: "Favoris"
+      upload: "Télécharger"
+      delete: "Supprimer cette photo"
+      dropzone: >
+        Glissez-déposez vos images sur cette page pour les téléverser. Lisez nos %{guidelines}
+      public_warning: >
+        Cette collection est définie comme publique. Toutes les photos ici seront
+        listées dans la partie publique du site.
+      unsorted_warning: >
+        Comme cette vue est un filtre sur les photographies et non pas une véritable
+        collection, les photos que vous téléversez ici seront ajoutées à la vue non-organisée.
+      edit_mode:
+        button: "Mode de modification"
+        change_collections: "Ajouter aux collections"
+        collection_note: >
+          Ceci n'effacera pas les photographies de leurs collections sauf si vous
+          gérez une collection et désélectionnez spécifiquement cette collection.
+        delete: "Supprimer"
+      form:
+        general: "Détails"
+        collections: "De quelle collection cette photo doit-elle faire partie ?"
+        settings: "Paramètres"
+        comments: "Commentaires"
+        threads: "À propos de quels sujets voulez-vous commenter ?"
+      create:
+        failed: "Erreur de téléversement"
+      update:
+        succeeded: "Vos modifications ont été sauvegardées avec succès !"
+        failed: "Un problème est survenu lors de la sauvegarde de votre photographie. Vérifiez ci-dessous si il y a des erreurs."
+      mass_update:
+        no_photos_selected: "Aucune photographie n'est sélectionnée."
+        collections:
+          succeeded: "Les collections de photographies ont été mises à jour avec succès."
+          failed: "Une erreur est survenue lors de la mise à jour des collections"
+      destroy:
+        succeeded: "Votre photographie a été effacée avec succès."
+        failed: "Un problème est survenu lors de l'effacement de cette photographie."
+  collections:
+    caption: "%{user} a mis à jour %{collection}"
+  collection_photographs:
+    user_must_match: "Vous ne pouvez pas ajouter de photo à cette collection"
+  comments:
+    saving: "Sauvegarde…"
+    delete: "Supprimer"
+    reply: "Répondre"
+    publish: "Publier"
+    unpublish: "Dépublier"
+    notifications:
+      subject: "%{user} a laissé un nouveau commentaire sur '%{on}'"
+      reply:
+        subject: "%{user} a laissé une nouvelle réponse à votre commentaire sur '%{on}'"
+        body: >
+          %{user} a laissé une nouvelle réponse à votre commentaire sur '%{on}'.
+      published:
+        subject: "Votre commentaire sur '%{on}' a été publié"
+  favourites:
+    notifications:
+      subject: "%{user} a mis '%{photo}' en favori"
+    create:
+      succeeded: "La photo a été ajoutée à vos favoris !"
+    destroy:
+      succeeded: "Favori enlevé !"
+  followings:
+    follow: "Suivre"
+    unfollow: "Arrêter de suivre"
+    create:
+      succeeded: "Vous suivez maintenant %{name} !"
+      failed: "Il y a eu un problème pour suivre cet utilisateur. Contactez le support."
+    destroy:
+      succeeded: "Vous ne suivez plus cet utilisateur."
+  notifications:
+    title: "Notifications"
+    none: "Vous n'avez actuellement aucune notification."
+    mark_as_read: "Marquer tout comme lu"
+    email:
+      subject: "Photographer.io: %{subject}"
+      button: "Voir sur Photographer.io"
+      body: >
+        Ceci est un email de notification automatique pour vous informer de ce qui
+        suit:
+  photographs:
+    title: "%{title} par %{by}"
+    user_quota_exceeded: >
+      Malheureusement vous avez atteint votre limite pour ce mois-ci :(
+    none: "Il n'y a pas de photos ici!"
+    no_results: "Il n'y avait pas de résultats pour votre demande."
+    collections: "Listé dans les collections"
+    share: "Partager"
+    edit: "Éditer cette photo"
+    location: "Localisation"
+    recommend: "recommender cette photographie"
+    recommended: "Recommandé !"
+    favourite: "Favori"
+    unfavourite: "Non-favori"
+    stats: "Statistiques"
+    views: "Affichages"
+    favourites: "Préférées"
+    caption: "%{photo} par %{user}"
+    sub_nav:
+      filter: "Filtre:"
+      grouped: "Grouper par collection"
+      all: "Tous"
+    metadata:
+      title: "Détails de la photographie"
+      details: "Détails"
+      keywords: "Mots-clef"
+      camera: "Appareil"
+      image: "Image"
+      settings: "Paramètres"
+      model: "Modèle"
+      lens_type: "Objectif"
+      aperture: "Ouverture"
+      focal_length: "Longueur focale"
+      shutter_speed: "Vitesse"
+      fov: "PDC"
+      iso: "ISO"
+      copyright_notice: "Copyright"
+      rights: "Droits"
+      creator: "Créateur"
+      creator_city: "Commune"
+      creator_country: "Pays"
+      date_time_original: "Pris à "
+      lat: "Latitude"
+      lng: "Longitude"
+      license: "Licence"
+      default_license: "Tous droits réservés"
+    creator:
+      profile: "Voir le profil"
+      photos: "Voir plus de photos"
+  recommendations:
+    quota: "Vous pouvez recommander encore %{amount} photographies aujourd'hui !"
+  users:
+    avatar: "Avatar"
+    visit_site: "Visitez le site web"
+    username_format: "Sont autorisés uniquement lettres, chiffres et tiret bas."
+    username_quota: "Pouvez-vous remplacer votre nom d'utilisateur %{n} fois plus"
+    invitations:
+      invited:
+        title: "Amis que vous avez déjà invité"
+        email: "Adresse email"
+        confirmed: "Accepté !"
+        unconfirmed: "Pas encore accepté"
+        none: |
+          Vous n'avez encore invité personne ! Commencez avec le formulaire sur la droite.
+      new:
+        title: "Invitez vos amis"
+        invite: "Envoyez l'invitation"
+        spiel:
+          title: "Amenez vos amis et gagnez des récompenses !"
+      edit:
+        title: "Créez votre compte"
+        accept: "Acceptez l'invitation et créez un compte"
+        spiel:
+          title: "Acceptez votre invitation et rejoignez-nous !"
+    sessions:
+      new:
+        title: "Connecter à votre compte"
+        sign_in: "Connexion"
+        spiel:
+          title: "Bienvenue à nouveau!"
+    new:
+      title: "Créez votre compte Photographer.io"
+      spiel:
+        title: "Rejoignez-nous!"

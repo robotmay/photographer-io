@@ -1,0 +1,17 @@
+nl_NL:
+  devise:
+    invitations:
+      send_instructions: 'Een uitnodiging in verstuurt naar %{email}.'
+      invitation_token_invalid: 'De uitnodigingstoken is niet geldig!'
+      updated: 'Je wachtwoord in ingesteld. Je bent nu aangemeld.'
+      no_invitations_remaining: "Geen uitnodigingen meer"
+      invitation_removed: 'Je uitnodiging was verwijdert.'
+      new:
+        header: "Verstuur uitnodiging"
+        submit_button: "Verstuur een uitnodiging"
+      edit:
+        header: "Stel je wachtwoord in"
+        submit_button: "Stel mijn wachtwoord in"
+    mailer:
+      invitation_instructions:
+        subject: 'Een vriend heeft je uitgenodigd om lid te worden van Photographer.io'

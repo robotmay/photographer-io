@@ -87,4 +87,36 @@ namespace :iso do
       end
     end
   end
+
+  namespace :locales do
+    task :fetch => :environment do
+      slug_map = {
+        "enyml-5" => "%{locale}.yml",
+        "categoriesenyml" => "categories.%{locale}.yml",
+        "simple_formenyml" => "simple_form.%{locale}.yml",
+        "deviseenyml" => "devise.%{locale}.yml",
+        "devise_invitableenyml" => "devise_invitable.%{locale}.yml"
+      }
+
+      require 'open3'
+      Open3.popen3("cd #{Rails.root} && tx pull -a") do |stdin, stdout, stderr, wait_thr|
+        while line = stdout.gets
+          match = line.match(/ -> (.*): (.*)/i)
+          if match
+            locale, original_file = match[1], match[2]
+            p "Downloaded #{original_file} for #{locale}"
+
+            match = original_file.match(/\.tx\/(.*)\.(.*)\/(.*)/i)
+            slug = match[2]
+
+            file_name = slug_map[slug] % { locale: locale }
+            path = "config/locales/#{file_name}"
+
+            p "Moving #{original_file} to #{path}"
+            `cd #{Rails.root} && mv #{original_file} #{path}`
+          end
+        end
+      end
+    end
+  end
 end

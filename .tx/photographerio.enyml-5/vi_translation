@@ -1,0 +1,160 @@
+vi:
+  site_name: "Photographer.io"
+  default_title: "Cộng đồng quy tụ nhiều nhiếp ảnh gia trên khắp thế giới - Photographer.io"
+  page_title: "%{title} - Photographer.io"
+  copyright: >
+    Tất cả các ảnh chụp đều có bản quyền thuộc về tác giả của ảnh chụp đó, không được
+    phép đăng tải, mua bán hay trao đổi mà không có sự đồng ý của những tác giả ấy..
+
+    © Photographer.io, Afternoon Robot Ltd, 2013. Icons courtesy of  <a href="http://glyphicons.com">glyphicons.com</a>.
+  privacy: "Chính sách về quyền riêng tư"
+  terms: "Điều khoản"
+  confirm_delete: "Bạn có chắc không?"
+  titles:
+    explore: "Khám phá"
+    recommended: "Các hình ảnh được khuyến nghị nên xem từ các thành viên khác"
+    favourites: "Các hình ảnh bạn ưa thích"
+    following: "Hình ảnh từ những người mà bạn theo dõi"
+    seeking_feedback: "Hình ảnh theo phản hồi của bạn"
+  untitled: "Chưa có tiêu đề"
+  social:
+    google_plus: "Google+"
+    twitter: "Twitter"
+    share: "Chia sẻ"
+    twitter_account: "@photographer_io"
+  privacy_policy: "https://www.iubenda.com/privacy-policy/288645"
+  metadata:
+    description: >
+      Chuyển ngữ bởi Phan Anh. Photographer.io là một cộng đồng tập hợp nhiều nhiếp
+      ảnh gia và những cá nhân có niềm đam mê trong lãnh vực nhiếp ảnh. Hãy gia nhập
+      cộng đồng của chúng tôi; đăng lên các hình ảnh, các góc chụp, cũng như phản
+      hồi của chính bạn về những hình ảnh đó!
+  nav:
+    menu: "Menu"
+    blog: "Blog"
+    explore: "Khám phá"
+    account: "Tài khoản"
+    photographs: "Quản lý hình ảnh"
+    sign_in: "Đăng nhập"
+    sign_out: "Đăng xuất"
+    sign_up: "Tạo tài khoản của bạn"
+    edit_account: "Thiết lập tài khoản"
+    search: "Tìm kiếm"
+    recommended: "Khuyên xem"
+    categories: "Khám phá theo thể loại"
+    support: "Hỗ trợ"
+    beta: "Thử nghiệm"
+    favourites: "Ưa Thích"
+    mini_stats:
+      views: "Tổng số lượt xem các hình ảnh của bạn"
+      followers: "Tổng số người đang theo dõi các cập nhật từ bạn"
+      recommendations: "Tổng số lời khuyến nghị mà bạn đã nhận được"
+      favourites: "Tổng số lượt các hình ảnh của bạn được đưa vào phần ưa thích"
+    general: "Khám phá"
+    latest: "Các hình ảnh mới nhất"
+    random: "Xem một hình ảnh ngẫu nhiên!"
+    following: "Các hình ảnh từ những người dùng mà bạn theo dõi"
+    invite: "Kết nối với bạn bè"
+    dashboard: "Bảng điều khiển"
+    seeking_feedback: "Hình ảnh nhận được phản hồi"
+    about: "Thông tin thêm"
+  beta_notes:
+    title: "Hiện đây là một phiên bản thử nghiệm!"
+    blurb: "Thanks for taking the time to try out the early beta of Photographer.io. All feedback,\
+      \ bug reports, or features ideas are very welcome. \n\nI want to make this the best and most\
+      \ enjoyable photography community on the planet. Improvements are going up all the time and\
+      \ I read every single message. If you need help just shoot me a support email/message, or grab\
+      \ me <a href=\"http://twitter.com/robotmay\">on Twitter</a>.\n\nThe main goal of Photographer.io\
+      \ is to do away with a lot of the complexity of photo sharing sites which essentially cater\
+      \ to a few highly popular individuals, making it hard for new users to get noticed. It also\
+      \ aims to do away with a lot of the ineffective ranking systems used by some sites. You can\
+      \ recommend photos here; a recommendation is a finite resource and affects the ranking of a\
+      \ photo over time. This is an area I'm keeping a close eye on to ensure that everyone has a\
+      \ chance to get their photos seen.\n\nFeatures coming soon: better uploader, commenting (with\
+      \ a purpose),  a more advanced ranking system for photos, and general improvements  throughout\
+      \ the site.\n\nThanks again for trying out Photographer.io!\nRobert May\n"
+  home:
+    title: >
+      Một hình ảnh mới từ cộng đồng đã được chia sẻ đến bạn.
+    blurb: >
+      Tải lên, quản lý, và chia sẻ các hình ảnh của bạn với những người khác, chẳng
+      hạn %{name} đã làm điều này <a href="%{image_path}">%{word} hình ảnh</a>.
+    words:
+    - đã thiệt
+    - đẹp ghê
+    - tuyệt vời
+    - xuất sắc
+    - ngoạn mục
+    - thật là yô mốt
+    - bá cháy
+    register: "Tạo tài khoản của bạn"
+    about: "Tìm hiểu về sự khác biệt"
+    or: "hoặc"
+    sign_up: "Tạo tài khoản miễn phí"
+  about:
+    title: "Thông tin về Photographer.io"
+    compare:
+      photographerio:
+        title: "Photographer.io"
+    sign_up: "Tạo tài khoản của bạn"
+  account:
+    nav:
+      title: "Tài khoản của bạn"
+      home: "Bảng điều khiển"
+      settings: "Thiết lập tài khoản"
+      invite: "Kết nối bạn bè"
+      photographs: "Hình ảnh"
+      upload_quota: "Dung lượng của bạn trong tháng này"
+      get_more_uploads: "Cần thêm? <a href='%{path}'>Hãy kết nối thêm bạn bè!</a>"
+      authorisations: "Đã kết nối với tài khoản"
+    form:
+      auth: "Chi tiết về đăng nhập"
+      username: "Tên người dùng"
+      public: "Cách bạn muốn những người khác biết đến mình là như thế nào?"
+      settings: "Thiết lập tài khoản"
+      create: "Đăng ký một tài khoản tại Photographer.io"
+    dashboard:
+      title: "Bảng điều khiển tài khoản của bạn"
+      blurb: >
+        Nếu bạn là một thành viên chính thức, bạn có thể tải lên và quản lý các hình
+        ảnh của mình trước khi chia sẻ với mọi người trên giao diện trang chia sẻ-cộng
+        đồng.
+      statistics:
+        title: "Thống kê"
+        views: "Tổng số lượt xem hình ảnh của bạn"
+        photo_count: "Hình ảnh"
+        public_photo_count: "Hình ảnh chia sẻ công cộng"
+        private_photo_count: "Hình ảnh thuộc phạm vi cá nhân"
+        recommendations: "Tổng số khuyến nghị đã nhận được"
+        favourites: "Tổng số hình ảnh của bạn được chọn làm phần ưa thích"
+      recommendations:
+        title: "Khuyến nghị của bạn"
+        quota: "Bạn hiện có thể khuyến nghị %{n} hình ảnh mỗi ngày"
+        remaining: "Bạn có %{n} khuyến nghị còn lại cho ngày hôm nay"
+        total: "Bạn có tổng cộng %{n} khuyến nghị"
+      usage:
+        title: "Dung lượng"
+        quota: "Bạn có thể tải lên tổng cộng %{n} hình ảnh mỗi tháng"
+        remaining: "Bạn hiện còn %{n} lần tải lên trong tháng này"
+        get_more: "Cần thêm? <a href='%{path}'>Hãy kết nối thêm bạn bè!</a>"
+    authorisations:
+      existing:
+        title: "Đã kết nối với tài khoản"
+        email: "Tài khoản"
+    photographs:
+      nav:
+        title: "Hình ảnh"
+      favourites: "Ưa Thích"
+  photographs:
+    share: "Chia sẻ"
+    stats: "Thống kê"
+    favourites: "Ưa Thích"
+  users:
+    invitations:
+      new:
+        title: "Kết nối bạn bè"
+      edit:
+        title: "Tạo tài khoản của bạn"
+    sessions:
+      new:
+        sign_in: "Đăng nhập"

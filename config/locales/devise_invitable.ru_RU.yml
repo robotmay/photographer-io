@@ -1,0 +1,16 @@
+ru_RU:
+  devise:
+    invitations:
+      send_instructions: 'Приглашение выслано на адрес %{email}.'
+      updated: 'Вы установили пароль и вошли на сайт.'
+      no_invitations_remaining: "Вы исчерпали лимит приглашений."
+      invitation_removed: 'Приглашение было удалено.'
+      new:
+        header: "Послать приглашение"
+        submit_button: "Послать приглашение"
+      edit:
+        header: "Установите пароль"
+        submit_button: "Установить пароль"
+    mailer:
+      invitation_instructions:
+        subject: 'Вас пригласили на сайт Photographer.io'

@@ -1,0 +1,23 @@
+[main]
+host = https://www.transifex.com
+minimum_perc = 80
+
+[photographerio.enyml-5]
+source_file = config/locales/en.yml
+source_lang = en
+
+[photographerio.categoriesenyml]
+source_file = config/locales/categories.en.yml
+source_lang = en
+
+[photographerio.simple_formenyml]
+source_file = config/locales/simple_form.en.yml
+source_lang = en
+
+[photographerio.deviseenyml]
+source_file = config/locales/devise.en.yml
+source_lang = en
+
+[photographerio.devise_invitableenyml]
+source_file = config/locales/devise_invitable.en.yml
+source_lang = en
