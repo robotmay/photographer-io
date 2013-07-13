@@ -4,7 +4,7 @@
   <title><![CDATA[Photographer.io Blog]]></title>
   <link href="http://blog.photographer.io/atom.xml" rel="self"/>
   <link href="http://blog.photographer.io/"/>
-  <updated>2013-07-09T23:23:48+01:00</updated>
+  <updated>2013-07-13T23:43:37+01:00</updated>
   <id>http://blog.photographer.io/</id>
   <author>
     <name><![CDATA[Robert May]]></name>
@@ -12,6 +12,25 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Dutch and Polish Language Support Now in Beta]]></title>
+    <link href="http://blog.photographer.io/posts/2013/07/13/dutch-and-polish-language-support-now-in-beta/"/>
+    <updated>2013-07-13T23:25:00+01:00</updated>
+    <id>http://blog.photographer.io/posts/2013/07/13/dutch-and-polish-language-support-now-in-beta</id>
+    <content type="html"><![CDATA[<p>I&rsquo;m really pleased to be able to announce that our first two options for languages have gone up on the site in beta. You can now browse <a href="https://www.photographer.io">Photographer.io</a> in <a href="https://www.photographer.io/nl_NL">Dutch</a> and <a href="https://www.photographer.io/pl">Polish</a>. This is the first step of integrating some of the fantastic work our <a href="https://www.transifex.com/projects/p/photographerio/">open source translators</a> have been doing and it&rsquo;s really exciting to be able to start offering the site in languages other than English. Photography really is a universal medium and I want to provide a great experience for everybody around the world.</p>
+
+<p>For these language releases I must thank <a href="https://www.transifex.com/accounts/profile/HiryuSingh/">HiryuSingh</a> for the Dutch translations, and <a href="https://www.transifex.com/accounts/profile/kocio/">kocio</a> for the Polish translations. I&rsquo;ll be finding a way to reward translators more in the future, as I&rsquo;m incredibly grateful for the work everyone has been putting into it.</p>
+
+<p>As well as being able to select a language from the footer of every page, you can also set your default language via your account page:</p>
+
+<p><img src="http://blog.photographer.io/images/posts/8/settings.png" alt="Account language option" /></p>
+
+<p>If you see any rogue English words around the site then it&rsquo;s most likely due to me having missed out the key in the original English locale files. Please <a href="mailto:support@photographer.io">let me know</a> if you find any and I&rsquo;ll get them added in as soon as possible.</p>
+
+<p>Want to help translate Photographer.io into your language, or suggest improvements to an existing one? The <a href="https://github.com/afternoonrobot/photographer-io">entire app is open source</a> and you can <a href="https://www.transifex.com/projects/p/photographerio/">join the translation team over on Transifex</a>. Any contribution is very much appreciated!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Translating Photographer.io]]></title>
@@ -45,7 +64,7 @@
 
 <h3>It will improve the quality and security of the site by opening the code to peer review.</h3>
 
-<p>I care a lot about security and code quality, but talking about security and testing those claims are two very different subjects. If you find a security flaw then please get in touch at <a href="&#109;&#97;&#105;&#108;&#x74;&#111;&#58;&#115;&#101;&#x63;&#117;&#114;&#105;&#x74;&#x79;&#64;&#x70;&#x68;&#x6f;&#116;&#x6f;&#103;&#114;&#x61;&#112;&#104;&#x65;&#x72;&#46;&#x69;&#111;">&#115;&#x65;&#99;&#117;&#114;&#x69;&#x74;&#x79;&#x40;&#112;&#x68;&#x6f;&#116;&#111;&#103;&#114;&#x61;&#x70;&#x68;&#101;&#114;&#46;&#105;&#111;</a>.</p>
+<p>I care a lot about security and code quality, but talking about security and testing those claims are two very different subjects. If you find a security flaw then please get in touch at <a href="&#109;&#97;&#x69;&#108;&#x74;&#x6f;&#x3a;&#115;&#x65;&#99;&#x75;&#114;&#x69;&#116;&#x79;&#x40;&#x70;&#104;&#111;&#116;&#111;&#103;&#x72;&#x61;&#112;&#104;&#101;&#x72;&#x2e;&#x69;&#x6f;">&#x73;&#x65;&#99;&#x75;&#x72;&#x69;&#x74;&#x79;&#64;&#x70;&#104;&#111;&#116;&#111;&#103;&#114;&#97;&#112;&#104;&#101;&#114;&#46;&#x69;&#x6f;</a>.</p>
 
 <h3>It&rsquo;s great to finally have a project worth open sourcing.</h3>
 
@@ -335,7 +354,7 @@
 
 <p>What do you think? This is clearly still a work in progress but I&rsquo;d love to get some opinions about how it works and what you would do to improve it.</p>
 
-<p>I am entirely open to feedback, ideas, and bug reports. You can reach me on Twitter as <a href="http://twitter.com/robotmay">@robotmay</a> or via email at <a href="mailto:rob@photographer.io"><a href="&#x6d;&#97;&#x69;&#108;&#x74;&#111;&#58;&#114;&#x6f;&#x62;&#x40;&#112;&#104;&#111;&#116;&#111;&#x67;&#x72;&#x61;&#112;&#104;&#x65;&#x72;&#46;&#105;&#111;">&#x72;&#111;&#98;&#64;&#112;&#104;&#111;&#x74;&#111;&#x67;&#114;&#97;&#x70;&#x68;&#x65;&#x72;&#46;&#105;&#x6f;</a></a>.</p>
+<p>I am entirely open to feedback, ideas, and bug reports. You can reach me on Twitter as <a href="http://twitter.com/robotmay">@robotmay</a> or via email at <a href="mailto:rob@photographer.io"><a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#111;&#x3a;&#114;&#111;&#98;&#x40;&#x70;&#x68;&#111;&#x74;&#x6f;&#x67;&#114;&#x61;&#112;&#x68;&#x65;&#114;&#46;&#105;&#111;">&#x72;&#x6f;&#x62;&#64;&#x70;&#104;&#111;&#116;&#111;&#103;&#x72;&#x61;&#112;&#x68;&#x65;&#x72;&#46;&#x69;&#x6f;</a></a>.</p>
 ]]></content>
   </entry>
   
@@ -389,7 +408,7 @@
 
 <p>What do you think? I&rsquo;m always open to feedback, ideas, or bug reports.</p>
 
-<p>You can reach me on Twitter as <a href="http://twitter.com/robotmay">@robotmay</a> or via email at <a href="mailto:rob@photographer.io"><a href="&#x6d;&#97;&#x69;&#108;&#116;&#x6f;&#x3a;&#x72;&#x6f;&#98;&#x40;&#x70;&#x68;&#x6f;&#x74;&#111;&#103;&#114;&#x61;&#x70;&#104;&#x65;&#x72;&#46;&#x69;&#x6f;">&#x72;&#111;&#98;&#x40;&#x70;&#x68;&#x6f;&#116;&#x6f;&#x67;&#x72;&#97;&#x70;&#x68;&#101;&#114;&#46;&#x69;&#x6f;</a></a>.</p>
+<p>You can reach me on Twitter as <a href="http://twitter.com/robotmay">@robotmay</a> or via email at <a href="mailto:rob@photographer.io"><a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#111;&#x3a;&#114;&#x6f;&#x62;&#x40;&#x70;&#x68;&#111;&#116;&#111;&#103;&#114;&#x61;&#x70;&#x68;&#101;&#114;&#x2e;&#x69;&#111;">&#x72;&#111;&#98;&#x40;&#x70;&#x68;&#111;&#116;&#111;&#x67;&#114;&#x61;&#x70;&#104;&#x65;&#114;&#x2e;&#105;&#111;</a></a>.</p>
 ]]></content>
   </entry>
   
