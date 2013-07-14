@@ -10,12 +10,13 @@ If you have any questions don't hesitate to ask via Twitter or at <support@photo
 
 ## Platform
 ### Languages Used
-* Ruby
-* CoffeeScript
-* SASS
+* [Ruby](http://www.ruby-lang.org)
+* [CoffeeScript](http://coffeescript.org)
+* [SASS](http://sass-lang.com)
+* [Slim](http://slim-lang.com)
 
 ### Notable Libraries
-* Rails 4.0
+* [Rails 4.0](http://rubyonrails.org)
 
 ### Server Platform
 * Ruby 2.0
