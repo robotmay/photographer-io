@@ -26,7 +26,7 @@ pl:
   privacy_policy: "https://www.iubenda.com/privacy-policy/288645"
   locales:
     en: "angielski"
-    nl: "holenderski"
+    nl_NL: "holenderski"
     pl: "polski"
   metadata:
     description: >
@@ -49,6 +49,7 @@ pl:
     support: "Wsparcie"
     beta: "Beta"
     favourites: "Ulubione"
+    profile: "Twój profil publiczny"
     mini_stats:
       views: "Liczba wszystkich odsłon twoich zdjęć"
       followers: "Liczba wszystkich użytkowników śledzących twoje aktualizacje"

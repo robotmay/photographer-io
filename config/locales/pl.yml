@@ -49,6 +49,7 @@ pl:
     support: "Wsparcie"
     beta: "Beta"
     favourites: "Ulubione"
+    profile: "Twój profil publiczny"
     mini_stats:
       views: "Liczba wszystkich odsłon twoich zdjęć"
       followers: "Liczba wszystkich użytkowników śledzących twoje aktualizacje"
