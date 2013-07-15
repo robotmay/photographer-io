@@ -23,7 +23,7 @@ nl_NL:
   privacy_policy: "https://www.iubenda.com/privacy-policy/288645"
   locales:
     en: "Engels"
-    nl: "Nederlands"
+    nl_NL: "Nederlands"
     pl: "Pools"
   metadata:
     description: >

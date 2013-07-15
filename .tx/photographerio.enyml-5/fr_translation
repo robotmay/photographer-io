@@ -63,7 +63,7 @@ fr:
       Une nouvelle communauté photo pour partager vos photos.
     blurb: >
       Envoyer, organiser et partager vos photos à côté d'autres, comme %{name} a fait
-      avec cette <a href="%{image_path}">%{word} image</ a>.?
+      avec cette <a href="%{image_path}">%{word} image</a>.
     words:
     - fantastique
     - merveilleux
