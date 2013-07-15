@@ -1,4 +1,4 @@
-- if user_signed_in? && $pubnub.subscribe_key.present?
+- if user_signed_in? && $pubnub.present? && $pubnub.subscribe_key.present?
   = javascript_include_tag "https://pubnub.a.ssl.fastly.net/pubnub-3.5.0.min.js"
 
   javascript:
