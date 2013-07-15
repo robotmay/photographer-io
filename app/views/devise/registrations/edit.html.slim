@@ -64,6 +64,21 @@
             div class="large-3 columns"
               = f.input :locale, as: :select, collection: t("locales", default: []).map(&:reverse), include_blank: false
 
+  div class="row"
+    div class="large-6 columns"
+      div class="panel"
+        fieldset
+          legend= t("account.form.default_comment_threads")
+
+          = f.simple_fields_for :default_comment_threads do |dct|
+            div class="row"
+              div class="large-9 columns"
+                = dct.input :subject, as: :string, label: false
+
+              div class="large-3 columns"
+                - if dct.object.persisted?
+                  = dct.input :_destroy, as: :boolean, label: t("simple_form.labels.comment_thread.destroy")
+
   = f.button :submit
 
   = link_to t("users.delete_account"), user_registration_path, method: :delete, data: { confirm: t("confirm_delete") }, class: "button small alert delete-account"

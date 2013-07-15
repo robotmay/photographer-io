@@ -18,6 +18,18 @@ describe User do
   it { should have_many(:notifications) }
   it { should have_many(:authorisations) }
   it { should have_many(:old_usernames) }
+  it { should have_many(:default_comment_threads) }
+
+  it { should accept_nested_attributes_for(:default_comment_threads) }
+
+  describe "default_comment_threads" do
+    let(:user) { User.make }
+
+    it "builds 3 blank threads" do
+      user.build_default_comment_threads  
+      user.default_comment_threads.size.should eq(3)
+    end
+  end
 
   describe "destroy" do
     let(:mock_args) do
@@ -35,6 +47,7 @@ describe User do
     let(:notification) { mock_model(Notification, mock_args) }
     let(:authorisation) { mock_model(Authorisation, mock_args) }
     let(:old_username) { mock_model(OldUsername, mock_args) }
+    let(:default_comment_thread) { mock_model(CommentThread, mock_args) }
 
     after(:each) do
       user.destroy
@@ -92,6 +105,11 @@ describe User do
     it "destroys old usernames" do
       user.old_usernames << old_username
       old_username.should_receive(:destroy)
+    end
+
+    it "destroys default comment threads" do
+      user.default_comment_threads << default_comment_thread
+      default_comment_thread.should_receive(:destroy)
     end
   end
 end
