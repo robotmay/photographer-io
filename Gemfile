@@ -108,18 +108,25 @@ gem 'quiet_assets'
 
 # testing
 group :development, :test do
-  gem 'pry'
+  # specs
   gem 'rspec-rails'
   gem 'shoulda'
   gem 'database_cleaner'
   gem 'machinist'
   gem 'ffaker'
+
+  # acceptance testing
+  gem 'capybara'
+
+  # continuous testing
   gem 'spork-rails', github: 'sporkrb/spork-rails'
   gem 'guard'
   gem 'guard-spork'
   gem 'guard-rspec'
   gem 'guard-sidekiq'
-  gem 'letter_opener'
   gem 'rb-inotify', '~> 0.9', :require => linux_only('rb-inotify')
   gem 'rb-fsevent', :require => darwin_only('rb-fsevent')
+
+  # mailers
+  gem 'letter_opener'
 end
