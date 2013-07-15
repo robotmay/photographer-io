@@ -11,7 +11,7 @@ end
 
 CommentThread.blueprint do
   user
-  threadable
+  subject { Faker::Lorem.sentence }
 end
 
 Favourite.blueprint do

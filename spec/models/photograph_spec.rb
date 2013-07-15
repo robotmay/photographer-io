@@ -102,4 +102,43 @@ describe Photograph do
       end
     end
   end
+
+  describe "defaults" do
+    let(:photograph) { Photograph.make!(user: user) }
+    let(:user) { User.make! }
+
+
+    describe "enable_comments" do
+      it "is false by default" do
+        user.stub(:enable_comments_by_default) { false }
+        photograph.set_defaults_from_user_settings
+        photograph.reload.enable_comments.should be_false
+      end
+
+      it "can be set to true" do
+        user.stub(:enable_comments_by_default) { true }
+        photograph.set_defaults_from_user_settings
+        photograph.reload.enable_comments.should be_true
+      end
+    end
+
+    describe "comment threads" do
+      let(:comment_threads) { [CommentThread.make(user: user)] }
+      before { user.stub(:default_comment_threads) { comment_threads } }
+
+      it "copies user's default comment threads" do
+        photograph.copy_default_comment_threads
+        photograph.comment_threads.map(&:subject).should eq(comment_threads.map(&:subject))
+      end
+
+      context "no threads" do
+        let(:comment_threads) { [] }
+
+        it "does nothing if user has no default threads" do
+          photograph.copy_default_comment_threads
+          photograph.comment_threads.should be_empty
+        end
+      end
+    end
+  end
 end

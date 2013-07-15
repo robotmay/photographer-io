@@ -8,6 +8,11 @@ class CommentThread < ActiveRecord::Base
 
   before_validation :set_defaults
   def set_defaults
-    self.user = threadable.user if threadable.present?
+    self.user = case
+    when threadable.is_a?(User)
+      threadable
+    when threadable.present? && threadable.respond_to?(:user)
+      threadable.user
+    end
   end
 end

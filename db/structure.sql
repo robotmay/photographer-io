@@ -651,7 +651,8 @@ CREATE TABLE users (
     notify_favourites boolean DEFAULT true,
     show_social_buttons boolean DEFAULT true,
     username character varying(255),
-    locale character varying(255) DEFAULT 'en'::character varying
+    locale character varying(255) DEFAULT 'en'::character varying,
+    enable_comments_by_default boolean DEFAULT false
 );
 
 
@@ -1347,3 +1348,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130708120849');
 INSERT INTO schema_migrations (version) VALUES ('20130711162130');
 
 INSERT INTO schema_migrations (version) VALUES ('20130713123834');
+
+INSERT INTO schema_migrations (version) VALUES ('20130715225941');
