@@ -246,6 +246,7 @@ en:
       username: "Username"
       public: "How do you want to be known to other users?"
       settings: "Account settings"
+      comments: "Comments"
       default_comment_threads: "Default comment threads"
       create: "Sign up for a Photographer.io account"
 

@@ -32,8 +32,23 @@ en:
         destroy: "Delete this thread"
 
       user:
-        show_nsfw_content: "Show NSFW content"
+        name: "Name"
+        location: "Location"
+        username: "Username"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        avatar: "Avatar"
+        biography: "Biography"
         website_url: "Your website URL"
+        show_location_data: "Show location data"
+        show_copyright_info: "Show copyright info"
+        show_nsfw_content: "Show NSFW content"
+        default_license: "Default license"
+        receive_notification_emails: "Receive notification emails"
+        notify_favourites: "Notify favourites"
+        show_social_buttons: "Show social buttons"
+        locale: "Locale"
+        enable_comments_by_default: "Enable comments by default"
 
     placeholders:
       comment_thread:
@@ -135,6 +150,14 @@ en:
           Choose the language you wish to browse the site in. If your language isn't
           here, why not help translate Photographer.io into it? Find more details
           <a href="https://github.com/afternoonrobot/photographer-io#translations">our GitHub repository</a>.
+
+        enable_comments_by_default: >
+          Enable comment threads by default for all new photographs you upload, using
+          the comment threads you set here.
+
+        default_comment_threads: >
+          Set the default comment threads to be used for your photographs here.
+          You can set defaults without enabling commenting by default.
 
   helpers:
     submit:

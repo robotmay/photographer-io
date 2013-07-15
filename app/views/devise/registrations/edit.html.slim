@@ -65,19 +65,29 @@
               = f.input :locale, as: :select, collection: t("locales", default: []).map(&:reverse), include_blank: false
 
   div class="row"
-    div class="large-6 columns"
+    div class="large-8 columns"
       div class="panel"
-        fieldset
-          legend= t("account.form.default_comment_threads")
+        div class="row"
+          div class="large-3 columns"
+            fieldset
+              legend= t("account.form.comments")
+              = f.input :enable_comments_by_default, as: :radio_buttons
 
-          = f.simple_fields_for :default_comment_threads do |dct|
-            div class="row"
-              div class="large-9 columns"
-                = dct.input :subject, as: :string, label: false
+          div class="large-9 columns"
+            fieldset
+              legend= t("account.form.default_comment_threads")
 
-              div class="large-3 columns"
-                - if dct.object.persisted?
-                  = dct.input :_destroy, as: :boolean, label: t("simple_form.labels.comment_thread.destroy")
+              = f.simple_fields_for :default_comment_threads do |dct|
+                div class="row"
+                  div class="large-9 columns"
+                    = dct.input :subject, as: :string, label: false
+
+                  div class="large-3 columns"
+                    - if dct.object.persisted?
+                      = dct.input :_destroy, as: :boolean, label: t("simple_form.labels.comment_thread.destroy")
+
+            span class="hint"
+              = t("simple_form.hints.user.default_comment_threads", n: ISO[:defaults][:max_comment_threads])
 
   = f.button :submit
 
