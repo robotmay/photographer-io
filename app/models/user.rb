@@ -12,15 +12,15 @@ class User < ActiveRecord::Base
   has_many :received_favourites, through: :photographs, source: :favourites
   has_many :followee_followings, class_name: "Following", foreign_key: :followee_id
   has_many :followers, through: :followee_followings, source: :follower
-  has_many :follower_followings, class_name: "Following", foreign_key: :follower_id
+  has_many :follower_followings, class_name: "Following", foreign_key: :follower_id, dependent: :destroy
   has_many :followees, through: :follower_followings, source: :followee
   has_many :followee_photographs, through: :followees, source: :photographs
   has_many :invitations, class_name: self.to_s, as: :invited_by
-  has_many :comment_threads
-  has_many :comments
-  has_many :notifications
-  has_many :authorisations
-  has_many :old_usernames
+  has_many :comment_threads, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :notifications, dependent: :destroy
+  has_many :authorisations, dependent: :destroy
+  has_many :old_usernames, dependent: :destroy
 
   devise :database_authenticatable, :invitable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :async
