@@ -21,8 +21,11 @@ class DeviseExtensions::RegistrationsController < Devise::RegistrationsControlle
 
   protected
   def after_sign_up_path_for(resource)
-    $gabba.identify_user(cookies[:__utma], cookies[:__utmz])
-    $gabba.event("users", "sign_up", "id", resource.id)
+    if $gabba.present?
+      $gabba.identify_user(cookies[:__utma], cookies[:__utmz])
+      $gabba.event("users", "sign_up", "id", resource.id)
+    end
+
     edit_user_registration_path
   end
 
