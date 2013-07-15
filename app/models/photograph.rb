@@ -4,13 +4,13 @@ class Photograph < ActiveRecord::Base
   belongs_to :user, counter_cache: true
   belongs_to :license
   belongs_to :category
-  has_one :metadata, dependent: :delete
+  has_one :metadata, dependent: :destroy
   has_many :collection_photographs, dependent: :destroy
   has_many :collections, through: :collection_photographs
-  has_many :recommendations
-  has_many :favourites
+  has_many :recommendations, dependent: :destroy
+  has_many :favourites, dependent: :destroy
   has_many :favourited_by_users, through: :favourites, source: :user
-  has_many :comment_threads, as: :threadable
+  has_many :comment_threads, as: :threadable, dependent: :destroy
   has_many :comments, through: :comment_threads
 
   delegate :title, :description, :keywords, :format, :landscape?, :portrait?, 

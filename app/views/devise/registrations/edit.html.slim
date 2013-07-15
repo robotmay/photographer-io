@@ -49,7 +49,7 @@
               = f.input :show_nsfw_content, as: :radio_buttons
 
             div class="large-3 columns"
-              = f.input :default_license_id, collection: License.scoped
+              = f.input :default_license_id, collection: License.all
 
           div class="row"
             div class="large-3 columns"
@@ -65,3 +65,5 @@
               = f.input :locale, as: :select, collection: t("locales", default: []).map(&:reverse), include_blank: false
 
   = f.button :submit
+
+  = link_to t("users.delete_account"), user_registration_path, method: :delete, data: { confirm: t("confirm_delete") }, class: "button small alert delete-account"

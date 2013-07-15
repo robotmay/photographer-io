@@ -5,9 +5,23 @@ Collection.blueprint do
   name { Faker::Lorem.word }
 end
 
+Comment.blueprint do
+  comment_thread
+end
+
+CommentThread.blueprint do
+  user
+  threadable
+end
+
 Favourite.blueprint do
   user
   photograph
+end
+
+Following.blueprint do
+  followee
+  follower
 end
 
 Metadata.blueprint do
@@ -24,6 +38,9 @@ end
 
 Photograph.blueprint do
   user
+  image_uid { "wooster.jpg" }
+  image_mime_type { "image/jpeg" }
+  image_size { 5.megabytes }
 end
 
 Recommendation.blueprint do
@@ -37,4 +54,6 @@ User.blueprint do
   email { Faker::Internet.email }
   password { "password" }
   password_confirmation { "password" }
+  upload_quota { 100 }
+  recommendation_quota { 10 }
 end

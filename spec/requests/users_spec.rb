@@ -18,6 +18,15 @@ describe "Users" do
     end
   end
 
+  describe "delete account", type: :feature do
+    it "deletes my account" do
+      sign_in(user)
+      visit "/account/edit"
+      click_link "Delete Account"
+      page.should have_content "Bye! Your account was successfully cancelled. We hope to see you again soon."
+    end
+  end
+
   describe "sign up", type: :feature do
     let(:user) { User.make }
 
