@@ -12,7 +12,9 @@ class ApplicationController < ActionController::Base
 
   before_filter :google_analytics_identification
   def google_analytics_identification
-    $gabba.identify_user(cookies[:__utma], cookies[:__utmz])
+    if $gabba.present?
+      $gabba.identify_user(cookies[:__utma], cookies[:__utmz])
+    end
   end
 
   before_filter :set_locale
