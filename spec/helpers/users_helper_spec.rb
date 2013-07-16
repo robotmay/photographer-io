@@ -1,15 +1,51 @@
 require 'spec_helper'
 
-# Specs in this file have access to a helper object that includes
-# the UsersHelper. For example:
-#
-# describe UsersHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       helper.concat_strings("this","that").should == "this that"
-#     end
-#   end
-# end
 describe UsersHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "follow_user_button" do
+    let(:us) { User.make }
+    let(:them) { User.make }
+
+    context "signed in" do
+      before do
+        helper.stub(:user_signed_in?) { true }
+        helper.stub(:current_user) { us }
+      end
+      
+      it "shows the button" do
+        helper.follow_user_button(them).should_not be_blank
+      end
+
+      context "they are us" do
+        let(:them) { us }
+
+        it "doesn't show the button" do
+          helper.follow_user_button(them).should be_blank
+        end
+      end
+
+      context "not following them" do
+        before { us.stub(:following?) { false } }        
+
+        it "shows a follow button" do
+          helper.follow_user_button(them).should match(/class="button follow/i)
+        end
+      end
+
+      context "following them" do
+        before { us.stub(:following?) { true } }
+
+        it "shows an unfollow button" do
+          helper.follow_user_button(them).should match(/class="button unfollow/i)
+        end
+      end
+    end
+
+    context "not signed in" do
+      before { helper.stub(:user_signed_in?) { false } }
+
+      it "doesn't show the button" do
+        helper.follow_user_button(them).should be_blank
+      end
+    end
+  end
 end
