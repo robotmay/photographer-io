@@ -6,7 +6,9 @@ Collection.blueprint do
 end
 
 Comment.blueprint do
+  user
   comment_thread
+  body { Faker::Lorem.paragraph }
 end
 
 CommentThread.blueprint do
