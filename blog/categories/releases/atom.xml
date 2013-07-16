@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Releases | Photographer.io Blog]]></title>
+  <link href="http://blog.photographer.io/blog/categories/releases/atom.xml" rel="self"/>
+  <link href="http://blog.photographer.io/"/>
+  <updated>2013-07-16T09:55:19+01:00</updated>
+  <id>http://blog.photographer.io/</id>
+  <author>
+    <name><![CDATA[Robert May]]></name>
+    <email><![CDATA[support@photographer.io]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[v1.1.0 has been released]]></title>
+    <link href="http://blog.photographer.io/posts/2013/07/16/v1-dot-1-0-has-been-released/"/>
+    <updated>2013-07-16T09:29:00+01:00</updated>
+    <id>http://blog.photographer.io/posts/2013/07/16/v1-dot-1-0-has-been-released</id>
+    <content type="html"><![CDATA[<p><a href="https://github.com/afternoonrobot/photographer-io/releases/tag/v1.1.0">v1.1.0 has been released on our GitHub repo</a>. This is the first release since open sourcing <a href="https://www.photographer.io">Photographer.io</a> last week, and includes a large amount of bugfixes, a reasonable amount of internationalisation, and a small number of new features.</p>
+
+<p>I have decided to aim for a tagged release around every 2 weeks, to give me a target to hit for adding new features and to provide stable points in the application&rsquo;s history for others to use. There is still a lot to do in relation to documentation, testing, and workflow improvements (such as actually tagging patch releases), but there has been a <em>lot</em> of improvements since the open source announcement.</p>
+
+<p>If you want to get involved then all <a href="https://github.com/afternoonrobot/photographer-io">the code is available on GitHub under an MIT license</a>, or if you fancy translating the app to another language then <a href="https://www.transifex.com/projects/p/photographerio">come join us on Transifex</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>
