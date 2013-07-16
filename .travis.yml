@@ -1,19 +1,35 @@
+---
 language: ruby
 rvm:
-  - 2.0.0
-
+- 2.0.0
 services:
-  - redis-server
-  - memcached
-  - postgresql
-
+- redis-server
+- memcached
+- postgresql
 env:
-  - SECRET_TOKEN=travis 
+  matrix:
+  - SECRET_TOKEN=travis
+  global:
+    - BUNDLE_ARCHIVE="photographer-io-bundle"
+    - AWS_S3_REGION="us-east-1"
+    - AWS_S3_BUCKET="photographerio-travis"
+    - RAILS_ENV=test
+    - secure: lTzmr8IZSrGePoYC4cti8lFqgiyuat8dnaCi/wZod+lzoLZOxgpwfRf+0pt2wkFCOjb1cpPM+VRYrL3QLGsumpkb1viiQ09Z3IfgmTPGw9S3kkkFtUVyIZhzj/xd1jiE0+d5BuU690FKKQMmKqnAG7pp+Jx6A8+HYocs4yU6jns=
+
+bundler_args: --without development --path=~/.bundle
+
+before_install:
+  - "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
+  - gem install bundler fog
+  - "./vendor/travis/bundle_install.sh"
 
 before_script:
   - cp config/database.travis.yml config/database.yml
   - psql -c 'create database photographerio_test;' -U postgres
 
+after_script:
+  - "ruby vendor/travis/bundle_cache.rb"
+
 notifications:
   webhooks:
-    - http://afternoon-hubot.herokuapp.com/hubot/travis
+  - http://afternoon-hubot.herokuapp.com/hubot/travis
