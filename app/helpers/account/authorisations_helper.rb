@@ -1,2 +1,0 @@
-module Account::AuthorisationsHelper
-end
