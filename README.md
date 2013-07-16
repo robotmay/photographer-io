@@ -43,7 +43,7 @@ To run this app you'll likely need a rough understanding of how Rails apps work 
 
 * Postgresql 9.2+ (it uses a number of DB specific features)
 * Redis
-* Memcached (required for sessions)
+* Memcached
 * Solr (if you want search, otherwise it's safe-ish to ignore for now)
 * MRI Ruby 2.0.0 (untested on anything lower, might be fine on 1.9.3)
   * It currently does __not__ run on JRuby. A port was attempted a few weeks back and it's not especially straight-forward, but it would be nice to support it in future.
