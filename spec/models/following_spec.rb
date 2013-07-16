@@ -22,26 +22,26 @@ describe Following do
     end
 
     context "create" do
+      after(:each) { following.run_callbacks(:create) }
+
       it "increments user stats" do
         followee.followers_count.should_receive(:increment)  
-        following.run_callbacks(:create)
       end
 
       it "pushes the new stats" do
         followee.should_receive(:push_stats)
-        following.run_callbacks(:create)
       end
     end
 
     context "destroy" do
+      after(:each) { following.run_callbacks(:destroy) }
+
       it "decrements user stats" do
         followee.followers_count.should_receive(:decrement)  
-        following.run_callbacks(:destroy)
       end
 
       it "pushes the new stats" do
         followee.should_receive(:push_stats)
-        following.run_callbacks(:destroy)
       end
     end
   end

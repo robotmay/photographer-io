@@ -68,31 +68,30 @@ describe Favourite do
     end
 
     context "create" do
+      after(:each) { favourite.run_callbacks(:create) }
+
       it "increments user stats" do
         photo_user.received_favourites_count.should_receive(:increment)  
-        favourite.run_callbacks(:create)
       end
 
       it "notifies the photo owner" do
         favourite.should_receive(:notify)
-        favourite.run_callbacks(:create) 
       end
 
       it "pushes the new stats" do
         photo_user.should_receive(:push_stats)
-        favourite.run_callbacks(:create)
       end
     end
 
     context "destroy" do
+      after(:each) { favourite.run_callbacks(:destroy) }
+
       it "decrements user stats" do
         photo_user.received_favourites_count.should_receive(:decrement)  
-        favourite.run_callbacks(:destroy)
       end
 
       it "pushes the new stats" do
         photo_user.should_receive(:push_stats)
-        favourite.run_callbacks(:destroy)
       end
     end
   end
