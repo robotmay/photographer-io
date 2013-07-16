@@ -8,7 +8,7 @@ module PhotographsHelper
     :date_time_original
   ]
 
-  def photo_tag(photograph, size, opts = {})
+  def photo_tag(photograph, size = :thumbnail, opts = {})
     return nil if photograph.nil?
 
     begin
