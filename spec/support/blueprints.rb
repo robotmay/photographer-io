@@ -1,5 +1,9 @@
 require "machinist/active_record"
 
+Authorisation.blueprint do
+  user
+end
+
 Collection.blueprint do
   user
   name { Faker::Lorem.word }

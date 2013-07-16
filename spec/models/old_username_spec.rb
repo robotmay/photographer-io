@@ -1,5 +1,11 @@
 require 'spec_helper'
 
 describe OldUsername do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to(:user) }
+
+  [:user_id, :username].each do |attr|
+    it { should validate_presence_of(attr) }
+  end
+
+  it { should validate_uniqueness_of(:username) }
 end
