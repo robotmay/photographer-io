@@ -97,7 +97,7 @@ pl:
     title: >
       Nowa społeczność do dzielenia się zdjęciami.
     blurb: >
-      Wysyłaj, organizuj i dziel się zdjęciami z innymi, jak to zrobił użytkownik
+      Wysyłaj, organizuj i dziel się zdjęciami z innymi, tak jak to zrobił użytkownik
       %{name} ze swoją <a href="%{image_path}">%{word} fotografią</a>.
     words:
     - fantastyczną
@@ -226,6 +226,8 @@ pl:
       username: "Nazwa użytkownika"
       public: "Jak chcesz być widoczny dla innych użytkowników?"
       settings: "Ustawienia konta"
+      comments: "Komentarze"
+      default_comment_threads: "Domyślne wątki"
       create: "Załóż konto w serwisie Photographer.io"
     dashboard:
       title: "Twój panel użytkownika"
@@ -242,12 +244,12 @@ pl:
         favourites: "Twoje ulubione zdjęcia ogółem"
       recommendations:
         title: "Twoje rekomendacje"
-        quota: "Obecnie możesz polecić %{n} zdjęć dziennie"
+        quota: "Obecnie możesz polecać %{n} zdjęć dziennie"
         remaining: "Na dziś pozostało ci jeszcze %{n} rekomendacji"
         total: "Wystawiłeś %{n} rekomendacji"
       usage:
         title: "Wykorzystanie limitów"
-        quota: "Możesz wysłać %{n} zdjęć miesięcznie"
+        quota: "Możesz wysyłać %{n} zdjęć miesięcznie"
         remaining: "W tym miesiącu możesz wysłać jeszcze %{n} zdjęć"
         get_more: "Potrzebujesz więcej? <a href='%{path}'>Zaproś znajomych!</a>"
       hints:
