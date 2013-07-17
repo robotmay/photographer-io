@@ -60,7 +60,7 @@ section id="photographs-show"
 
                       - if @photograph.metadata.description.present?
                         div itemprop="description"
-                          = simple_format @photograph.metadata.description
+                          = md @photograph.metadata.description
 
                 td class="share"
                   - unless user_signed_in? && !current_user.show_social_buttons
