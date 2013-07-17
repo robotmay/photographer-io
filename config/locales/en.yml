@@ -29,9 +29,9 @@ en:
 
   locales:
     en: "English"
+    fr: "Français"
     nl_NL: "Nederlands"
     pl: "Polski"
-    fr: "Français"
 
   metadata:
     description: >
