@@ -199,6 +199,8 @@ nl_NL:
       username: "Gebruikersnaam"
       public: "Onder welke naam wil je bekend zijn bij andere gebruikers?"
       settings: "Account instellingen"
+      comments: "Commentaar"
+      default_comment_threads: "Standaard commentaar draden"
       create: "Meld je aan voor een Photographer.io account"
     dashboard:
       title: "Je Account Dashboard"

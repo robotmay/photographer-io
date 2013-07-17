@@ -13,8 +13,23 @@ nl_NL:
       comment_thread:
         destroy: "Verwijder deze draad"
       user:
-        show_nsfw_content: "Laat NSFW gemarkeerde inhoud zien"
+        name: "Naam"
+        location: "Lokatie"
+        username: "Gebruikersnaam"
+        password: "Wachtwoord"
+        password_confirmation: "Wachtwoord bevestiging"
+        avatar: "Avatar"
+        biography: "Biografie"
         website_url: "Jouw website URL"
+        show_location_data: "Laat lokatie data zien"
+        show_copyright_info: "Laat copyright informatie zien"
+        show_nsfw_content: "Laat NSFW gemarkeerde inhoud zien"
+        default_license: "Standaard licentie"
+        receive_notification_emails: "Notificatie emails ontvangen"
+        notify_favourites: "Favorieten verwittigen"
+        show_social_buttons: "Laat social knoppen zien"
+        locale: "Plaats"
+        enable_comments_by_default: "Commentaar standaard aan"
     placeholders:
       comment_thread:
         subject: "bijv. Welke vogelsoort is dit? Of: Wat vinden jullie van mijn kleur keuzes?"
@@ -101,6 +116,13 @@ nl_NL:
           er niet tussen staan, help je ons dan en vertaal Photographer.io er naar
           toe? Voor meer details kijk op <a href="https://github.com/afternoonrobot/photographer-io#translations">onze
           GitHub repository</a>.
+        enable_comments_by_default: >
+          Commentaar draden standaard aan zetten voor alle nieuwe foto's die je upload,
+          gebruik makend van de commentaar draden die je hier instelt.
+        default_comment_threads: >
+          Stel hier de standaard commentaar draden in die je wil gebruiken voor je
+          foto's. Je kunt de standaard instellingen zetten zonder commentaar aan te
+          zetten.
   helpers:
     submit:
       comment:
