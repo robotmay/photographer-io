@@ -76,8 +76,8 @@ section id="photographs-show"
         div class="share-url"
           label for="share-url"
             = t("photographs.share.blurb")
+          input id="share-url" type="text" value=(short_photo_url(@photograph, protocol: "https"))
 
-          input id="share-url" type="text" value=(short_photo_url(@photograph))
           - unless user_signed_in? && !current_user.show_social_buttons
             = render partial: "shared/social_buttons"
 
