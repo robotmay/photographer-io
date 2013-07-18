@@ -1,7 +1,13 @@
 fr:
   site_name: "Photographer.io"
-  default_title: "La communauté photo pour les amateurs - Photographer.io"
+  default_title: "La communauté photo pour les passionnés - Photographer.io"
   page_title: "%{title} - Photographer.io"
+  copyright: >
+    Toutes les photographies sont la propriété de leurs auteurs respectifs et ne peuvent
+    être republiés sans autorisation.
+
+    © Photographer.io, Afternoon Robot Ltd, 2013. Icones utilisées avec la permission
+    de <a href="http://glyphicons.com">glyphicons.com</a>.
   privacy: "Confidentialité"
   terms: "Conditions d'utilisation"
   confirm_delete: "Êtes-vous certain ?"
@@ -21,6 +27,7 @@ fr:
   privacy_policy: "https://www.iubenda.com/privacy-policy/288645"
   locales:
     en: "Anglais"
+    nl_NL: "Néerlandais"
     pl: "Polonais"
   metadata:
     description: >
@@ -43,6 +50,7 @@ fr:
     support: "Aide"
     beta: "Version bêta"
     favourites: "Préférées"
+    profile: "Votre profil public"
     mini_stats:
       views: "Nombre total de fois que vos photos ont été consultées"
       followers: "Nombre total de personnes qui suivent vos mises à jour"
@@ -58,6 +66,35 @@ fr:
     about: "À propos de nous"
   beta_notes:
     title: "Il s'agit de version bêta à étape précoce!"
+    blurb: >
+      Merci de prendre le temps d'essayer notre version bêta de Photographer.io. Les
+      remarques, rapport d'erreur, ou idées de fonctionnalités sont les bienvenus.
+
+
+      Je veux faire de ce site la meilleure et la plus agréable communauté photographique
+      de la planète. Les améliorations sont en constante progression et je lis chacun
+      des messages. Si vous avez besoin d'aide, envoyez-moi simplement un e-mail/message,
+      ou accostez-moi <a href="http://twitter.com/robotmay"> sur Twitter</a>.
+
+
+      Le but principal de Photographer.io est de se débarasser des aspects les plus
+      complexes des sites de partage de photos qui répondent surtout à un petit nombre
+      d'utilisateurs populaires, ce qui rend difficile la reconnaissance des nouveaux
+      utilisateurs. Ce site veut aussi se débarasser des systèmes de classements utilisés
+      par certains sites. Ici, vous pouvez recommander des photos; une recommandation
+      est une ressource finie qui affecte le classement d'une photo au cours du temps.
+      C'est un domaine sur lequel je garde un oeil en permanence pour m'assurer que
+      chacun a une chance de voir ses photos exposées au plus grand nombre.
+
+
+      Fonctionnalités à venir prochainement: un meilleur outil d'envoi, commentaires
+      (avec une raison), un système plus évolué de classement des photos, et des améliorations
+      générales partout sur le site.
+
+
+      Encore merci d'essayer Photographer.io!
+
+      Robert May
   home:
     title: >
       Une nouvelle communauté photo pour partager vos photos.
@@ -104,6 +141,7 @@ fr:
         advertising: "Non"
         ssl: "Non"
       photographerio:
+        title: "Photographer.io"
         uploads: "100 photos par mois *"
         albums: "Illimité"
         advertising: "Non"
@@ -129,9 +167,13 @@ fr:
       username: "Nom d'utilisateur"
       public: "Comment voulez-vous être connait aux autres?"
       settings: "Paramètres de compte"
+      comments: "Commentaires"
       create: "Créez un compte Photographer.io"
     dashboard:
       title: "Votre tableau de bord compte"
+      blurb: >
+        En tant que membre vous pouvez envoyer et organiser vos photos avant de les
+        publier sur la partie publique du site.
       statistics:
         title: "Statistiques"
         views: "Vues au total de vos photos"
@@ -152,6 +194,19 @@ fr:
         get_more: "Avez besoin de plus? <a href='%{path}'>Invitez des amis!</a>"
       hints:
         title: "Suggestions pour les nouveaux utilisateurs"
+        public_collections: >
+          Vos photos n'apparaîtront pas en public tant que vous ne les aurez pas ajoutées
+          à une collection publique! Ceci afin de s'assurer que vous ne publierez
+          pas accidentellement de photos que vous n'êtes pas prêt à montrer à tout
+          le monde.
+        recommendations: >
+          Vous pouvez recommander des photos d'autres utilisateurs. Cela fonctionne
+          de manière similaire à un "J'aime" utilisé sur d'autres sites, sauf que
+          vous avez un nombre limité de recommandations que vous pouvez effectuer
+          par jour.
+        homepage: >
+          Les photos les plus recommandées sont mises en rotation sur la page de démarrage
+          du site.
     authorisations:
       create:
         succeeded: "Vous avez autorisé ce compte avec succès"
@@ -221,6 +276,14 @@ fr:
         settings: "Paramètres"
         comments: "Commentaires"
         threads: "À propos de quels sujets voulez-vous commenter ?"
+        threads_hint: >
+          Vous pouvez spécifier jusqu'à %{n} sujets de réaction/discussion sur cette
+          photo. Nous voulons promouvoir les commentaires significatifs sur Photographer.io,
+          essayez donc les sujets comme "De quelle espèce d'oiseau s'agit-il?" ou
+          "Critique constructive". Les commentaires ne sont visibles que par vous
+          et le commentateur par défaut, mais vous pouvez les rendre publics si vous
+          pensez qu'ils valent la peine d'être affichés; ceci peut être fait via la
+          vue publique de votre photo.
       create:
         failed: "Erreur de téléversement"
       update:
@@ -234,18 +297,32 @@ fr:
       destroy:
         succeeded: "Votre photographie a été effacée avec succès."
         failed: "Un problème est survenu lors de l'effacement de cette photographie."
+      guidelines:
+        link: "lignes directrices pour les images"
+        title: "Lignes directrices pour les photos"
   collections:
     caption: "%{user} a mis à jour %{collection}"
   collection_photographs:
     user_must_match: "Vous ne pouvez pas ajouter de photo à cette collection"
   comments:
     saving: "Sauvegarde…"
+    child_unpublished: "Visible uniquement par le commentateur, le propriétaire de la photo, et les propriétaires de commentaires parents"
     delete: "Supprimer"
     reply: "Répondre"
     publish: "Publier"
     unpublish: "Dépublier"
+    none: >
+      Il n'y a actuellement aucun commentaire pour ce sujet. Soyez le premier et soumettez-en
+      un en utilisant le formulaire ci-dessus!
+    none_visible: >
+      Il n'y a actuellement aucun commentaire visible publiquement ici. Curieux? Apprenez-en
+      plus sur le fonctionnement des commentaires sur Photographer.io.
     notifications:
       subject: "%{user} a laissé un nouveau commentaire sur '%{on}'"
+      body: >
+        %{user} a laissé un commentaire sur votre photo '%{on}'. Il ne sera pas visible
+        à moins que vous ne choisissiez de le rendre public, ce que vous pouvez faire
+        en visitant la vue publique de votre photo.
       reply:
         subject: "%{user} a laissé une nouvelle réponse à votre commentaire sur '%{on}'"
         body: >
@@ -257,8 +334,10 @@ fr:
       subject: "%{user} a mis '%{photo}' en favori"
     create:
       succeeded: "La photo a été ajoutée à vos favoris !"
+      failed: "Echec de l'ajout de la photo à vos favorites."
     destroy:
       succeeded: "Favori enlevé !"
+      failed: "Echec de la suppression de la photo de vos favorites."
   followings:
     follow: "Suivre"
     unfollow: "Arrêter de suivre"
@@ -267,6 +346,7 @@ fr:
       failed: "Il y a eu un problème pour suivre cet utilisateur. Contactez le support."
     destroy:
       succeeded: "Vous ne suivez plus cet utilisateur."
+      failed: "Un problème est survenu pendant la suppresssion de cet utilisateur des membres que vous suivez."
   notifications:
     title: "Notifications"
     none: "Vous n'avez actuellement aucune notification."
@@ -327,6 +407,7 @@ fr:
       profile: "Voir le profil"
       photos: "Voir plus de photos"
   recommendations:
+    user_quota_exceeded: "Vous ne pouvez plus donner de recommandation pour aujourd'hui!"
     quota: "Vous pouvez recommander encore %{amount} photographies aujourd'hui !"
   users:
     avatar: "Avatar"
@@ -337,6 +418,7 @@ fr:
       invited:
         title: "Amis que vous avez déjà invité"
         email: "Adresse email"
+        status: "Statut"
         confirmed: "Accepté !"
         unconfirmed: "Pas encore accepté"
         none: |

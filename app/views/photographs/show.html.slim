@@ -47,65 +47,68 @@ section id="photographs-show"
             - else
               = photo_tag @photograph, "1500x1500>"
 
-          = interactions_for @photograph
+          - unless sharing_mode
+            = interactions_for @photograph
 
-          aside class="description"
-            table
-              tr
-                - cache([@photograph, @photograph.metadata, :description]) do
-                  td class="text"
-                    - if @photograph.metadata.has_text?
-                      h4 itemprop="name"
-                        = @photograph.metadata.title
+          - cache([@photograph, @photograph.metadata, :description]) do
+            - if @photograph.metadata.has_text?
+              aside class="description"
+                h4 itemprop="name"
+                  = @photograph.metadata.title
 
-                      - if @photograph.metadata.description.present?
-                        div itemprop="description"
-                          = md @photograph.metadata.description
-
-                td class="share"
-                  - unless user_signed_in? && !current_user.show_social_buttons
-                    = render partial: "shared/social_buttons"
+                - if @photograph.metadata.description.present?
+                  div itemprop="description"
+                    = md @photograph.metadata.description
 
               div class="clear"
 
-        - if @photograph.comments_enabled?
+        - if @photograph.comments_enabled? && !sharing_mode
           = render @photograph.comment_threads
 
     aside id="photographs-sidebar" class="large-3 small-12 columns"
-      - if user_signed_in? && current_user == @photograph.user
+      - if user_signed_in? && current_user == @photograph.user && !sharing_mode
         = link_to t("photographs.edit"), edit_account_photograph_path(@photograph), class: "button secondary expand"
 
       = creator_details_for @photograph
+
+      div class="panel share"
+        h5= t("photographs.share.title")
+
+        div class="share-url"
+          label for="share-url"
+            = t("photographs.share.blurb")
+          input id="share-url" type="text" value=(short_photo_url(@photograph, protocol: "https"))
+
+          - unless user_signed_in? && !current_user.show_social_buttons
+            = render partial: "shared/social_buttons"
 
       div class="show-for-touch"
         = interactions_for @photograph
       
       - cache([@photograph, @metadata, :sidebar], expires_in: 5.minutes) do
-        = metadata_table_for @photograph, format: :short
+        div class="panel"
+          = metadata_table_for @photograph, format: :short
 
         - if @photograph.collections.visible.count > 0
-          h5= t("photographs.collections")
-          table
-            tbody
-              - @photograph.collections.visible.each do |collection|
-                tr
-                  td= link_to collection.name, collection_path(collection)
+          div class="panel"
+            h5= t("photographs.collections")
+            table
+              tbody
+                - @photograph.collections.visible.each do |collection|
+                  tr
+                    td= link_to collection.name, collection_path(collection)
 
         - if @photograph.metadata.keywords.size > 0
-          h5= t("photographs.metadata.keywords")
-          ul id="photographs-keywords" class="inline-list"
-            - @photograph.metadata.keywords.each do |keyword|
-              li
-                = link_to search_photographs_path(keyword: keyword) do
-                  span class="label radius"
-                    = keyword
+          div class="panel"
+            h5= t("photographs.metadata.keywords")
+            ul id="photographs-keywords" class="inline-list"
+              - @photograph.metadata.keywords.each do |keyword|
+                li
+                  = link_to search_photographs_path(keyword: keyword) do
+                    span class="label radius"
+                      = keyword
 
-        - if @photograph.show_location_data && @photograph.metadata.has_location_data?
-          h5= t("photographs.location")
-          = render partial: "map", locals: { photograph: @photograph }
+          - if @photograph.show_location_data && @photograph.metadata.has_location_data?
+            h5= t("photographs.location")
+            = render partial: "map", locals: { photograph: @photograph }
 
-- content_for(:after_body) do
-  - once :photo_interactions_hint do
-    ul[class="joyride-list" data-joyride]
-      li data-text="OK"
-        = simple_format t("photographs.interactions_hint")
