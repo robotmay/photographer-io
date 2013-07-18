@@ -12,6 +12,7 @@ class Photograph < ActiveRecord::Base
   has_many :favourited_by_users, through: :favourites, source: :user
   has_many :comment_threads, as: :threadable, dependent: :destroy
   has_many :comments, through: :comment_threads
+  has_many :reports, as: :reportable
 
   delegate :title, :description, :keywords, :format, :landscape?, :portrait?, 
            :square?, to: :metadata

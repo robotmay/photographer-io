@@ -4,6 +4,7 @@ class Collection < ActiveRecord::Base
   belongs_to :user
   has_many :collection_photographs
   has_many :photographs, through: :collection_photographs
+  has_many :reports, as: :reportable
 
   paginates_per 50
 
