@@ -1,6 +1,6 @@
 class CommentThread < ActiveRecord::Base
   belongs_to :user
-  belongs_to :threadable, polymorphic: true
+  belongs_to :threadable, polymorphic: true, touch: true
   has_many :comments, dependent: :destroy
   has_many :commenters, through: :comments, source: :user
 
