@@ -4,6 +4,7 @@ class PhotographsController < ApplicationController
   before_filter :hide_filters!, only: [
     :recommended, :favourites, :following, :search, :seeking_feedback
   ]
+  before_filter :enable_sharing_mode, only: :share
 
   before_filter :set_parents
   def set_parents
@@ -142,15 +143,24 @@ class PhotographsController < ApplicationController
     @photograph = Photograph.find(params[:id])
     authorize! :read, @photograph
 
-    unless user_signed_in? && current_user == @photograph.user
-      @photograph.views.increment do
-        @photograph.user.photograph_views.increment
-        @photograph.user.push_stats
-      end
-    end
+    track_view_for_photo(@photograph)
     
     set_title t("photographs.title", title: @photograph.metadata.title, by: @photograph.user.name)
     respond_with @photograph
+  end
+
+  def share
+    @photograph = Photograph.find(params[:id])
+    authorize! :read, @photograph
+
+    track_view_for_photo(@photograph)
+
+    if stale?(last_modified: @photograph.updated_at.utc, etag: [I18n.locale, @photograph], public: true)
+      set_title t("photographs.title", title: @photograph.metadata.title, by: @photograph.user.name)
+      respond_with @photograph do |f|
+        f.html { render :show, layout: "share" }
+      end
+    end
   end
 
   def recommend
@@ -173,5 +183,14 @@ class PhotographsController < ApplicationController
   private
   def search_params
     params.permit(:q, :keyword)
+  end
+
+  def track_view_for_photo(photograph)
+    unless user_signed_in? && current_user == photograph.user
+      photograph.views.increment do
+        photograph.user.photograph_views.increment
+        photograph.user.push_stats
+      end
+    end
   end
 end

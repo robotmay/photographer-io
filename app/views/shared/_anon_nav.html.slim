@@ -1,0 +1,70 @@
+nav id="layout-nav" class="top-bar"
+  ul class="title-area"
+    li class="name"
+      h1 id="logo"
+        = link_to t("site_name"), home_path
+
+    li class="toggle-topbar menu-icon"
+      = link_to "#" do
+        span= t("nav.menu")
+
+  section class="top-bar-section"
+    ul class="left"
+      - cache([I18n.locale, :nav, :explore, current_user, request.fullpath], expires_in: 10.minutes) do
+        li class="has-dropdown"
+          = link_to t("nav.explore"), explore_collections_path, active_on: /\/explore/i
+          ul class="dropdown explore-menu"
+            li
+              div class="row"
+                div class="large-12 columns"
+                  label= t("nav.general")
+                  ul class="sub-nav"
+                    li
+                      = link_to t("nav.random"), random_photographs_path, title: t("nav.random")
+                    = link_to t("nav.latest"), explore_collections_path, active_on: true, \
+                      active_wrapper: :li
+                    
+                    - if user_signed_in?
+                      = link_to t("nav.following"), following_photographs_path, \
+                        active_on: true, active_wrapper: :li
+                    
+                    = link_to t("nav.seeking_feedback"), seeking_feedback_photographs_path, active_on: true, active_wrapper: :li
+
+              div class="row"
+                div class="large-12 columns"
+                  label= t("nav.search")
+                  = form_tag search_photographs_path, method: :get do
+                    div class="row collapse"
+                      div class="small-8 columns"
+                        = text_field_tag :q, params[:q]
+
+                      div class="small-4 columns"
+                        = submit_tag t("nav.search"), class: "button secondary"
+                  .clear
+
+              div class="row"
+                div class="large-12 columns"
+                  label= t("nav.categories")
+    
+              div class="row"
+                - @categories.each_slice((@categories.size / 2) + 1) do |categories|
+                  div class="large-6 columns"
+                    ul class="sub-nav"
+                      - categories.each do |category|
+                        = link_to category.name, category_path(category.slug), active_on: category_photographs_path(category.slug), \
+                          active_wrapper: :li
+
+      = link_to t("nav.recommended"), recommended_photographs_path, active_on: true, \
+        active_wrapper: :li
+
+      li= link_to t("nav.blog"), blog_path
+      li= link_to t("nav.support"), "mailto:xz1ped65@incoming.intercom.io", id: "Intercom"
+
+    ul class="right"
+      = link_to t("nav.sign_in"), new_user_session_path, active_on: true, \
+        active_wrapper: :li
+
+      li class="has-form"
+        = link_to t("nav.sign_up"), new_user_registration_path, active_on: true, \
+          class: "button tiny success"
+
