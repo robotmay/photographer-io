@@ -1,0 +1,138 @@
+fr:
+  simple_form:
+    'yes': 'Oui'
+    'no': 'Non'
+    required:
+      text: 'obligatoire'
+      mark: '*'
+    error_notification:
+      default_message: "Veuillez prendre en compte ces erreurs :"
+    labels:
+      collection:
+        visible: "Voulez-vous que cette collection apparaisse publiquement sur le site ?"
+      comment_thread:
+        destroy: "Effacer ce fil"
+      user:
+        name: "Nom"
+        location: "Localisation"
+        username: "Nom d'utilisateur"
+        password: "Mot de passe"
+        password_confirmation: "Confirmation du mot de passe"
+        avatar: "Avatar"
+        biography: "Biographie"
+        website_url: "URL de votre site"
+        show_location_data: "Montrer les données de lieu"
+        show_copyright_info: "Montrer les informations de droits d'auteur"
+        show_nsfw_content: "Montrer le contenu filtré (nudité)"
+        default_license: "Licence par défaut"
+        receive_notification_emails: "Recevoir des notifications par e-mail"
+        notify_favourites: "Notifier les favorites"
+        show_social_buttons: "Montrer les boutons sociaux"
+        locale: "Langue"
+        enable_comments_by_default: "Autoriser les commentaires par défaut"
+    placeholders:
+      comment_thread:
+        subject: "Par ex. «Quel est cet oiseau ?» ou «Comment sont mes choix de couleur ?»"
+      user:
+        name: "Votre nom ou surnom, par ex. Rupert B."
+        website_url: "http://votresitegenialdephoto.com"
+        username: >
+          Un nom unique utilisé dans les URL par ex. rupert_bear
+    hints:
+      comment_thread:
+        subject: >
+          A propos de quels sujets voulez-vous des commentaires de la part de vos
+          visiteurs? Cela peut être n'importe quoi, de "Que pensez-vous des lignes
+          directrices" à "Aidez-moi à identifier cet oiseau!"
+      metadata:
+        keywords: >
+          Les mot-clés devraient être une liste de tags séparés par des virgules et
+          en rapport avec l'image, p.ex. nature, oiseaux, merle
+      photograph:
+        safe_for_work: >+
+          Aidez les utilisateurs qui parcourent le site depuis leur travail; veuillez
+          marquer cette photo comme ayant un contenu non-approprié pour le travail
+          si elle contient n'importe quel contenu à destination d'un public adulte
+          pouvant être considéré comme inadapté dans un environnement professionel.
+
+        license: >
+          Par défaut vous gardez tous les droits sur vos photographies. Si vous voulez
+          ajouter une licence Creative Commons vous pouvez le faire plus bas.
+        show_location_data: >
+          Voulez-vous montrer la localisation de la prise de vue ? Vous pouvez changer
+          votre réglage par défaut pour celà dans vos réglages de compte.
+        show_copyright_info: >
+          Voulez-vous afficher les informations de droits d'auteur, si elles existent,
+          qui sont incluses dans les méta-données de votre photo? Elles peuvent contenir
+          des inforamtions personnelles telles que votre nom et la région dans laquelle
+          vous résidez (ville/pays).
+        category: >
+          Sélectionner une catégorie en rapport avec votre photo aidera les autres
+          utilisateurs à la retrouver plus facilement !
+        enable_comments: >
+          Si vous activez les commentaires, vous devez définir au moins un sujet sur
+          lequel des commentateurs peuvent répondre. Les commentaires sont privés
+          entre vous et le commentateur, sauf si vous choisissez de les rendre publics.
+      user:
+        edit:
+          username: >
+            Votre nom d'utilisateur est votre identifiant unique sur tout le site,
+            utilisé dans les URLs et pour pointer vers votre page de profil, càd https://www.photographer.io/u/rupert_bear.
+            Il doit être unique, en minuscules, et peut uniquement contenir des lettres,
+            chiffres, et le caractère de soulignement.
+        username: >
+          Ne peut contenir que des lettres, chiffres et le caractère souligné.
+        show_nsfw_content: >
+          Voulez-vous montrer le contenu non-approprié pour le travail? Cela peut
+          inclure de la nudité, de la violence ou tout autre contenu qui pourrait
+          être considéré comme inapproprié dans un environnement professionel.
+        default_license_id: >
+          Par défaut, vous réservez tous les droits sur voe photos. Si vou désirez
+          ajouter une licence de type Creative Commons, vous pouvez le faire ci-dessus.
+          Cela sera appliqué par défaut à toutes les nouvelles photos que vous enverrez,
+          mais peut être modifié sur chaque photo individuellement.
+        show_location_data: >
+          Voulez-vous montrer l'endroit où les photos ont été prises par défaut? Ceci
+          peut être modifié individuellement sur chauqe image.
+        show_copyright_info: >
+          Voulez-vous afficher les informations de droits d'auteur, si elles existent,
+          qui sont incluses dans les méta-données de votre photo? Elles peuvent contenir
+          des inforamtions personnelles telles que votre nom et la région dans laquelle
+          vous résidez (ville/pays).
+        biography: >
+          Votre biographie sear affichée sur votre page de profil. Aucun formattage
+          autre que le simple retour à la ligne n'est actuellement supporté. Le support
+          pour Markdown sera bientôt ajouté.
+        receive_notification_emails: >
+          Voulez-vous recevoir un e-mail pour les nouvelles notifications importantes;
+          p.ex. les nouveaux commentaires?
+        notify_favourites: >
+          Voulez-vous que les autres utilisateurs sachent que vous avez marqué leurs
+          photos comme favorites?
+        show_social_buttons: >
+          Voulez-vous voir les options de paratges vers les réseaux sociaux sous les
+          photos, càd Twitter, Facebook, Google etc?
+
+          Ceci pourrait avoir des implications sur la vie privée.
+        locale: >
+          Choisissez la langue dans laquelle vous désirez naviguer sur le site. Si
+          votre langue n'est pas présente, pourquoi ne pas aider à la traduction de
+          Photographer.io? Vous trouverez plus de détails dans  <a href="https://github.com/afternoonrobot/photographer-io#translations">
+          notre repository GitHub </a>.
+        enable_comments_by_default: >
+          Autoriser les fils de discussions par défaut pour toutes les nouvelles photos
+          que vous publiez, en utilisant les sujets que vous définissez ici.
+        default_comment_threads: >
+          Définissez le sujet par défaut pour les commmentaires à utiliser sur vos
+          photos ici. Vous pouvez définir les sujets par défaut sans permettre les
+          commentaires par défaut.
+  helpers:
+    submit:
+      comment:
+        create: "Poster un commentaire"
+        update: "Réviser"
+      mass_edit:
+        create: "Réviser"
+      user:
+        update: "Réviser les détails de votre compte"
+        create: "Créez votre compte"
