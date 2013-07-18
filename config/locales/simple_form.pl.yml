@@ -13,8 +13,23 @@ pl:
       comment_thread:
         destroy: "Usuń ten wątek"
       user:
-        show_nsfw_content: "Pokazuj zawartość, która może urazić inne osoby (NSFW)"
+        name: "Nazwa"
+        location: "Miejsce"
+        username: "Nazwa użytkownika"
+        password: "Hasło"
+        password_confirmation: "Potwierdzenie hasła"
+        avatar: "Awatar"
+        biography: "Notka biograficzna"
         website_url: "Adres twojej strony internetowej"
+        show_location_data: "Pokazuj miejsce wykonania zdjęcia"
+        show_copyright_info: "Pokazuj informację o prawach autorskich"
+        show_nsfw_content: "Pokazuj zawartość, która może urazić inne osoby (NSFW)"
+        default_license: "Domyślna licencja"
+        receive_notification_emails: "Otrzymywanie wiadomości e-mail"
+        notify_favourites: "Powiadamiaj o zaznaczeniu ulubionych"
+        show_social_buttons: "Pokazuj przyciski serwisów społecznościowych"
+        locale: "Język interfejsu"
+        enable_comments_by_default: "Domyślnie pozwalaj na komentowanie"
     placeholders:
       comment_thread:
         subject: "np. \"Jakiego gatunku jest ten ptak?\" albo \"Co sądzisz o tonacji kolorystycznej?\""
@@ -100,6 +115,12 @@ pl:
           jeszcze tu nie ma, to może zechcesz pomóc w tłumaczeniu? Więcej informacji
           na ten temat znajdziesz <a href="https://github.com/afternoonrobot/photographer-io#translations">w
           naszym repozytorium GitHub</a>.
+        enable_comments_by_default: >
+          Domyślnie pozwalaj na komentowanie wszystkich nowo wysyłanych zdjęć, używając
+          podanych obok tytułów wątków.
+        default_comment_threads: >
+          Podaj domyślne tytuły dla wątków komentarzy do twoich zdjęć. Możesz to zrobić
+          nawet jeśli nie włączysz opcji domyślnych komentarzy.
   helpers:
     submit:
       comment:
