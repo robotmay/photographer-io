@@ -40,7 +40,10 @@ head
 
   div id="wrapper"
     header id="layout-header"
-      = render partial: "shared/nav"
+      - if content_for?(:nav)
+        == yield(:nav)
+      - else
+        = render partial: "shared/nav"
 
     - unless flash.empty?
       div class="row"

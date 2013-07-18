@@ -4,13 +4,13 @@ class Photograph < ActiveRecord::Base
   belongs_to :user, counter_cache: true
   belongs_to :license
   belongs_to :category
-  has_one :metadata, dependent: :delete
+  has_one :metadata, dependent: :destroy
   has_many :collection_photographs, dependent: :destroy
   has_many :collections, through: :collection_photographs
-  has_many :recommendations
-  has_many :favourites
+  has_many :recommendations, dependent: :destroy
+  has_many :favourites, dependent: :destroy
   has_many :favourited_by_users, through: :favourites, source: :user
-  has_many :comment_threads, as: :threadable
+  has_many :comment_threads, as: :threadable, dependent: :destroy
   has_many :comments, through: :comment_threads
 
   delegate :title, :description, :keywords, :format, :landscape?, :portrait?, 
@@ -150,12 +150,23 @@ class Photograph < ActiveRecord::Base
     self.license_id = user.default_license_id
     self.show_location_data = user.show_location_data
     self.show_copyright_info = user.show_copyright_info
+    self.enable_comments = user.enable_comments_by_default
+
     return
   end
 
   before_create :extract_metadata
   def extract_metadata
     self.metadata = Metadata.new(photograph: self) if metadata.nil?
+  end
+
+  after_create :copy_default_comment_threads
+  def copy_default_comment_threads
+    unless user.default_comment_threads.empty?
+      user.default_comment_threads.each do |dct|
+        comment_threads.create(subject: dct.subject)
+      end
+    end
   end
 
   after_create :save_metadata

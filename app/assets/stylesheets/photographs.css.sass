@@ -81,48 +81,14 @@
         text-align: left
         font-size: 0.9em
 
-        table
-          border: 0
-          padding: 0
-          margin: 0
-          width: 100%
-          tr
-            td
-              &.text
-                h4, p
-                  margin-bottom: 0
-                  padding-bottom: 10px
+        &.text
+          h4, p
+            margin-bottom: 0
+            padding-bottom: 10px
 
-                  &:last-child
-                    padding-bottom: 0
+            &:last-child
+              padding-bottom: 0
 
-              &.share
-                vertical-align: top
-                width: 100px
-                text-align: right
-
-                .button
-                  text-align: center
-                  padding-left: 24px
-                  background-position: left center
-                  background-repeat: no-repeat
-                  margin-bottom: 5px
-
-                  &.g-plus
-                    background-color: rgb(212,85,61)
-                    background-image: image-url("glyphicons_inverted/glyphicons_382_google_plus.png")
-                    @include image-2x(image-url('glyphicons_inverted/glyphicons_382_google_plus@2x.png'), 24px, 24px)
-
-
-                  &.fb-share
-                    background-color: rgb(59,89,152)
-                    background-image: image-url("glyphicons_inverted/glyphicons_410_facebook.png")
-                    @include image-2x(image-url('glyphicons_inverted/glyphicons_410_facebook@2x.png'), 24px, 24px)
-
-                  &.twitter-share
-                    background-color: rgb(0,172,237)
-                    background-image: image-url("glyphicons_inverted/glyphicons_411_twitter.png")
-                    @include image-2x(image-url('glyphicons_inverted/glyphicons_411_twitter@2x.png'), 24px, 24px)
                     
 
 #photographs-sidebar
@@ -136,5 +102,48 @@
     .button
       margin-bottom: 5px
 
-  table
-    width: 100%
+  .panel
+    @include white-box
+    padding: 20px !important
+
+    table
+      width: 100%
+      border: 0
+
+      tr
+        td
+          a
+            display: block
+
+    &.share
+      .share-url
+        label
+          font-size: 0.8em
+
+      .social-buttons
+        text-align: center
+
+        .button
+          width: 100px
+          text-align: center
+          padding-left: 24px
+          background-position: left center
+          background-repeat: no-repeat
+          margin-right: 10px
+          margin-bottom: 5px
+
+          &.g-plus
+            background-color: rgb(212,85,61)
+            background-image: image-url("glyphicons_inverted/glyphicons_382_google_plus.png")
+            @include image-2x(image-url('glyphicons_inverted/glyphicons_382_google_plus@2x.png'), 24px, 24px)
+
+
+          &.fb-share
+            background-color: rgb(59,89,152)
+            background-image: image-url("glyphicons_inverted/glyphicons_410_facebook.png")
+            @include image-2x(image-url('glyphicons_inverted/glyphicons_410_facebook@2x.png'), 24px, 24px)
+
+          &.twitter-share
+            background-color: rgb(0,172,237)
+            background-image: image-url("glyphicons_inverted/glyphicons_411_twitter.png")
+            @include image-2x(image-url('glyphicons_inverted/glyphicons_411_twitter@2x.png'), 24px, 24px)

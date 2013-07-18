@@ -1,13 +1,33 @@
 require "machinist/active_record"
 
+Authorisation.blueprint do
+  user
+end
+
 Collection.blueprint do
   user
   name { Faker::Lorem.word }
 end
 
+Comment.blueprint do
+  user
+  comment_thread
+  body { Faker::Lorem.paragraph }
+end
+
+CommentThread.blueprint do
+  user
+  subject { Faker::Lorem.sentence }
+end
+
 Favourite.blueprint do
   user
   photograph
+end
+
+Following.blueprint do
+  followee
+  follower
 end
 
 Metadata.blueprint do
@@ -24,6 +44,9 @@ end
 
 Photograph.blueprint do
   user
+  image_uid { "wooster.jpg" }
+  image_mime_type { "image/jpeg" }
+  image_size { 5.megabytes }
 end
 
 Recommendation.blueprint do
@@ -37,4 +60,6 @@ User.blueprint do
   email { Faker::Internet.email }
   password { "password" }
   password_confirmation { "password" }
+  upload_quota { 100 }
+  recommendation_quota { 10 }
 end

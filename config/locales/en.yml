@@ -29,9 +29,9 @@ en:
 
   locales:
     en: "English"
+    fr: "Français"
     nl_NL: "Nederlands"
     pl: "Polski"
-    fr: "Français"
 
   metadata:
     description: >
@@ -247,6 +247,8 @@ en:
       username: "Username"
       public: "How do you want to be known to other users?"
       settings: "Account settings"
+      comments: "Comments"
+      default_comment_threads: "Default comment threads"
       create: "Sign up for a Photographer.io account"
 
     dashboard:
@@ -489,7 +491,10 @@ en:
       To help reduce the amount of clutter on the page, the recommend and favourite
       buttons have been removed from the sidebar and now display when hovering 
       over the photo instead.
-    share: "Share"
+    share:
+      title: "Share"
+      blurb: >
+        Share this photo with the following URL:
     edit: "Edit this photo"
     location: "Location"
     recommend: "Recommend this photograph"

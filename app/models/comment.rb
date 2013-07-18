@@ -12,25 +12,31 @@ class Comment < ActiveRecord::Base
 
   after_create :notify
   def notify
-    title = comment_thread.threadable.title.blank? ? I18n.t("untitled") : comment_thread.threadable.title
-
-    unless user == comment_thread.user
       # Notify owner
-      notifications.create(
-        send_email: true,
-        user: comment_thread.user,
-        subject: I18n.t("comments.notifications.subject", user: user.name, on: title),
-        body: I18n.t("comments.notifications.body", user: user.name, on: title)
-      )
+    unless user == comment_thread.user
+      I18n.with_locale(comment_thread.user.locale) do
+        title = comment_thread.threadable.title.blank? ? I18n.t("untitled") : comment_thread.threadable.title
+
+        notifications.create(
+          send_email: true,
+          user: comment_thread.user,
+          subject: I18n.t("comments.notifications.subject", user: user.name, on: title),
+          body: I18n.t("comments.notifications.body", user: user.name, on: title)
+        )
+      end
     end
-    
+      
     # Notify replyee
     if child? && parent.user != comment_thread.user
-      notifications.create(
-        user: parent.user,
-        subject: I18n.t("comments.notifications.reply.subject", user: user.name, on: title),
-        body: I18n.t("comments.notifications.reply.body", user: user.name, on: title)
-      )
+      I18n.with_locale(parent.user.locale) do
+        title = comment_thread.threadable.title.blank? ? I18n.t("untitled") : comment_thread.threadable.title
+
+        notifications.create(
+          user: parent.user,
+          subject: I18n.t("comments.notifications.reply.subject", user: user.name, on: title),
+          body: I18n.t("comments.notifications.reply.body", user: user.name, on: title)
+        )
+      end
     end
   end
 
@@ -52,13 +58,15 @@ class Comment < ActiveRecord::Base
     self.published = !published
     saved = save
 
-    if saved && published
-      title = comment_thread.threadable.title.blank? ? I18n.t("untitled") : comment_thread.threadable.title
+    if saved && published && user != comment_thread.user
+      I18n.with_locale(user.locale) do
+        title = comment_thread.threadable.title.blank? ? I18n.t("untitled") : comment_thread.threadable.title
 
-      notifications.create(
-        user: user,
-        subject: I18n.t("comments.notifications.published.subject", on: title)
-      )
+        notifications.create(
+          user: user,
+          subject: I18n.t("comments.notifications.published.subject", on: title)
+        )
+      end
     end
 
     if child? && saved && published
