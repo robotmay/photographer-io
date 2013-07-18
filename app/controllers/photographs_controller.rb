@@ -145,10 +145,8 @@ class PhotographsController < ApplicationController
 
     track_view_for_photo(@photograph)
     
-    if stale?(last_modified: @photograph.updated_at.utc, etag: [I18n.locale, current_user, @photograph])
-      set_title t("photographs.title", title: @photograph.metadata.title, by: @photograph.user.name)
-      respond_with @photograph
-    end
+    set_title t("photographs.title", title: @photograph.metadata.title, by: @photograph.user.name)
+    respond_with @photograph
   end
 
   def share

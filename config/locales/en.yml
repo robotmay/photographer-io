@@ -491,7 +491,10 @@ en:
       To help reduce the amount of clutter on the page, the recommend and favourite
       buttons have been removed from the sidebar and now display when hovering 
       over the photo instead.
-    share: "Share"
+    share:
+      title: "Share"
+      blurb: >
+        Share this photo with the following URL:
     edit: "Edit this photo"
     location: "Location"
     recommend: "Recommend this photograph"
