@@ -72,7 +72,7 @@ section id="photographs-show"
           = render @photograph.comment_threads
 
     aside id="photographs-sidebar" class="large-3 small-12 columns"
-      - if user_signed_in? && current_user == @photograph.user
+      - if user_signed_in? && current_user == @photograph.user && !sharing_mode
         = link_to t("photographs.edit"), edit_account_photograph_path(@photograph), class: "button secondary expand"
 
       = creator_details_for @photograph

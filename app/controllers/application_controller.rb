@@ -1,7 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   layout :set_layout
-  helper_method :set_title, :hide_filters?
+  helper_method :set_title, :hide_filters?, :sharing_mode
+
+  attr_accessor :sharing_mode
 
   before_filter :fetch_categories
   def fetch_categories
@@ -65,5 +67,9 @@ class ApplicationController < ActionController::Base
 
   def hide_filters!
     @hide_filters = true
+  end
+
+  def enable_sharing_mode
+    self.sharing_mode = true
   end
 end

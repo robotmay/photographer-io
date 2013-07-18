@@ -21,6 +21,7 @@ Iso::Application.routes.draw do
 
       member do
         post :recommend
+        get :share
       end
 
       resources :favourites, only: [:create, :destroy]
@@ -88,7 +89,7 @@ Iso::Application.routes.draw do
       root to: "account#dashboard"
     end
 
-    get "/p/:id" => "photographs#show", as: :short_photo
+    get "/p/:id" => "photographs#share", as: :short_photo
     get "/u/:id" => "users#show", as: :short_user
     get "/c/:id" => "collections#show", as: :short_collection
     get "/status" => "pages#up", as: :status
