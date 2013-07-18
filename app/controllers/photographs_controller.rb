@@ -149,8 +149,10 @@ class PhotographsController < ApplicationController
       end
     end
     
-    set_title t("photographs.title", title: @photograph.metadata.title, by: @photograph.user.name)
-    respond_with @photograph
+    if stale?(last_modified: @photograph.updated_at.utc, etag: [I18n.locale, current_user, @photograph], expires_in: 10.minutes)
+      set_title t("photographs.title", title: @photograph.metadata.title, by: @photograph.user.name)
+      respond_with @photograph
+    end
   end
 
   def recommend

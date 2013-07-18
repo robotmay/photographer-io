@@ -104,8 +104,3 @@ section id="photographs-show"
           h5= t("photographs.location")
           = render partial: "map", locals: { photograph: @photograph }
 
-- content_for(:after_body) do
-  - once :photo_interactions_hint do
-    ul[class="joyride-list" data-joyride]
-      li data-text="OK"
-        = simple_format t("photographs.interactions_hint")
