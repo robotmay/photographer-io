@@ -1,0 +1,203 @@
+es:
+  site_name: "Photographer.io"
+  default_title: "La comunidad fotográfica para entusiastas - Photographer.io"
+  page_title: "%{title} - Photographer.io"
+  copyright: >
+    Todas las fotografías tienen derechos de autor de sus respectivos creadores, y
+    no pueden reproducirse o republicarse sin permiso.
+
+    © Photographer.io, Afternoon Robot Ltd, 2013. Iconos cortesía de <a href="http://glyphicons.com">glyphicons.com</a>.
+  privacy: "Política de privacidad"
+  terms: "Términos"
+  confirm_delete: "¿Está seguro?"
+  titles:
+    explore: "Explorar"
+    recommended: "Fotos recomendadas por otros miembros"
+    favourites: "Sus fotografías favoritas"
+    following: "Fotos de personas que sigue"
+    seeking_feedback: "Fotos que esperan sus comentarios"
+  untitled: "Sin título"
+  social:
+    google_plus: "Google+"
+    twitter: "Twitter"
+    share: "Compartir"
+    twitter_account: "@photographer_io"
+  privacy_policy: "https://www.iubenda.com/privacy-policy/288645"
+  nav:
+    menu: "Menú"
+    blog: "Blog"
+    explore: "Explorar"
+    account: "Cuenta"
+    photographs: "Gestionar fotografías"
+    sign_in: "Iniciar sesión"
+    sign_out: "Cerrar sesión"
+    sign_up: "Crear su cuenta"
+    edit_account: "Opciones de la cuenta"
+    search: "Buscar"
+    recommended: "Recomendados"
+    categories: "Explorar por categoría"
+    support: "Soporte"
+    beta: "Beta"
+    favourites: "Favoritos"
+    mini_stats:
+      views: "Número de veces total que sus fotos han sido vistas"
+      followers: "Número de personas total que siguen sus actualizaciones"
+      recommendations: "Número total de recomendaciones que ha recibido"
+      favourites: "Número total de veces que sus fotos han sido marcadas como favoritas"
+    general: "Explorar"
+    latest: "Últimas fotografías"
+    random: "¡Ir a una foto aleatoria!"
+    following: "Fotografías de personas que sigue"
+    invite: "Invitar a un amigo"
+    dashboard: "Panel principal"
+    seeking_feedback: "Fotografías que esperan comentarios"
+    about: "Acerca de"
+  beta_notes:
+    title: "¡Esto es una fase beta!"
+  home:
+    words:
+    - fantástica
+    - maravillosa
+    - genial
+    - excelente
+    - espectacular
+    - sorprendente
+    - soberbia
+    register: "Crear su cuenta"
+    about: "Vea en qué somos diferentes"
+    or: "o"
+    sign_up: "Cree su cuenta gratuita"
+  about:
+    title: "Acerca de Photographer.io"
+    compare:
+      flickr:
+        advertising: "Sí"
+      500px:
+        advertising: "No"
+        ssl: "No"
+      photographerio:
+        advertising: "No"
+    sign_up: "Crear su cuenta"
+  account:
+    nav:
+      title: "Su cuenta"
+      home: "Panel principal"
+      settings: "Opciones de la cuenta"
+      invite: "Invitar a sus amigos"
+      photographs: "Fotografías"
+      upload_quota: "Su uso este mes"
+      get_more_uploads: "¿Necesita más? <a href='%{path}'>¡Invite a sus amigos!</a>"
+      authorisations: "Cuentas conectadas"
+    form:
+      auth: "Detalles de inicio de sesión"
+      username: "Nombre de usuario"
+      public: "¿Cómo quiere ser conocido ante otros usuarios?"
+      settings: "Opciones de la cuenta"
+      create: "Regístrese para crear una cuenta en Photographer.io"
+    dashboard:
+      title: "Su panel de cuenta"
+      statistics:
+        title: "Estadísticas"
+        views: "Vistas totales de sus fotografías"
+        photo_count: "Fotografías"
+        public_photo_count: "Fotografías públicas"
+        private_photo_count: "Fotografías privadas"
+        recommendations: "Total de recomendaciones recibidas"
+        favourites: "Total de favoritas de sus fotografías"
+      recommendations:
+        title: "Sus recomendaciones"
+      usage:
+        title: "Uso"
+        get_more: "¿Necesita más? <a href='%{path}'>¡Invite a sus amigos!</a>"
+      hints:
+        title: "Pistas para nuevos usuarios"
+    authorisations:
+      create:
+        succeeded: "Ha autorizado correctamente esa cuenta"
+        failed: "Ha habido un problema al autorizar esa cuenta. Por favor inténtelo de nuevo."
+      title: "Conectar sus cuentas de otros sitios"
+      existing:
+        title: "Cuentas conectadas"
+        provider: "Sitio"
+        email: "Cuenta"
+        created_at: "Enlazada el"
+        none: "No ha conectado aún ninguna cuenta"
+    collections:
+      delete: "Borrar esta colección"
+      form:
+        general: "Detalles de la colección"
+      modal:
+        new:
+          button: "Crear colección"
+          title: "Crear una colección nueva"
+        edit:
+          button: "Editar"
+          title: "Editar colección"
+      create:
+        succeeded: "Se ha creado correctamente su nueva colección."
+        failed: "Ha habido un problema al crear su colección. Por favor compruebe los errores abajo."
+      update:
+        succeeded: "Se ha actualizado correctamente su colección."
+        failed: "Ha habido un problema al actualizar su colección."
+      destroy:
+        succeeded: "Se ha borrado correctamente la colección."
+        failed: "Ha habido un problema al borrar su colección."
+    photographs:
+      nav:
+        title: "Fotografías"
+        all: "Todas"
+        public: "Públicas"
+        private: "Privadas"
+        unsorted: "Desordenadas"
+        collections: "Colecciones"
+      view: "Ver página pública"
+      views: "Vistas"
+      recommendations: "Recomendaciones"
+      favourites: "Favoritos"
+      upload: "Subir"
+      delete: "Borrar esta fotografía"
+      edit_mode:
+        button: "Modo de edición"
+        change_collections: "Añadir a colecciones"
+        delete: "Borrar"
+      form:
+        general: "Detalles"
+        collections: "¿A qué colecciones pertenece esta foto?"
+        settings: "Opciones"
+        comments: "Comentarios"
+        threads: "¿Sobre qué temas desea comentar?"
+      create:
+        failed: "Error de subida"
+      update:
+        succeeded: "¡Se han guardado los cambios correctamente!"
+      mass_update:
+        no_photos_selected: "No hay fotos seleccionadas."
+  comments:
+    saving: "Guardando..."
+    delete: "Borrar"
+    reply: "Responder"
+    publish: "Publicar"
+    unpublish: "Despublicar"
+  followings:
+    follow: "Seguir"
+    unfollow: "Dejar de seguir"
+  notifications:
+    title: "Notificaciones"
+  photographs:
+    share: "Compartir"
+    stats: "Estadísticas"
+    views: "Vistas"
+    favourites: "Favoritos"
+    sub_nav:
+      all: "Todas"
+    metadata:
+      settings: "Opciones"
+  users:
+    invitations:
+      new:
+        title: "Invitar a sus amigos"
+      edit:
+        title: "Crear su cuenta"
+    sessions:
+      new:
+        sign_in: "Iniciar sesión"
