@@ -66,11 +66,12 @@ section id="photographs-show"
           = render @photograph.comment_threads
 
     aside id="photographs-sidebar" class="large-3 small-12 columns"
-      - if user_signed_in? && current_user == @photograph.user && !sharing_mode
-        = link_to t("photographs.edit"), edit_account_photograph_path(@photograph), class: "button secondary expand"
+      - unless sharing_mode
+        - if user_signed_in? && current_user == @photograph.user
+          = link_to t("photographs.edit"), edit_account_photograph_path(@photograph), class: "button secondary expand"
 
-      - if current_user.moderator?
-        = link_to t("reports.new.button"), new_photograph_report_path(@photograph), class: "button alert expand"
+        - if current_user.moderator?
+          = link_to t("reports.new.button"), new_photograph_report_path(@photograph), class: "button alert expand"
 
       = creator_details_for @photograph
 
