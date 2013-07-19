@@ -302,11 +302,13 @@ class Photograph < ActiveRecord::Base
   def ghost!
     self.ghost = true
     save
+    collections.find_each(&:reset_cover_photo)
   end
 
   def unghost!
     self.ghost = false
     save
+    collections.find_each(&:reset_cover_photo)
   end
 
   class << self
