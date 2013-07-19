@@ -209,7 +209,8 @@ CREATE TABLE collections (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     shared boolean DEFAULT false,
-    encrypted_password character varying(255)
+    encrypted_password character varying(255),
+    ghost boolean DEFAULT false
 );
 
 
@@ -544,7 +545,8 @@ CREATE TABLE photographs (
     processing boolean DEFAULT false,
     image_mime_type character varying(255),
     enable_comments boolean DEFAULT false,
-    auto_mentioned boolean DEFAULT false
+    auto_mentioned boolean DEFAULT false,
+    ghost boolean DEFAULT false
 );
 
 
@@ -686,7 +688,8 @@ CREATE TABLE users (
     show_social_buttons boolean DEFAULT true,
     username character varying(255),
     locale character varying(255) DEFAULT 'en'::character varying,
-    enable_comments_by_default boolean DEFAULT false
+    enable_comments_by_default boolean DEFAULT false,
+    moderator boolean DEFAULT false
 );
 
 
@@ -1028,6 +1031,13 @@ CREATE INDEX index_collection_photographs_on_photograph_id ON collection_photogr
 
 
 --
+-- Name: index_collections_on_ghost; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_collections_on_ghost ON collections USING btree (ghost);
+
+
+--
 -- Name: index_collections_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -1189,6 +1199,13 @@ CREATE INDEX index_photographs_on_category_id ON photographs USING btree (catego
 
 
 --
+-- Name: index_photographs_on_ghost; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_photographs_on_ghost ON photographs USING btree (ghost);
+
+
+--
 -- Name: index_photographs_on_license_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -1221,6 +1238,20 @@ CREATE INDEX index_recommendations_on_photograph_id ON recommendations USING btr
 --
 
 CREATE INDEX index_recommendations_on_user_id ON recommendations USING btree (user_id);
+
+
+--
+-- Name: index_reports_on_reportable_id_and_reportable_type; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_reports_on_reportable_id_and_reportable_type ON reports USING btree (reportable_id, reportable_type);
+
+
+--
+-- Name: index_reports_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_reports_on_user_id ON reports USING btree (user_id);
 
 
 --
@@ -1401,3 +1432,7 @@ INSERT INTO schema_migrations (version) VALUES ('20130713123834');
 INSERT INTO schema_migrations (version) VALUES ('20130715225941');
 
 INSERT INTO schema_migrations (version) VALUES ('20130718114116');
+
+INSERT INTO schema_migrations (version) VALUES ('20130718220746');
+
+INSERT INTO schema_migrations (version) VALUES ('20130719122054');

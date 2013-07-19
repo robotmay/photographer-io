@@ -62,4 +62,9 @@ class Collection < ActiveRecord::Base
       end
     end
   end
+
+  def ghost!
+    self.ghost = true
+    save
+  end
 end

@@ -53,6 +53,10 @@ class Ability
     end
 
     can :manage, Authorisation, user_id: user.id
+    
+    can :create, Report do |report|
+      report.user_id == user.id && user.moderator?
+    end
 
     # Define abilities for the passed in user here. For example:
     #

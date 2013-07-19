@@ -25,6 +25,7 @@ Iso::Application.routes.draw do
       end
 
       resources :favourites, only: [:create, :destroy]
+      resources :reports, only: [:new, :create]
     end
 
     resources :comment_threads do
@@ -39,6 +40,8 @@ Iso::Application.routes.draw do
       collection do
         get :explore
       end
+
+      resources :reports, only: [:new, :create]
     end
 
     resources :categories, only: [:show] do
@@ -65,6 +68,7 @@ Iso::Application.routes.draw do
       registrations: "devise_extensions/registrations",
       invitations: "devise_extensions/invitations"
     }
+
     namespace :account do
       resources :photographs do
         collection do
@@ -88,6 +92,8 @@ Iso::Application.routes.draw do
 
       root to: "account#dashboard"
     end
+
+    resources :reports, only: [:new, :create]
 
     get "/p/:id" => "photographs#share", as: :short_photo
     get "/u/:id" => "users#show", as: :short_user

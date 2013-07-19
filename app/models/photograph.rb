@@ -65,6 +65,12 @@ class Photograph < ActiveRecord::Base
   scope :hidden, -> {
     joins(:collections).where(collections: { visible: false })
   }
+  scope :ghost, -> {
+    where(ghost: true)
+  }
+  scope :not_ghost, -> {
+    where(ghost: false)
+  }
   scope :in_collections, -> { 
     joins(:collections)
   }
@@ -293,6 +299,16 @@ class Photograph < ActiveRecord::Base
     })
   end
 
+  def ghost!
+    self.ghost = true
+    save
+  end
+
+  def unghost!
+    self.ghost = false
+    save
+  end
+
   class << self
     def new_from_s3_upload(user, params)
       user.photographs.new do |p|
@@ -352,9 +368,9 @@ class Photograph < ActiveRecord::Base
     # Not sure why but combining scopes for this breaks it, so hardcoding it
     def view_for(user)
       if user.nil? || !user.show_nsfw_content
-        where(safe_for_work: true).joins(:collections).where(collections: { visible: true }).where(processing: false).includes(:metadata, :user)
+        where(safe_for_work: true).joins(:collections).where(collections: { visible: true }).where(processing: false).includes(:metadata, :user).not_ghost
       else
-        joins(:collections).where(collections: { visible: true }).where(processing: false).includes(:metadata, :user)
+        joins(:collections).where(collections: { visible: true }).where(processing: false).includes(:metadata, :user).not_ghost
       end
     end
   end

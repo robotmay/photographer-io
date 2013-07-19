@@ -5,6 +5,8 @@ describe UsersHelper do
     let(:us) { User.make }
     let(:them) { User.make }
 
+    before { helper.stub(:share_mode) { false } }
+
     context "signed in" do
       before do
         helper.stub(:user_signed_in?) { true }

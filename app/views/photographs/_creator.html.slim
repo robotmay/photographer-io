@@ -22,4 +22,5 @@ aside[id="photographs-creator" itemprop="creator copyrightHolder" itemscope item
 
         = link_to t("photographs.creator.photos"), user_photographs_path(user.username), class: "button tiny success expand"
 
-      = follow_user_button(photograph.user)
+      - unless sharing_mode
+        = follow_user_button(photograph.user)

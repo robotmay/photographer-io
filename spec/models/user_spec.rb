@@ -19,6 +19,7 @@ describe User do
   it { should have_many(:authorisations) }
   it { should have_many(:old_usernames) }
   it { should have_many(:default_comment_threads) }
+  it { should have_many(:reports) }
 
   it { should accept_nested_attributes_for(:default_comment_threads) }
 
@@ -110,6 +111,24 @@ describe User do
     it "destroys default comment threads" do
       user.default_comment_threads << default_comment_thread
       default_comment_thread.should_receive(:destroy)
+    end
+  end
+
+  describe "moderators" do
+    context "is a moderator" do
+      let(:user) { User.make(moderator: true) }
+
+      it "is a moderator" do
+        user.moderator?.should be_true
+      end
+    end
+
+    context "is not a moderator" do
+      let(:user) { User.make }
+
+      it "is not a moderator" do
+        user.moderator?.should be_false
+      end
     end
   end
 end
