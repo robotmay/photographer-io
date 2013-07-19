@@ -10,7 +10,7 @@ class Report < ActiveRecord::Base
   end
 
   after_create :notify
-  def notify
+  def report
     ModeratorMailer.delay.notify(id)
   end
 end
