@@ -70,7 +70,7 @@ section id="photographs-show"
         - if user_signed_in? && current_user == @photograph.user
           = link_to t("photographs.edit"), edit_account_photograph_path(@photograph), class: "button secondary expand"
 
-        - if current_user.moderator?
+        - if user_signed_in? && current_user.moderator?
           = link_to t("reports.new.button"), new_photograph_report_path(@photograph), class: "button alert expand"
 
       = creator_details_for @photograph
