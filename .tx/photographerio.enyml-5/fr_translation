@@ -27,9 +27,9 @@ fr:
   privacy_policy: "https://www.iubenda.com/privacy-policy/288645"
   locales:
     en: "Anglais"
+    fr: "Français"
     nl_NL: "Néerlandais"
     pl: "Polonais"
-    fr: "Français"
   metadata:
     description: >
       Photographer.io est une nouvelle communauté pour les passionnés de la photographie.
@@ -442,7 +442,6 @@ fr:
       Afin de diminuer l'encombrement de la page, les boutons recommander et favorites
       ont été retirés de la barre latérale et sont à présent affichés lorsque vous
       survolez la photo.
-    share: "Partager"
     edit: "Éditer cette photo"
     location: "Localisation"
     recommend: "recommender cette photographie"
