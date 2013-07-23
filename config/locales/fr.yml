@@ -29,6 +29,7 @@ fr:
     en: "Anglais"
     nl_NL: "Néerlandais"
     pl: "Polonais"
+    fr: "Français"
   metadata:
     description: >
       Photographer.io est une nouvelle communauté pour les passionnés de la photographie.
@@ -46,7 +47,7 @@ fr:
     edit_account: "Paramètres de compte"
     search: "Rechercher"
     recommended: "Recommander"
-    categories: "Rechercher selon la catégorie"
+    categories: "Explorer par catégorie"
     support: "Aide"
     beta: "Version bêta"
     favourites: "Préférées"
@@ -97,17 +98,17 @@ fr:
       Robert May
   home:
     title: >
-      Une nouvelle communauté photo pour partager vos photos.
+      Une nouvelle communauté pour partager vos photos.
     blurb: >
-      Envoyer, organiser et partager vos photos à côté d'autres, comme %{name} a fait
+      Envoyer, organiser et partager vos photos avec d'autres, comme %{name} l'a fait
       avec cette <a href="%{image_path}">%{word} image</a>.
     words:
     - fantastique
-    - merveilleux
-    - génial
-    - excellent
+    - merveilleuse
+    - chouette
+    - excellente
     - spectaculaire
-    - impressionnant
+    - impressionnante
     - superbe
     register: "Créez votre compte"
     about: "Renseignez-vous sur pourquoi on est différent"
@@ -116,16 +117,72 @@ fr:
   about:
     title: "À propos de Photographer.io"
     subtitle: "Quelques raisons qui nous font penser que vous devez nous rejoindre:"
+    free:
+      title: "C'est gratuit et équitable"
+      body: >
+        Ici, les comptes gratuits ne sont pas considérés comme des citoyens de seconde
+        zone. Chacun a une influence égale sur la façon dont le site fonctionne et
+        sur la direction que nous prenons. Si vous avez des suggestions, rapports
+        d'erreurs, ou d'autres réactions, nous adorerions les entendre! Envoyez-les
+        à <a href="mailto:support@photographer.io">support@photographer.io</a>.
     open_source:
-      title: "Nous somme open source"
+      title: "Nous sommes open source"
+      body: >
+        Notre code est open source et disponible sous une licence de type MIT <a href='https://github.com/afternoonrobot/photographer-io'>sur
+        GitHub</a>. Aidez à corriger les errerus, ajouter de nouvelles fonctionnalités,
+        et faire de cette communauté ce que vous voulez qu'elle soit.
     advertising:
       title: "Pas de publicité"
+      body: >
+        Nous détestons la publicité, raison pour laquelle vous n'en verrez <b>jamais</b>
+        sur Photographer.io. Le site sera prochainement supporté par des  comptes
+        payants, et il se peut que nous utilisions des liens affiliés pour du matériel
+        photographique etc.; mais nous ne diffuserons jamais de publicité.
+    money:
+      title: "Nous gagnons de l'argent de façon évidente"
+      body: >
+        Il n'y a pas de magie. Les comptes payants arriveront bientôt (et à un prix
+        très raisonable), et ils seront la source de revenus de ce site. Il n'y a
+        pas d'investisseurs, d'annonceurs, et pas de vente de vos données.
     likes:
       title: "Les «j'aime» sont morts, longue vie aux recommandations !"
+      body: >
+        Nous n'utilisons pas de "J'aime" sur Photographer.io. Chaque utilisateur peut
+        par contre effectuer un maximum de %{quota} recommandations par jour. Une
+        recommandation aide à promouvoir la photo sur notre <a href="/photographs/recommended">page
+        de recommandations</a>  mais pourra bientôt également recommander les photos
+        versles personnes qui vous suivent.
+
+
+        Les recommandations devraient être données pour les photos que vous pensez
+        être bonnes, pas nécessairement celles que vous préférez; pour cela, il y
+        a les favorites!
     comments:
       title: "Notre système de commentaires est différent"
+      body: >
+        Les commentaires sur Photographer.io fonctionnent plus comme des sujets sur
+        un système de forum classique; vous choisissez un sujet sur lequel les personnes
+        peuvent commenter. Le but est d'obtenir plus de retour utile, plutôt que des
+        commentaires comme "WOW J'ADORE!". Les commentaires ne sont visibles que par
+        leur créateur et le propriétaire par défaut (et le propriétaire du commentaire
+        parent s'il s'agit d'une réponse). Cela signifieque vous avez le choix des
+        commentaires qui appraissent sur vos photos. Ce sont <i>vos</i> photos après
+        tout; ne devriez-vous pas choisir ce qui les accompagne?
     privacy:
       title: "Vie privée et sécurité sont vraiment importants pour nous"
+      body: >
+        Nous prenons la vie privée et la sécurité au sérieux. Le site dans son entièreté
+        et les services liés (comme l'hébergement des images) sont servis sous SSL,
+        les mots de passe sont stockés via <a href="http://bcrypt.sourceforge.net/">bcrypt</a>,
+        et nous répondons aux soucis de sécurité immédiatement.
+
+
+        Vie privée: <a href="https://www.iubenda.com/privacy-policy/288645">Lisez
+        notre déclaration sur la Vie Privée</a> ou  <a href="mailto:privacy@photographer.io">envoyez-nous
+        un e-mail pour toute question</a>.
+
+        Sécurité: si vous avez des soucis de sécurité ou des failles à reporter, veuillez
+        les envoyer par e-mail à <a href="mailto:security@photographer.io">security@photographer.io</a>.
     compare:
       title: "Comment nous comparer aux autres communautés photographiques ?"
       flickr:
@@ -147,9 +204,14 @@ fr:
         advertising: "Non"
         ssl: "Toujours"
       free_accounts: "Comptes gratuits"
+      uploads: "Envoi de photos"
+      albums: "Albums/Ensembles/Collections"
       advertising: "Publicité"
       else: "Tout le reste"
       ssl: "SSL global"
+      notes: >
+        * Peut être augmenté en invitant vos amis! Tous les détails sur la page de
+        votre compte.
     interested: "Intéressé ? Créez votre compte gratuit !"
     sign_up: "Créez votre compte"
   account:
@@ -168,6 +230,7 @@ fr:
       public: "Comment voulez-vous être connait aux autres?"
       settings: "Paramètres de compte"
       comments: "Commentaires"
+      default_comment_threads: "Sujets par défaut pour les commentaires"
       create: "Créez un compte Photographer.io"
     dashboard:
       title: "Votre tableau de bord compte"
@@ -300,12 +363,23 @@ fr:
       guidelines:
         link: "lignes directrices pour les images"
         title: "Lignes directrices pour les photos"
+        body: |
+          Voici en gros les directives pour l'envoi de vos photos vers Photographer.io. Le respect de ces directives assure que vos images apparaîtront de façon optimale!
+
+          * Actuellement, le seul format supporté est JPEG/JPG.
+          * Utilisez un réglage de haute qualité lorsque vous enregistrez votre photo au format JPG, car nous ajustons la qualité automatiquement.
+          * Il est recommandé d'envoyer des images ayant au moins 2000 pixels sur leur plus grand côté. Ceci assure qu'aucun redimensionnement ne se produira sur tout le site.
+          * La plus grande image accessible au public sur le site est de 2000 pixels, ce qui est la taille utilisée sur les images de la page de démarrage du site. Il sera bientôt possible de choisir de ne pas montrer vos photos à cet endroit.
+          * Pour les pages individuelles montrant les photos, les images sont affichées avec un maximum de 1500 pixels sur leur plus grand côté.
+          * Vous pouvez envoyer les images ayant la taille sauvegardée directment par votre appareil photo; les quotas d'envoi sont calculés sur le nombre d'images et non sur leur taille. Il est cependant recommandé d'utiliser des copies de tailles plus petites afin de réduire les temps d'envoi et de traitement.
+          * L'image originale que vous envoyez n'est accessible par personne d'autre que vous, nous générons des copies plus petites et optimisées pour l'utilisation sur le site.
   collections:
     caption: "%{user} a mis à jour %{collection}"
   collection_photographs:
     user_must_match: "Vous ne pouvez pas ajouter de photo à cette collection"
   comments:
     saving: "Sauvegarde…"
+    unpublished: "Visible uniquement par le commentateur et le propriétaire de la photo"
     child_unpublished: "Visible uniquement par le commentateur, le propriétaire de la photo, et les propriétaires de commentaires parents"
     delete: "Supprimer"
     reply: "Répondre"
@@ -364,6 +438,10 @@ fr:
     none: "Il n'y a pas de photos ici!"
     no_results: "Il n'y avait pas de résultats pour votre demande."
     collections: "Listé dans les collections"
+    interactions_hint: >
+      Afin de diminuer l'encombrement de la page, les boutons recommander et favorites
+      ont été retirés de la barre latérale et sont à présent affichés lorsque vous
+      survolez la photo.
     share: "Partager"
     edit: "Éditer cette photo"
     location: "Localisation"
@@ -413,6 +491,14 @@ fr:
     avatar: "Avatar"
     visit_site: "Visitez le site web"
     username_format: "Sont autorisés uniquement lettres, chiffres et tiret bas."
+    old_username_present: >
+      Ce nom d'utilisateur a déjà été utilisé dans le passé par quelqu'un d'autre.
+      Nous maintenons les redirections pourles anciens noms pour une durée limitée.
+      Conteactez-nous si vous avez des questions à propos de ce nom d'utilisateur
+      ou de cette procédure en envoyant un e-mail à <a href="mailto:support@photographer.io">support@photographer.io</a>.
+    username_quota_exceeded: >
+      Vous ne pouvez plus changer votre nom d'utilisateur une nouvelle fois. Besoin
+      d'aide? Contectez-nous à <a href="mailto:support@photographer.io">support@photographer.io</a>.
     username_quota: "Pouvez-vous remplacer votre nom d'utilisateur %{n} fois plus"
     invitations:
       invited:
@@ -426,20 +512,40 @@ fr:
       new:
         title: "Invitez vos amis"
         invite: "Envoyez l'invitation"
+        limit: >
+          Il y a actuellement une limitation à %{n} invitations par utilisateur tant
+          que le système est nouveau. Ceci sera sans doute modifié ou supprimé dans
+          le futur en fonction de l'utilisation.
         spiel:
           title: "Amenez vos amis et gagnez des récompenses !"
+          body: |
+            Vous paaréciez Photographer.io? Propagez votre amour et amenez vos amis à nous rejoindre eux aussi!
+
+            Pour chaque ami que vous recrutez vos gagnerez %{referral_bonus} envois supplémentaires de photos par mois.
       edit:
         title: "Créez votre compte"
         accept: "Acceptez l'invitation et créez un compte"
         spiel:
           title: "Acceptez votre invitation et rejoignez-nous !"
+          body: "En tant que membre possédantun compte gratuit sur Photographer.io, vous pourrez:\n\n* Envoyer jusqu'à %{uploads} photos par mois\n* Créer un nombre illimité de collections de photos\n* Suivre les mises à jour des autres utilisateurs\n* Sélectionnez vos photos favorites\n* Promouvoir vos photos favorites grâce au\
+            \ système de recommandations\n* Commenter et critiquer des photos\n\nVous voulez des envois de photos illimités, plus de fonctionnalités, et aider à soutnir le site?\nUn compte payant verra bientôt le jour!\n\nNos Conditions d'Utilisation seront bientôt publiées. En attendant, sachez juste que\nnous ne volerons pas\
+            \ vos photos, et que tout ce que vous postez doit vous appartenir.\n\nDes questions? <a href=\"mailto:support@photographer.io\"> Envoyez-nous un e-mail</a>\n\n##### Parlez-en à vos amis pour pouvoir envoyer plus de photos\nPour chaque ami que vous amenez à créer un compte, à la fois vous et votre amis bénéficierez \n\
+            de %{referral_bonus} envois supplémentaires par mois.\nLa marche à suivre se trouve dans votre page personnelle après création\nde votre compte.\n"
     sessions:
       new:
         title: "Connecter à votre compte"
         sign_in: "Connexion"
         spiel:
           title: "Bienvenue à nouveau!"
+          body: |
+            Si vous êtes un utilisateur enregistré, veuillez vous connecter à votre compte en utilisant le formulaire ci-contre.
+
+            Pas encore de compte? [Enregistrez-vous et rejoignez-nous!](%{sign_up_path})
     new:
       title: "Créez votre compte Photographer.io"
       spiel:
         title: "Rejoignez-nous!"
+        body: "En tant que membre possédant un compte gratuit sur Photographer.io, vous pourrez:\n\n* Envoyer jusqu'à %{uploads} photos par mois\n* Créer un nombre illimités de collections\n* Suivre les mises à jour des autres utilisateurs\n* Marques des photos comme favorites\n* Promouvoir vos photos préférées via le système de\
+          \ recommandations\n* Commenter et critiquer des photos\n\nVous voulez un nombre illimité d'envois de photos, plus de fonctionnalités et aider à soutenir le site?\nLes comptes payants arriveront bientôt!\n\n#####Parrainez vos amis pour pouvoir envoyer plus de photos\nPour chaque ami que vous amenez à s'insicrire, vous\
+          \ pourrez tous deux \nenvoyer %{referral_bonus} photos supplémentaires par mois.\nLa marche à suivre se trouve sur la page de votre compte après création \nde votre compte.\n\n##### Ce site est actuellement en bêta\nNos Conditions d'Utilisation seront publiées prochainement. En attendant, sachez juste que\nnous ne volerons\
+          \ pas vos photos, et tout ce que vous publiez doit vous appartenir.\n\nDes questions? [Envoyez-nous un e-mail!](mailto:support@photographer.io)\n"

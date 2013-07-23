@@ -1,5 +1,6 @@
 pt_BR:
   categories:
+    abstract: "Resumo"
     architecture: "Arquitetura"
     art: "Arte"
     crafts: "Artesanatos"
@@ -18,6 +19,7 @@ pt_BR:
     portraiture: "Retrato"
     seascapes: "Marinhas"
     sport: "Esporte"
+    still_life: "Natureza morta"
     street: "Rua"
     travel: "Viagem"
     underwater: "Fundo do Mar"

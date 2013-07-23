@@ -22,7 +22,17 @@ es:
     twitter: "Twitter"
     share: "Compartir"
     twitter_account: "@photographer_io"
+    github: "GitHub"
   privacy_policy: "https://www.iubenda.com/privacy-policy/288645"
+  locales:
+    en: "Inglés"
+    nl_NL: "Países Bajos"
+    pl: "Polaco"
+  metadata:
+    description: >
+      Photographer.io is es una comunidad nueva para entusiastas de la fotografía.
+      ¡Únase a nuestra comunidad; publique sus fotografías, descubra grandes disparos
+      de otros, y obtenga comentarios sobre sus imágenes!
   nav:
     menu: "Menú"
     blog: "Blog"
@@ -39,6 +49,7 @@ es:
     support: "Soporte"
     beta: "Beta"
     favourites: "Favoritos"
+    profile: "Su perfil público"
     mini_stats:
       views: "Número de veces total que sus fotos han sido vistas"
       followers: "Número de personas total que siguen sus actualizaciones"
@@ -55,6 +66,11 @@ es:
   beta_notes:
     title: "¡Esto es una fase beta!"
   home:
+    title: >
+      Una nueva comunidad para compartir sus fotografías.⏎
+    blurb: >
+      Suba, organice y comparta sus fotografías con otros, como hizo %{name} con su
+      <a href="%{image_path}">imagen %{word}</a>.⏎
     words:
     - fantástica
     - maravillosa
@@ -69,14 +85,48 @@ es:
     sign_up: "Cree su cuenta gratuita"
   about:
     title: "Acerca de Photographer.io"
+    subtitle: "Algunas razones por las que pensamos que debería unirse:"
+    free:
+      title: "Es gratis y justo"
+    open_source:
+      title: "Somos software libre"
+    advertising:
+      title: "Sin anuncios"
+    money:
+      title: "Hacemos dinero de una manera clara"
+    likes:
+      title: "Los \"me gusta\" han muerto, larga vida a la recomendación"
+    comments:
+      title: "Nuestro sistema de comentarios es diferente"
+    privacy:
+      title: "La privacidad y la seguridad son realmente importantes para nosotros"
     compare:
+      title: "¿Cómo nos comparamos con otras comunidades de fotografía?"
       flickr:
+        title: "Flickr"
+        uploads: "1TB"
+        albums: "Ilimitado"
         advertising: "Sí"
+        ssl: "Opcional"
       500px:
+        title: "500px"
+        uploads: "20 fotos a la semana"
+        albums: "Limitado"
         advertising: "No"
         ssl: "No"
       photographerio:
+        title: "Photographer.io"
+        uploads: "100 fotos al mes *"
+        albums: "Ilimitado"
         advertising: "No"
+        ssl: "Siempre"
+      free_accounts: "Cuentas gratuitas"
+      uploads: "Subidas de fotos"
+      albums: "Álbumes/Conjuntos/Colecciones"
+      advertising: "Anuncios"
+      else: "Todo lo demás"
+      ssl: "SSL en todo el sitio"
+    interested: "¿Interesado? ¡Cree su cuenta de manera gratuita!"
     sign_up: "Crear su cuenta"
   account:
     nav:
@@ -93,6 +143,8 @@ es:
       username: "Nombre de usuario"
       public: "¿Cómo quiere ser conocido ante otros usuarios?"
       settings: "Opciones de la cuenta"
+      comments: "Comentarios"
+      default_comment_threads: "Hilos predeterminados de comentarios"
       create: "Regístrese para crear una cuenta en Photographer.io"
     dashboard:
       title: "Su panel de cuenta"
@@ -106,8 +158,13 @@ es:
         favourites: "Total de favoritas de sus fotografías"
       recommendations:
         title: "Sus recomendaciones"
+        quota: "Actualmente puede recomendar %{n} fotos cada día"
+        remaining: "Hoy le quedan %{n} recomendaciones"
+        total: "Ha realizado un total de %{n} recomendaciones"
       usage:
         title: "Uso"
+        quota: "Puede subir un total de %{n} fotos cada mes"
+        remaining: "Este mes le quedan %{n} subidas"
         get_more: "¿Necesita más? <a href='%{path}'>¡Invite a sus amigos!</a>"
       hints:
         title: "Pistas para nuevos usuarios"
@@ -123,6 +180,9 @@ es:
         created_at: "Enlazada el"
         none: "No ha conectado aún ninguna cuenta"
     collections:
+      default:
+        public: "Público"
+        private: "Privado"
       delete: "Borrar esta colección"
       form:
         general: "Detalles de la colección"
@@ -170,34 +230,150 @@ es:
         failed: "Error de subida"
       update:
         succeeded: "¡Se han guardado los cambios correctamente!"
+        failed: "Ha ocurrido un problema mientras se guardaba su fotografía. Por favor compruebe abajo los errores."
       mass_update:
         no_photos_selected: "No hay fotos seleccionadas."
+        collections:
+          succeeded: "Las colecciones de fotografías se han actualizado correctamente."
+          failed: "Ha ocurrido un error mientras se intentaba actualizar las colecciones"
+      destroy:
+        succeeded: "Su fotografía ha sido borrada correctamente."
+        failed: "Ha habido un problema borrando la fotografía."
+      guidelines:
+        link: "reglas generales para imágenes"
+        title: "Reglas generales para fotografías"
+  collections:
+    caption: "%{user} actualizó %{collection}"
+  collection_photographs:
+    user_must_match: "No puede agregar una foto a esa colección"
   comments:
     saving: "Guardando..."
+    unpublished: "Visible sólo para el que envía y el propietario de la foto"
+    child_unpublished: "Visible sólo para el que envía, el propietario de la foto y los propietarios de comentarios padre"
     delete: "Borrar"
     reply: "Responder"
     publish: "Publicar"
     unpublish: "Despublicar"
+    notifications:
+      subject: "%{user} ha dejado un comentario nuevo sobre '%{on}'"
+      body: >-
+        %{user} ha dejado un comentario nuevo sobre su fotografía '%{on}'. No será
+        visible hasta que elija mostrarlo; puede hacerlo visitando la vista pública
+        de la fotografía.\n
+      reply:
+        subject: "%{user} ha dejado una respuesta a su comentario sobre '%{on}'"
+        body: >
+          %{user} ha dejado una respuesta a su comentario sobre '%{on}'.
+      published:
+        subject: "Su comentario sobre '%{on}' ha sido publicado"
+  favourites:
+    notifications:
+      subject: "%{user} ha marcado como favorita '%{photo}'"
+    create:
+      succeeded: "¡Se ha agregado la foto a sus favoritas!"
+      failed: "Error al agregar la foto a sus favoritas."
+    destroy:
+      succeeded: "¡Se ha eliminado de las favoritas!"
+      failed: "Error al borrar la foto de sus favoritas."
   followings:
     follow: "Seguir"
     unfollow: "Dejar de seguir"
+    create:
+      succeeded: "¡Ahora sigues a %{name}!"
+      failed: "Ha habido un problema para seguir a ese usuario. Por favor contacte con soporte."
+    destroy:
+      succeeded: "Ya no sigue a ese usuario."
+      failed: "Ha habido un problema eliminando ese usuario de los que sigue."
   notifications:
     title: "Notificaciones"
+    none: "No tiene notificaciones."
+    mark_as_read: "Marcar todo como leído"
+    email:
+      subject: "Photographer.io: %{subject}"
+      button: "Ver en Photographer.io"
+      body: >
+        Esto es una notificación por correo electrónico para informarle de lo siguiente:⏎
   photographs:
+    title: "%{title} de %{by}"
+    user_quota_exceeded: >
+      Desgraciadamente ha llegado al límite de subidas de este mes :(
+    none: "¡Aquí no hay fotografías!"
+    no_results: "Su consulta no ha devuelto resultados."
+    collections: "Listadas en colecciones"
     share: "Compartir"
+    edit: "Editar esta foto"
+    location: "Ubicación"
+    recommend: "Recomendar esta fotografía"
+    recommended: "¡Recomendada!"
+    favourite: "Favorecer"
+    unfavourite: "Desfavorecer"
     stats: "Estadísticas"
     views: "Vistas"
     favourites: "Favoritos"
+    caption: "%{photo} de %{user}"
     sub_nav:
+      filter: "Filtro:"
+      grouped: "Agrupar por colección"
       all: "Todas"
     metadata:
+      title: "Detalles de la fotografía"
+      details: "Detalles"
+      keywords: "Palabras clave"
+      camera: "Cámara"
+      image: "Imagen"
       settings: "Opciones"
+      model: "Modelo"
+      lens_type: "Lente"
+      aperture: "Apertura"
+      focal_length: "Longitud focal"
+      shutter_speed: "Velocidad de disparo"
+      fov: "FOV"
+      iso: "ISO"
+      copyright_notice: "Copyright"
+      rights: "Derechos"
+      creator: "Creador"
+      creator_city: "Ciudad"
+      creator_country: "País"
+      date_time_original: "Tomada en"
+      lat: "Latitud"
+      lng: "Longitud"
+      license: "Licencia"
+      default_license: "Todos los derechos reservados"
+    creator:
+      profile: "Ver perfil"
+      photos: "Ver más fotos"
+  recommendations:
+    user_quota_exceeded: "¡Ha agotado las recomendaciones de hoy!"
+    quota: "¡Puede recomendar %{amount} fotografías más hoy!"
   users:
+    avatar: "Avatar"
+    visit_site: "Visitar sitio web"
+    username_format: "Sólo se permiten letras, números y guiones bajos."
+    username_quota: "Puede cambiar su nombre de usuario %{n} vez/veces más"
     invitations:
+      invited:
+        title: "Amigos a los que ya ha invitado"
+        email: "Dirección de correo electrónico"
+        status: "Estado"
+        confirmed: "¡Aceptado!"
+        unconfirmed: "Aún no aceptado"
       new:
         title: "Invitar a sus amigos"
+        invite: "Enviar invitación"
+        spiel:
+          title: "¡Traiga a sus amigos y consiga regalos!"
       edit:
         title: "Crear su cuenta"
+        accept: "Aceptar la invitación y crear una cuenta"
+        spiel:
+          title: "¡Acepte su invitación y únase!"
     sessions:
       new:
+        title: "Inicie sesión en su cuenta"
         sign_in: "Iniciar sesión"
+        spiel:
+          title: "¡Bienvenido de nuevo!"
+    new:
+      title: "Cree su cuenta Photographer.io"
+      spiel:
+        title: "¡Únase!"
