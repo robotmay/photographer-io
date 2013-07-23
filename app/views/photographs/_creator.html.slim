@@ -2,7 +2,7 @@
 aside[id="photographs-creator" itemprop="creator copyrightHolder" itemscope itemtype="http://schema.org/Person"]
   div class="row"
     div class="large-7 columns"
-      - cache([user, :creator_details]) do
+      - cache([I18n.locale, user, :creator_details]) do
         h4 itemprop="name"
           = user.name
         - if user.location.present?
@@ -12,7 +12,7 @@ aside[id="photographs-creator" itemprop="creator copyrightHolder" itemscope item
           h6= link_to t("users.visit_site"), user.website_url, target: "_blank"
 
     div class="large-5 columns"
-      - cache([user, :avatar_and_links]) do
+      - cache([I18n.locale, user, :avatar_and_links]) do
         - if user.avatar.present?
           div class="avatar"
             = link_to short_user_path(user.username) do
