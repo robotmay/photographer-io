@@ -3,11 +3,12 @@ class PagesController < ApplicationController
   skip_before_filter :fetch_categories, only: [:up, :stats]
 
   def home
-    @top_photos = Rails.cache.fetch([:home, :top_photos], expires_in: 10.minutes) do
+    top_photos = Rails.cache.fetch([:home, :top_photos], expires_in: 10.minutes) do
       Photograph.landscape.recommended(nil, 10)
     end
 
-    respond_with @top_photos
+    @photograph = top_photos.sample || Photograph.view_for(current_user).first
+    respond_with @photograph
   end
 
   def about
