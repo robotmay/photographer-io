@@ -17,6 +17,7 @@ describe Photograph do
     it { should have_many(:favourited_by_users).through(:favourites) }
     it { should have_many(:comment_threads) }
     it { should have_many(:comments).through(:comment_threads) }
+    it { should have_many(:reports) }
   end
 
   describe "validations" do

@@ -209,7 +209,8 @@ CREATE TABLE collections (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     shared boolean DEFAULT false,
-    encrypted_password character varying(255)
+    encrypted_password character varying(255),
+    ghost boolean DEFAULT false
 );
 
 
@@ -544,7 +545,8 @@ CREATE TABLE photographs (
     processing boolean DEFAULT false,
     image_mime_type character varying(255),
     enable_comments boolean DEFAULT false,
-    auto_mentioned boolean DEFAULT false
+    auto_mentioned boolean DEFAULT false,
+    ghost boolean DEFAULT false
 );
 
 
@@ -600,6 +602,40 @@ ALTER SEQUENCE recommendations_id_seq OWNED BY recommendations.id;
 
 
 --
+-- Name: reports; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE reports (
+    id integer NOT NULL,
+    reportable_id integer,
+    reportable_type character varying(255),
+    user_id integer,
+    reason text,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: reports_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE reports_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: reports_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE reports_id_seq OWNED BY reports.id;
+
+
+--
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -652,7 +688,8 @@ CREATE TABLE users (
     show_social_buttons boolean DEFAULT true,
     username character varying(255),
     locale character varying(255) DEFAULT 'en'::character varying,
-    enable_comments_by_default boolean DEFAULT false
+    enable_comments_by_default boolean DEFAULT false,
+    moderator boolean DEFAULT false
 );
 
 
@@ -784,6 +821,13 @@ ALTER TABLE ONLY recommendations ALTER COLUMN id SET DEFAULT nextval('recommenda
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY reports ALTER COLUMN id SET DEFAULT nextval('reports_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
 
 
@@ -908,6 +952,14 @@ ALTER TABLE ONLY recommendations
 
 
 --
+-- Name: reports_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY reports
+    ADD CONSTRAINT reports_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -976,6 +1028,13 @@ CREATE INDEX index_collection_photographs_on_collection_id ON collection_photogr
 --
 
 CREATE INDEX index_collection_photographs_on_photograph_id ON collection_photographs USING btree (photograph_id);
+
+
+--
+-- Name: index_collections_on_ghost; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_collections_on_ghost ON collections USING btree (ghost);
 
 
 --
@@ -1140,6 +1199,13 @@ CREATE INDEX index_photographs_on_category_id ON photographs USING btree (catego
 
 
 --
+-- Name: index_photographs_on_ghost; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_photographs_on_ghost ON photographs USING btree (ghost);
+
+
+--
 -- Name: index_photographs_on_license_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -1172,6 +1238,20 @@ CREATE INDEX index_recommendations_on_photograph_id ON recommendations USING btr
 --
 
 CREATE INDEX index_recommendations_on_user_id ON recommendations USING btree (user_id);
+
+
+--
+-- Name: index_reports_on_reportable_id_and_reportable_type; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_reports_on_reportable_id_and_reportable_type ON reports USING btree (reportable_id, reportable_type);
+
+
+--
+-- Name: index_reports_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_reports_on_user_id ON reports USING btree (user_id);
 
 
 --
@@ -1350,3 +1430,9 @@ INSERT INTO schema_migrations (version) VALUES ('20130711162130');
 INSERT INTO schema_migrations (version) VALUES ('20130713123834');
 
 INSERT INTO schema_migrations (version) VALUES ('20130715225941');
+
+INSERT INTO schema_migrations (version) VALUES ('20130718114116');
+
+INSERT INTO schema_migrations (version) VALUES ('20130718220746');
+
+INSERT INTO schema_migrations (version) VALUES ('20130719122054');

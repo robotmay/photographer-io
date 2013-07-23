@@ -8,6 +8,7 @@ describe Comment do
   it { should belong_to(:user) }
   it { should belong_to(:comment_thread) }
   it { should have_many(:notifications) }
+  it { should have_many(:reports) }
 
   [:user_id, :comment_thread_id, :body].each do |attr|
     it { should validate_presence_of(attr) }

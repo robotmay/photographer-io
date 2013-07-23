@@ -653,3 +653,12 @@ en:
           we will not steal your photos, and everything posted must be your own.
 
           Questions? [Email us!](mailto:support@photographer.io)
+
+  reports:
+    new:
+      button: "Report"
+    create:
+      succeeded: >
+        Report created. This photo is now hidden from public browsing.
+      failed: >
+        There was a problem creating the report. Check for errors below.

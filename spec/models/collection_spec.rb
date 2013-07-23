@@ -6,6 +6,7 @@ describe Collection do
   it { should belong_to(:user) }
   it { should have_many(:collection_photographs) }
   it { should have_many(:photographs).through(:collection_photographs) }
+  it { should have_many(:reports) }
   
   [:user_id, :name].each do |attr|
     it { should validate_presence_of(attr) }

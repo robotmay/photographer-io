@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
   has_many :notifications, dependent: :destroy
   has_many :authorisations, dependent: :destroy
   has_many :old_usernames, dependent: :destroy
+  has_many :reports
 
   devise :database_authenticatable, :invitable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :async
