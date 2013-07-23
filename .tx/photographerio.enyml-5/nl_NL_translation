@@ -23,9 +23,9 @@ nl_NL:
   privacy_policy: "https://www.iubenda.com/privacy-policy/288645"
   locales:
     en: "Engels"
+    fr: "Frans"
     nl_NL: "Nederlands"
     pl: "Pools"
-    fr: "Frans"
   metadata:
     description: >
       Photographer.io is een nieuwe gemeenschap voor fotografie liefhebbers. Word
@@ -406,7 +406,10 @@ nl_NL:
     interactions_hint: >
       Om de pagina overzichtelijk te houden zijn de Aanbevelen en Favoriet knoppen
       uit de zijbalk verwijdert en worden nu getoond als je de muis over de foto plaatst.
-    share: "Deel"
+    share:
+      title: "Deel"
+      blurb: >
+        Deel deze foto met de volgende URL:
     edit: "Bewerk deze foto"
     location: "Locatie"
     recommend: "Beveel deze foto aan"
