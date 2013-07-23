@@ -1,0 +1,57 @@
+pt_BR:
+  devise:
+    confirmations:
+      confirmed: "A sua conta foi confirmada com sucesso. Agora você está logado."
+      send_instructions: "Você receberá um e-mail com instruções sobre como confirmar a sua conta em poucos instantes."
+      send_paranoid_instructions: "Se o seu endereço de e-mail existir em nosso banco de dados, você receberá um e-mail com instruções sobre como confirmar a sua conta em instantes."
+    failure:
+      already_authenticated: "Você já está logado."
+      inactive: "A sua conta ainda não foi ativada."
+      invalid: "Email ou senha inválida."
+      invalid_token: "Código de autenticação inválido."
+      locked: "A sua conta está bloqueada."
+      not_found_in_database: "Email ou senha inválido"
+      timeout: "Sua sessão expirou, por favor entre novamente para continuar."
+      unauthenticated: "Você precisa logar-se ou inscrever-se antes de continuar."
+      unconfirmed: "Você precisa confirmar a sua conta antes de continuar."
+    mailer:
+      confirmation_instructions:
+        subject: "Instruções de confirmação"
+      reset_password_instructions:
+        subject: "Instruções para redefinir a senha"
+      unlock_instructions:
+        subject: "Instruções para desbloqueio"
+    omniauth_callbacks:
+      failure: "Não foi possível você autenticar-se em %{kind} devido \"%{reason}\"."
+      success: "Autenticado com sucesso em %{kind} conta."
+    passwords:
+      no_token: "Você não pode acessar esta página sem ser através do e-mail que redefine a senha. Se você veio pelo e-mail que redefine a senha, tenha certeza que utilizou a URL fornecida de forma completa."
+      send_instructions: "Você receberá um e-mail com instruções sobre como redefinir a sua senha em alguns instantes."
+      send_paranoid_instructions: "Se o seu endereço de e-mail existir em nosso banco de dados, você receberá um e-mail com instruções sobre como confirmar a sua conta em instantes."
+      updated: "Sua senha foi definida com sucesso. Você agora está conectado."
+      updated_not_active: "Sua senha foi alterada com sucesso."
+    registrations:
+      destroyed: "Até logo! Sua conta foi cancelada com sucesso. Esperemos vê-lo novamente em breve."
+      signed_up: "Bem vindo! Você se inscreveu com sucesso."
+      signed_up_but_inactive: "Você se inscreveu com sucesso. No entanto, não pôde entrar porque a sua conta ainda não está ativada."
+      signed_up_but_locked: "Você se inscreveu com sucesso. No entanto, não pôde entrar porque sua conta está bloqueada."
+      signed_up_but_unconfirmed: "Uma mensagem com um link de confirmação foi enviado para seu endereço de e-mail. Por favor, abra o link para ativar sua conta."
+      update_needs_confirmation: "Você atualizou sua conta com sucesso, mas é preciso verificar o seu endereço de e-mail. Por favor, verifique seu e-mail e clique no link de confirmação para finalizar a confirmação do seu endereço de e-mail."
+      updated: "Você atualizou sua conta com sucesso."
+    sessions:
+      signed_in: "Entrou com sucesso"
+      signed_out: "Assinado com sucesso"
+    unlocks:
+      send_instructions: "Você receberá um e-mail com instruções sobre como desbloquear a sua conta em poucos instantes."
+      send_paranoid_instructions: "Se sua conta existe, você receberá um e-mail com instruções sobre como desbloqueá-lo em poucos minutos."
+      unlocked: "Sua conta foi desbloqueada com sucesso. Por favor, logue-se novamente."
+  errors:
+    messages:
+      already_confirmed: "já foi confirmado, por favor, tente fazer login"
+      confirmation_period_expired: "deve ser confirmado dentro %{period}, por favor solicite uma nova."
+      expired: "já expirou, por favor solicite uma nova"
+      not_found: "não encontrado."
+      not_locked: "não está bloqueado"
+      not_saved:
+        one: "1 erro proibido está %{resource} para serem salvos:"
+        other: "%{count} erros proibidos %{resource} para serem salvos:"
