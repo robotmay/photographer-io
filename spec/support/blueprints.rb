@@ -54,6 +54,11 @@ Recommendation.blueprint do
   user
 end
 
+Report.blueprint do
+  user
+  reason { Faker::Lorem.paragraph }
+end
+
 User.blueprint do
   name { Faker::Name.name }
   username { "threepwood_#{sn}" }

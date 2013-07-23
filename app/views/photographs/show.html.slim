@@ -47,7 +47,8 @@ section id="photographs-show"
             - else
               = photo_tag @photograph, "1500x1500>"
 
-          = interactions_for @photograph
+          - unless sharing_mode
+            = interactions_for @photograph
 
           - cache([@photograph, @photograph.metadata, :description]) do
             - if @photograph.metadata.has_text?
@@ -61,12 +62,16 @@ section id="photographs-show"
 
               div class="clear"
 
-        - if @photograph.comments_enabled?
+        - if @photograph.comments_enabled? && !sharing_mode
           = render @photograph.comment_threads
 
     aside id="photographs-sidebar" class="large-3 small-12 columns"
-      - if user_signed_in? && current_user == @photograph.user && !sharing_mode
-        = link_to t("photographs.edit"), edit_account_photograph_path(@photograph), class: "button secondary expand"
+      - unless sharing_mode
+        - if user_signed_in? && current_user == @photograph.user
+          = link_to t("photographs.edit"), edit_account_photograph_path(@photograph), class: "button secondary expand"
+
+        - if user_signed_in? && current_user.moderator?
+          = link_to t("reports.new.button"), new_photograph_report_path(@photograph), class: "button alert expand"
 
       = creator_details_for @photograph
 
@@ -76,8 +81,8 @@ section id="photographs-show"
         div class="share-url"
           label for="share-url"
             = t("photographs.share.blurb")
+          input id="share-url" type="text" value=(short_photo_url(@photograph, protocol: "https"))
 
-          input id="share-url" type="text" value=(short_photo_url(@photograph))
           - unless user_signed_in? && !current_user.show_social_buttons
             = render partial: "shared/social_buttons"
 

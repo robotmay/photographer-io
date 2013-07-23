@@ -4,6 +4,7 @@ class Collection < ActiveRecord::Base
   belongs_to :user
   has_many :collection_photographs
   has_many :photographs, through: :collection_photographs
+  has_many :reports, as: :reportable
 
   paginates_per 50
 
@@ -40,8 +41,8 @@ class Collection < ActiveRecord::Base
 
   def cover_photo(category = nil)
     #TODO Allow user to specify the cover image for the collection
-    Rails.cache.fetch([self, :cover_photo, category]) do
-      photos = photographs.safe_for_work.not_processing.order("created_at DESC")
+    Rails.cache.fetch([self, :cover_photo, category], expires_in: 1.hour) do
+      photos = photographs.safe_for_work.not_processing.not_ghost.order("created_at DESC")
       if category.present?
         photos = photos.where(category_id: category.id)
       end
@@ -60,5 +61,14 @@ class Collection < ActiveRecord::Base
         nil
       end
     end
+  end
+
+  def reset_cover_photo(category = nil)
+    Rails.cache.delete([self, :cover_photo, category])
+  end
+
+  def ghost!
+    self.ghost = true
+    save
   end
 end
