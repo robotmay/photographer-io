@@ -13,8 +13,23 @@ ru_RU:
       comment_thread:
         destroy: "Удалить этот диалог"
       user:
-        show_nsfw_content: "Показывать фотографии 18+"
+        name: "Название"
+        location: "Место"
+        username: "Имя пользователя"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+        avatar: "Аватар"
+        biography: "Биография"
         website_url: "Адрес вашего сайта"
+        show_location_data: "Показывать данные о месте расположения"
+        show_copyright_info: "Показывать информацию о правообладании"
+        show_nsfw_content: "Показывать фотографии 18+"
+        default_license: "Лицензия по умолчанию"
+        receive_notification_emails: "Получать уведомления по почте"
+        notify_favourites: "Уведомлять о добавлении в избранное"
+        show_social_buttons: "Показывать кнопки соц.сетей"
+        locale: "Язык"
+        enable_comments_by_default: "Включить коментарии по умолчанию"
     placeholders:
       comment_thread:
         subject: "например, \"что это за птица?\" или \"как вам нравятся цвета на этой фотографии?\""
@@ -89,6 +104,18 @@ ru_RU:
           Хотите ли вы иметь возможность делиться фотографиями в Twitter, Facebook,
           Google и т.п.?
 
+        locale: >
+          Выберите язык, на котором вы хотите видеть сайт. Если здесь нет подходящего
+          вам языка, почему бы не помочь перевести Photographer.io? Более подробно
+          об этом <a href="https://github.com/afternoonrobot/photographer-io#translations">на
+          нашем GitHub</a>.
+        enable_comments_by_default: >
+          По умолчанию включить возможность обсуждения всех фоторафий на темы, описанные
+          здесь.
+        default_comment_threads: >
+          Установить темы для обсуждения ваших фотографий, которые кажутся вам подходящими
+          по умолчанию. Вы можете установить темы по умолчанию без включения безусловного
+          коментированния.
   helpers:
     submit:
       comment:

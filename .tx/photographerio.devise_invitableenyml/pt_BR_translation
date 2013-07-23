@@ -1,0 +1,17 @@
+pt_BR:
+  devise:
+    invitations:
+      send_instructions: 'Um convite foi enviado por email para %{email}.'
+      invitation_token_invalid: 'O token do convite fornecido não é válido!'
+      updated: 'Sua senha foi definida com sucesso. Você agora está conectado.'
+      no_invitations_remaining: "Não há convites restantes."
+      invitation_removed: 'Seu convite foi removido.'
+      new:
+        header: "Convite enviado"
+        submit_button: "Enviando um convite"
+      edit:
+        header: "Defina sua senha"
+        submit_button: "Definir minha senha"
+    mailer:
+      invitation_instructions:
+        subject: 'Um amigo enviou um convite para você entrar no Photographer.io'

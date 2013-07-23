@@ -1,0 +1,17 @@
+es:
+  devise:
+    invitations:
+      send_instructions: 'Se ha enviado un correo electrónico de invitación a %{email}.'
+      invitation_token_invalid: '¡El identificador de invitación proporcionado no es válido!'
+      updated: 'Ha establecido su contraseña con éxito. Ahora ha iniciado sesión.'
+      no_invitations_remaining: "No quedan invitaciones"
+      invitation_removed: 'Su invitación ha sido borrada.'
+      new:
+        header: "Enviar invitación"
+        submit_button: "Enviar una invitación"
+      edit:
+        header: "Establecer contraseña"
+        submit_button: "Establecer mi contraseña"
+    mailer:
+      invitation_instructions:
+        subject: 'Un amigo le ha invitado a unirse a Photographer.io'
