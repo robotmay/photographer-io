@@ -11,6 +11,25 @@ describe Metadata do
   describe "methods" do
     let(:metadata) { Metadata.new }
 
+    describe "#title" do
+      context "not blank" do
+        before { metadata.stub(:read_attribute) { "Wibble" } }
+
+        it "returns the title" do
+          metadata.title.should eq("Wibble")
+        end
+      end
+
+      context "blank" do
+        before { I18n.stub(:t) { "Untitled" } }
+        before { metadata.stub(:read_attribute) { "" } }
+
+        it "returns untitled if blank" do
+          metadata.title.should eq("Untitled")
+        end
+      end
+    end
+
     describe "#keywords" do
       it "is an array" do
         metadata.keywords = ['nature', 'squirrel']

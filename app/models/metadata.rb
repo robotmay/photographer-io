@@ -137,6 +137,11 @@ class Metadata < ActiveRecord::Base
     end
   end
 
+  def title
+    title = super
+    title.blank? ? I18n.t("untitled") : title
+  end
+
   def keywords=(value)
     if value.is_a?(String)
       value = value.split(",").map(&:strip)
