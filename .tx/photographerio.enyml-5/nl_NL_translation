@@ -26,6 +26,7 @@ nl_NL:
     fr: "Frans"
     nl_NL: "Nederlands"
     pl: "Pools"
+    ru_RU: "Russisch"
   metadata:
     description: >
       Photographer.io is een nieuwe gemeenschap voor fotografie liefhebbers. Word
@@ -514,3 +515,12 @@ nl_NL:
           \ reacties en kritiek op foto's\n\nWil je ongelimiteerde uploads, meer opties, en wil je de site ondersteunen? \nBetaalde accounts komen er spoedig aan!\n\n##### Stuur je vrienden door voor extra uploads\nVoor elke vriend die lid word, krijgen zowel \njij als je vriend %{referral_bonus}\
           \ extra uploads per maand. \nInstructies kun je vinden in je account pagina\nnadat je een account hebt aangemaakt.\n\n##### Deze site is momenteel in de Beta fase\nOnze algemene- en gebruikers voorwaarden zullen spoedig online staan. Tot die tijd kun je er van uit gaan dat we jouw\
           \ foto's niet zullen stelen, en alles wat je upload naar deze site moet van jouw zijn.\n\nVragen? [Email ons!](mailto:support@photographer.io)\n"
+  reports:
+    new:
+      button: "Raporteer"
+    create:
+      succeeded: >
+        Rapport aangemaakt. Deze foto is nu voor het publiek verborgen.
+      failed: >
+        Er heeft zich een probleem voorgedaan bij het aanmaken van het rapport. Kijk
+        hieronder voor eventuele foutmeldingen.
