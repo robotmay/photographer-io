@@ -26,6 +26,7 @@ pl:
   privacy_policy: "https://www.iubenda.com/privacy-policy/288645"
   locales:
     en: "angielski"
+    fr: "francuski"
     nl_NL: "holenderski"
     pl: "polski"
   metadata:
@@ -429,7 +430,10 @@ pl:
       Aby zmniejszyć bałagan na stronie, przyciski rekomendowania i dodawania do ulubionych
       zostały usunięte z paska bocznego i pojawiają się dopiero po najechaniu wskaźnikiem
       nad zdjęcie.
-    share: "Podziel się"
+    share:
+      title: "Podziel się"
+      blurb: >
+        Podziel się tym zdjęciem podając następujący adres:
     edit: "Edytuj to zdjęcie"
     location: "Miejsce"
     recommend: "Poleć to zdjęcie"

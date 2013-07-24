@@ -2,6 +2,7 @@ ru_RU:
   devise:
     invitations:
       send_instructions: 'Приглашение выслано на адрес %{email}.'
+      invitation_token_invalid: 'Предоставленый ключ приглашения не действителен!'
       updated: 'Вы установили пароль и вошли на сайт.'
       no_invitations_remaining: "Вы исчерпали лимит приглашений."
       invitation_removed: 'Приглашение было удалено.'
