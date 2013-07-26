@@ -130,5 +130,23 @@ describe User do
         user.moderator?.should be_false
       end
     end
+
+    describe ".find_by_id_or_username" do
+      context "only numeric character" do
+        let!(:user) { User.make! }
+
+        it "finds user by id" do
+          User.find_by_id_or_username(user.id).should eq user
+        end
+      end
+
+      context "username which start with numeric character" do
+        let!(:user) { User.make!(username: "0ab") }
+
+        it "finds user by username" do
+          User.find_by_id_or_username("0ab").should eq user
+        end
+      end
+    end
   end
 end
