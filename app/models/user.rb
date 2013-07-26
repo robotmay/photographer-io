@@ -177,8 +177,7 @@ class User < ActiveRecord::Base
 
   class << self
     def find_by_id_or_username(param)
-      case
-      when param.to_i > 0
+      if /\A[0-9]+\z/ =~ param.to_s
         User.find(param)
       else
         User.find_by(username: param)
