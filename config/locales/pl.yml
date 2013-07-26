@@ -29,6 +29,7 @@ pl:
     fr: "francuski"
     nl_NL: "holenderski"
     pl: "polski"
+    ru_RU: "rosyjski"
   metadata:
     description: >
       Photographer.io to nowa społeczność miłośników fotografii. Dołącz do nas; publikuj
@@ -531,3 +532,11 @@ pl:
           \ zdjęcia za pomocą systemu rekomendacji\n* Komentować i krytykować zdjęcia\n\nChcesz nieograniczonego wysyłania, więcej funkcji i wesprzeć serwis?\nWkrótce pojawią się konta płatne!\n\n##### Powołaj się na znajomych, aby zwiększyć limit\
           \ wysyłania\nZa każdego znajomego, który założy konto, zarówno ty jak i znajomy \ndostaniecie powiększenie limitu wysyłania o %{referral_bonus} zdjęć\nna miesiąc. Instrukcje znajdziesz się na stronie twojego konta po jego\nzałożeniu.\n\
           \n##### Ten serwis jest obecnie w fazie beta\nWkrótce opublikujemy nasze Warunki korzystania z serwisu. Do tego\nczasu wiedz, że nie ukradniemy twoich zdjęć i wszystko, co wysyłasz,\nmusi być twoje.\n\nMasz pytania? [Napisz od nas!](mailto:support@photographer.io)\n"
+  reports:
+    new:
+      button: "Zgłoś problem"
+    create:
+      succeeded: >
+        Utworzono zgłoszenie. To zdjęcie jest teraz ukryte przed publicznym przeglądaniem.
+      failed: >
+        Wystąpił problem ze zgłoszeniem. Opis błędów znajduje się poniżej.
