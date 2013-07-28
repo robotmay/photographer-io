@@ -31,6 +31,11 @@ describe CollectionsController do
         get :show, id: 1
         assigns(:photographs).should eq(photographs)
       end
+
+      it "increments the views counter" do
+        collection.views.should_receive(:increment)
+        get :show, id: 1
+      end
     end
 
     context "private collection" do
