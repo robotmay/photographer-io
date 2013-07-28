@@ -1,0 +1,15 @@
+section id="collections-show"
+  div class="row"
+    div class="large-12 columns"
+      header id="collection-header"
+        section id="collection-panel"
+          h1 class="name"
+            = @collection.name
+
+        section id="collection-description"
+          = md @collection.description
+        
+        .clear
+
+  = render file: "photographs/index"
+
