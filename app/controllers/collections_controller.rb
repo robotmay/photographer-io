@@ -1,5 +1,6 @@
 class CollectionsController < ApplicationController
   respond_to :html
+  before_filter :hide_filters!, only: [:show]
 
   before_filter :set_parents
   def set_parents
@@ -47,9 +48,8 @@ class CollectionsController < ApplicationController
   def show
     @collection = Collection.find(params[:id])
     authorize! :read, @collection
-    respond_with @collection do |f|
-      f.html { redirect_to collection_photographs_path(@collection) }
-    end
+    @photographs = @collection.photographs.page(params[:page])
+    respond_with @collection
   end
 
   def authenticate
