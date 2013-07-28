@@ -48,11 +48,19 @@ class CollectionsController < ApplicationController
   def show
     @collection = Collection.find(params[:id])
     authorize! :read, @collection
+    track_view_for_collection(@collection)
     @photographs = @collection.photographs.page(params[:page])
     respond_with @collection
   end
 
   def authenticate
     #TODO
+  end
+
+  private
+  def track_view_for_collection(collection)
+    unless user_signed_in? && current_user == collection.user
+      collection.views.increment
+    end
   end
 end
