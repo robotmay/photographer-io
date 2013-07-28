@@ -29,4 +29,18 @@ describe Collection do
       end
     end
   end
+
+  describe "atomic counters" do
+    describe "#views" do
+      before(:each) { collection.stub(:id) { 1 } }
+
+      it "is a redis counter" do
+        collection.views.class.should eq(Redis::Counter)
+      end
+
+      it "is incrementable" do
+        collection.views.increment.should be_true
+      end
+    end
+  end
 end

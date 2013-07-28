@@ -11,6 +11,8 @@ class Collection < ActiveRecord::Base
   attr_accessor :password
   value :cover_photo_id
 
+  counter :views
+
   validates :user_id, :name, presence: true
 
   scope :visible, -> { where(visible: true) }
