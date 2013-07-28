@@ -210,7 +210,8 @@ CREATE TABLE collections (
     updated_at timestamp without time zone,
     shared boolean DEFAULT false,
     encrypted_password character varying(255),
-    ghost boolean DEFAULT false
+    ghost boolean DEFAULT false,
+    description text
 );
 
 
@@ -1436,3 +1437,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130718114116');
 INSERT INTO schema_migrations (version) VALUES ('20130718220746');
 
 INSERT INTO schema_migrations (version) VALUES ('20130719122054');
+
+INSERT INTO schema_migrations (version) VALUES ('20130728122457');

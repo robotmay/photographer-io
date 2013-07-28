@@ -9,7 +9,9 @@ module ApplicationHelper
   end
 
   def md(text)
-    $markdown.render(text).html_safe 
+    unless text.nil?
+      $markdown.render(text).html_safe 
+    end
   end
 
   def once(key, &block)
