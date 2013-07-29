@@ -29,6 +29,7 @@ ru_RU:
     fr: "Français"
     nl_NL: "Nederlands"
     pl: "Polski"
+    ru_RU: "Русский"
   metadata:
     description: >
       Photographer.io это новое сообщество для любителей фотографии. Присоединяйтесь
@@ -583,4 +584,11 @@ ru_RU:
 
           Есть вопросы? [Напишите нам!](mailto:support@photographer.io)
 
-...
+  reports:
+    new:
+      button: "Пожаловаться"
+    create:
+      succeeded: >
+        Жалоба создана. Эта фотография теперь скрыта от публичного просмотра.
+      failed: >
+        Возникла проблема при создании жалобы. Ознакомьтесь с ошибками
