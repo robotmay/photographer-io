@@ -3,6 +3,10 @@
   - content_for(:before_body) do
     canvas id="blur" data-src=image_url(@user.profile_background_photo.thumbnail_image)
 
+- content_for(:title) do
+  header
+    -# Insert a blank header to prevent auto titling
+
 section id="users-show"
   div class="row"
     div class="large-12 columns"
