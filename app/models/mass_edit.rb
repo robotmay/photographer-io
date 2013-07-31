@@ -35,10 +35,10 @@ class MassEdit
 
   def action
     case
+    when @action.present?
+      @action
     when collection_ids.size > 0
       'collections'
-    else
-      @action
     end
   end
 

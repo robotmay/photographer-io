@@ -76,6 +76,7 @@ describe Account::PhotographsController do
         let(:mass_edit_attributes) do
           {
             action: 'delete',
+            collection_ids: [1,2],
             photograph_ids: [not_our_photograph.id]
           }
         end
