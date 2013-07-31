@@ -43,6 +43,10 @@ section id="account-photographs-index"
             button id="change-collections" class="button dropdown disabled" data-dropdown="MECollections"
               = t("account.photographs.edit_mode.change_collections")
 
+          dd
+            button id="delete-photographs" class="button disabled" data-confirm=t("confirm_delete")
+              = t("account.photographs.edit_mode.delete")
+
         ul[id="MECollections" class="f-dropdown" data-dropdown-content]
           li class="hint"
             = t("account.photographs.edit_mode.collection_note")

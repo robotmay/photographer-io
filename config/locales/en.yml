@@ -360,7 +360,7 @@ en:
         any photographs you upload here will be added to the unsorted view.
       
       edit_mode:
-        button: "Edit mode"
+        button: "Multi-select"
         change_collections: "Add to collections"
         collection_note: >
           This will not remove photos from their collections unless you are managing
@@ -390,9 +390,11 @@ en:
 
       mass_update:
         no_photos_selected: "There were no photos selected."
+        failed: "An error occurred whilst attempting to update the photographs"
         collections:
           succeeded: "Photograph collections have been updated successfully."
-          failed: "An error occurred whilst attempting to update the collections"
+        delete:
+          succeeded: "Photographs have been deleted successfully."
 
       destroy:
         succeeded: "Your photograph has been deleted successfully."
