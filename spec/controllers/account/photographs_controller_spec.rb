@@ -70,6 +70,21 @@ describe Account::PhotographsController do
         photograph.should_receive(:destroy)
         post :mass_update, params
       end
+
+      context "not our photo" do
+        let(:not_our_photograph) { Photograph.make!(user: User.make!) }
+        let(:mass_edit_attributes) do
+          {
+            action: 'delete',
+            photograph_ids: [not_our_photograph.id]
+          }
+        end
+
+        it "isn't destroyed" do
+          not_our_photograph.should_not_receive(:destroy)
+          post :mass_update, params
+        end
+      end
     end
   end
 end
