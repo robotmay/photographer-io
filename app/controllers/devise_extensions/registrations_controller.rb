@@ -36,17 +36,21 @@ class DeviseExtensions::RegistrationsController < Devise::RegistrationsControlle
 
   private
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, 
-                                 :name, :location, :avatar, :retained_avatar, 
-                                 :remove_avatar, :show_copyright_info, 
-                                 :show_location_data, :show_nsfw_content, 
-                                 :default_license_id, :website_url, :biography,
-                                 :receive_notification_emails, :notify_favourites,
-                                 :show_social_buttons, :username, :locale,
-                                 :enable_comments_by_default,
-                                 :default_comment_threads_attributes => [
-                                   :id, :subject, :_destroy
-                                 ])
+    params.require(:user).permit(
+      :email, :password, :password_confirmation, 
+      :name, :location, :avatar, :retained_avatar, 
+      :remove_avatar, :show_copyright_info, 
+      :show_location_data, :show_nsfw_content, 
+      :default_license_id, :website_url, :biography,
+      :receive_notification_emails, :notify_favourites,
+      :show_social_buttons, :username, :locale,
+      :enable_comments_by_default,
+      :show_profile_background, 
+      :profile_background_photo_id,
+      :default_comment_threads_attributes => [
+       :id, :subject, :_destroy
+      ]
+    )
   end
 
   def configure_permitted_parameters

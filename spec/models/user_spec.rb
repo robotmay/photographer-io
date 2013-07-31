@@ -32,6 +32,40 @@ describe User do
     end
   end
 
+  describe "#profile_background_photo" do
+    let(:user) { User.make }
+
+    context "show profile background" do
+      let(:photograph) { Photograph.make }
+      before { user.stub(:show_profile_background) { true } }
+
+      context "photo is set" do 
+        before { user.stub(:profile_background_photo_id) { 1 } }
+        before { user.stub_chain(:photographs, :find) { photograph } }
+
+        it "returns the chosen photo" do
+          user.profile_background_photo.should eq(photograph)
+        end
+      end
+
+      context "photo is not set" do
+        before { user.stub_chain(:photographs, :visible, :order, :first) { photograph } }
+
+        it "displays a random photo" do
+          user.profile_background_photo.should eq(photograph)
+        end
+      end
+    end
+
+    context "don't show profile background" do
+      before { user.stub(:show_profile_background) { false } }
+
+      it "returns nil" do
+        user.profile_background_photo.should be_nil
+      end
+    end
+  end
+
   describe "destroy" do
     let(:mock_args) do
       { :[]= => true, :save => true, :destroyed_by_association= => true }
