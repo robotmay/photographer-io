@@ -50,6 +50,7 @@ en:
         locale: "Locale"
         enable_comments_by_default: "Enable comments by default"
         show_profile_background: "Show profile background"
+        profile_background_photo_id: "Profile background photo"
 
     placeholders:
       comment_thread:
@@ -163,6 +164,10 @@ en:
         show_profile_background: >
           If you don't want to display a large photograph as the background to your
           public profile page, you can disable it here.
+
+        profile_background_photo_id: >
+          You can pick a specific photo for your profile background. By default it
+          will be a random public photo from your uploads.
 
   helpers:
     submit:
