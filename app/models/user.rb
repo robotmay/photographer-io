@@ -42,6 +42,7 @@ class User < ActiveRecord::Base
   validates :email, :name, presence: true
   validates :username, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A[a-zA-Z0-9_]*[a-zA-Z][a-zA-Z0-9_]*\z/, message: I18n.t("users.username_format") }, length: { maximum: 50 }
   validates :website_url, format: URI::regexp(%w(http https)), allow_blank: true
+  validates :profile_background_photo_id, inclusion: { in: -> (user) { user.photographs.pluck(:id) } }, allow_blank: true
   validate :username_has_not_been_used
   validate :username_quota_not_exceeded
 
@@ -165,8 +166,14 @@ class User < ActiveRecord::Base
   end
 
   def profile_background_photo
-    #TODO Allow user to choose this
-    photographs.visible.order("RANDOM()").first
+    if show_profile_background
+      id = profile_background_photo_id
+      if id.present?
+        photographs.find(id)
+      else
+        photographs.visible.order("RANDOM()").first
+      end
+    end
   end
 
   def build_default_comment_threads
