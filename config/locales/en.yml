@@ -390,9 +390,11 @@ en:
 
       mass_update:
         no_photos_selected: "There were no photos selected."
+        failed: "An error occurred whilst attempting to update the photographs"
         collections:
           succeeded: "Photograph collections have been updated successfully."
-          failed: "An error occurred whilst attempting to update the collections"
+        delete:
+          succeeded: "Photographs have been deleted successfully."
 
       destroy:
         succeeded: "Your photograph has been deleted successfully."

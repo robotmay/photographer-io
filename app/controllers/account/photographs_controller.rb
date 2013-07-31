@@ -207,7 +207,7 @@ module Account
         end
 
       rescue ActiveRecord::StatementInvalid
-        flash[:notice] = t("account.photographs.mass_update.collections.failed")
+        flash[:notice] = t("account.photographs.mass_update.failed")
         raise ActiveRecord::Rollback
       end
     end
@@ -228,7 +228,7 @@ module Account
     end
 
     def perform_deletion
-      @mass_edit.photographs.find_each(&:destroy)
+      @mass_edit.photographs.each(&:destroy)
       flash[:notice] = t("account.photographs.mass_update.delete.succeeded")
     end
   end
