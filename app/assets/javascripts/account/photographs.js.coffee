@@ -30,16 +30,19 @@ $(document).ready ->
       massEditForm.toggleClass("edit-mode")
       massEditForm.data('edit_mode', !(massEditForm.data('edit_mode')))
 
+    massEditForm.on "click", "#delete-photographs", (e) ->
+      massEditForm.prepend("<input type='hidden' name='mass_edit[action]' value='delete'>")
+
     massEditForm.on "click", ".button.disabled", (e) ->
       e.preventDefault()
       e.stopPropagation()
 
-    massEditForm.on "click", "li.photo a", (e) ->
+    massEditForm.on "click", "li.photo", (e) ->
       if massEditForm.data('edit_mode')
         e.preventDefault()
         e.stopPropagation()
         
-        li = $(this).parent()
+        li = $(this)
         checkbox = li.find("input[type = 'checkbox']")
         if checkbox.prop("checked")
           checkbox.prop("checked", false)

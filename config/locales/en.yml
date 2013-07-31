@@ -360,7 +360,7 @@ en:
         any photographs you upload here will be added to the unsorted view.
       
       edit_mode:
-        button: "Edit mode"
+        button: "Multi-select"
         change_collections: "Add to collections"
         collection_note: >
           This will not remove photos from their collections unless you are managing

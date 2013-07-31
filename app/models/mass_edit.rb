@@ -38,7 +38,7 @@ class MassEdit
     when collection_ids.size > 0
       'collections'
     else
-      super
+      @action
     end
   end
 
