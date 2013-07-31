@@ -44,6 +44,7 @@ class DeviseExtensions::RegistrationsController < Devise::RegistrationsControlle
                                  :receive_notification_emails, :notify_favourites,
                                  :show_social_buttons, :username, :locale,
                                  :enable_comments_by_default,
+                                 :show_profile_background,
                                  :default_comment_threads_attributes => [
                                    :id, :subject, :_destroy
                                  ])

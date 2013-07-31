@@ -165,8 +165,14 @@ class User < ActiveRecord::Base
   end
 
   def profile_background_photo
-    #TODO Allow user to choose this
-    photographs.visible.order("RANDOM()").first
+    if show_profile_background
+      id = profile_background_photo_id
+      if id.present?
+        photographs.find(id)
+      else
+        photographs.visible.order("RANDOM()").first
+      end
+    end
   end
 
   def build_default_comment_threads

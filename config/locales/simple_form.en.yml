@@ -49,6 +49,7 @@ en:
         show_social_buttons: "Show social buttons"
         locale: "Locale"
         enable_comments_by_default: "Enable comments by default"
+        show_profile_background: "Show profile background"
 
     placeholders:
       comment_thread:
@@ -158,6 +159,10 @@ en:
         default_comment_threads: >
           Set the default comment threads to be used for your photographs here.
           You can set defaults without enabling commenting by default.
+
+        show_profile_background: >
+          If you don't want to display a large photograph as the background to your
+          public profile page, you can disable it here.
 
   helpers:
     submit:

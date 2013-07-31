@@ -690,7 +690,9 @@ CREATE TABLE users (
     username character varying(255),
     locale character varying(255) DEFAULT 'en'::character varying,
     enable_comments_by_default boolean DEFAULT false,
-    moderator boolean DEFAULT false
+    moderator boolean DEFAULT false,
+    show_profile_background boolean DEFAULT true,
+    profile_background_photo_id integer
 );
 
 
@@ -1439,3 +1441,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130718220746');
 INSERT INTO schema_migrations (version) VALUES ('20130719122054');
 
 INSERT INTO schema_migrations (version) VALUES ('20130728122457');
+
+INSERT INTO schema_migrations (version) VALUES ('20130731183731');
