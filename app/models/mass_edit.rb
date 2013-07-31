@@ -2,7 +2,7 @@ class MassEdit
   extend ActiveModel::Naming
   include ActiveModel::Conversion
 
-  attr_accessor :photograph_ids, :collection_ids, :action
+  attr_accessor :photograph_ids, :collection_ids, :action, :user
 
   def initialize(attributes = {})
     attributes ||= {}
@@ -21,8 +21,25 @@ class MassEdit
     @collection_ids.map(&:to_i)
   end
 
+  def photographs
+    user.photographs.where(id: photograph_ids)
+  end
+
+  def collections
+    user.collections.where(id: collection_ids)
+  end
+
   def persisted?
     false
+  end
+
+  def action
+    case
+    when collection_ids.size > 0
+      'collections'
+    else
+      super
+    end
   end
 
   def self.actions
