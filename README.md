@@ -62,6 +62,8 @@ There's a template you can copy across for the default settings:
 `cp config/database.example.yml config/database.yml`
 
 You'll likely need to edit those settings for your local machine.
+> In particular, you may want to check your username in psql with command: `$ psql` which should bring up your psql command line `username=#`. You can update your `config/database.yml` accordingly. Also,you may [create new PG database](http://www.postgresql.org/docs/9.0/static/sql-createdatabase.html).
+
 Now you need to create and set up the database:
 
 `rake db:setup`
