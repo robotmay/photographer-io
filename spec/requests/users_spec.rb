@@ -44,6 +44,15 @@ describe "Users" do
       page.should have_content "Welcome! You have signed up successfully."
     end
   end
+
+  describe "profile", type: :feature do
+    let!(:profile) { User.make! }
+
+    it "displays their name" do
+      visit short_user_path(profile)
+      page.should have_content(profile.name)
+    end
+  end
 end
 
 def sign_in(user)

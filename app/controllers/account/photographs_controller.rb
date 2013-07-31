@@ -125,36 +125,15 @@ module Account
 
     def mass_update
       @mass_edit = MassEdit.new(params[:mass_edit])
-      @photographs = current_user.photographs.where(id: @mass_edit.photograph_ids)
+      @mass_edit.user = current_user
 
       if @mass_edit.photograph_ids.size > 0
-        begin
-          Photograph.transaction do
-            @photographs.find_each do |photograph|
-              if @collection.present?
-                # Prevent removal from other collections
-                if !@mass_edit.collection_ids.include?(@collection.id)
-                  photograph.collection_photographs.where(collection_id: @collection.id).find_each(&:destroy)
-                end
-              end
-
-              @mass_edit.collection_ids.each do |id|
-                photograph.collection_photographs.find_or_create_by(collection_id: id)
-              end
-            end
-          end
-
-          flash[:notice] = t("account.photographs.mass_update.collections.succeeded")
-
-        rescue ActiveRecord::StatementInvald
-          flash[:notice] = t("account.photographs.mass_update.collections.failed")
-          raise ActiveRecord::Rollback
-        end
+        perform_mass_update
       else
         flash[:alert] = t("account.photographs.mass_update.no_photos_selected")
       end
 
-      respond_with @photographs do |f|
+      respond_with @mass_edit.photographs do |f|
         f.html { redirect_to :back }
       end
     end
@@ -212,6 +191,45 @@ module Account
         collection_ids: [], metadata_attributes: Metadata::EDITABLE_KEYS,
         comment_threads_attributes: [:id, :subject, :_destroy]
       )
+    end
+
+    def perform_mass_update
+      begin
+        Photograph.transaction do
+          @mass_edit.photographs.each do |photograph|
+            case
+            when @mass_edit.action == 'collections'
+              perform_collection_update(photograph)
+            when @mass_edit.action == 'delete'
+              perform_deletion
+            end
+          end
+        end
+
+      rescue ActiveRecord::StatementInvalid
+        flash[:notice] = t("account.photographs.mass_update.failed")
+        raise ActiveRecord::Rollback
+      end
+    end
+
+    def perform_collection_update(photograph)
+      if @collection.present?
+        # Prevent removal from other collections
+        if !@mass_edit.collection_ids.include?(@collection.id)
+          photograph.collection_photographs.where(collection_id: @collection.id).find_each(&:destroy)
+        end
+      end
+
+      @mass_edit.collection_ids.each do |id|
+        photograph.collection_photographs.find_or_create_by(collection_id: id)
+      end
+
+      flash[:notice] = t("account.photographs.mass_update.collections.succeeded")
+    end
+
+    def perform_deletion
+      @mass_edit.photographs.each(&:destroy)
+      flash[:notice] = t("account.photographs.mass_update.delete.succeeded")
     end
   end
 end
