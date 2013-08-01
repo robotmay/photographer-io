@@ -62,6 +62,8 @@ There's a template you can copy across for the default settings:
 `cp config/database.example.yml config/database.yml`
 
 You'll likely need to edit those settings for your local machine.
+> In particular, you may want to check your username in psql with command: `$ psql` which should bring up your psql command line `username=#`. You can update your `config/database.yml` accordingly. Also,you may [create new PG database](http://www.postgresql.org/docs/9.0/static/sql-createdatabase.html).
+
 Now you need to create and set up the database:
 
 `rake db:setup`
@@ -110,7 +112,8 @@ I'd like to make it easier for people to maintain their own forks of the app whi
 ## Contributing
 
 1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+2. Add upstream - in this case to author (`git remote add upstream git@github.com:afternoonrobot/photographer-io.git`)
+3. Create your feature branch (`git checkout -b my-new-feature`)
+4. Commit your changes (`git commit -am 'Add some feature'`)
+5. Push to the branch (`git push origin my-new-feature`)
+6. Create new Pull Request
