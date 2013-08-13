@@ -200,8 +200,6 @@ GEM
       multi_xml (>= 0.5.2)
     httpauth (0.2.0)
     i18n (0.6.4)
-    intercom-rails (0.2.18)
-      activesupport (> 3.0)
     jbuilder (1.0.2)
       activesupport (>= 3.0.0)
     jquery-fileupload-rails (0.4.1)
@@ -480,7 +478,6 @@ DEPENDENCIES
   guard-sidekiq
   guard-spork
   httparty
-  intercom-rails (~> 0.2.14)
   jbuilder (~> 1.0.1)
   jquery-rails
   jquery-turbolinks
