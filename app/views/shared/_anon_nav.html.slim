@@ -58,7 +58,7 @@ nav id="layout-nav" class="top-bar"
         active_wrapper: :li
 
       li= link_to t("nav.blog"), blog_path
-      li= link_to t("nav.support"), "mailto:xz1ped65@incoming.intercom.io", id: "Intercom"
+      li= mail_to t("nav.support"), ISO[:support_email]
 
     ul class="right"
       = link_to t("nav.sign_in"), new_user_session_path, active_on: true, \
