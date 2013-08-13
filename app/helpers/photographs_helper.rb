@@ -3,7 +3,7 @@ module PhotographsHelper
   class Processing < StandardError; end
 
   SHORT_METADATA_KEYS = [
-    :model, :lens_type, :aperture, :focal_length, :shutter_speed, :iso,
+    :model, :lens_type, :lens_model, :aperture, :focal_length, :shutter_speed, :iso,
     :copyright_notice, :creator, :creator_country, :creator_city,
     :date_time_original
   ]

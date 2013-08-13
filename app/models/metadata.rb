@@ -5,7 +5,7 @@ class Metadata < ActiveRecord::Base
   CAMERA_ATTRIBUTES = [
     :make, :model, :serial_number, :camera_type, :lens_type, :lens_model,
     :max_focal_length, :min_focal_length, :max_aperture, :min_aperture,
-    :num_af_points, :sensor_width, :sensor_height
+    :num_af_points, :sensor_width, :sensor_height, :camera_orientation
   ]
 
   SETTINGS_ATTRIBUTES = [
