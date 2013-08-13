@@ -7,6 +7,8 @@ describe Favourite do
   let(:user) { favourite.user }
   let(:counter) { double("counter", increment: true, decrement: true) }
 
+  before { Photograph.any_instance.stub(:set_highest_rank) { true } }
+
   it { should belong_to(:user) }
   it { should belong_to(:photograph) }
   it { should have_many(:notifications) }

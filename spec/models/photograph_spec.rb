@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Photograph do
   let(:user) { User.make! }
-  let(:photograph) { Photograph.make(user: user) }
+  let(:photograph) { Photograph.make!(user: user) }
   subject { photograph }
 
   describe "associations" do
@@ -100,6 +100,16 @@ describe Photograph do
 
       it "is incrementable" do
         photograph.views.increment.should be_true
+      end
+    end
+  end
+
+  describe "score" do
+    describe "#increment_score" do
+      it "enqueues a score decrement" do
+        expect {
+          photograph.increment_score(1)
+        }.to change(Worker.jobs, :size).by(1)
       end
     end
   end
