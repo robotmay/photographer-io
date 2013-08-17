@@ -83,11 +83,6 @@ class Metadata < ActiveRecord::Base
     self.creator ||= {}
     self.image ||= {}
   end
-  
-  after_commit :enqueue_extraction, on: :create
-  def enqueue_extraction
-    MetadataWorker.perform_async(id)
-  end
 
   def extract_from_photograph
     begin
@@ -106,6 +101,9 @@ class Metadata < ActiveRecord::Base
 
       convert_lat_lng
       set_format
+
+      self.processing = false
+      return true
     rescue ArgumentError => ex
       # Prevent UTF-8 bug from stopping photo upload
       self.camera ||= {}
