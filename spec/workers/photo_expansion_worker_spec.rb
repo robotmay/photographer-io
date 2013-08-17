@@ -51,6 +51,23 @@ describe PhotoExpansionWorker do
           image.should_not_receive(:process)
         end
       end
+
+      it "sets the standard image" do
+        photograph.should_receive(:standard_image=)
+      end
+    end
+
+    describe "#generate_images" do
+      before { subject.stub(:generate_image) { true } }
+      after { subject.send(:generate_images) }
+
+      it "generates the standard image" do
+        subject.should_receive(:generate_standard_image)
+      end
+
+      it "generates 3 smaller images" do
+        
+      end
     end
   end
 end
