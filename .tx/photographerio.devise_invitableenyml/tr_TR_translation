@@ -1,0 +1,17 @@
+tr_TR:
+  devise:
+    invitations:
+      send_instructions: '%{email} tarafından davet e-postası gönderildi.'
+      invitation_token_invalid: 'Sağlanan davet isteği geçerli değil!'
+      updated: 'Parolanız başarıyla belirlendi. Artık oturum açabilirsiniz.'
+      no_invitations_remaining: "Davet hakkınız kalmamıştır"
+      invitation_removed: 'Davetiniz kaldırıldı.'
+      new:
+        header: "Davet gönder"
+        submit_button: "Birini davet edin"
+      edit:
+        header: "Parolanızı belirleyin"
+        submit_button: "Şifremi belirle"
+    mailer:
+      invitation_instructions:
+        subject: 'Bir arkadaşınız sizi Photographer.io ''ya katılmaya davet etti'
