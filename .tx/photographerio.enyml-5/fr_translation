@@ -327,7 +327,6 @@ fr:
         Comme cette vue est un filtre sur les photographies et non pas une véritable
         collection, les photos que vous téléversez ici seront ajoutées à la vue non-organisée.
       edit_mode:
-        button: "Mode de modification"
         change_collections: "Ajouter aux collections"
         collection_note: >
           Ceci n'effacera pas les photographies de leurs collections sauf si vous
@@ -356,7 +355,6 @@ fr:
         no_photos_selected: "Aucune photographie n'est sélectionnée."
         collections:
           succeeded: "Les collections de photographies ont été mises à jour avec succès."
-          failed: "Une erreur est survenue lors de la mise à jour des collections"
       destroy:
         succeeded: "Votre photographie a été effacée avec succès."
         failed: "Un problème est survenu lors de l'effacement de cette photographie."
