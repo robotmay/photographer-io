@@ -58,7 +58,7 @@ nav id="layout-nav" class="top-bar"
         active_wrapper: :li
 
       li= link_to t("nav.blog"), blog_path
-      li= mail_to t("nav.support"), ISO[:support_email]
+      li= link_to t("nav.support"), "mailto:#{ISO[:support_email]}"
 
     ul class="right"
       - if user_signed_in?

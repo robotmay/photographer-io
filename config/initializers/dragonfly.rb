@@ -1,7 +1,8 @@
 require 'dragonfly'
 require 'rack/cache'
+require Rails.root.join("lib/extensions/caching_s3_data_store")
 
-datastore = Dragonfly::DataStorage::S3DataStore.new(
+datastore = Dragonfly::DataStorage::CachingS3DataStore.new(
   :region => ENV['S3_REGION'],
   :bucket_name => ENV['S3_BUCKET'],
   :access_key_id => ENV['S3_KEY'],
