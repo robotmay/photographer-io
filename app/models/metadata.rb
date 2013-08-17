@@ -178,6 +178,23 @@ class Metadata < ActiveRecord::Base
     format == 'square'
   end
 
+  def rotate?
+    camera.present? && camera['camera_orientation'].present?
+  end
+
+  def rotate_by
+    if rotate?
+      match = camera['camera_orientation'].match(/Rotate (\d+) (CW|CCW)/)
+
+      if match
+        degrees = match[1]
+        direction = match[2]
+
+        direction == "CCW" ? "-#{degrees}".to_i : degrees.to_i
+      end
+    end
+  end
+
   def can_edit?(key)
     self.respond_to?("#{key}=") && EDITABLE_KEYS.include?(key.to_sym)
   end
