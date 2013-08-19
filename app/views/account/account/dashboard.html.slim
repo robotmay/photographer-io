@@ -6,6 +6,15 @@ section id="account-dashboard"
         = simple_format t("account.dashboard.blurb")
 
   div class="row"
+    div class="large-12 columns"
+      table
+        tbody
+          - @notifications.each do |note|
+            tr
+              td= note.subject
+
+
+  div class="row"
     div class="large-4 columns"
       h4= t("account.dashboard.statistics.title")
 

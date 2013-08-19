@@ -59,6 +59,11 @@ Report.blueprint do
   reason { Faker::Lorem.paragraph }
 end
 
+Story.blueprint do
+  key { "wibble" }
+  values { { "name" => "Gentleman Jack" } }
+end
+
 User.blueprint do
   name { Faker::Name.name }
   username { "threepwood_#{sn}" }

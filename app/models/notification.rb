@@ -1,6 +1,7 @@
 class Notification < ActiveRecord::Base
   belongs_to :user
   belongs_to :notifiable, polymorphic: true
+  has_many :stories, as: :subject
 
   delegate :url_helpers, to: 'Rails.application.routes' 
 
@@ -8,6 +9,15 @@ class Notification < ActiveRecord::Base
 
   scope :read, -> { where(read: true) }
   scope :unread, -> { where(read: false) }
+
+  after_create :create_story
+  def create_story
+    stories.create(
+      user_id: user.id,
+      key: "stories.notification",
+      values: { text: subject }
+    )
+  end
 
   after_commit :push, on: :create
   def push
