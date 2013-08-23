@@ -269,7 +269,7 @@ class Photograph < ActiveRecord::Base
   def increment_score(by = 1)
     Photograph.rankings.increment(id, by)
     set_highest_rank
-    Worker.perform_in(2.days, 'Photograph', id, :decrement_score, by)
+    Worker.perform_in(2.days, 'Photograph', id, :decrement_score, (by - (by * 0.01)))
   end
 
   def decrement_score(by = 1)
