@@ -269,7 +269,7 @@ class Photograph < ActiveRecord::Base
   def increment_score(by = 1)
     Photograph.rankings.increment(id, by)
     set_highest_rank
-    Worker.perform_in(2.days, 'Photograph', id, :decrement_score, (by - (by * 0.01)))
+    Worker.perform_in(7.days, 'Photograph', id, :decrement_score, (by - (by * 0.01)))
   end
 
   def decrement_score(by = 1)
@@ -356,15 +356,17 @@ class Photograph < ActiveRecord::Base
     #
     # @return [Array]
     def recommended(user = nil, n = nil)
-      photo_ids = if n.present? && n > 0
-        Photograph.rankings.revrange(0,(n - 1))     
-      else
-        Photograph.rankings.members.reverse
-      end
-      
-      photographs = view_for(user).includes(:metadata).where(id: photo_ids).group_by(&:id)
+      Rails.cache.fetch([:photographs, :recommended, n], expires_in: 5.minutes) do
+        photo_ids = if n.present? && n > 0
+          Photograph.rankings.revrange(0,(n - 1))     
+        else
+          Photograph.rankings.members.reverse
+        end
+        
+        photographs = view_for(user).includes(:metadata).where(id: photo_ids).group_by(&:id)
 
-      photo_ids.map { |id| photographs[id.to_i] }.compact.map(&:first)
+        photo_ids.map { |id| photographs[id.to_i] }.compact.map(&:first)
+      end
     end
 
     # Not sure why but combining scopes for this breaks it, so hardcoding it
