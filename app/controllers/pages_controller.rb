@@ -4,7 +4,7 @@ class PagesController < ApplicationController
 
   def home
     top_photos = Rails.cache.fetch([:home, :top_photos], expires_in: 10.minutes) do
-      Photograph.landscape.recommended(nil, 10)
+      Photograph.landscape.recommended(n: 10)
     end
 
     @photograph = top_photos.sample || Photograph.view_for(current_user).first
