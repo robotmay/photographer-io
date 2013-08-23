@@ -357,15 +357,15 @@ class Photograph < ActiveRecord::Base
     # @return [Array]
     def recommended(opts = {})
       photo_ids = if opts[:n].present? && opts[:n] > 0
-        Photograph.rankings.revrange(0,(opts[:n] - 1))
+        all_photo_ids = Photograph.rankings.revrange(0,(opts[:n] - 1))
       else
-        ids = Photograph.rankings.members.reverse
-        Kaminari.paginate_array(ids).page(opts[:page]).per(Photograph.default_per_page)
+        all_photo_ids = Photograph.rankings.members.reverse
+        Kaminari.paginate_array(all_photo_ids).page(opts[:page]).per(Photograph.default_per_page)
       end
       
       photographs = view_for(nil).includes(:metadata).where(id: photo_ids).group_by(&:id)
       sorted_photographs = photo_ids.map { |id| photographs[id.to_i] }.compact.map(&:first)
-      Kaminari.paginate_array(sorted_photographs).page(opts[:page]).per(Photograph.default_per_page)
+      Kaminari.paginate_array(sorted_photographs, total_count: all_photo_ids.size).page(opts[:page]).per(Photograph.default_per_page)
     end
 
     # Not sure why but combining scopes for this breaks it, so hardcoding it
