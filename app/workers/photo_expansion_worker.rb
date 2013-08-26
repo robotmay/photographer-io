@@ -37,8 +37,7 @@ class PhotoExpansionWorker
   def generate_standard_image
     Benchmark.measure "Generating standard image" do
       # Create a standard image for generating the smaller sizes
-      standard_image = @photo.image
-      standard_image.thumb("3000x3000>")
+      standard_image = @photo.image.thumb("3000x3000>")
 
       # Set the standard image and save
       @photo.standard_image = standard_image
