@@ -112,7 +112,8 @@ section id="photographs-show"
                     span class="label radius"
                       = keyword
 
-          - if @photograph.show_location_data && @photograph.metadata.has_location_data?
+        - if @photograph.show_location_data && @photograph.metadata.has_location_data?
+          div class="panel"
             h5= t("photographs.location")
             = render partial: "map", locals: { photograph: @photograph }
 
