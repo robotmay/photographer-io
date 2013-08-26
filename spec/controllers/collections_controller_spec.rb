@@ -10,7 +10,7 @@ describe CollectionsController do
 
     before do
       collection.stub(:id) { 1 }
-      collection.stub_chain(:photographs, :page) { photographs }
+      collection.stub_chain(:photographs, :visible, :page) { photographs }
       Collection.stub(:find) { collection }
     end
 
