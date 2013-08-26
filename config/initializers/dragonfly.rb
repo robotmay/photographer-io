@@ -9,6 +9,8 @@ datastore = Dragonfly::DataStorage::CachingS3DataStore.new(
   :secret_access_key => ENV['S3_SECRET']
 )
 
+datastore.cache = Rails.cache
+
 # Image store
 app = Dragonfly[:images]
 app.configure_with(:imagemagick)
