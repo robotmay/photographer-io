@@ -41,6 +41,10 @@ class Photograph < ActiveRecord::Base
     storage_path { |i| image_storage_path(i) }
   end
 
+  image_accessor :small_thumbnail_image do
+    storage_path { |i| image_storage_path(i) }
+  end
+
   counter :views
   value :highest_rank
 
