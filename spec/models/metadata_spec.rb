@@ -55,7 +55,7 @@ describe Metadata do
 
     describe "#rotate?" do
       context "rotate" do
-        before { metadata.stub(:camera) { { 'camera_orientation' => 'Rotate 90 CW' } } }
+        before { metadata.stub(:camera) { { 'orientation' => 'Rotate 90 CW' } } }
 
         it "returns true" do
           metadata.rotate?.should be true
@@ -71,7 +71,7 @@ describe Metadata do
 
     describe "#rotate_by" do
       context "clockwise" do      
-        before { metadata.stub(:camera) { { 'camera_orientation' => 'Rotate 90 CW' } } }
+        before { metadata.stub(:camera) { { 'orientation' => 'Rotate 90 CW' } } }
 
         it "returns a positive number" do
           metadata.rotate_by.should eq(90)
@@ -79,7 +79,7 @@ describe Metadata do
       end
 
       context "counter-clockwise" do
-        before { metadata.stub(:camera) { { 'camera_orientation' => 'Rotate 90 CCW' } } }
+        before { metadata.stub(:camera) { { 'orientation' => 'Rotate 90 CCW' } } }
 
         it "returns a negative number" do
           metadata.rotate_by.should eq(-90)
@@ -87,7 +87,7 @@ describe Metadata do
       end
 
       context "not a rotation command" do
-        before { metadata.stub(:camera) { { 'camera_orientation' => 'Horizontal (normal)' } } }
+        before { metadata.stub(:camera) { { 'orientation' => 'Horizontal (normal)' } } }
   
         it "returns nil" do
           metadata.rotate_by.should be nil

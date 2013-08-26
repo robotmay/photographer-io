@@ -32,28 +32,16 @@ describe PhotoExpansionWorker do
 
     describe "#generate_standard_image" do
       let(:image) { double('image').as_null_object }
-      before { photograph.stub_chain(:image, :thumb) { image } }
+      before { photograph.stub(:image) { image } }
+      before { photograph.stub(:standard_image=) { true } }
       after { subject.send(:generate_standard_image) }
 
-      context "metadata.rotate? is true" do
-        before { metadata.stub(:rotate?) { true } }
-        before { metadata.stub(:rotate_by) { 90 } }
-
-        it "rotates the image" do
-          image.should_receive(:process).with(:rotate, 90)
-        end
-      end
-
-      context "metadata.rotate? is false" do
-        before { metadata.stub(:rotate?) { false } }
-
-        it "doesn't rotate the image" do
-          image.should_not_receive(:process)
-        end
+      it "resizes the image" do
+        image.should_receive(:thumb)
       end
 
       it "sets the standard image" do
-        photograph.should_receive(:standard_image=)
+        photograph.should_receive(:standard_image=).with(image)
       end
     end
 
