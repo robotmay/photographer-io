@@ -22,6 +22,8 @@ module PhotographsHelper
         photograph.large_image
       when :thumbnail
         photograph.thumbnail_image
+      when :small
+        photograph.small_thumbnail_image
       else
         photograph.thumbnail_image
       end
