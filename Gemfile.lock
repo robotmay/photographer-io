@@ -484,6 +484,7 @@ DEPENDENCIES
   kaminari
   keen
   kgio
+  launchy
   letter_opener
   link_to_active_state
   machinist

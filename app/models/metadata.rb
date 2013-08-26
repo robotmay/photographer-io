@@ -5,7 +5,7 @@ class Metadata < ActiveRecord::Base
   CAMERA_ATTRIBUTES = [
     :make, :model, :serial_number, :camera_type, :lens_type, :lens_model,
     :max_focal_length, :min_focal_length, :max_aperture, :min_aperture,
-    :num_af_points, :sensor_width, :sensor_height, :camera_orientation
+    :num_af_points, :sensor_width, :sensor_height, :orientation
   ]
 
   SETTINGS_ATTRIBUTES = [
@@ -177,12 +177,12 @@ class Metadata < ActiveRecord::Base
   end
 
   def rotate?
-    camera.present? && camera['camera_orientation'].present?
+    camera.present? && camera['orientation'].present?
   end
 
   def rotate_by
     if rotate?
-      match = camera['camera_orientation'].match(/Rotate (\d+) (CW|CCW)/)
+      match = camera['orientation'].match(/Rotate (\d+) (CW|CCW)/)
 
       if match
         degrees = match[1]

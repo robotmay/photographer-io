@@ -39,11 +39,6 @@ class PhotoExpansionWorker
       # Create a standard image for generating the smaller sizes
       standard_image = @photo.image.thumb("3000x3000>")
 
-      # Rotate the image if the metadata says so
-      if @photo.metadata.rotate?
-        standard_image = standard_image.process(:rotate, @photo.metadata.rotate_by)
-      end
-
       # Set the standard image and save
       @photo.standard_image = standard_image
       @photo.save!

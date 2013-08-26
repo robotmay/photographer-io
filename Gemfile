@@ -128,4 +128,7 @@ group :development, :test do
 
   # mailers
   gem 'letter_opener'
+
+  # utility
+  gem 'launchy'
 end
