@@ -63,6 +63,7 @@ class PhotoExpansionWorker
     end
 
     ImageWorker.perform_async(@photo.id, :standard_image, :thumbnail_image, "500x500>", "-quality 70")
+    ImageWorker.perform_async(@photo.id, :standard_image, :small_thumbnail_image, "100x100#", "-quality 70")
   end
 
   def generate_image(source, target, size, encode_opts)
