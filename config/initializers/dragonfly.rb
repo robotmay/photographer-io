@@ -2,14 +2,14 @@ require 'dragonfly'
 require 'rack/cache'
 require Rails.root.join("lib/extensions/caching_s3_data_store")
 
-datastore = Dragonfly::DataStorage::CachingS3DataStore.new(
+$dragonfly_datastore = Dragonfly::DataStorage::CachingS3DataStore.new(
   :region => ENV['S3_REGION'],
   :bucket_name => ENV['S3_BUCKET'],
   :access_key_id => ENV['S3_KEY'],
   :secret_access_key => ENV['S3_SECRET']
 )
 
-datastore.cache = Rails.cache
+$dragonfly_datastore.cache = Rails.cache
 
 # Image store
 app = Dragonfly[:images]
@@ -26,7 +26,7 @@ end
 
 if ENV['S3_ENABLED']
   app.configure do |c|
-    c.datastore = datastore
+    c.datastore = $dragonfly_datastore
     c.protect_from_dos_attacks = true
     c.secret = ENV['DRAGONFLY_SECRET']
     c.url_format = "/media/:job/:basename.:format"
