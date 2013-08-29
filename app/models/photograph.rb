@@ -190,7 +190,7 @@ class Photograph < ActiveRecord::Base
     PhotoExpansionWorker.perform_async(id)
   end
 
-  after_save { MentionWorker.perform_async(id) }
+  after_commit { MentionWorker.perform_async(id) }
   def auto_mention
     if self.public? && !auto_mentioned
       user.authorisations.auto_post.each do |a|
