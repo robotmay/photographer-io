@@ -190,11 +190,11 @@ class Photograph < ActiveRecord::Base
     PhotoExpansionWorker.perform_async(id)
   end
 
-  after_save { MentionWorker.perform_async(id) }
+  after_commit { MentionWorker.perform_async(id) }
   def auto_mention
     if self.public? && !auto_mentioned
       user.authorisations.auto_post.each do |a|
-        a.mention url_helpers.photograph_url(self, host: ENV['DOMAIN'])
+        a.mention url_helpers.photograph_url(self, host: ENV['DOMAIN'], locale: I18n.locale)
         Rails.logger.info "Mentioned on #{a.provider} for #{a.uid}"
       end
 
@@ -221,7 +221,10 @@ class Photograph < ActiveRecord::Base
 
   after_destroy :expire_from_cdn
   def expire_from_cdn
-    paths = [:standard_image, :homepage_image, :large_image, :thumbnail_image].map do |m|
+    paths = [
+      :standard_image, :homepage_image, :large_image, 
+      :thumbnail_image, :small_thumbnail_image
+    ].map do |m|
       url = self.send(m).try(:remote_url)
       unless url.nil?
         uri = URI.parse(URI.escape(url))
