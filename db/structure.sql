@@ -212,7 +212,7 @@ CREATE TABLE collections (
     encrypted_password character varying(255),
     ghost boolean DEFAULT false,
     description text,
-    last_photo_created_at timestamp without time zone
+    last_photo_added_at timestamp without time zone
 );
 
 
@@ -1449,3 +1449,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130731183731');
 INSERT INTO schema_migrations (version) VALUES ('20130826132056');
 
 INSERT INTO schema_migrations (version) VALUES ('20130826172509');
+
+INSERT INTO schema_migrations (version) VALUES ('20130830080641');

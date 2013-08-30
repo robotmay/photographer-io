@@ -424,6 +424,7 @@ GEM
     thread_safe (0.1.2)
       atomic
     tilt (1.3.7)
+    timecop (0.6.3)
     timers (1.1.0)
     treetop (1.4.14)
       polyglot
@@ -525,6 +526,7 @@ DEPENDENCIES
   sunspot_solr
   sunspot_with_kaminari
   thread
+  timecop
   turbolinks
   uglifier (>= 1.0.3)
   whenever
