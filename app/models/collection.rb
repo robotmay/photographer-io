@@ -43,7 +43,7 @@ class Collection < ActiveRecord::Base
 
   def cover_photo(category = nil)
     #TODO Allow user to specify the cover image for the collection
-    Rails.cache.fetch([last_photo_added_at, :cover_photo, category], expires_in: 1.hour) do
+    Rails.cache.fetch([self, last_photo_added_at, :cover_photo, category], expires_in: 1.hour) do
       photos = photographs.safe_for_work.not_processing.not_ghost.order("created_at DESC")
       if category.present?
         photos = photos.where(category_id: category.id)
