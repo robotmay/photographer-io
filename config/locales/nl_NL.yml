@@ -298,7 +298,7 @@ nl_NL:
         Dit is een gefilterde verzameling en geen collectie, foto's die hier geüpload
         worden zullen in de ongesorteerde verzameling worden geplaatst.
       edit_mode:
-        button: "Aanpas mode"
+        button: "Multi-select"
         change_collections: "Voeg toe aan verzamelingen"
         collection_note: >
           Dit zal de foto's niet uit hun collecties verwijderen tenzij je een aanpassing
@@ -325,9 +325,11 @@ nl_NL:
         failed: "Er heeft zich een probleem voorgedaan bij het opslaan van je foto. Kijk hieronder voor eventuele foutmeldingen."
       mass_update:
         no_photos_selected: "Er waren geen foto's geselecteerd."
+        failed: "Er deed zich een fout voor tijdens het bewerken van de foto's."
         collections:
           succeeded: "Foto verzamelingen zijn bijgewerkt."
-          failed: "Er deed zich een fout voor tijdens het bewerken van de collecties."
+        delete:
+          succeeded: "De foto's zijn verwijderd."
       destroy:
         succeeded: "De foto is verwijderd."
         failed: "Er heeft zich een probleem voorgedaan bij het verwijderen van de foto."
