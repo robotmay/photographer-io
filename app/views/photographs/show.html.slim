@@ -103,7 +103,7 @@ section id="photographs-show"
                     td
                       h6= link_to collection.name, collection_path(collection)
                       div class="photo-strip"
-                        - collection.photographs.view_for(current_user).limit(6).each do |photo|
+                        - collection.photographs.view_for(current_user).uniq.limit(6).each do |photo|
                           = link_to photograph_path(photo) do
                             = photo_tag photo, :small
 
