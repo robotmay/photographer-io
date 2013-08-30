@@ -9,10 +9,12 @@ class CollectionPhotograph < ActiveRecord::Base
     end
   end
 
-  after_create :set_last_photo_created_at
-  def set_last_photo_created_at
-    if collection.last_photo_created_at.nil? || photograph.created_at > collection.last_photo_created_at
-      collection.update_column(:last_photo_created_at, photograph.created_at) 
+  after_create :set_last_photo_added_at
+  def set_last_photo_added_at
+    now = Time.now
+
+    if collection.last_photo_added_at.nil? || now > collection.last_photo_added_at
+      collection.update_column(:last_photo_added_at, now) 
     end
   end
 end

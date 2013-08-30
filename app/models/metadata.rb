@@ -177,11 +177,11 @@ class Metadata < ActiveRecord::Base
   end
 
   def rotate?
-    camera.present? && camera['orientation'].present?
+    rotate_by.present? && (rotate_by < 0 || rotate_by > 0)
   end
 
   def rotate_by
-    if rotate?
+    if camera.present? && camera['orientation'].present?
       match = camera['orientation'].match(/Rotate (\d+) (CW|CCW)/)
 
       if match
