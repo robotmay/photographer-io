@@ -15,6 +15,7 @@ class CollectionPhotograph < ActiveRecord::Base
 
     if collection.last_photo_added_at.nil? || now > collection.last_photo_added_at
       collection.update_column(:last_photo_added_at, now) 
+      collection.touch
     end
   end
 end
