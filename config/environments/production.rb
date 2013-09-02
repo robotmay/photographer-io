@@ -73,7 +73,7 @@ Iso::Application.configure do
   # config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :postmark
   config.action_mailer.postmark_settings = { api_key: ENV['POSTMARK_API_KEY'] }
-  config.action_mailer.default_url_options = { host: ENV['DOMAIN'] }
+  config.action_mailer.default_url_options = { host: ENV['DOMAIN'], locale: "en" }
   config.action_mailer.asset_host = ENV['DOMAIN']
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
