@@ -89,7 +89,7 @@ class Metadata < ActiveRecord::Base
       Metadata.benchmark "Extracting EXIF" do
         exif = photograph.exif
 
-        self.title        = exif.title if title.blank?
+        self.title        = fetch_title(exif) if title.blank?
         self.description  = exif.description if description.blank?
         self.keywords     = exif.keywords if keywords.blank?
 
@@ -111,6 +111,10 @@ class Metadata < ActiveRecord::Base
       self.creator ||= {}
       self.image ||= {}
     end
+  end
+
+  def fetch_title(exif)
+    [:title, :caption, :subject].map { |a| exif.send(a) }.keep_if(&:present?).first
   end
 
   def convert_lat_lng
