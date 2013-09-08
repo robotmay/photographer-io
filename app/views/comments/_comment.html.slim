@@ -7,7 +7,7 @@
             = image_tag comment.user.avatar.thumb("50x50#").jpg.url, width: 50, height: 50, alt: ""
 
         section class="body" itemprop="text"
-          = simple_format comment.body
+          = md comment.body
 
         .clear
 
