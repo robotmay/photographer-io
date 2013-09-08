@@ -94,5 +94,45 @@ describe Metadata do
         end
       end
     end
+
+    describe "#fetch_title" do
+      let(:exif) { double(title: title, caption: caption, subject: subject) }
+      let(:title) { nil }
+      let(:caption) { nil }
+      let(:subject) { nil }
+
+      context "title present" do
+        let(:title) { "Wibble" }
+
+        it "returns title" do
+          metadata.fetch_title(exif).should eq(title)
+        end
+      end
+
+      context "caption present" do
+        let(:caption) { "Wobble" }
+
+        it "returns caption" do
+          metadata.fetch_title(exif).should eq(caption)
+        end
+      end
+
+      context "subject present" do
+        let(:subject) { "Wubble" }
+
+        it "returns subject" do
+          metadata.fetch_title(exif).should eq(subject)
+        end
+      end
+
+      context "multiple present" do
+        let(:caption) { "Wobble" }
+        let(:subject) { "Wubble" }
+
+        it "returns caption" do
+          metadata.fetch_title(exif).should eq(caption)
+        end
+      end
+    end
   end
 end
