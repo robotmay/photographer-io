@@ -4,7 +4,7 @@ class Category < ActiveRecord::Base
   has_many :photographs
   has_many :collections, through: :photographs
   
-  friendly_id :name, use: :slugged
+  friendly_id :name, use: [:slugged, :finders]
 
   validates :name, presence: true
 

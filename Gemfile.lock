@@ -1,12 +1,4 @@
 GIT
-  remote: git://github.com/FriendlyId/friendly_id.git
-  revision: 5e742e7ed489bfb30f922efee1dab1db75785631
-  branch: master
-  specs:
-    friendly_id (5.0.0.rc1)
-      activerecord (~> 4.0.0)
-
-GIT
   remote: git://github.com/mceachen/closure_tree.git
   revision: a1613cc4741150efa1f24a5c8839d63671263e73
   branch: wip_rails4
@@ -175,6 +167,8 @@ GEM
       dotenv (>= 0.7)
       thor (>= 0.13.6)
     formatador (0.2.4)
+    friendly_id (5.0.0.rc1)
+      activerecord (~> 4.0.0)
     gabba (1.0.1)
     guard (1.7.0)
       formatador (>= 0.2.4)
@@ -243,7 +237,7 @@ GEM
     minitest (4.7.5)
     mocha (0.13.3)
       metaclass (~> 0.0.1)
-    multi_json (1.7.9)
+    multi_json (1.8.0)
     multi_xml (0.5.3)
     multipart-post (1.2.0)
     net-scp (1.1.0)
@@ -473,7 +467,7 @@ DEPENDENCIES
   ffaker
   fog
   foreman
-  friendly_id!
+  friendly_id (= 5.0.0.rc1)
   gabba
   guard
   guard-rspec
