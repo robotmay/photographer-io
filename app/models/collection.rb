@@ -7,10 +7,9 @@ class Collection < ActiveRecord::Base
   has_many :reports, as: :reportable
 
   paginates_per 50
-
   attr_accessor :password
-  value :cover_photo_id
 
+  value :cover_photo_id
   counter :views
 
   validates :user_id, :name, presence: true

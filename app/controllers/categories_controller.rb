@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   respond_to :html
 
   def show
-    @category = Category.find(params[:id])
+    @category = Category.friendly.find(params[:id])
     authorize! :read, @category
 
     path = if request.referer =~ /\/photographs/i
