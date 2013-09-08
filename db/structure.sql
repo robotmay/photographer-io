@@ -211,7 +211,8 @@ CREATE TABLE collections (
     shared boolean DEFAULT false,
     encrypted_password character varying(255),
     ghost boolean DEFAULT false,
-    description text
+    description text,
+    last_photo_added_at timestamp without time zone
 );
 
 
@@ -547,7 +548,8 @@ CREATE TABLE photographs (
     image_mime_type character varying(255),
     enable_comments boolean DEFAULT false,
     auto_mentioned boolean DEFAULT false,
-    ghost boolean DEFAULT false
+    ghost boolean DEFAULT false,
+    small_thumbnail_image_uid character varying(255)
 );
 
 
@@ -643,6 +645,45 @@ ALTER SEQUENCE reports_id_seq OWNED BY reports.id;
 CREATE TABLE schema_migrations (
     version character varying(255) NOT NULL
 );
+
+
+--
+-- Name: sidekiq_jobs; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE sidekiq_jobs (
+    id integer NOT NULL,
+    jid character varying(255),
+    queue character varying(255),
+    class_name character varying(255),
+    args text,
+    retry boolean,
+    enqueued_at timestamp without time zone,
+    started_at timestamp without time zone,
+    finished_at timestamp without time zone,
+    status character varying(255),
+    name character varying(255),
+    result text
+);
+
+
+--
+-- Name: sidekiq_jobs_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE sidekiq_jobs_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: sidekiq_jobs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE sidekiq_jobs_id_seq OWNED BY sidekiq_jobs.id;
 
 
 --
@@ -866,6 +907,13 @@ ALTER TABLE ONLY reports ALTER COLUMN id SET DEFAULT nextval('reports_id_seq'::r
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY sidekiq_jobs ALTER COLUMN id SET DEFAULT nextval('sidekiq_jobs_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY stories ALTER COLUMN id SET DEFAULT nextval('stories_id_seq'::regclass);
 
 
@@ -1002,6 +1050,14 @@ ALTER TABLE ONLY recommendations
 
 ALTER TABLE ONLY reports
     ADD CONSTRAINT reports_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: sidekiq_jobs_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY sidekiq_jobs
+    ADD CONSTRAINT sidekiq_jobs_pkey PRIMARY KEY (id);
 
 
 --
@@ -1308,6 +1364,62 @@ CREATE INDEX index_reports_on_user_id ON reports USING btree (user_id);
 
 
 --
+-- Name: index_sidekiq_jobs_on_class_name; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_sidekiq_jobs_on_class_name ON sidekiq_jobs USING btree (class_name);
+
+
+--
+-- Name: index_sidekiq_jobs_on_enqueued_at; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_sidekiq_jobs_on_enqueued_at ON sidekiq_jobs USING btree (enqueued_at);
+
+
+--
+-- Name: index_sidekiq_jobs_on_finished_at; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_sidekiq_jobs_on_finished_at ON sidekiq_jobs USING btree (finished_at);
+
+
+--
+-- Name: index_sidekiq_jobs_on_jid; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_sidekiq_jobs_on_jid ON sidekiq_jobs USING btree (jid);
+
+
+--
+-- Name: index_sidekiq_jobs_on_queue; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_sidekiq_jobs_on_queue ON sidekiq_jobs USING btree (queue);
+
+
+--
+-- Name: index_sidekiq_jobs_on_retry; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_sidekiq_jobs_on_retry ON sidekiq_jobs USING btree (retry);
+
+
+--
+-- Name: index_sidekiq_jobs_on_started_at; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_sidekiq_jobs_on_started_at ON sidekiq_jobs USING btree (started_at);
+
+
+--
+-- Name: index_sidekiq_jobs_on_status; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_sidekiq_jobs_on_status ON sidekiq_jobs USING btree (status);
+
+
+--
 -- Name: index_stories_on_subject_id_and_subject_type; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -1509,3 +1621,11 @@ INSERT INTO schema_migrations (version) VALUES ('20130728122457');
 INSERT INTO schema_migrations (version) VALUES ('20130731183731');
 
 INSERT INTO schema_migrations (version) VALUES ('20130817222930');
+
+INSERT INTO schema_migrations (version) VALUES ('20130819154534');
+
+INSERT INTO schema_migrations (version) VALUES ('20130826132056');
+
+INSERT INTO schema_migrations (version) VALUES ('20130826172509');
+
+INSERT INTO schema_migrations (version) VALUES ('20130830080641');
