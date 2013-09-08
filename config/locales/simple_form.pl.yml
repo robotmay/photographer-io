@@ -30,6 +30,8 @@ pl:
         show_social_buttons: "Pokazuj przyciski serwisów społecznościowych"
         locale: "Język interfejsu"
         enable_comments_by_default: "Domyślnie pozwalaj na komentowanie"
+        show_profile_background: "Pokaż tło profilu"
+        profile_background_photo_id: "Zdjęcie w tle profilu"
     placeholders:
       comment_thread:
         subject: "np. \"Jakiego gatunku jest ten ptak?\" albo \"Co sądzisz o tonacji kolorystycznej?\""
@@ -121,6 +123,12 @@ pl:
         default_comment_threads: >
           Podaj domyślne tytuły dla wątków komentarzy do twoich zdjęć. Możesz to zrobić
           nawet jeśli nie włączysz opcji domyślnych komentarzy.
+        show_profile_background: >
+          Jeśli nie chcesz, aby w tle twojego profilu znajdowało się duże zdjęcie,
+          to możesz wyłączyć tę opcję w tym miejscu.
+        profile_background_photo_id: >
+          Możesz wybrać zdjęcie do tła w twoim profilu. Domyślnie będzie to losowe
+          zdjęcie z twojej publicznej kolekcji.
   helpers:
     submit:
       comment:

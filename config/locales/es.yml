@@ -217,7 +217,6 @@ es:
       upload: "Subir"
       delete: "Borrar esta fotografía"
       edit_mode:
-        button: "Modo de edición"
         change_collections: "Añadir a colecciones"
         delete: "Borrar"
       form:
@@ -235,7 +234,6 @@ es:
         no_photos_selected: "No hay fotos seleccionadas."
         collections:
           succeeded: "Las colecciones de fotografías se han actualizado correctamente."
-          failed: "Ha ocurrido un error mientras se intentaba actualizar las colecciones"
       destroy:
         succeeded: "Su fotografía ha sido borrada correctamente."
         failed: "Ha habido un problema borrando la fotografía."

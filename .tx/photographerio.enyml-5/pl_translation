@@ -422,7 +422,7 @@ pl:
       body: >
         To jest automatycznie wysłany e-mail z powiadomieniem na poniższy temat:
   photographs:
-    title: "%{title}, autor: %{by}"
+    title: "%{title}, użytkownik: %{by}"
     user_quota_exceeded: >
       Niestety, na ten miesiąc limit wysłanych zdjęć został już przez ciebie wykorzystany
       :(

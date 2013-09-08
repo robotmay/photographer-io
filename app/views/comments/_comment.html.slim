@@ -1,20 +1,20 @@
 - if comment.can_be_seen_by?(current_user)
   article[id="comment-#{comment.id}" class="comment #{comment.published? ? 'published' : 'unpublished'}" itemprop="comment" itemscope itemtype="http://schema.org/Comment"]
     div class="main"
-      - cache([comment, comment.user, :avatar_and_body]) do
+      - cache([I18n.locale, comment, comment.user, :avatar_and_body]) do
         - if comment.user.avatar.present?
           aside class="avatar"
             = image_tag comment.user.avatar.thumb("50x50#").jpg.url, width: 50, height: 50, alt: ""
 
         section class="body" itemprop="text"
-          = simple_format comment.body
+          = md comment.body
 
         .clear
 
       footer
         div class="row"
           div class="large-8 columns left"
-            - cache([comment, comment.user, :author_and_status]) do
+            - cache([I18n.locale, comment, comment.user, :author_and_status]) do
               span class="author" itemprop="author"
                 = link_to comment.user.name, short_user_path(comment.user.username)
 
@@ -48,7 +48,7 @@
 
     div class="replies comment-thread"
       div[class="reply" data-reply]
-        - cache([comment, :form]) do
+        - cache([I18n.locale, comment, :form]) do
           = render partial: "comments/form", locals: { comment: comment.comment_thread.comments.new(parent_id: comment.id) }
 
       div class="comments"

@@ -17,4 +17,6 @@ class CollectionPhotograph < ActiveRecord::Base
       collection.update_column(:last_photo_added_at, now) 
     end
   end
+
+  after_destroy { collection.touch }
 end
