@@ -1,9 +1,10 @@
 GIT
   remote: git://github.com/FriendlyId/friendly_id.git
-  revision: 78d639d67a17135fe5e3b9731fd4328c315c74b1
-  branch: rails4
+  revision: 5e742e7ed489bfb30f922efee1dab1db75785631
+  branch: master
   specs:
-    friendly_id (4.1.0.beta.2)
+    friendly_id (5.0.0.rc1)
+      activerecord (~> 4.0.0)
 
 GIT
   remote: git://github.com/mceachen/closure_tree.git
