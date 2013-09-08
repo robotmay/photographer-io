@@ -1,5 +1,4 @@
 class Collection < ActiveRecord::Base
-  extend FriendlyId
   include Redis::Objects
 
   belongs_to :user
@@ -8,8 +7,6 @@ class Collection < ActiveRecord::Base
   has_many :reports, as: :reportable
 
   paginates_per 50
-  friendly_id :name, use: [:slugged, :finders]
-
   attr_accessor :password
 
   value :cover_photo_id

@@ -16,7 +16,7 @@ class CollectionsController < ApplicationController
     end
 
     if params[:category_id].present?
-      @category = Category.friendly.find(params[:category_id])
+      @category = Category.find(params[:category_id])
     end
   end
 
