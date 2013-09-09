@@ -18,5 +18,5 @@ class CollectionPhotograph < ActiveRecord::Base
     end
   end
 
-  after_destroy { collection.touch }
+  after_destroy { collection.try(:touch) }
 end
