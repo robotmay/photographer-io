@@ -366,7 +366,8 @@ class Photograph < ActiveRecord::Base
       photo_ids = if opts[:n].present? && opts[:n] > 0
         all_photo_ids = Photograph.rankings.revrange(0,(opts[:n] - 1))
       else
-        all_photo_ids = Photograph.rankings.members.reverse
+        highest_score = Photograph.rankings.score(Photograph.rankings.last) || 1
+        all_photo_ids = Photograph.rankings.revrangebyscore(highest_score, 0.01)
         Kaminari.paginate_array(all_photo_ids).page(opts[:page]).per(Photograph.default_per_page)
       end
       
