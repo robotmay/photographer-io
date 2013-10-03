@@ -11,6 +11,52 @@ describe Metadata do
   describe "methods" do
     let(:metadata) { Metadata.new }
 
+    describe "#set_format" do
+      context "height or width are nil" do
+        before { metadata.stub(:format) { "unknown" } }
+
+        it "sets format to unknown" do
+          metadata.format.should == 'unknown'
+        end
+      end
+
+      context "height and width are equal" do
+        before { metadata.stub(:format) { 'square' } }
+
+        describe "#square?" do
+          it "returns true" do
+            metadata.square?.should == true
+          end
+        end
+      end
+
+      context "height is greater than width" do
+        before { metadata.stub(:format) { 'portrait' } }
+
+        describe "#portrait?" do
+          it "returns true" do
+            metadata.portrait?.should == true
+          end
+        end
+
+        describe "#square?" do
+          it "returns false" do
+            metadata.square?.should == false
+          end
+        end
+      end
+
+      context "height is lesser than width" do
+        before { metadata.stub(:format) { 'landscape' } }
+
+        describe "#landscape?" do
+          it "returns true" do
+            metadata.landscape?.should == true
+          end
+        end
+      end
+    end
+
     describe "#title" do
       context "not blank" do
         before { metadata.stub(:read_attribute) { "Wibble" } }
@@ -70,7 +116,7 @@ describe Metadata do
     end
 
     describe "#rotate_by" do
-      context "clockwise" do      
+      context "clockwise" do
         before { metadata.stub(:camera) { { 'orientation' => 'Rotate 90 CW' } } }
 
         it "returns a positive number" do
@@ -88,7 +134,7 @@ describe Metadata do
 
       context "not a rotation command" do
         before { metadata.stub(:camera) { { 'orientation' => 'Horizontal (normal)' } } }
-  
+
         it "returns nil" do
           metadata.rotate_by.should be nil
         end
