@@ -78,7 +78,7 @@ head
 
         ul class="inline-list"
           - t("locales").each do |key, name|
-            = link_to name, url_for(locale: key), active_on: /\/#{key}\/.*/i, active_wrapper: :li
+            = link_to name.html_safe, url_for(locale: key), active_on: /\/#{key}\/.*/i, active_wrapper: :li
 
       div class="large-8 columns" style="text-align: right;"
         = simple_format t("copyright")
