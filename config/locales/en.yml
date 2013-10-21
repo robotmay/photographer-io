@@ -356,7 +356,7 @@ en:
       upload: "Upload"
       delete: "Delete this photograph"
       dropzone: >
-        Drag and drop your images onto this page to upload them. 
+        You can drag and drop your images onto this page to upload them. 
         Read up on our %{guidelines}.
       public_warning: >
         This collection is set as public. Any photos in here will be listed on
