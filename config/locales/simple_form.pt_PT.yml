@@ -1,0 +1,141 @@
+pt_PT:
+  simple_form:
+    'yes': 'Sim'
+    'no': 'Não'
+    required:
+      text: 'obrigatório'
+      mark: '*'
+    error_notification:
+      default_message: "Por favor reveja os seguintes problemas:"
+    labels:
+      collection:
+        visible: "Deseja que esta coleção apareça publicamente na página?"
+      comment_thread:
+        destroy: "Apagar tópico"
+      user:
+        name: "Nome"
+        location: "Localização"
+        username: "Utilizador"
+        password: "Senha"
+        password_confirmation: "Confirmação da senha"
+        avatar: "Avatar"
+        biography: "Biografia"
+        website_url: "Endereço da sua página web"
+        show_location_data: "Mostrar dados de localização"
+        show_copyright_info: "Mostrar direitos de autor"
+        show_nsfw_content: "Mostrar conteúdo NSFW"
+        default_license: "Licença por omissão"
+        receive_notification_emails: "Receber notificações por email"
+        notify_favourites: "Notificar favoritos"
+        show_social_buttons: "Mostrar botões sociais"
+        locale: "Idioma"
+        enable_comments_by_default: "Ativar comentários por omissão"
+        show_profile_background: "Mostrar perfil do fundo"
+        profile_background_photo_id: "Foto para o perfil do fundo"
+    placeholders:
+      comment_thread:
+        subject: "por ex. A que espécie pertence este pássaro? Ou; Como é a minha escolha de cores?"
+      user:
+        name: "O seu nome ou apelido, por ex. João C."
+        website_url: "http://atuagrandepaginadefotos.com"
+        username: >
+          Um nome único utilizado no endereço , por ex. joao_c
+    hints:
+      comment_thread:
+        subject: >
+          Sobre que tipo de assuntos gostaria comentários dos seus visitantes? Pode
+          ser qualquer coisa desde "Como estão as linhas principais?" a "Ajudem-me
+          a identificar este pássaro!"
+      metadata:
+        keywords: >
+          As palavras-chave deveriam ser uma lista de etiquetas separadas por virgulas
+          relevantes à imagem, por ex. natura, pássaros, melropreto
+      photograph:
+        safe_for_work: >
+          Ajude os utilizadores que navegam na página a partir do trabalho; por favor
+          assinale esta foto como insegura para trabalho se contém qualquer conteúdo
+          adulto que poderia ser considerado inadequado num ambiente de escritório.
+        license: >
+          Por omissão detém todos os direitos sobre as suas fotografias. Se desejar
+          adicionar a licença Creative Commons, pode fazê-lo acima.
+        show_location_data: >
+          Deseja indicar a localização onde foi tirada esta fotografia? Pode mudar
+          a sua configuração padrão para esta opção nas configurações da conta.
+        show_copyright_info: >
+          Deseja mostrar as informações de direitos de autor, se existirem, que estão
+          guardadas nos meta-dados da fotografia? Estas poderão conter informação
+          pessoal como o seu nome e a zona onde mora (cidade/país).
+        category: >
+          Ao atribuir uma categoria relevante para a sua fotografia ajudará outros
+          a descobrir-la mais facilmente!
+        enable_comments: >
+          Se ativar os comentários deve indicar pelo menos um tópico para os comentadores
+          responderem. Os comentários são privados entre si e o comentador, a não
+          ser que deseja torná-los públicos.
+      user:
+        edit:
+          username: >
+            O seu nome de utilizador é um identificador único no site, utilizado nos
+            endereços e para apontar para a página do perfil, por ex. https://www.photographer.io/u/rupert_bear.
+            Tem que ser único, em minúsculas e pode conter apenas letras, números
+            e o símbolo "_".
+        username: >
+          Pode conter apenas letras, números e o símbolo "_".
+        show_nsfw_content: >
+          Deseja ver conteúdo marcado como inseguro para trabalho? Este poderá conter  nudez,
+          violência, ou outro conteúdo que poderá não ser considerado adequado para
+          o trabalho.
+        default_license_id: >
+          Por omissão reserva todos os direitos para as suas fotografias. Se desejar
+          adicionar a licença Creative Commons, pode fazer-lo acima. Esta opção será
+          aplicada por omissão em todas as novas fotografias carregadas, mas pode
+          ser alterada em cada imagem.
+        show_location_data: >
+          Deseja indicar a localização onde as fotografias foram tiradas por omissão?
+          Esta opção pode ser alterada a cada imagem individualmente.
+        show_copyright_info: >
+          Deseja mostrar as informações de direitos de autor, se existirem, que estão
+          guardadas nos meta-dados da fotografia? Estas poderão conter informação
+          pessoal como o seu nome e a zona onde mora (cidade/país).
+        biography: >
+          A sua biografia será apresentada na sua página do perfil. De momento não
+          suporta qualquer formatação para além de novas linhas. Suporte para estilos
+          vem em breve.
+        receive_notification_emails: >
+          Deseja receber um email para novas, importantes notificações; por ex. novos
+          comentários?
+        notify_favourites: >
+          Deseja deixar os outros utilizadores saberem quando marcou fotografias deles
+          como favoritos?
+        show_social_buttons: >
+          Deseja visualizar opções de partilha social por baixo das fotos, por ex.
+          Twitter, Facebook, Google, etc?
+
+          Esta opção poderá ter implicações de privacidade.
+        locale: >
+          Escolha o idioma em que deseja navegar no site. Se o seu idioma não se encontra
+          na lista, porque não ajudar traduzir Photographer.io? Encontre mais detalhes
+          <a href="https://github.com/afternoonrobot/photographer-io#translations">no
+          nosso repositório GitHub</a>.
+        enable_comments_by_default: >
+          Ativar comentários em tópicos por omissão para todas as novas fotografias
+          que carrega, utilizando os tópicos de comentários definidos aqui.
+        default_comment_threads: >
+          Defina os tópicos de comentários padrão a serem utilizados nas suas fotografias
+          aqui. Pode definir padrões sem ativar os comentários por omissão.
+        show_profile_background: >
+          Se não desejar mostrar uma fotografia em grande como fundo de perfil na
+          sua página de perfil, pode desativar a opção aqui.
+        profile_background_photo_id: >
+          Pode escolher uma foto específica para o perfil de fundo. Por omissão será
+          uma foto aleatória das suas fotos carregadas.
+  helpers:
+    submit:
+      comment:
+        create: "Publicar comentário"
+        update: "Atualizar"
+      mass_edit:
+        create: "Atualizar"
+      user:
+        update: "Atualizar detalhes da sua conta"
+        create: "Criar a sua conta"

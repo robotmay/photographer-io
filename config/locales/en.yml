@@ -9,6 +9,9 @@ en:
     © Photographer.io, Afternoon Robot Ltd, 2013. Icons courtesy of 
     <a href="http://glyphicons.com">glyphicons.com</a>.
 
+    Powered by <a href="https://www.digitalocean.com/?refcode=0d41e836e212">
+    Digital Ocean</a> servers.
+
   privacy: "Privacy Policy"
   terms: "Terms"
   confirm_delete: "Are you sure?"
@@ -29,9 +32,12 @@ en:
 
   locales:
     en: "English"
-    fr: "Français"
+    es: "Español <abbr title='Beta'>*</abbr>"
+    fr: "Français <abbr title='Beta'>*</abbr>"
     nl_NL: "Nederlands"
     pl: "Polski"
+    pt_PT: "Português (Portugal) <abbr title='Beta'>*</abbr>"
+    pt_BR: "Português (Brasil) <abbr title='Beta'>*</abbr>"
     ru_RU: "русский"
 
   metadata:
@@ -355,7 +361,7 @@ en:
       upload: "Upload"
       delete: "Delete this photograph"
       dropzone: >
-        Drag and drop your images onto this page to upload them. 
+        You can drag and drop your images onto this page to upload them. 
         Read up on our %{guidelines}.
       public_warning: >
         This collection is set as public. Any photos in here will be listed on

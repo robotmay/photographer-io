@@ -11,6 +11,52 @@ describe Metadata do
   describe "methods" do
     let(:metadata) { Metadata.new }
 
+    describe "#set_format" do
+      context "height or width are nil" do
+        before { metadata.stub(:format) { "unknown" } }
+
+        it "sets format to unknown" do
+          metadata.format.should == 'unknown'
+        end
+      end
+
+      context "height and width are equal" do
+        before { metadata.stub(:format) { 'square' } }
+
+        describe "#square?" do
+          it "returns true" do
+            metadata.square?.should == true
+          end
+        end
+      end
+
+      context "height is greater than width" do
+        before { metadata.stub(:format) { 'portrait' } }
+
+        describe "#portrait?" do
+          it "returns true" do
+            metadata.portrait?.should == true
+          end
+        end
+
+        describe "#square?" do
+          it "returns false" do
+            metadata.square?.should == false
+          end
+        end
+      end
+
+      context "height is lesser than width" do
+        before { metadata.stub(:format) { 'landscape' } }
+
+        describe "#landscape?" do
+          it "returns true" do
+            metadata.landscape?.should == true
+          end
+        end
+      end
+    end
+
     describe "#title" do
       context "not blank" do
         before { metadata.stub(:read_attribute) { "Wibble" } }
@@ -55,7 +101,7 @@ describe Metadata do
 
     describe "#rotate?" do
       context "rotate" do
-        before { metadata.stub(:camera) { { 'camera_orientation' => 'Rotate 90 CW' } } }
+        before { metadata.stub(:camera) { { 'orientation' => 'Rotate 90 CW' } } }
 
         it "returns true" do
           metadata.rotate?.should be true
@@ -70,8 +116,8 @@ describe Metadata do
     end
 
     describe "#rotate_by" do
-      context "clockwise" do      
-        before { metadata.stub(:camera) { { 'camera_orientation' => 'Rotate 90 CW' } } }
+      context "clockwise" do
+        before { metadata.stub(:camera) { { 'orientation' => 'Rotate 90 CW' } } }
 
         it "returns a positive number" do
           metadata.rotate_by.should eq(90)
@@ -79,7 +125,7 @@ describe Metadata do
       end
 
       context "counter-clockwise" do
-        before { metadata.stub(:camera) { { 'camera_orientation' => 'Rotate 90 CCW' } } }
+        before { metadata.stub(:camera) { { 'orientation' => 'Rotate 90 CCW' } } }
 
         it "returns a negative number" do
           metadata.rotate_by.should eq(-90)
@@ -87,10 +133,50 @@ describe Metadata do
       end
 
       context "not a rotation command" do
-        before { metadata.stub(:camera) { { 'camera_orientation' => 'Horizontal (normal)' } } }
-  
+        before { metadata.stub(:camera) { { 'orientation' => 'Horizontal (normal)' } } }
+
         it "returns nil" do
           metadata.rotate_by.should be nil
+        end
+      end
+    end
+
+    describe "#fetch_title" do
+      let(:exif) { double(title: title, caption: caption, subject: subject) }
+      let(:title) { nil }
+      let(:caption) { nil }
+      let(:subject) { nil }
+
+      context "title present" do
+        let(:title) { "Wibble" }
+
+        it "returns title" do
+          metadata.fetch_title(exif).should eq(title)
+        end
+      end
+
+      context "caption present" do
+        let(:caption) { "Wobble" }
+
+        it "returns caption" do
+          metadata.fetch_title(exif).should eq(caption)
+        end
+      end
+
+      context "subject present" do
+        let(:subject) { "Wubble" }
+
+        it "returns subject" do
+          metadata.fetch_title(exif).should eq(subject)
+        end
+      end
+
+      context "multiple present" do
+        let(:caption) { "Wobble" }
+        let(:subject) { "Wubble" }
+
+        it "returns caption" do
+          metadata.fetch_title(exif).should eq(caption)
         end
       end
     end

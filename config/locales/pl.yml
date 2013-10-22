@@ -324,7 +324,7 @@ pl:
         Ponieważ ten filtr dotyczy zdjęć, a nie kolekcji, wszystkie dodane tu zdjęcia
         zostaną dodane do nieposortowanych.
       edit_mode:
-        button: "Tryb edycji"
+        button: "Wybór wielu"
         change_collections: "Dodaj do kolekcji"
         collection_note: >
           Zdjęcia nie zostaną usunięte z kolekcji jeśli w trybie zarządzania nie odznaczysz
@@ -350,9 +350,11 @@ pl:
         failed: "Wystąpił problem podczas zapisywania zdjęcia. Poczytaj o tych błędach poniżej."
       mass_update:
         no_photos_selected: "Nie zaznaczono żadnych zdjęć."
+        failed: "Wystąpił błąd podczas próby aktualizacji zdjęć"
         collections:
           succeeded: "Kolekcje zdjęć zostały zaktualizowane."
-          failed: "Pojawił się problem podczas próby aktualizacji kolekcji"
+        delete:
+          succeeded: "Udało się usunąć zdjęcia."
       destroy:
         succeeded: "Twoje zdjęcie zostało usunięte."
         failed: "Pojawił się problem z usunięciem tego zdjęcia."
@@ -420,7 +422,7 @@ pl:
       body: >
         To jest automatycznie wysłany e-mail z powiadomieniem na poniższy temat:
   photographs:
-    title: "%{title}, autor: %{by}"
+    title: "%{title}, użytkownik: %{by}"
     user_quota_exceeded: >
       Niestety, na ten miesiąc limit wysłanych zdjęć został już przez ciebie wykorzystany
       :(

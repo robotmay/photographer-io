@@ -1,0 +1,56 @@
+tr_TR:
+  devise:
+    confirmations:
+      confirmed: "Hesabınız başarıyla doğrulandı. Artık oturum açabilirsiniz."
+      send_instructions: "Bir kaç dakika içinde hesabınızı onaylamanız için bir e-posta alacaksınız."
+      send_paranoid_instructions: "E-posta adresiniz bizim veritabanımızda varsa,  bir kaç dakika içinde hesabınızı onaylamanız için bir e-posta alacaksınız."
+    failure:
+      already_authenticated: "Zaten oturum açmışsınız."
+      inactive: "Hesabınız henüz aktif değil."
+      invalid: "Geçersiz e-posta veya şifre."
+      invalid_token: "Kimlik doğrulama isteği geçersizdir."
+      locked: "Hesabınız kilitlenmiştir."
+      not_found_in_database: "Geçersiz e-posta veya şifre."
+      timeout: "Oturumunuz zaman aşımına uğradı, devam etmek için tekrar oturum açın."
+      unauthenticated: "Devam etmek için oturum açmanız veya kaydolmanız gerekir."
+      unconfirmed: "Devam etmeden önce hesabınızı onaylamalısınız."
+    mailer:
+      confirmation_instructions:
+        subject: "Onaylama talimatları"
+      reset_password_instructions:
+        subject: "Parola sıfırlama talimatları"
+      unlock_instructions:
+        subject: "Kilitli hesabı açmak için talimatlar"
+    omniauth_callbacks:
+      failure: "%{kind} \"%{reason}\" nedeni ile hesap doğrulaması yapılamadı."
+      success: "%{kind} hesabınız doğrulanmıştır."
+    passwords:
+      no_token: "Parola sıfırlama e-postası gelmediyse bu sayfaya ulaşamazsınız. Parola sıfırlama e-postası geldiyse, lütfen bağlantı adresinin doğruluğundan emin olun."
+      send_instructions: "Bir kaç dakika içinde şifrenizi sıfırlamak için bir e-posta alacaksınız."
+      send_paranoid_instructions: "E-posta adresiniz bizim veritabanımızda varsa,  bir kaç dakika içinde şifrenizi sıfırlamak için bir e-posta alacaksınız."
+      updated: "Parolanız başarıyla değiştirildi. Artık oturum açabilirsiniz."
+      updated_not_active: "Parolanız başarıyla değiştirildi."
+    registrations:
+      destroyed: "Hoşçakalın! Hesabınız başarıyla iptal edildi. Yakında tekrar görmeyi umuyoruz."
+      signed_up: "Hoşgeldiniz! Başarıyla giriş yaptınız."
+      signed_up_but_inactive: "Başarıyla giriş yaptınız. Ancak, hesabınız aktif olmadığından oturumunuz açılamadı."
+      signed_up_but_locked: "Başarıyla giriş yaptınız. Ancak, hesabınız kilitli olduğundan oturumunuz açılamadı."
+      signed_up_but_unconfirmed: "E-posta adresinize onaylamanız için bir bağlantı gönderildi. Hesabınızı etkinleştirmek için bağlantıyı onaylamalısınız."
+      update_needs_confirmation: "Hesabınızı güncelleştirmek için yeni e-posta adresinizi doğrulamanız gerekmektedir. E-posta adresinize gönderilen bağlantıyı onaylayarak doğrulamayı tamamlayabilirsiniz."
+      updated: "Hesabınız başarıyla güncellendi."
+    sessions:
+      signed_in: "Başarılı bir şekilde oturum açtınız."
+      signed_out: "Başarılı bir şekilde oturumunuzu kapattınız."
+    unlocks:
+      send_instructions: "Bir kaç dakika içinde hesabınızın kilidini nasıl kaldıracağınızı anlatan bir e-posta alacaksınız."
+      send_paranoid_instructions: "Hesabınız bulunmaktaysa, birkaç dakika içinde kilidini nasıl kaldıracağınızı anlatan bir e-posta alacaksınız."
+      unlocked: "Hesabınız kilidi başarıyla açıldı. Devam etmek için lütfen oturum açın."
+  errors:
+    messages:
+      already_confirmed: "zaten doğrulanmış, lütfen oturum açmayı deneyin"
+      confirmation_period_expired: "%{period} içinde onaylanması gerekiyordu, lütfen yeniden talep edin"
+      expired: "süresi doldu, lütfen yeniden talep edin"
+      not_found: "bulunamadı"
+      not_locked: "kilitli değil"
+      not_saved:
+        other: "%{count} hatalarının bu %{resource} yüzünden kaydedilmesi yasaklanmıştır:"

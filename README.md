@@ -41,7 +41,7 @@ The default is technically British English, which I feel I should point out befo
 ## Development
 To run this app you'll likely need a rough understanding of how Rails apps work these days. You will also need:
 
-* Postgresql 9.2+ (it uses a number of DB specific features)
+* Postgresql 9.2+ (it uses a number of DB specific features), with uuid-ossp extension
 * Redis
 * Memcached
 * Solr (if you want search, otherwise it's safe-ish to ignore for now)

@@ -41,6 +41,10 @@ class Photograph < ActiveRecord::Base
     storage_path { |i| image_storage_path(i) }
   end
 
+  image_accessor :small_thumbnail_image do
+    storage_path { |i| image_storage_path(i) }
+  end
+
   counter :views
   value :highest_rank
 
@@ -186,11 +190,11 @@ class Photograph < ActiveRecord::Base
     PhotoExpansionWorker.perform_async(id)
   end
 
-  after_save { MentionWorker.perform_async(id) }
+  after_commit { MentionWorker.perform_async(id) }
   def auto_mention
     if self.public? && !auto_mentioned
       user.authorisations.auto_post.each do |a|
-        a.mention url_helpers.photograph_url(self, host: ENV['DOMAIN'])
+        a.mention url_helpers.photograph_url(self, host: ENV['DOMAIN'], locale: I18n.locale)
         Rails.logger.info "Mentioned on #{a.provider} for #{a.uid}"
       end
 
@@ -217,7 +221,10 @@ class Photograph < ActiveRecord::Base
 
   after_destroy :expire_from_cdn
   def expire_from_cdn
-    paths = [:standard_image, :homepage_image, :large_image, :thumbnail_image].map do |m|
+    paths = [
+      :standard_image, :homepage_image, :large_image, 
+      :thumbnail_image, :small_thumbnail_image
+    ].map do |m|
       url = self.send(m).try(:remote_url)
       unless url.nil?
         uri = URI.parse(URI.escape(url))
@@ -269,7 +276,7 @@ class Photograph < ActiveRecord::Base
   def increment_score(by = 1)
     Photograph.rankings.increment(id, by)
     set_highest_rank
-    Worker.perform_in(2.days, 'Photograph', id, :decrement_score, by)
+    Worker.perform_in(7.days, 'Photograph', id, :decrement_score, (by - (by * 0.01)))
   end
 
   def decrement_score(by = 1)
@@ -355,16 +362,18 @@ class Photograph < ActiveRecord::Base
     # Sorted by place in rankings
     #
     # @return [Array]
-    def recommended(user = nil, n = nil)
-      photo_ids = if n.present? && n > 0
-        Photograph.rankings.revrange(0,(n - 1))     
+    def recommended(opts = {})
+      photo_ids = if opts[:n].present? && opts[:n] > 0
+        all_photo_ids = Photograph.rankings.revrange(0,(opts[:n] - 1))
       else
-        Photograph.rankings.members.reverse
+        highest_score = Photograph.rankings.score(Photograph.rankings.last) || 1
+        all_photo_ids = Photograph.rankings.revrangebyscore(highest_score, 0.01)
+        Kaminari.paginate_array(all_photo_ids).page(opts[:page]).per(Photograph.default_per_page)
       end
       
-      photographs = view_for(user).includes(:metadata).where(id: photo_ids).group_by(&:id)
-
-      photo_ids.map { |id| photographs[id.to_i] }.compact.map(&:first)
+      photographs = view_for(nil).includes(:metadata).where(id: photo_ids).group_by(&:id)
+      sorted_photographs = photo_ids.map { |id| photographs[id.to_i] }.compact.map(&:first)
+      Kaminari.paginate_array(sorted_photographs, total_count: all_photo_ids.size).page(opts[:page]).per(Photograph.default_per_page)
     end
 
     # Not sure why but combining scopes for this breaks it, so hardcoding it

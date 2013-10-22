@@ -39,11 +39,6 @@ class PhotoExpansionWorker
       # Create a standard image for generating the smaller sizes
       standard_image = @photo.image.thumb("3000x3000>")
 
-      # Rotate the image if the metadata says so
-      if @photo.metadata.rotate?
-        standard_image = standard_image.process(:rotate, @photo.metadata.rotate_by)
-      end
-
       # Set the standard image and save
       @photo.standard_image = standard_image
       @photo.save!
@@ -68,6 +63,7 @@ class PhotoExpansionWorker
     end
 
     ImageWorker.perform_async(@photo.id, :standard_image, :thumbnail_image, "500x500>", "-quality 70")
+    ImageWorker.perform_async(@photo.id, :standard_image, :small_thumbnail_image, "100x100#", "-quality 70")
   end
 
   def generate_image(source, target, size, encode_opts)

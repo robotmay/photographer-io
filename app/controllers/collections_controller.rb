@@ -31,12 +31,12 @@ class CollectionsController < ApplicationController
       @collections = Collection.visible
     end
 
-    @collections = @collections.view_for(current_user).uniq.includes(:user).order("created_at DESC").page(params[:page])
+    @collections = @collections.view_for(current_user).uniq.includes(:user).order("last_photo_added_at DESC").page(params[:page])
     respond_with @collections
   end
 
   def explore
-    @collections = Collection.view_for(current_user).uniq.includes(:user).order("updated_at DESC").page(params[:page])
+    @collections = Collection.view_for(current_user).uniq.includes(:user).order("last_photo_added_at DESC").page(params[:page])
 
     set_title t("titles.explore")
 
@@ -49,7 +49,7 @@ class CollectionsController < ApplicationController
     @collection = Collection.find(params[:id])
     authorize! :read, @collection
     track_view_for_collection(@collection)
-    @photographs = @collection.photographs.page(params[:page])
+    @photographs = @collection.photographs.visible.page(params[:page])
     respond_with @collection
   end
 

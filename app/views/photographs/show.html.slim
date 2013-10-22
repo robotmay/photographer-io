@@ -96,11 +96,16 @@ section id="photographs-show"
         - if @photograph.collections.visible.count > 0
           div class="panel"
             h5= t("photographs.collections")
-            table
+            table class="collections"
               tbody
                 - @photograph.collections.visible.each do |collection|
                   tr
-                    td= link_to collection.name, collection_path(collection)
+                    td
+                      h6= link_to collection.name, collection_path(collection)
+                      div class="photo-strip"
+                        - collection.photographs.view_for(current_user).uniq.limit(6).each do |photo|
+                          = link_to photograph_path(photo) do
+                            = photo_tag photo, :small
 
         - if @photograph.metadata.keywords.size > 0
           div class="panel"
@@ -112,7 +117,8 @@ section id="photographs-show"
                     span class="label radius"
                       = keyword
 
-          - if @photograph.show_location_data && @photograph.metadata.has_location_data?
+        - if @photograph.show_location_data && @photograph.metadata.has_location_data?
+          div class="panel"
             h5= t("photographs.location")
             = render partial: "map", locals: { photograph: @photograph }
 

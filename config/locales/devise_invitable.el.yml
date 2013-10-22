@@ -1,0 +1,17 @@
+el:
+  devise:
+    invitations:
+      send_instructions: 'Εστάλη μήνυμα ηλεκτρονικού ταχυδρομείο στη διεύθυνση %{email}.'
+      invitation_token_invalid: 'Το κουπόνι πρόσκλησης δεν είναι έγκυρο!'
+      updated: 'Ο κωδικός πρόσβασής σας ορίστηκε με επιτυχία. Είσαστε τώρα συνδεδεμένοι.'
+      no_invitations_remaining: "Δεν απομένουν προσκλήσεις"
+      invitation_removed: 'Η πρόσκλησή σας αφαιρέθηκε.'
+      new:
+        header: "Αποστολή πρόσκλησης"
+        submit_button: "Στείλτε μία πρόσκληση"
+      edit:
+        header: "Θέστε τον κωδικό σας"
+        submit_button: "Θέσε τον κωδικό μου"
+    mailer:
+      invitation_instructions:
+        subject: 'Φίλος/η σας προσκάλεσαν στο Photographer.io'

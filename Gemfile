@@ -51,8 +51,8 @@ gem 'rack-cache'
 gem 'multi_fetch_fragments', github: 'robotmay/multi_fetch_fragments'
 
 # services
-gem 'puma'
-gem 'sidekiq'
+gem 'puma', '2.6.0'
+gem 'sidekiq', '2.15.0'
 gem 'airbrake'
 gem 'newrelic_rpm'
 gem 'postmark-rails'
@@ -67,9 +67,7 @@ gem 'coveralls', require: false
 gem 'devise', '3.0.0.rc'
 gem 'devise_invitable', git: 'git://github.com/robotmay/devise_invitable.git', branch: 'rails4'
 gem 'devise-async'
-# gem 'devise-scrypt' TODO: Switch to scrypt, gem needs updating
 gem 'cancan'
-gem 'scrypt'
 
 # omniauth
 gem 'omniauth-google-oauth2', github: 'murryivanoff/omniauth-google-oauth2'
@@ -88,7 +86,7 @@ gem 'kaminari'
 gem 'redcarpet'
 
 # models
-gem 'friendly_id', github: 'FriendlyId/friendly_id', branch: 'rails4'
+gem 'friendly_id', '5.0.0.rc1'
 gem 'closure_tree', github: 'mceachen/closure_tree', branch: 'wip_rails4'
 
 # assets
@@ -128,4 +126,8 @@ group :development, :test do
 
   # mailers
   gem 'letter_opener'
+
+  # utility
+  gem 'launchy'
+  gem 'timecop'
 end

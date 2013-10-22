@@ -17,6 +17,15 @@ namespace :iso do
       end
     end
 
+    task :set_last_photo_created_at_on_collections => :environment do
+      Collection.find_each do |collection|
+        photo = collection.photographs.order("created_at DESC").first
+        unless photo.nil?
+          collection.update_column(:last_photo_created_at, photo.created_at)
+        end
+      end
+    end
+
     task :repair_metadata => :environment do
       require 'csv'
 

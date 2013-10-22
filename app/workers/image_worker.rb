@@ -9,6 +9,11 @@ class ImageWorker
       source = photo.send(source)
       if source.present?
         image = source.thumb(size).encode(:jpg, encode_opts)
+
+        if photo.metadata.rotate?
+          image = image.process(:rotate, photo.metadata.rotate_by)
+        end
+
         photo.send("#{target}=", image)
         photo.save!
       else

@@ -30,6 +30,8 @@ nl_NL:
         show_social_buttons: "Laat social knoppen zien"
         locale: "Plaats"
         enable_comments_by_default: "Commentaar standaard aan"
+        show_profile_background: "Laat profiel achtergrond zien"
+        profile_background_photo_id: "Profiel achtergrond foto"
     placeholders:
       comment_thread:
         subject: "bijv. Welke vogelsoort is dit? Of: Wat vinden jullie van mijn kleur keuzes?"
@@ -123,6 +125,12 @@ nl_NL:
           Stel hier de standaard commentaar draden in die je wil gebruiken voor je
           foto's. Je kunt de standaard instellingen zetten zonder commentaar aan te
           zetten.
+        show_profile_background: >
+          Als je geen grote foto op de achtergrond van je publieke profiel pagina
+          wilt laten zien, kun je dat hier uit zetten.
+        profile_background_photo_id: >
+          Je kunt een foto kiezen voor je profiel achtergrond. Standaard is dit een
+          willekeurige publieke foto uit je uploads.
   helpers:
     submit:
       comment:

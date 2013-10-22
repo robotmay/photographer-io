@@ -2,11 +2,9 @@ $(document).ready ->
   photoForm = $("form#photograph-uploader")
   if photoForm.length > 0
     photoForm.S3Uploader
-      progress_bar_target: photoForm.find(".dropzone .bars")
+      progress_bar_target: photoForm.parent().find(".bars")
       before_add: (file) ->
         file.type == "image/jpeg"
-
-    photoForm.find("input[type = 'file']").hide()
 
     photoForm.bind "ajax:success", (e, data) ->
       $(".photo-grid").prepend(data).find("img").load ->

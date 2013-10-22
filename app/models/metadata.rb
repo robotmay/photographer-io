@@ -5,7 +5,7 @@ class Metadata < ActiveRecord::Base
   CAMERA_ATTRIBUTES = [
     :make, :model, :serial_number, :camera_type, :lens_type, :lens_model,
     :max_focal_length, :min_focal_length, :max_aperture, :min_aperture,
-    :num_af_points, :sensor_width, :sensor_height, :camera_orientation
+    :num_af_points, :sensor_width, :sensor_height, :orientation
   ]
 
   SETTINGS_ATTRIBUTES = [
@@ -89,7 +89,7 @@ class Metadata < ActiveRecord::Base
       Metadata.benchmark "Extracting EXIF" do
         exif = photograph.exif
 
-        self.title        = exif.title if title.blank?
+        self.title        = fetch_title(exif) if title.blank?
         self.description  = exif.description if description.blank?
         self.keywords     = exif.keywords if keywords.blank?
 
@@ -111,6 +111,10 @@ class Metadata < ActiveRecord::Base
       self.creator ||= {}
       self.image ||= {}
     end
+  end
+
+  def fetch_title(exif)
+    [:title, :caption, :subject].map { |a| exif.send(a) }.keep_if(&:present?).first
   end
 
   def convert_lat_lng
@@ -177,12 +181,12 @@ class Metadata < ActiveRecord::Base
   end
 
   def rotate?
-    camera.present? && camera['camera_orientation'].present?
+    rotate_by.present? && (rotate_by < 0 || rotate_by > 0)
   end
 
   def rotate_by
-    if rotate?
-      match = camera['camera_orientation'].match(/Rotate (\d+) (CW|CCW)/)
+    if camera.present? && camera['orientation'].present?
+      match = camera['orientation'].match(/Rotate (\d+) (CW|CCW)/)
 
       if match
         degrees = match[1]

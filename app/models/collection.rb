@@ -7,10 +7,9 @@ class Collection < ActiveRecord::Base
   has_many :reports, as: :reportable
 
   paginates_per 50
-
   attr_accessor :password
-  value :cover_photo_id
 
+  value :cover_photo_id
   counter :views
 
   validates :user_id, :name, presence: true
@@ -43,7 +42,7 @@ class Collection < ActiveRecord::Base
 
   def cover_photo(category = nil)
     #TODO Allow user to specify the cover image for the collection
-    Rails.cache.fetch([self, :cover_photo, category], expires_in: 1.hour) do
+    Rails.cache.fetch([self, last_photo_added_at, :cover_photo, category], expires_in: 1.hour) do
       photos = photographs.safe_for_work.not_processing.not_ghost.order("created_at DESC")
       if category.present?
         photos = photos.where(category_id: category.id)

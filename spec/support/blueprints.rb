@@ -9,6 +9,10 @@ Collection.blueprint do
   name { Faker::Lorem.word }
 end
 
+CollectionPhotograph.blueprint do
+
+end
+
 Comment.blueprint do
   user
   comment_thread

@@ -59,8 +59,7 @@ class PhotographsController < ApplicationController
   end
 
   def recommended
-    sorted_photographs = Photograph.recommended(current_user)
-    @photographs = Kaminari.paginate_array(sorted_photographs).page(params[:page]).per(Photograph.default_per_page)
+    @photographs = Photograph.recommended(page: params[:page])
     set_title t("titles.recommended")
     respond_with @photographs do |f|
       f.html { render :index }
