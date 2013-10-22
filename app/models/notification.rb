@@ -1,23 +1,15 @@
 class Notification < ActiveRecord::Base
   belongs_to :user
   belongs_to :notifiable, polymorphic: true
-  has_many :stories, as: :subject
 
   delegate :url_helpers, to: 'Rails.application.routes' 
+  
+  paginates_per 10
 
   validates :user_id, :notifiable_id, :notifiable_type, :subject, presence: true
 
   scope :read, -> { where(read: true) }
   scope :unread, -> { where(read: false) }
-
-  after_create :create_story
-  def create_story
-    stories.create(
-      user_id: user.id,
-      key: "stories.notification",
-      values: { text: subject }
-    )
-  end
 
   after_commit :push, on: :create
   def push
@@ -40,5 +32,16 @@ class Notification < ActiveRecord::Base
 
   def mark_as_read
     self.update_attribute(:read, true)
+  end
+
+  def image
+    case notifiable.class.to_s
+    when "Favourite"
+      notifiable.photograph.small_thumbnail_image
+    when "Following"
+      notifiable.follower.avatar
+    else
+      nil
+    end
   end
 end

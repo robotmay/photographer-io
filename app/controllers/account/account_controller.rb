@@ -4,7 +4,7 @@ module Account
     layout 'account'
 
     def dashboard
-      @stories = current_user.stories.order("created_at DESC").page(params[:page])
+      @notifications = current_user.notifications.order("created_at DESC").page(params[:page])
     end
   end
 end

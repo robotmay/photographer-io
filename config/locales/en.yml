@@ -264,7 +264,8 @@ en:
         As a member you can upload and organise your photographs before publishing
         them on the public-facing site.
 
-      stories: 
+      notifications: 
+        title: "Activity"
         empty: >
           Activity and notifications will appear here over time, but at the moment
           you haven't received any!
