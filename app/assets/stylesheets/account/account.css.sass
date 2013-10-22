@@ -21,6 +21,37 @@
       margin:
         top: 10px
 
+  #account-dashboard
+    ol.notifications
+      width: 100%
+      list-style: none
+      margin: 0
+
+      li
+        padding: 10px
+        margin-bottom: 10px
+        @include box-shadow
+
+        &.read
+          opacity: 0.8
+
+        &:nth-child(even)
+          background: $body-bg - rgb(2,2,2)
+
+        .image
+          float: left
+          width: 50px
+          height: 50px
+          margin:
+            right: 10px
+
+        .text
+          float: left
+          .subject, time
+            display: block
+
+          time
+            color: $header-font-color + #333
 
   .panel:not(.callout)
     @include white-box

@@ -1,68 +1,74 @@
 section id="account-dashboard"
-  div class="row"
-    div class="large-12 columns"
-      article class="panel callout secondary"
-        h3= t("account.dashboard.title")
-        = simple_format t("account.dashboard.blurb")
+  div class="panel"
+    div class="row"
+      div class="large-12 columns"
+        h2= t("account.dashboard.title")
 
-  div class="row"
-    div class="large-4 columns"
-      h4= t("account.dashboard.statistics.title")
+    div class="row"
+      div class="large-8 columns"
+        h4= t("account.dashboard.notifications.title")
 
-      table
-        tbody
-          tr
-            td= t("account.dashboard.statistics.photo_count")
-            td= current_user.photographs.uniq.count
-          tr
-            td= t("account.dashboard.statistics.public_photo_count")
-            td= current_user.photographs.visible.uniq.count
-          tr
-            td= t("account.dashboard.statistics.private_photo_count")
-            td= current_user.photographs.hidden.uniq.count
-          tr
-            td= t("account.dashboard.statistics.views")
-            td= current_user.photograph_views.to_i
-          tr
-            td= t("account.dashboard.statistics.recommendations")
-            td= current_user.received_recommendations_count.to_i
-          tr
-            td= t("account.dashboard.statistics.favourites")
-            td= current_user.received_favourites_count.to_i
+        - if @notifications.count > 0
+          ol class="notifications"
+            - @notifications.each do |note|
+              li class=(note.read ? "read" : "unread")
+                = link_to notification_url(note) do
+                  div class="image"
+                    - if note.image.present?
+                      = image_tag note.image.thumb("50x50#").url, alt: ""
+                  div class="text"
+                    span class="subject"
+                      = note.subject
+                    time utc=(note.created_at.utc)
+                      = l note.created_at, format: :long
+                  .clear
 
-    div class="large-4 columns"
-      h4= t("account.dashboard.recommendations.title")
+          = paginate @notifications
+        - else
+          = t("account.dashboard.notifications.empty")
+  
+      div class="large-4 columns"
+        h4= t("account.dashboard.statistics.title")
 
-      table
-        tbody
-          tr
-            td= t("account.dashboard.recommendations.quota", n: current_user.recommendation_quota)
-          tr
-            td= t("account.dashboard.recommendations.remaining", n: current_user.remaining_recommendations_for_today)
-          tr
-            td= t("account.dashboard.recommendations.total", n: current_user.recommendations.count)
+        table
+          tbody
+            tr
+              td= t("account.dashboard.statistics.photo_count")
+              td= current_user.photographs.uniq.count
+            tr
+              td= t("account.dashboard.statistics.public_photo_count")
+              td= current_user.photographs.visible.uniq.count
+            tr
+              td= t("account.dashboard.statistics.private_photo_count")
+              td= current_user.photographs.hidden.uniq.count
+            tr
+              td= t("account.dashboard.statistics.views")
+              td= current_user.photograph_views.to_i
+            tr
+              td= t("account.dashboard.statistics.recommendations")
+              td= current_user.received_recommendations_count.to_i
+            tr
+              td= t("account.dashboard.statistics.favourites")
+              td= current_user.received_favourites_count.to_i
 
-    div class="large-4 columns"
-      h4= t("account.dashboard.usage.title")
+        h4= t("account.dashboard.recommendations.title")
+        table
+          tbody
+            tr
+              td= t("account.dashboard.recommendations.quota", n: current_user.recommendation_quota)
+            tr
+              td= t("account.dashboard.recommendations.remaining", n: current_user.remaining_recommendations_for_today)
+            tr
+              td= t("account.dashboard.recommendations.total", n: current_user.recommendations.count)
 
-      table
-        tbody
-          tr
-            td= t("account.dashboard.usage.quota", n: current_user.upload_quota)
-          
-          tr
-            td= t("account.dashboard.usage.remaining", n: current_user.remaining_uploads_for_this_month)
+        h4= t("account.dashboard.usage.title")
+        table
+          tbody
+            tr
+              td= t("account.dashboard.usage.quota", n: current_user.upload_quota)
+            
+            tr
+              td= t("account.dashboard.usage.remaining", n: current_user.remaining_uploads_for_this_month)
 
-          tr
-            td= t("account.dashboard.usage.get_more", path: new_user_invitation_path).html_safe
-
-  div class="row"
-    div class="large-8 columns"
-      div class="panel hints"
-        header
-          h4= t("account.dashboard.hints.title")
-
-        ul
-          li= t("account.dashboard.hints.public_collections")
-          li= t("account.dashboard.hints.recommendations")
-          li= t("account.dashboard.hints.homepage")
+            tr
+              td= t("account.dashboard.usage.get_more", path: new_user_invitation_path).html_safe
