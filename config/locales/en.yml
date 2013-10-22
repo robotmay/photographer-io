@@ -264,6 +264,12 @@ en:
         As a member you can upload and organise your photographs before publishing
         them on the public-facing site.
 
+      notifications: 
+        title: "Activity"
+        empty: >
+          Activity and notifications will appear here over time, but at the moment
+          you haven't received any!
+
       statistics:
         title: "Statistics"
         views: "Total views for your photographs"
@@ -478,6 +484,8 @@ en:
     destroy:
       succeeded: "You are no longer following that user."
       failed: "There was a problem removing that user from your followings."
+    notifications:
+      subject: "%{user} is now following you"
 
   notifications:
     title: "Notifications"
@@ -670,3 +678,6 @@ en:
         Report created. This photo is now hidden from public browsing.
       failed: >
         There was a problem creating the report. Check for errors below.
+
+  stories:
+    notification: "%{text}"

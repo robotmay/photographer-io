@@ -3,6 +3,8 @@ class Notification < ActiveRecord::Base
   belongs_to :notifiable, polymorphic: true
 
   delegate :url_helpers, to: 'Rails.application.routes' 
+  
+  paginates_per 10
 
   validates :user_id, :notifiable_id, :notifiable_type, :subject, presence: true
 
@@ -30,5 +32,16 @@ class Notification < ActiveRecord::Base
 
   def mark_as_read
     self.update_attribute(:read, true)
+  end
+
+  def image
+    case notifiable.class.to_s
+    when "Favourite"
+      notifiable.photograph.small_thumbnail_image
+    when "Following"
+      notifiable.follower.avatar
+    else
+      nil
+    end
   end
 end

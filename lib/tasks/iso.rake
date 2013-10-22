@@ -1,5 +1,9 @@
 namespace :iso do
   namespace :maintenance do
+    task :create_stories => :environment do
+      Notification.find_each(&:create_story)
+    end
+
     task :repair_image_permissions => :environment do
       bucket = $s3_client.buckets.find(ENV['S3_BUCKET'])
       Photograph.find_each do |p|

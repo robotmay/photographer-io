@@ -3,6 +3,7 @@ require 'spec_helper'
 describe Following do
   it { should belong_to(:followee) }
   it { should belong_to(:follower) }
+  it { should have_many(:notifications) }
 
   [:followee_id, :follower_id].each do |attr|
     it { should validate_presence_of(attr) }
@@ -16,7 +17,6 @@ describe Following do
 
     before do
       following.stub(:persisted?) { true }
-      following.stub(:notify) { true }
       followee.stub(:followers_count) { counter }
       followee.stub(:push_stats) { true }
     end
@@ -30,6 +30,10 @@ describe Following do
 
       it "pushes the new stats" do
         followee.should_receive(:push_stats)
+      end
+      
+      it "creates a notification" do
+        following.notifications.should_receive(:create)
       end
     end
 

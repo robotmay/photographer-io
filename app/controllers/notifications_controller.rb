@@ -17,6 +17,8 @@ class NotificationsController < ApplicationController
       photograph_path(@notification.notifiable.comment_thread.threadable)
     when "Favourite"
       photograph_path(@notification.notifiable.photograph)
+    when "Following"
+      short_user_path(@notification.notifiable.follower.username)
     else
       home_path
     end
