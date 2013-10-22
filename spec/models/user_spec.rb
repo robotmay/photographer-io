@@ -20,7 +20,6 @@ describe User do
   it { should have_many(:old_usernames) }
   it { should have_many(:default_comment_threads) }
   it { should have_many(:reports) }
-  it { should have_many(:stories) }
 
   it { should accept_nested_attributes_for(:default_comment_threads) }
 

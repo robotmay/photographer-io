@@ -8,6 +8,7 @@ class Following < ActiveRecord::Base
   after_create do
     followee.followers_count.increment
     followee.push_stats
+    notify
   end
 
   after_destroy do
@@ -15,7 +16,6 @@ class Following < ActiveRecord::Base
     followee.push_stats
   end
 
-  after_create :notify
   def notify
     I18n.with_locale(followee.locale) do
       notifications.create(
