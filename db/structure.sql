@@ -687,41 +687,6 @@ ALTER SEQUENCE sidekiq_jobs_id_seq OWNED BY sidekiq_jobs.id;
 
 
 --
--- Name: stories; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE stories (
-    id integer NOT NULL,
-    user_id integer,
-    subject_id integer,
-    subject_type character varying(255),
-    key character varying(255),
-    "values" hstore,
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone
-);
-
-
---
--- Name: stories_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE stories_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: stories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE stories_id_seq OWNED BY stories.id;
-
-
---
 -- Name: users; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -914,13 +879,6 @@ ALTER TABLE ONLY sidekiq_jobs ALTER COLUMN id SET DEFAULT nextval('sidekiq_jobs_
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY stories ALTER COLUMN id SET DEFAULT nextval('stories_id_seq'::regclass);
-
-
---
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
---
-
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
 
 
@@ -1058,14 +1016,6 @@ ALTER TABLE ONLY reports
 
 ALTER TABLE ONLY sidekiq_jobs
     ADD CONSTRAINT sidekiq_jobs_pkey PRIMARY KEY (id);
-
-
---
--- Name: stories_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY stories
-    ADD CONSTRAINT stories_pkey PRIMARY KEY (id);
 
 
 --
@@ -1420,20 +1370,6 @@ CREATE INDEX index_sidekiq_jobs_on_status ON sidekiq_jobs USING btree (status);
 
 
 --
--- Name: index_stories_on_subject_id_and_subject_type; Type: INDEX; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE INDEX index_stories_on_subject_id_and_subject_type ON stories USING btree (subject_id, subject_type);
-
-
---
--- Name: index_stories_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE INDEX index_stories_on_user_id ON stories USING btree (user_id);
-
-
---
 -- Name: index_users_on_email; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -1629,3 +1565,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130826132056');
 INSERT INTO schema_migrations (version) VALUES ('20130826172509');
 
 INSERT INTO schema_migrations (version) VALUES ('20130830080641');
+
+INSERT INTO schema_migrations (version) VALUES ('20131022130051');
