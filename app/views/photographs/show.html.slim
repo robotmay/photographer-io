@@ -2,7 +2,7 @@
   | itemscope itemtype="http://schema.org/Photograph"
 
 - content_for(:meta) do
-  - cache([@photograph, :meta]) do
+  - cache([I18n.locale, @photograph, :meta]) do
     -# OpenGraph
     meta property="og:type" content="website"
     meta property="og:image" content=image_url(@photograph.large_image)
@@ -89,7 +89,7 @@ section id="photographs-show"
       div class="show-for-touch"
         = interactions_for @photograph
       
-      - cache([@photograph, @metadata, :sidebar], expires_in: 5.minutes) do
+      - cache([I18n.locale, @photograph, @metadata, :sidebar], expires_in: 5.minutes) do
         div class="panel"
           = metadata_table_for @photograph, format: :short
 
