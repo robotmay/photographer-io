@@ -129,6 +129,8 @@ class Photograph < ActiveRecord::Base
     float :score
     time :created_at
     boolean :public, using: :public?
+    boolean :safe_for_work
+    boolean :ghost
   end
 
   def favourites_count

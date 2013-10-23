@@ -105,6 +105,12 @@ class PhotographsController < ApplicationController
       end
 
       with :public, true
+      with :ghost, false
+
+      unless user_signed_in? && current_user.show_nsfw_content
+        with :safe_for_work, true
+      end
+
       order_by :created_at, :desc
       paginate page: params[:page], per_page: Photograph.default_per_page
     end
