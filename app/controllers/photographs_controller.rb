@@ -107,9 +107,7 @@ class PhotographsController < ApplicationController
       with :public, true
       with :ghost, false
 
-      if user_signed_in?
-        with :safe_for_work, !current_user.show_nsfw_content
-      else
+      unless user_signed_in? && current_user.show_nsfw_content
         with :safe_for_work, true
       end
 
