@@ -7,6 +7,9 @@ pt_PT:
     ser republicadas sem permissão.
 
     © Photographer.io, Afternoon Robot Ltd, 2013. Icons cortesia de  <a href="http://glyphicons.com">glyphicons.com</a>.
+
+    Suportado por servidores <a href="https://www.digitalocean.com/?refcode=0d41e836e212">
+    Digital Ocean</a>.
   privacy: "Política de Privacidade"
   terms: "Termos"
   confirm_delete: "Tem certeza?"
@@ -26,9 +29,12 @@ pt_PT:
   privacy_policy: "https://www.iubenda.com/privacy-policy/288645"
   locales:
     en: "Inglês"
-    fr: "Francês"
+    es: "Espanhol <abbr title='Beta'>*</abbr>"
+    fr: "Francês <abbr title='Beta'>*</abbr>"
     nl_NL: "Holandês"
     pl: "Polaco"
+    pt_PT: "Português (Portugal) <abbr title='Beta'>*</abbr>"
+    pt_BR: "Português (Brasil) <abbr title='Beta'>*</abbr>"
     ru_RU: "Russo"
   metadata:
     description: >
@@ -233,6 +239,11 @@ pt_PT:
       blurb: >
         Como um membro pode carregar e organizar as suas fotografias antes de publicar-las
         na página pública.
+      notifications:
+        title: "Atividade"
+        empty: >
+          As atividades e notificações vão aparecer nesta zona com o tempo, mas de
+          momento não recebeu nenhuma!
       statistics:
         title: "Estatísticas"
         views: "Número total de vistas para as suas fotografias"
@@ -312,8 +323,8 @@ pt_PT:
       upload: "Carregar"
       delete: "Apagar esta fotografia"
       dropzone: >
-        Arraste e largue as suas imagens nesta página para carregar-las. Leia nas
-        nossas %{guidelines}.
+        Pode arrastar e largar as suas imagens nesta página para carregar-las. Leia
+        nas nossas %{guidelines}.
       public_warning: >
         Esta coleção é definida como pública. Qualquer foto aqui será listada na página
         pública.
@@ -417,6 +428,8 @@ pt_PT:
     destroy:
       succeeded: "Já não está a seguir o utilizador."
       failed: "Ocorreu um erro ao remover o utilizador da lista dos seus seguidores."
+    notifications:
+      subject: "%{user} está agora a segui-lo"
   notifications:
     title: "Notificações"
     none: "De momento não tem notificações."
@@ -587,3 +600,5 @@ pt_PT:
         Relatório criado. Esta foto está agora escondida da navegação pública.
       failed: >
         Ocorreu um problema enquanto a criação do relatório. Verifique por erros abaixo.
+  stories:
+    notification: "%{text}"
