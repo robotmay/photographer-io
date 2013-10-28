@@ -2,8 +2,15 @@ nl_NL:
   site_name: "Photographer.io"
   default_title: "De foto's gemeenschap voor liefhebbers - Photographer.io"
   page_title: "%{title} - Photographer.io"
-  copyright: "Op alle foto's berust het auteursrecht van de desbetreffende maker, en mag niet zonder toestemming heruitgegeven worden, gekopieerd, of vermenigvuldigd op welke wijze dan ook.\n © Photographer.io, Afternoon Robot Ltd, 2013. Pictogrammen geleverd door <a href=\"http://glyphicons.com\"\
-    >glyphicons.com</a>. \n"
+  copyright: >
+    Copyright op alle werken berust bij de respectievelijke fotografen, en mogen niet
+    zonder toestemming worden gereproduceerd.
+
+    © Photographer.io, Afternoon Robot Ltd, 2013. Met dank aan <a href="http://glyphicons.com">glyphicons.com</a>
+    voor de iconen.
+
+    Aangedreven door <a href="https://www.digitalocean.com/?refcode=0d41e836e212">
+    Digital Ocean</a> servers.
   privacy: "Privacybeleid"
   terms: "Algemene voorwaarden"
   confirm_delete: "Weet je het zeker?"
@@ -23,9 +30,12 @@ nl_NL:
   privacy_policy: "https://www.iubenda.com/privacy-policy/288645"
   locales:
     en: "Engels"
-    fr: "Frans"
+    es: "Español <abbr title='Beta'>*</abbr>"
+    fr: "Français <abbr title='Beta'>*</abbr>"
     nl_NL: "Nederlands"
     pl: "Pools"
+    pt_PT: "Português (Portugal) <abbr title='Beta'>*</abbr>"
+    pt_BR: "Português (Brasil) <abbr title='Beta'>*</abbr>"
     ru_RU: "Russisch"
   metadata:
     description: >
@@ -209,6 +219,11 @@ nl_NL:
       blurb: >
         Als lid kun je je foto's uploaden en organiseren voordat je ze publiceert
         op de publiek toegankelijke site.
+      notifications:
+        title: "Activiteit"
+        empty: >
+          Activiteit en meldingen zullen hier weergegeven worden, maar momenteel heb
+          je nog niets ontvangen!
       statistics:
         title: "Statistieken"
         views: "Totaal aantal keer dat je foto's bekeken zijn"
@@ -390,6 +405,8 @@ nl_NL:
     destroy:
       succeeded: "Je volgt deze gebruiker niet meer."
       failed: "Er ging wat mis met het verwijderen van deze gebruiker uit de volgers lijst."
+    notifications:
+      subject: "%{user} volgt je nu"
   notifications:
     title: "Berichten"
     none: "Je hebt momenteel geen berichten."
@@ -526,3 +543,5 @@ nl_NL:
       failed: >
         Er heeft zich een probleem voorgedaan bij het aanmaken van het rapport. Kijk
         hieronder voor eventuele foutmeldingen.
+  stories:
+    notification: "%{text}"

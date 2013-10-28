@@ -2,11 +2,6 @@ ru_RU:
   site_name: "Photographer.io"
   default_title: "Фото-сообщество для энтузиастов - Photographer.io"
   page_title: "%{title} - Photographer.io"
-  copyright: >
-    Все фотографии принадлежат их уважаемым создателям и не должны быть опубликованы
-    в других местах без их разрешения.
-
-    © Photographer.io, Afternoon Robot Ltd, 2013. Иконки созданы  <a href="http://glyphicons.com">glyphicons.com</a>.
   privacy: "Политика конфиденциальности"
   terms: "Правила"
   confirm_delete: "Вы уверены?"
@@ -26,7 +21,6 @@ ru_RU:
   privacy_policy: "https://www.iubenda.com/privacy-policy/288645"
   locales:
     en: "English"
-    fr: "Français"
     nl_NL: "Nederlands"
     pl: "Polski"
     ru_RU: "Русский"
@@ -309,9 +303,6 @@ ru_RU:
       favourites: "Избранное"
       upload: "Загрузка"
       delete: "Удалить фотографию"
-      dropzone: >
-        Чтобы загрузить изображение, перетащие его на эту страницу. О параметрах загружаемых
-        изображений можно узнать %{guidelines}.
       public_warning: >
         Это открытая коллекция. Все изображения, содержащиеся в ней, будут видны остальным
         посетителям сайта.

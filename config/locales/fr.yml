@@ -2,12 +2,6 @@ fr:
   site_name: "Photographer.io"
   default_title: "La communauté photo pour les passionnés - Photographer.io"
   page_title: "%{title} - Photographer.io"
-  copyright: >
-    Toutes les photographies sont la propriété de leurs auteurs respectifs et ne peuvent
-    être republiés sans autorisation.
-
-    © Photographer.io, Afternoon Robot Ltd, 2013. Icones utilisées avec la permission
-    de <a href="http://glyphicons.com">glyphicons.com</a>.
   privacy: "Confidentialité"
   terms: "Conditions d'utilisation"
   confirm_delete: "Êtes-vous certain ?"
@@ -27,7 +21,6 @@ fr:
   privacy_policy: "https://www.iubenda.com/privacy-policy/288645"
   locales:
     en: "Anglais"
-    fr: "Français"
     nl_NL: "Néerlandais"
     pl: "Polonais"
   metadata:
@@ -318,8 +311,6 @@ fr:
       favourites: "Favoris"
       upload: "Télécharger"
       delete: "Supprimer cette photo"
-      dropzone: >
-        Glissez-déposez vos images sur cette page pour les téléverser. Lisez nos %{guidelines}
       public_warning: >
         Cette collection est définie comme publique. Toutes les photos ici seront
         listées dans la partie publique du site.
