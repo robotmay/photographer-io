@@ -1,6 +1,6 @@
 :verbose: false
 :pidfile: /var/run/app/sidekiq.pid
-:concurrency: 25
+:concurrency: 15
 :queues:
   - [events, 3]
   - [mailer, 3]
