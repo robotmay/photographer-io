@@ -55,6 +55,15 @@ describe User do
           user.profile_background_photo.should eq(photograph)
         end
       end
+
+      context "photo is missing" do
+        before { user.stub_chain(:photographs, :find) { raise ActiveRecord::RecordNotFound } }
+        before { user.stub_chain(:photographs, :visible, :order, :first) { photograph } }
+
+        it "displays a random photo" do
+          user.profile_background_photo.should eq(photograph) 
+        end
+      end
     end
 
     context "don't show profile background" do

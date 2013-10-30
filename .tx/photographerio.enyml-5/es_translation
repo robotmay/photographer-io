@@ -2,11 +2,6 @@ es:
   site_name: "Photographer.io"
   default_title: "La comunidad fotográfica para entusiastas - Photographer.io"
   page_title: "%{title} - Photographer.io"
-  copyright: >
-    Todas las fotografías tienen derechos de autor de sus respectivos creadores, y
-    no pueden reproducirse o republicarse sin permiso.
-
-    © Photographer.io, Afternoon Robot Ltd, 2013. Iconos cortesía de <a href="http://glyphicons.com">glyphicons.com</a>.
   privacy: "Política de privacidad"
   terms: "Términos"
   confirm_delete: "¿Está seguro?"

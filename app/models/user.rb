@@ -168,9 +168,15 @@ class User < ActiveRecord::Base
   def profile_background_photo
     if show_profile_background
       id = profile_background_photo_id
-      if id.present?
-        photographs.find(id)
-      else
+
+      # Exception will also be raised if background id is for missing photo
+      begin
+        if id.present?
+          photographs.find(id)
+        else
+          raise ActiveRecord::RecordNotFound
+        end
+      rescue ActiveRecord::RecordNotFound
         photographs.visible.order("RANDOM()").first
       end
     end

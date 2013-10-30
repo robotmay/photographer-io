@@ -7,6 +7,9 @@ pl:
     publikować bez zgody właścicieli.
 
     © Photographer.io, Afternoon Robot Ltd, 2013. Ikony z serwisu <a href="http://glyphicons.com">glyphicons.com</a>.
+
+    Usługa działa na serwerach firmy <a href="https://www.digitalocean.com/?refcode=0d41e836e212">Digital
+    Ocean</a>.
   privacy: "Polityka prywatności"
   terms: "Zasady korzystania"
   confirm_delete: "Jesteś pewien?"
@@ -26,9 +29,12 @@ pl:
   privacy_policy: "https://www.iubenda.com/privacy-policy/288645"
   locales:
     en: "angielski"
-    fr: "francuski"
+    es: "hiszpański <abbr title='wersja beta'>*</abbr>"
+    fr: "francuski <abbr title='wersja beta'>*</abbr>"
     nl_NL: "holenderski"
     pl: "polski"
+    pt_PT: "portugalski (Portugalia) <abbr title='wersja beta'>*</abbr>"
+    pt_BR: "portugalski (Brazylia) <abbr title='wersja beta'>*</abbr>"
     ru_RU: "rosyjski"
   metadata:
     description: >
@@ -236,6 +242,11 @@ pl:
       blurb: >
         Jako członek serwisu możesz wysyłać i organizować swoje zdjęcia przed ich
         publikacją na profilu publicznym.
+      notifications:
+        title: "Aktywność"
+        empty: >
+          Z czasem pojawi się tu lista aktywności i powiadomień, ale w tej chwili
+          nie masz jeszcze żadnych!
       statistics:
         title: "Statystyki"
         views: "Liczba wszystkich odsłon twoich zdjęć"
@@ -315,8 +326,8 @@ pl:
       upload: "Wyślij"
       delete: "Usuń to zdjęcie"
       dropzone: >
-        Przeciągnij i upuść swoje zdjęcia na tę stronę aby je wysłać. Przeczytaj więcej
-        w %{guidelines}.
+        Możesz wysyłać zdjęcia przeciągając je i upuszczając na tę stronę. Przeczytaj
+        %{guidelines} .
       public_warning: >
         Ta kolekcja jest oznaczona jako publiczna. Wszystkie umieszczone w niej zdjęcia
         będą widoczne w profilu publicznym.
@@ -412,6 +423,8 @@ pl:
     destroy:
       succeeded: "Śledzenie tego użytkownika zakończone."
       failed: "Wystąpił problem z zakończeniem śledzenia tego użytkownika."
+    notifications:
+      subject: "Użytkownik %{user} zaczął cię obserwować"
   notifications:
     title: "Powiadomienia"
     none: "W tej chwili nie masz żadnych powiadomień."
@@ -542,3 +555,5 @@ pl:
         Utworzono zgłoszenie. To zdjęcie jest teraz ukryte przed publicznym przeglądaniem.
       failed: >
         Wystąpił problem ze zgłoszeniem. Opis błędów znajduje się poniżej.
+  stories:
+    notification: "%{text}"
