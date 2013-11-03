@@ -77,6 +77,7 @@ en:
     dashboard: "Dashboard"
     seeking_feedback: "Photographs seeking feedback"
     about: "About"
+    license: "Explore by License"
 
   beta_notes:
     title: "This is an early stage beta!"
