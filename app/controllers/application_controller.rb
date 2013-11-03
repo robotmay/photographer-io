@@ -7,8 +7,15 @@ class ApplicationController < ActionController::Base
 
   before_filter :fetch_categories
   def fetch_categories
-    @categories = Rails.cache.fetch([:categories, :list], expires_in: 5.minutes) do
+    @categories = Rails.cache.fetch([I18n.locale, :categories, :list], expires_in: 5.minutes) do
       Category.order("name ASC").load
+    end
+  end
+
+  before_filter :fetch_licenses
+  def fetch_licenses
+    @licenses = Rails.cache.fetch([I18n.locale, :licenses, :list], expires_in: 5.minutes) do
+      License.order("id ASC").load
     end
   end
 

@@ -9,7 +9,7 @@ class PhotographsController < ApplicationController
   before_filter :set_parents
   def set_parents
     if params[:collection_id].present?
-      @collection = Collection.find(params[:collection_id])
+      @collection = Collection.friendly.find(params[:collection_id])
       authorize! :read, @collection
     end
 
@@ -25,22 +25,30 @@ class PhotographsController < ApplicationController
     end
 
     if params[:category_id].present?
-      @category = Category.find(params[:category_id])
+      @category = Category.friendly.find(params[:category_id])
+    end
+
+    if params[:license_id].present?
+      @license = License.friendly.find(params[:license_id])
     end
   end
 
   def index
-    if @collection.present?
+    case
+    when @collection.present?
       @photographs = @collection.photographs
       set_title(@collection.name)
       hide_filters!
-    elsif @user.present?
+    when @user.present?
       @photographs = @user.photographs
       set_title(@user.name)
       hide_filters!
-    elsif @category.present?
+    when @category.present?
       @photographs = @category.photographs
       set_title(@category.name)
+    when @license.present?
+      @photographs = @license.photographs
+      set_title(@license.name)
     else
       @photographs = Photograph.all
     end

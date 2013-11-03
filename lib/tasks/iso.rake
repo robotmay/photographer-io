@@ -1,7 +1,7 @@
 namespace :iso do
   namespace :maintenance do
-    task :create_stories => :environment do
-      Notification.find_each(&:create_story)
+    task :repair_licenses => :environment do
+      License.find_each(&:save)
     end
 
     task :repair_image_permissions => :environment do

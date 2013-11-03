@@ -388,7 +388,8 @@ CREATE TABLE licenses (
     name character varying(255),
     code character varying(255),
     created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    updated_at timestamp without time zone,
+    slug character varying(255)
 );
 
 
@@ -1202,6 +1203,13 @@ CREATE INDEX index_followings_on_follower_id ON followings USING btree (follower
 
 
 --
+-- Name: index_licenses_on_slug; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_licenses_on_slug ON licenses USING btree (slug);
+
+
+--
 -- Name: index_metadata_on_photograph_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -1567,3 +1575,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130826172509');
 INSERT INTO schema_migrations (version) VALUES ('20130830080641');
 
 INSERT INTO schema_migrations (version) VALUES ('20131022130051');
+
+INSERT INTO schema_migrations (version) VALUES ('20131103133641');

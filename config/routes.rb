@@ -49,6 +49,10 @@ Iso::Application.routes.draw do
       resources :collections, only: [:index]
     end
 
+    resources :licenses, only: [:show] do
+      resources :photographs, only: [:index]
+    end
+
     resources :notifications, only: [:index, :show] do
       collection do
         get :mark_all_as_read

@@ -54,6 +54,19 @@ nav id="layout-nav" class="top-bar"
                         = link_to category.name, category_path(category.slug), active_on: category_photographs_path(category.slug), \
                           active_wrapper: :li
 
+              - if @licenses.present?
+                div class="row"
+                  div class="large-12 columns"
+                    label= t("nav.license")
+
+                div class="row"
+                  - @licenses.each_slice((@licenses.size / 2) + 1) do |licenses|
+                    div class="large-6 columns"
+                      ul class="sub-nav"
+                        - licenses.each do |license|
+                          = link_to license.code, license_path(license), active_on: license_photographs_path(license), \
+                            active_wrapper: :li
+
       = link_to t("nav.recommended"), recommended_photographs_path, active_on: true, \
         active_wrapper: :li
 
