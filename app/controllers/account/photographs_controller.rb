@@ -196,13 +196,15 @@ module Account
     def perform_mass_update
       begin
         Photograph.transaction do
-          @mass_edit.photographs.each do |photograph|
-            case
-            when @mass_edit.action == 'collections'
+          case
+          when @mass_edit.action == 'collections'
+            @mass_edit.photographs.each do |photograph|
               perform_collection_update(photograph)
-            when @mass_edit.action == 'delete'
-              perform_deletion
             end
+          when @mass_edit.action == 'delete'
+            perform_deletion
+          when @mass_edit.action == 'reprocess'
+            perform_reprocess
           end
         end
 
@@ -230,6 +232,11 @@ module Account
     def perform_deletion
       @mass_edit.photographs.each(&:destroy)
       flash[:notice] = t("account.photographs.mass_update.delete.succeeded")
+    end
+
+    def perform_reprocess
+      @mass_edit.photographs.stuck_processing.each(&:create_sizes)
+      flash[:notice] = t("account.photographs.mass_update.reprocess.succeeded")
     end
   end
 end

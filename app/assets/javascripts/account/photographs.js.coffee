@@ -28,8 +28,10 @@ $(document).ready ->
       massEditForm.toggleClass("edit-mode")
       massEditForm.data('edit_mode', !(massEditForm.data('edit_mode')))
 
-    massEditForm.on "click", "#delete-photographs", (e) ->
-      massEditForm.prepend("<input type='hidden' name='mass_edit[action]' value='delete'>")
+    massEditForm.on "click", "[data-action]", (e) ->
+      action = $(this).data('action')
+      console.log action
+      massEditForm.prepend("<input type='hidden' name='mass_edit[action]' value='#{action}'>")
 
     massEditForm.on "click", ".button.disabled", (e) ->
       e.preventDefault()
