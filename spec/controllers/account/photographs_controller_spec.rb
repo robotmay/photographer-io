@@ -61,9 +61,7 @@ describe Account::PhotographsController do
 
     describe "delete" do
       let(:mass_edit_attributes) do
-        {
-          action: 'delete'
-        }
+        { action: 'delete' }
       end
 
       it "calls #destroy" do
@@ -85,6 +83,17 @@ describe Account::PhotographsController do
           not_our_photograph.should_not_receive(:destroy)
           post :mass_update, params
         end
+      end
+    end
+
+    describe "reprocess" do
+      let(:mass_edit_attributes) do
+        { action: "reprocess", photographs: double(stuck_processing: photographs) }
+      end
+
+      it "calls #create_sizes" do
+        photograph.should_receive(:create_sizes)
+        post :mass_update, params
       end
     end
   end
