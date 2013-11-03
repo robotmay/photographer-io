@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
     @categories = Rails.cache.fetch([I18n.locale, :categories, :list], expires_in: 5.minutes) do
       Category.order("name ASC").load
     end
+
+  # Handle a cache failure here, as it will impact entire site
+  rescue Exception
+    @categories = Category.order("name ASC")
   end
 
   before_filter :fetch_licenses
@@ -17,6 +21,10 @@ class ApplicationController < ActionController::Base
     @licenses = Rails.cache.fetch([I18n.locale, :licenses, :list], expires_in: 5.minutes) do
       License.order("id ASC").load
     end
+
+  # Handle a cache failure here, as it will impact entire site
+  rescue Exception
+    @licenses = License.order("id ASC")
   end
 
   before_filter :google_analytics_identification
