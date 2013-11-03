@@ -6,7 +6,7 @@ section id="users-new"
   div id="sign-up-area"
     div class="row"
       div class="large-6 columns"
-        - cache(:sign_up_spiel, expires_in: 10.minutes) do
+        - cache([I18n.locale, :sign_up_spiel], expires_in: 10.minutes) do
           article class="spiel"
             header
               h5= t("users.new.spiel.title")

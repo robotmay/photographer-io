@@ -25,7 +25,7 @@ section id="collections-index"
               - if content_for?(:grid_block)
                 == yield(:grid_block)
 
-              = render @collections, cache: -> (c) { [c, c.user, @category] }
+              = render @collections, cache: -> (c) { [I18n.locale, c, c.user, @category] }
 
         div class="row"
           div class="large-12 columns"
