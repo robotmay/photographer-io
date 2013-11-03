@@ -63,6 +63,9 @@ class Photograph < ActiveRecord::Base
   scope :not_processing, -> {
     where(processing: false).joins(:metadata).where(metadata: { processing: false })
   }
+  scope :stuck_processing, -> {
+    where(processing: true).where("created_at < ?", 10.minutes.ago)
+  }
   scope :visible, -> {
     not_processing.joins(:collections).where(collections: { visible: true })
   }

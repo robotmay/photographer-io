@@ -6,6 +6,7 @@ class Ability
     alias_action :create, :read, :update, :destroy, to: :crud
 
     can :read, Category
+    can :read, License
     can :read, Photograph do |photograph|
       photograph.visible?
     end

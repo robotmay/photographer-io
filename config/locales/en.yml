@@ -77,6 +77,7 @@ en:
     dashboard: "Dashboard"
     seeking_feedback: "Photographs seeking feedback"
     about: "About"
+    license: "Explore by License"
 
   beta_notes:
     title: "This is an early stage beta!"
@@ -378,6 +379,7 @@ en:
           This will not remove photos from their collections unless you are managing
           a collection and untick that specific collection.
         delete: "Delete"
+        reprocess: "Reprocess"
 
       form:
         general: "Details"
@@ -407,6 +409,8 @@ en:
           succeeded: "Photograph collections have been updated successfully."
         delete:
           succeeded: "Photographs have been deleted successfully."
+        reprocess:
+          succeeded: "Photographs have been scheduled for reprocessing."
 
       destroy:
         succeeded: "Your photograph has been deleted successfully."

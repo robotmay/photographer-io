@@ -34,6 +34,12 @@ Following.blueprint do
   follower
 end
 
+License.blueprint do
+  name { "Attribution" }
+  code { "CC-BY" }
+  slug { "cc-by" }
+end
+
 Metadata.blueprint do
   photograph
   title { Faker::Lorem.sentence }
