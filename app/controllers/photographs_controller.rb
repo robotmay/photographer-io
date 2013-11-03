@@ -49,6 +49,7 @@ class PhotographsController < ApplicationController
     when @license.present?
       @photographs = @license.photographs
       set_title(@license.name)
+      hide_filters!
     else
       @photographs = Photograph.all
     end
