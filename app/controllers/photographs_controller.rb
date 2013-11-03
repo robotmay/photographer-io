@@ -9,7 +9,7 @@ class PhotographsController < ApplicationController
   before_filter :set_parents
   def set_parents
     if params[:collection_id].present?
-      @collection = Collection.friendly.find(params[:collection_id])
+      @collection = Collection.find(params[:collection_id])
       authorize! :read, @collection
     end
 
