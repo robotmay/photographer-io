@@ -79,38 +79,6 @@ en:
     about: "About"
     license: "Explore by License"
 
-  beta_notes:
-    title: "This is an early stage beta!"
-    blurb: >
-      Thanks for taking the time to try out the early beta of Photographer.io. All
-      feedback, bug reports, or features ideas are very welcome. 
-
-
-      I want to make this the best and most enjoyable photography community on the
-      planet. Improvements are going up all the time and I read every single
-      message. If you need help just shoot me a support email/message, or grab me
-      <a href="http://twitter.com/robotmay">on Twitter</a>.
-
-
-      The main goal of Photographer.io is to do away with a lot of the complexity of
-      photo sharing sites which essentially cater to a few highly
-      popular individuals, making it hard for new users to get noticed. It also
-      aims to do away with a lot of the ineffective ranking systems used by some
-      sites. You can recommend photos here; a
-      recommendation is a finite resource and affects the ranking of a photo over
-      time. This is an area I'm keeping a close eye on to ensure that everyone has
-      a chance to get their photos seen.
-      
-
-      Features coming soon: better uploader, commenting (with a purpose), 
-      a more advanced ranking system for photos, and general improvements 
-      throughout the site.
-
-
-      Thanks again for trying out Photographer.io!
-
-      Robert May
-
   home:
     title: >
       A new photo community for sharing your photographs.
@@ -622,9 +590,6 @@ en:
 
             Want to get unlimited uploads, more features, and help support the site? 
             A paid plan is coming soon!
-
-            Our Terms of Service will be published soon. Until then just know that
-            we will not steal your photos, and everything posted must be your own.
 
             Questions? [Email us!](mailto:support@photographer.io)
 
