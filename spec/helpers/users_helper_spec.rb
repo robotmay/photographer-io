@@ -35,6 +35,7 @@ describe UsersHelper do
 
       context "following them" do
         before { us.stub(:following?) { true } }
+        before { us.stub_chain(:follower_followings, :find_by) { them } }
 
         it "shows an unfollow button" do
           helper.follow_user_button(them).should match(/class="button unfollow/i)
