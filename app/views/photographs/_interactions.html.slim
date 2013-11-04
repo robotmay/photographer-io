@@ -2,7 +2,7 @@ div class="interactions"
   div class="inner"
     div class="row"
       div class="large-4 columns"
-        - cache([photograph, :stats], expires_in: 10.minutes) do
+        - cache([I18n.locale, photograph, :stats], expires_in: 10.minutes) do
           div class="stats"
             span class="views" title=(t("photographs.views"))
               span class="icon"
