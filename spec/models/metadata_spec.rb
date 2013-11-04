@@ -10,6 +10,45 @@ describe Metadata do
 
   describe "methods" do
     let(:metadata) { Metadata.new }
+    let(:photograph) { Photograph.make }
+
+    before { metadata.stub(:photograph) { photograph } }
+
+    describe "#extract_from_photograph" do
+      let(:exif) do
+        double(
+          title: "",
+          keywords: [],
+          description: ""
+        ).as_null_object
+      end
+
+      before { photograph.stub(:exif) { exif } }
+
+      describe "title" do
+        let(:new_title) { "Wibble" }
+        let(:old_title) { "Wobble" }
+
+        before { exif.stub(:title) { new_title } }
+        after { metadata.extract_from_photograph }
+
+        context "existing title is blank" do
+          before { metadata.stub(:raw_title) { "" } }
+
+          it "sets title if existing title is blank" do
+            metadata.should_receive(:title=).with(new_title)
+          end
+        end
+
+        context "existing title is not blank" do
+          before { metadata.stub(:raw_title) { old_title } }
+
+          it "doesn't overwrite the existing title" do
+            metadata.should_not_receive(:title=).with(new_title)
+          end
+        end
+      end
+    end
 
     describe "#set_format" do
       context "height or width are nil" do

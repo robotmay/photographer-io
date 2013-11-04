@@ -89,7 +89,7 @@ class Metadata < ActiveRecord::Base
       Metadata.benchmark "Extracting EXIF" do
         exif = photograph.exif
 
-        self.title        = fetch_title(exif) if title.blank?
+        self.title        = fetch_title(exif) if raw_title.blank?
         self.description  = exif.description if description.blank?
         self.keywords     = exif.keywords if keywords.blank?
 
@@ -139,8 +139,12 @@ class Metadata < ActiveRecord::Base
     end
   end
 
+  def raw_title
+    read_attribute(:title)
+  end
+
   def title
-    title = super
+    title = raw_title
     title.blank? ? I18n.t("untitled") : title
   end
 
