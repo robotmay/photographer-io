@@ -58,37 +58,6 @@ fr:
     dashboard: "Tableau de bord"
     seeking_feedback: "Photos qui cherchent une réaction"
     about: "À propos de nous"
-  beta_notes:
-    title: "Il s'agit de version bêta à étape précoce!"
-    blurb: >
-      Merci de prendre le temps d'essayer notre version bêta de Photographer.io. Les
-      remarques, rapport d'erreur, ou idées de fonctionnalités sont les bienvenus.
-
-
-      Je veux faire de ce site la meilleure et la plus agréable communauté photographique
-      de la planète. Les améliorations sont en constante progression et je lis chacun
-      des messages. Si vous avez besoin d'aide, envoyez-moi simplement un e-mail/message,
-      ou accostez-moi <a href="http://twitter.com/robotmay"> sur Twitter</a>.
-
-
-      Le but principal de Photographer.io est de se débarasser des aspects les plus
-      complexes des sites de partage de photos qui répondent surtout à un petit nombre
-      d'utilisateurs populaires, ce qui rend difficile la reconnaissance des nouveaux
-      utilisateurs. Ce site veut aussi se débarasser des systèmes de classements utilisés
-      par certains sites. Ici, vous pouvez recommander des photos; une recommandation
-      est une ressource finie qui affecte le classement d'une photo au cours du temps.
-      C'est un domaine sur lequel je garde un oeil en permanence pour m'assurer que
-      chacun a une chance de voir ses photos exposées au plus grand nombre.
-
-
-      Fonctionnalités à venir prochainement: un meilleur outil d'envoi, commentaires
-      (avec une raison), un système plus évolué de classement des photos, et des améliorations
-      générales partout sur le site.
-
-
-      Encore merci d'essayer Photographer.io!
-
-      Robert May
   home:
     title: >
       Une nouvelle communauté pour partager vos photos.
@@ -515,10 +484,6 @@ fr:
         accept: "Acceptez l'invitation et créez un compte"
         spiel:
           title: "Acceptez votre invitation et rejoignez-nous !"
-          body: "En tant que membre possédantun compte gratuit sur Photographer.io, vous pourrez:\n\n* Envoyer jusqu'à %{uploads} photos par mois\n* Créer un nombre illimité de collections de photos\n* Suivre les mises à jour des autres utilisateurs\n* Sélectionnez vos photos favorites\n* Promouvoir vos photos favorites grâce au\
-            \ système de recommandations\n* Commenter et critiquer des photos\n\nVous voulez des envois de photos illimités, plus de fonctionnalités, et aider à soutnir le site?\nUn compte payant verra bientôt le jour!\n\nNos Conditions d'Utilisation seront bientôt publiées. En attendant, sachez juste que\nnous ne volerons pas\
-            \ vos photos, et que tout ce que vous postez doit vous appartenir.\n\nDes questions? <a href=\"mailto:support@photographer.io\"> Envoyez-nous un e-mail</a>\n\n##### Parlez-en à vos amis pour pouvoir envoyer plus de photos\nPour chaque ami que vous amenez à créer un compte, à la fois vous et votre amis bénéficierez \n\
-            de %{referral_bonus} envois supplémentaires par mois.\nLa marche à suivre se trouve dans votre page personnelle après création\nde votre compte.\n"
     sessions:
       new:
         title: "Connecter à votre compte"

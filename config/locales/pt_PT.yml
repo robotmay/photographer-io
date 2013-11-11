@@ -71,38 +71,7 @@ pt_PT:
     dashboard: "Dashboard"
     seeking_feedback: "Fotografias a procura dos seus comentários"
     about: "Sobre"
-  beta_notes:
-    title: "Esta é uma fase beta inicial!"
-    blurb: >
-      Obrigado por tirar do seu tempo para experimentar a versão beta inicial do Photographer.io.
-      Todos os comentários, relatórios de erros, ou novas ideias de funcionalidades
-      são bem vindas.
-
-
-      Quero fazer deste o melhor e a mais agradável comunidade de fotografia no planeta.
-      Melhorias estão a ser adicionadas a todo o tempo e leio cada mensagem individualmente.
-      Se precisa de ajuda basta enviar-me um/a email/mensagem, ou agarre-me em <a
-      href="http://twitter.com/robotmay">on Twitter</a>.
-
-
-      O objetivo principal do Photographer.io é de acabar com a maioria de complexidade
-      existente nos sites de partilha de fotos que essencialmente servem apenas a
-      alguns indivíduos mais populares, tornando difícil para novos utilizadores de
-      serem notados. Também tem como objetivo de acabar com a maioria de sistemas
-      ineficientes de classificação utilizados por alguns sites. Aqui pode recomendar
-      fotos; uma recomendação é um recurso finito e afeta a classificação de uma foto
-      ao longo do tempo. Esta é uma área que estou a manter um olhar atento para garantir
-      que toda a gente tem uma oportunidade de ter as suas fotografias vistas.
-
-
-      Funcionalidade a vir em breve: melhor sistema de carregamento, comentários (com
-      um objetivo), um sistema mais avançado de classificação para fotos, e melhorias
-      genéricas no site.
-
-
-      Obrigado mais uma vez por experimentar Photographer.io!
-
-      Robert May
+    license: "Explorar por licença"
   home:
     title: >
       Uma nova comunidade de fotos para partilhar as suas fotografias.
@@ -338,6 +307,7 @@ pt_PT:
           Isso não vai remover fotos das coleções, a menos que você está a gerir uma
           coleção e desmarque essa coleção específica.
         delete: "Apagar"
+        reprocess: "Reprocessar"
       form:
         general: "Detalhes"
         collections: "A que coleções pertence esta foto?"
@@ -363,6 +333,8 @@ pt_PT:
           succeeded: "Coleções de fotografias foram atualizadas com sucesso."
         delete:
           succeeded: "As fotografias foram apagadas com sucesso."
+        reprocess:
+          succeeded: "As fotografias foram agendadas para reprocessamento."
       destroy:
         succeeded: "A sua fotografia foi apagada com sucesso."
         failed: "Ocorreu um problema ao apagar a fotografia."
@@ -548,8 +520,6 @@ pt_PT:
 
             Deseja receber carregamentos sem limite, mais funcionalidades, e ajudar o site?
             Um plano pago vem para breve!
-
-            Os nossos Termos de Serviço serão publicados brevemente. Até la basta saber que não vamos roubar as suas fotos, e tudo o que enviou continuará seu.
 
             Perguntas? [Envie-nos um email!](mailto:support@photographer.io)
 

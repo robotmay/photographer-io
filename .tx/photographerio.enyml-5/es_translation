@@ -58,8 +58,6 @@ es:
     dashboard: "Panel principal"
     seeking_feedback: "Fotografías que esperan comentarios"
     about: "Acerca de"
-  beta_notes:
-    title: "¡Esto es una fase beta!"
   home:
     title: >
       Una nueva comunidad para compartir sus fotografías.⏎

@@ -71,36 +71,7 @@ pl:
     dashboard: "Panel użytkownika"
     seeking_feedback: "Zdjęcia oczekujące na komentarz"
     about: "O serwisie"
-  beta_notes:
-    title: "Serwis jest we wczesnym stadium beta!"
-    blurb: >
-      Dzięki za poświęcenie czasu na wypróbowanie wczesnej wersji beta serwisu Photographer.io.
-      Wszelkie informacje zwrotne, zgłoszenia błędów lub propozycje przyszłych funkcji
-      są bardzo mile widziane.
-
-
-      Chciałbym zbudować najlepszą i dającą najwięcej satysfakcji społeczność fotograficzną
-      na świecie. Ciągle wprowadzam poprawki i czytam dosłownie każdą wiadomość. Jeśli
-      potrzebujesz pomocy, po prostu napisz do mnie e-maila lub złap mnie <a href="http://twitter.com/robotmay">na
-      Twitterze</a>.
-
-
-      Głównym celem serwisu Photographer.io jest uniknięcie złożoności spotykanej
-      w serwisach fotograficznych, które promują kilka bardzo popularnych osób, przez
-      co nowym użytkownikom trudno zostać zauważonym. Staram się również unikać wielu
-      nieefektywnych algorytmów rankingu używanych w niektórych serwisach. Tutaj możesz
-      polecać zdjęcia; rekomendacje są ograniczonym zasobem i z czasem wpływają na
-      ranking zdjęć. To kwestia, której poświęcam wiele uwagi, aby wszyscy mieli szanse
-      na pokazanie swoich zdjęć.
-
-
-      Nowe funkcje, które pojawią się wkrótce: lepsze wysyłanie, komentowanie (z rozmysłem),
-      bardziej zaawansowany system rankingu zdjęć i ogólne poprawki całego serwisu.
-
-
-      Jeszcze raz dzięki za wypróbowanie Photographer.io!
-
-      Robert May
+    license: "Przeglądaj według licencji"
   home:
     title: >
       Nowa społeczność do dzielenia się zdjęciami.
@@ -341,6 +312,7 @@ pl:
           Zdjęcia nie zostaną usunięte z kolekcji jeśli w trybie zarządzania nie odznaczysz
           wybranej kolekcji.
         delete: "Usuń"
+        reprocess: "Ponowna obróbka"
       form:
         general: "Szczegóły"
         collections: "Do jakich kolekcji należy to zdjęcie?"
@@ -366,11 +338,13 @@ pl:
           succeeded: "Kolekcje zdjęć zostały zaktualizowane."
         delete:
           succeeded: "Udało się usunąć zdjęcia."
+        reprocess:
+          succeeded: "Zdjęcia czekają na ponowną obróbkę."
       destroy:
         succeeded: "Twoje zdjęcie zostało usunięte."
         failed: "Pojawił się problem z usunięciem tego zdjęcia."
       guidelines:
-        link: "zaleceniach w sprawie zdjęć"
+        link: "zalecenia w sprawie zdjęć"
         title: "Zalecenia w sprawie zdjęć"
         body: "Oto ogólne wskazówki dotyczące wysyłania zdjęć w serwisie Photographer.io. \nIch przestrzeganie pozwoli ci mieć poczucie, że twoje zdjęcia prezentują się\nnajlepiej, jak to tylko możliwe!\n\n* Obecnie jedynym obsługiwanym formatem\
           \ jest JPEG/JPG.\n* Zapisując w formacie JPG używaj najwyższej dostępnej jakości, ponieważ jakość zdjęć jest przez nas dostosowywana automatycznie.\n* Zalecamy wysyłanie zdjęć o rozmiarze dłuższego z boków co najmniej 2000 pikseli. Dzięki\
@@ -459,7 +433,7 @@ pl:
     stats: "Statystyki"
     views: "Odwiedziny"
     favourites: "Ulubione"
-    caption: "%{photo}, autor: %{user}"
+    caption: "%{photo}, użytkownik: %{user}"
     sub_nav:
       filter: "Filtr:"
       grouped: "według kolekcji"
@@ -529,9 +503,9 @@ pl:
         spiel:
           title: "Zaakceptuj zaproszenie i dołącz do nas!"
           body: "Jako niepłacący członek Photographer.io możesz:\n\n* Wysyłać do %{uploads} zdjęć na miesiąc\n* Tworzyć nieograniczone kolekcje zdjęć\n* Śledzić aktualizacje innych użytkowników\n* Oznaczać zdjęcia jako ulubione\n* Promować ulubione\
-            \ zdjęcia za pomocą systemu rekomendacji\n* Komentować i krytykować zdjęcia\n\nChcesz nieograniczonego wysyłania, więcej funkcji i wesprzeć serwis?\nWkrótce pojawią się konta płatne!\n\nWkrótce opublikujemy nasze Warunki korzystania\
-            \ z serwisu. Do tego\nczasu wiedz, że nie ukradniemy twoich zdjęć i wszystko, co wysyłasz,\nmusi być twoje.\n\nMasz pytania? [Napisz od nas!](mailto:support@photographer.io)\n\n##### Powołaj się na znajomych, aby zwiększyć limit wysyłania\n\
-            Za każdego znajomego, który założy konto, zarówno ty jak i znajomy \ndostaniecie powiększenie limitu wysyłania o %{referral_bonus} zdjęć\nna miesiąc. Instrukcje znajdziesz się na stronie twojego konta po jego\nzałożeniu.\n"
+            \ zdjęcia za pomocą systemu rekomendacji\n* Komentować i krytykować zdjęcia\n\nChcesz nieograniczonego wysyłania, mieć więcej funkcji i wesprzeć serwis?\nWkrótce pojawią się konta płatne!\n\nMasz pytania? [Napisz od nas!](mailto:support@photographer.io)\n\
+            \n##### Powołaj się na znajomych, aby zwiększyć limit wysyłania\nZa każdego znajomego, który założy konto, zarówno ty jak i znajomy \ndostaniecie powiększenie limitu wysyłania o %{referral_bonus} zdjęć\nna miesiąc. Instrukcje znajdziesz\
+            \ na stronie twojego konta po jego\nzałożeniu.\n"
     sessions:
       new:
         title: "Zaloguj się na swoje konto"
