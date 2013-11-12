@@ -4,9 +4,9 @@ li class="photo"
       - photograph = collection.cover_photo(@category)
       - unless photograph.nil?
         - if photograph.has_precalculated_sizes?
-          = photo_tag photograph, :thumbnail 
+          = photo_tag photograph, :thumbnail, width: "100%"
         - else
-          = photo_tag photograph, "500x500>", quality: 70
+          = photo_tag photograph, "500x500>", quality: 70, width: "100%"
     footer class="caption"
       = t("collections.caption", \
           user: link_to(collection.user.name, short_user_path(collection.user.username)), \
