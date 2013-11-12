@@ -330,6 +330,9 @@ en:
       favourites: "Favourites"
       upload: "Upload"
       delete: "Delete this photograph"
+      exit_confirmation: >
+        Are you sure you want to leave this page? You have uploads in progress
+        which will not be completed.
       dropzone: >
         You can drag and drop your images onto this page to upload them. 
         Read up on our %{guidelines}.

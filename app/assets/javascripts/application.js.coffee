@@ -19,5 +19,7 @@
 #= require typeahead
 #= require foundation
 #= require blur
+#= require i18n
+#= require i18n/translations
 #= require base
 #= require_tree .
