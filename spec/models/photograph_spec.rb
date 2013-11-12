@@ -38,6 +38,14 @@ describe Photograph do
     end
   end
 
+  describe "logging" do
+    before { photograph.logs << "Test log" }
+
+    it "has a log array which accepts messages" do
+      photograph.logs.to_a.first.should eq("Test log")
+    end
+  end
+
   describe "images" do
     describe "accessors" do
       [:image, :standard_image, :homepage_image, 
