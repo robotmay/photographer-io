@@ -15,7 +15,7 @@ describe Comment do
   end
 
   describe "scopes" do
-    let(:published_comment) { 
+    let(:published_comment) {
       Comment.make!(published: true, comment_thread: comment_thread, user: user)
     }
 

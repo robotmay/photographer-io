@@ -48,7 +48,7 @@ describe Photograph do
 
   describe "images" do
     describe "accessors" do
-      [:image, :standard_image, :homepage_image, 
+      [:image, :standard_image, :homepage_image,
        :large_image, :thumbnail_image, :small_thumbnail_image].each do |image|
         it { should respond_to(image) }
       end
