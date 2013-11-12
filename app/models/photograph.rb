@@ -47,6 +47,7 @@ class Photograph < ActiveRecord::Base
 
   counter :views
   value :highest_rank
+  list :logs
 
   accepts_nested_attributes_for :metadata, update_only: true
   accepts_nested_attributes_for :collections
@@ -214,9 +215,12 @@ class Photograph < ActiveRecord::Base
   end
 
   def complete_image_processing
+    logs << "Testing for processing completion"
+
     if processing
       reload
       if has_image_sizes? && !metadata.processing
+        logs << "Image has finished processing"
         self.processing = false
         save
         trigger_image_processed_push
