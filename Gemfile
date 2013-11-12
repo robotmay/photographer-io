@@ -102,6 +102,7 @@ gem 'turbolinks'
 gem 'jquery-turbolinks'
 gem 'jbuilder', '~> 1.0.1'
 gem 'quiet_assets'
+gem 'i18n-js', '~> 3.0.0.rc5'
 
 # testing
 group :development, :test do

@@ -30,6 +30,8 @@ fr:
         show_social_buttons: "Montrer les boutons sociaux"
         locale: "Langue"
         enable_comments_by_default: "Autoriser les commentaires par défaut"
+        show_profile_background: "Montrer l'arrière-plan du profil"
+        profile_background_photo_id: "Photo d'arrière-plan du profil"
     placeholders:
       comment_thread:
         subject: "Par ex. «Quel est cet oiseau ?» ou «Comment sont mes choix de couleur ?»"
@@ -126,6 +128,12 @@ fr:
           Définissez le sujet par défaut pour les commmentaires à utiliser sur vos
           photos ici. Vous pouvez définir les sujets par défaut sans permettre les
           commentaires par défaut.
+        show_profile_background: >
+          Si vous ne voulez pas afficher une grande photo comme image de fond de votre
+          page publique de profil vous pouvez le désactiver ici.
+        profile_background_photo_id: >
+          Vous pouvez sélectionner une photo spécifique pour votre arrière-plan de
+          profil. Par défaut il s'agira d'une de vos photos publiques, au hasard.
   helpers:
     submit:
       comment:

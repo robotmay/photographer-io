@@ -72,13 +72,7 @@ nl_NL:
     dashboard: "Dashboard"
     seeking_feedback: "Foto's wachtend op reacties"
     about: "Over"
-  beta_notes:
-    title: "Dit is een vroege beta versie!"
-    blurb: "Dank je wel voor het uitproberen van de vroege beta van Photographer.io. Alle feedback, bug reports, of functionaliteit ideeën zijn zeer welkom. \n\nIk wil hiervan de beste en meest aangename foto gemeenschap op de wereld maken. Er worden continue verbeteringen aangebracht  en\
-      \ ik lees elke email. Mocht je hulp nodig hebben, stuur mij dan een support email/bericht, of vind me <a href=\"http://twitter.com/robotmay\">op Twitter</a>.\n\nHet hoofd doel van Photographer.io is het verminderen van complexiteit van foto sites die in wezen tegemoet komen aan een\
-      \ selectief groep populaire individuen, waardoor het moeilijk is voor nieuwe gebruikers om op te vallen. Ook probeert het af te stappen van het niet effectieve ranking systemen dat door sommige sites gebruikt word. Je kunt hier foto's aanbevelen; Een aanbeveling is een eindige hulpbron\
-      \ en beïnvloed de ranking van een foto over een bepaalde periode. Dit is een gedeelte dat ik goed in de gaten hou om er voor te zorgen dat iedereen zijn foto's getoond kan krijgen.\n\nFuncionaliteit die binnenkort ingevoerd word: betere uploader, reacties (met een doel),  een geavanceerder\
-      \ ranking systeem voor foto's, en algemene verbeteringen door de gehele site.\n\nNogmaals bedankt voor het uitproberen van Photographer.io!\nRobert May\n"
+    license: "Ontdek op Licentie type"
   home:
     title: >
       Een nieuwe foto gemeenschap voor het delen van je foto's.
@@ -319,6 +313,7 @@ nl_NL:
           Dit zal de foto's niet uit hun collecties verwijderen tenzij je een aanpassing
           maakt aan een collectie en de specifieke collectie uitvinkt.
         delete: "Verwijder"
+        reprocess: "Opnieuw bewerken"
       form:
         general: "Details"
         collections: "In welke collecties hoort deze foto?"
@@ -345,6 +340,8 @@ nl_NL:
           succeeded: "Foto verzamelingen zijn bijgewerkt."
         delete:
           succeeded: "De foto's zijn verwijderd."
+        reprocess:
+          succeeded: "Foto's zijn gepland om opnieuw bewerkt te worden."
       destroy:
         succeeded: "De foto is verwijderd."
         failed: "Er heeft zich een probleem voorgedaan bij het verwijderen van de foto."
@@ -511,10 +508,9 @@ nl_NL:
         accept: "Accepteer de uitnodiging en maak je account aan"
         spiel:
           title: "Accepteer je uitnodiging en sluit je aan!"
-          body: "Als gratis lid van Photographer.io kun je:\n\n* %{uploads} foto's per maand uploaden\n* Ongelimiteerd aantal collecties aanmaken\n* Updates van andere gebruikers volgen\n* Foto's aan je favorieten lijst toevoegen\n* Promote je favoriete foto's met het aanbeveel systeem\n\
-            * Geef reacties en kritiek op foto's\n\nWil je ongelimiteerde uploads, meer opties, en wil je de site ondersteunen? \nBetaalde accounts komen er spoedig aan!\n\nOnze algemene- en gebruikers voorwaarden zullen spoedig online staan. Tot die tijd kun je er van uit gaan dat we jouw\
-            \ foto's niet zullen stelen, en alles wat je upload naar deze site moet van jouw zijn.\n\nVragen? [Email ons!](mailto:support@photographer.io)\n\n##### Stuur je vrienden door voor extra uploads\nVoor elke vriend die lid word, krijgen zowel jij als je vriend %{referral_bonus} extra\
-            \ uploads per maand. \nInstructies kun je vinden in je account pagina\nnadat je een account hebt aangemaakt.\n"
+          body: "Als gratis lid van Photographer.io kun je:\n\n* Tot %{uploads} foto's per maand uploaden\n* Ongelimiteerd aantal foto collecties aanmaken\n* Updates van andere gebruikers volgens\n* Favouriete foto's kiezen\n* Promoten van je favouriete foto's met het aanbeveling systeem\n\
+            * Comentaar en kritiek geven op foto's\n\nWill je een ongelimiteerd aantal uploads, meer opties, en de site helpen? \nEr is een betaald plan op komst!\n\nVragen? [Email ons!](mailto:support@photographer.io)\n\n##### Stuur je vrienden door voor extra uploads\nVoor elke vriend die\
+            \ zich aanmeld, krijgen zowel je vriend als jij \nextra %{referral_bonus} uploads per maand. \nInstructies staan in je account page nadat je \neen account hebt aangemaakt.\n"
     sessions:
       new:
         title: "Meld je aan met je account"
