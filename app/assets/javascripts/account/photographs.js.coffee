@@ -6,9 +6,11 @@ $(document).ready ->
       before_add: (file) ->
         file.type == "image/jpeg"
 
+    console.log I18n.t("account.photographs.exit")
+
     photoForm.bind "s3_uploads_start", (e) ->
       window.onbeforeunload = ->
-        I18n.t("account.photographs.exit_confirmation")
+        I18n.t("account.photographs.exit")
 
     photoForm.bind "s3_uploads_complete", (e) ->
       window.onbeforeunload = null

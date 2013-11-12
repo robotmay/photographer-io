@@ -29,10 +29,6 @@ head
   == yield(:stylesheets)
   = csrf_meta_tag
 
-  javascript:
-    I18n.defaultLocale = "#{I18n.default_locale}";
-    I18n.locale = "#{I18n.locale}";
-
   title
     - if @title.present?
       = t("page_title", title: @title)
