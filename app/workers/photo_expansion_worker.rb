@@ -22,30 +22,44 @@ class PhotoExpansionWorker
   private
 
   def extract_metadata
+    @photo.logs << "Extracting metadata"
+
     Benchmark.measure "Extracting metadata" do
       metadata = @photo.metadata
 
       # It's possible that Sidekiq could hit this before Postgres catches up
-      raise MetadataRecordMissing if metadata.nil?
+      if metadata.nil?
+        @photo.logs << "Metadata record missing"
+        raise MetadataRecordMissing
+      end
 
       # Extract the metadata first to allow us to work off that data
+      @photo.logs << "Extracting from image file"
       metadata.extract_from_photograph
+
+      @photo.logs << "Saving metadata record"
       metadata.save!
     end
   end
 
   def generate_standard_image
+    @photo.logs << "Generating standard image size"
+
     Benchmark.measure "Generating standard image" do
       # Create a standard image for generating the smaller sizes
       standard_image = @photo.image.thumb("3000x3000>")
 
       # Set the standard image and save
       @photo.standard_image = standard_image
+
+      @photo.logs << "Saving photo record with standard image size"
       @photo.save!
     end
   end
 
   def generate_images
+    @photo.logs << "Generating image sizes"
+
     # Generate a sensible base size first
     generate_standard_image
 

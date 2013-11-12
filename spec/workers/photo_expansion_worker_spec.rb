@@ -8,6 +8,7 @@ describe PhotoExpansionWorker do
   before { Photograph.stub(:find) { photograph } }
   before { Metadata.stub(:find) { metadata } }
   before { photograph.stub(:save!) { true } }
+  before { photograph.stub(:logs) { [] } }
 
   describe "metadata" do
     before { metadata.stub(:extract_from_photograph) { true } }

@@ -2,9 +2,9 @@ li[class="photo" itemprop="itemListElement" itemscope itemtype="http://schema.or
   div class="wrapper"
     = link_to photograph_path(photograph), itemprop: "url" do
       - if photograph.has_precalculated_sizes?
-        = photo_tag photograph, :thumbnail, itemprop: "image"
+        = photo_tag photograph, :thumbnail, itemprop: "image", width: "100%"
       - else
-        = photo_tag photograph, "500x500>", quality: 70, itemprop: "image"
+        = photo_tag photograph, "500x500>", quality: 70, itemprop: "image", width: "100%"
     footer class="caption" itemprop="description"
       - title = photograph.metadata.title
       = t("photographs.caption", \

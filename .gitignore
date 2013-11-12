@@ -16,6 +16,7 @@
 /tmp
 
 /public/system
+/public/javascripts/translations.js
 /.env
 /.env.production
 /certs

@@ -29,7 +29,7 @@ If you have any questions don't hesitate to ask via Twitter or at <support@photo
 * Amazon S3 and CloudFront
 
 ## Status
-[![Build Status](https://www.travis-ci.org/afternoonrobot/photographer-io.png?branch=master)](https://www.travis-ci.org/afternoonrobot/photographer-io)
+[![Build Status](https://travis-ci.org/afternoonrobot/photographer-io.png?branch=master)](https://travis-ci.org/afternoonrobot/photographer-io)
 [![Coverage Status](https://coveralls.io/repos/afternoonrobot/photographer-io/badge.png)](https://coveralls.io/r/afternoonrobot/photographer-io)
 [![Code Climate](https://codeclimate.com/github/afternoonrobot/photographer-io.png)](https://codeclimate.com/github/afternoonrobot/photographer-io)
 

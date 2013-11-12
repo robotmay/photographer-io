@@ -1,6 +1,8 @@
 $(document).foundation()
 $(document).foundation('joyride', 'start')
 
+I18n.fallbacks = true
+
 window.calculateGridWidth = ->
   width = $(window).width()
   switch
