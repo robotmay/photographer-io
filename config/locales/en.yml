@@ -330,6 +330,7 @@ en:
       favourites: "Favourites"
       upload: "Upload"
       delete: "Delete this photograph"
+      logs: "Process Log"
       exit: >
         You have uploads in progress which will not be completed if you leave
         this page.
