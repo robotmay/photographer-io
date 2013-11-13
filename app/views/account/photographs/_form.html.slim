@@ -75,3 +75,10 @@
       - if photograph.metadata.has_location_data?
         h5= t("photographs.location")
         = render partial: "photographs/map", locals: { photograph: photograph }
+
+      - if photograph.processing? && photograph.logs.size > 0
+        div class="panel logs"
+          h5= t("account.photographs.logs")
+          ol
+            - photograph.logs.each do |message|
+              li= message
