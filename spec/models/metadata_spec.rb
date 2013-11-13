@@ -218,6 +218,14 @@ describe Metadata do
           metadata.fetch_title(exif).should eq(caption)
         end
       end
+
+      context "returned value is an array" do
+        let(:caption) { ["wibble", "wobble"] }
+
+        it "returns nil" do
+          metadata.fetch_title(exif).should eq(nil)
+        end
+      end
     end
   end
 end
