@@ -114,7 +114,9 @@ class Metadata < ActiveRecord::Base
   end
 
   def fetch_title(exif)
-    [:title, :caption, :subject].map { |a| exif.send(a) }.keep_if(&:present?).first
+    [:title, :caption, :subject].map { |a| 
+      exif.send(a)
+    }.keep_if(&:present?).keep_if { |v| v.is_a?(String) }.first
   end
 
   def convert_lat_lng
