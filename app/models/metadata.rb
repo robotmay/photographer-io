@@ -220,6 +220,8 @@ class Metadata < ActiveRecord::Base
     return_hash = {}
 
     exif.to_hash.each do |key, value|
+      next if key.nil?
+
       key = key.underscore.to_sym
       if keys.include?(key)
         return_hash[key] = value

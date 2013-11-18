@@ -157,7 +157,7 @@ class Photograph < ActiveRecord::Base
 
   def exif
     Photograph.benchmark "Parsing image for EXIF" do
-      MiniExiftool.new(image.file.path)
+      MiniExiftool.new(image.file.path, replace_invalid_chars: '')
     end
   end
 
