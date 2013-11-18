@@ -6,16 +6,24 @@ class PhotoExpansionWorker
   sidekiq_options queue: :photos
 
   def perform(photograph_id)
-    timeout(300) do
-      @photo = Photograph.find(photograph_id)
+    begin
+      timeout(300) do
+        @photo = Photograph.find(photograph_id)
 
-      # Extract the metadata and save it
-      extract_metadata
+        # Extract the metadata and save it
+        extract_metadata
 
-      # Generate all the other image sizes
-      generate_images
+        # Generate all the other image sizes
+        generate_images
 
-      @photo.save!
+        @photo.save!
+      end
+    rescue Exception => ex
+      if @photo.present?
+        @photo.logs << [ex.message, "\n", ex.backtrace.take(5).join("\n")]
+      end
+
+      raise ex
     end
   end
 
@@ -38,7 +46,11 @@ class PhotoExpansionWorker
       metadata.extract_from_photograph
 
       @photo.logs << "Saving metadata record"
-      metadata.save!
+      if metadata.save!
+        @photo.logs << "Metadata record saved"
+      else
+        @photo.logs << "Metadata didn't save successfully"
+      end
     end
   end
 

@@ -136,6 +136,17 @@ describe Metadata do
           wibble_pt: 100
         })
       end
+
+      context "nil keys" do
+        let(:exif) { { nil => nil, "test" => 100 } }
+
+        it "returns an underscore-keyed array without the nil keys" do
+          hash = metadata.send(:fetch_from_exif, exif, [:test])
+          hash.should eq({
+            test: 100
+          })
+        end
+      end
     end
 
     describe "#rotate?" do

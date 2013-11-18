@@ -232,7 +232,7 @@ GEM
     metaclass (0.0.1)
     method_source (0.8.1)
     mime-types (1.25)
-    mini_exiftool (1.6.0)
+    mini_exiftool (2.3.0)
     mini_exiftool_vendored (8.9.7.v2)
       mini_exiftool (>= 1.6.0)
     minitest (4.7.5)
