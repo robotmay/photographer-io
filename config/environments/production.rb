@@ -5,7 +5,10 @@ Iso::Application.configure do
   config.cache_classes = true
 
   # Other caching configuration
-  config.cache_store = :dalli_store
+  config.cache_store = :dalli_store, {
+    value_max_bytes: 10.megabytes,
+    compress: true
+  }
   config.action_controller.perform_caching = true
   config.action_dispatch.rack_cache = {
     metastore: Dalli::Client.new,
