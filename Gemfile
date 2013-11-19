@@ -52,7 +52,8 @@ gem 'multi_fetch_fragments', github: 'robotmay/multi_fetch_fragments'
 
 # services
 gem 'puma', '2.6.0'
-gem 'sidekiq', '2.15.0'
+gem 'sidekiq', '2.15.2'
+gem 'sidekiq-limit_fetch'
 gem 'airbrake'
 gem 'newrelic_rpm'
 gem 'postmark-rails'

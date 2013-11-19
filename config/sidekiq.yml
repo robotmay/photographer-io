@@ -8,3 +8,5 @@
   - [photos, 2]
   - [default, 1]
   - [low, 1]
+:limits:
+  photos: 3
