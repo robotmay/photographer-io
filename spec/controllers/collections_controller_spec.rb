@@ -9,6 +9,7 @@ describe CollectionsController do
     let(:photographs) { [Photograph.make] }
 
     before do
+      controller.stub(:track_last_viewed_photographs) { nil }
       collection.stub(:id) { 1 }
       collection.stub_chain(:photographs, :visible, :page) { photographs }
       Collection.stub(:find) { collection }
