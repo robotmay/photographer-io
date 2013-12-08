@@ -29,6 +29,8 @@ en:
     twitter_account: "@photographer_io"
     github: "GitHub"
   privacy_policy: "https://www.iubenda.com/privacy-policy/288645"
+  previous: "Previous"
+  next: "Next"
 
   locales:
     en: "English"

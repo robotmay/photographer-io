@@ -158,4 +158,32 @@ module PhotographsHelper
       end
     end
   end
+
+  def last_viewed_photograph_ids
+    flash[:last_viewed_photograph_ids]
+  end
+
+  def last_viewed_photographs
+    if last_viewed_photograph_ids.present?
+      Photograph.view_for(current_user).where(id: flash[:last_viewed_photograph_ids])
+    end
+  end
+
+  def next_photo_id(photograph, photograph_ids)
+    if photograph_ids.present? && photograph_ids.size > 0
+      index = photograph_ids.index(photograph.id)
+      photograph_ids[(index || 0) + 1]
+    end
+  end
+
+  def previous_photo_id(photograph, photograph_ids)
+    if photograph_ids.present? && photograph_ids.size > 0
+      index = photograph_ids.index(photograph.id)
+      if index == 0
+        nil
+      else
+        photograph_ids[(index || 0) - 1]
+      end
+    end
+  end
 end

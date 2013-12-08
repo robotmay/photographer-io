@@ -83,6 +83,9 @@ head
       div class="large-8 columns" style="text-align: right;"
         = simple_format t("copyright")
 
+  div
+    = (flash[:last_viewed_photograph_ids] || []).join(", ")
+
   == yield(:after_body)
 
   = render partial: "shared/analytics"
