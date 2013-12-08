@@ -4,40 +4,12 @@ class ApplicationController < ActionController::Base
   helper_method :set_title, :hide_filters?, :sharing_mode
 
   attr_accessor :sharing_mode
-
+  
   before_filter :set_locale
-  def set_locale
-    I18n.locale = params[:locale] || (user_signed_in? ? current_user.locale : I18n.default_locale)
-  end
-
   before_filter :fetch_categories
-  def fetch_categories
-    @categories = Rails.cache.fetch([I18n.locale, :categories, :list], expires_in: 5.minutes) do
-      Category.all.sort_by(&:name)
-    end
-
-  # Handle a cache failure here, as it will impact entire site
-  rescue Exception
-    @categories = Category.order("name ASC")
-  end
-
   before_filter :fetch_licenses
-  def fetch_licenses
-    @licenses = Rails.cache.fetch([I18n.locale, :licenses, :list], expires_in: 5.minutes) do
-      License.order("id ASC").load
-    end
-
-  # Handle a cache failure here, as it will impact entire site
-  rescue Exception
-    @licenses = License.order("id ASC")
-  end
-
   before_filter :google_analytics_identification
-  def google_analytics_identification
-    if $gabba.present?
-      $gabba.identify_user(cookies[:__utma], cookies[:__utmz])
-    end
-  end
+  after_filter :track_last_viewed_photographs
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, alert: exception.message
@@ -86,5 +58,48 @@ class ApplicationController < ActionController::Base
 
   def enable_sharing_mode
     self.sharing_mode = true
+  end
+
+  def set_locale
+    I18n.locale = params[:locale] || (user_signed_in? ? current_user.locale : I18n.default_locale)
+  end
+
+  def fetch_categories
+    @categories = Rails.cache.fetch([I18n.locale, :categories, :list], expires_in: 5.minutes) do
+      Category.all.sort_by(&:name)
+    end
+
+  # Handle a cache failure here, as it will impact entire site
+  rescue Exception
+    @categories = Category.order("name ASC")
+  end
+
+  def fetch_licenses
+    @licenses = Rails.cache.fetch([I18n.locale, :licenses, :list], expires_in: 5.minutes) do
+      License.order("id ASC").load
+    end
+
+  # Handle a cache failure here, as it will impact entire site
+  rescue Exception
+    @licenses = License.order("id ASC")
+  end
+
+  def google_analytics_identification
+    if $gabba.present?
+      $gabba.identify_user(cookies[:__utma], cookies[:__utmz])
+    end
+  end
+
+  def track_last_viewed_photographs
+    case
+    # When a collection is being viewed, store its photo ids
+    when @collection.present?
+      flash[:last_viewed_photograph_ids] = @collection.photographs.visible.pluck(:id).uniq
+    # If viewing a photo and previously viewed a set of photos, keep the photo ids
+    when flash[:last_viewed_photograph_ids].present? && @photograph.present?
+      if flash[:last_viewed_photograph_ids].include?(@photograph.id)
+        flash.keep
+      end
+    end
   end
 end

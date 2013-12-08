@@ -32,3 +32,14 @@ div class="interactions"
                 = link_to photograph_favourites_path(photograph), method: :post, class: "button small favourite secondary", "data-remote" => true do
                   | &nbsp;
 
+div class="photo-navigation"
+  div class="inner"
+    - previous_id = previous_photo_id(photograph, last_viewed_photograph_ids)
+    - if previous_id.present?
+      span class="previous"
+        = link_to t("previous"), photograph_path(id: previous_id)
+
+    - next_id = next_photo_id(photograph, last_viewed_photograph_ids)
+    - if next_id.present?
+      span class="next"
+        = link_to t("next"), photograph_path(id: next_id)

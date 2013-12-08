@@ -60,11 +60,51 @@
           .button
             margin: 0
 
-      &:hover .interactions
+      &:hover .interactions, &:hover .photo-navigation
         opacity: 1
 
       .actual-interactions
         text-align: right
+
+      .photo-navigation
+        opacity: 0
+        transition: opacity .25s ease-in-out
+        -moz-transition: opacity .25s ease-in-out
+        -webkit-transition: opacity .25s ease-in-out
+
+        .previous, .next
+          position: absolute
+          display: block
+          margin: 20px
+
+          a
+            display: block
+            width: 20px
+            height: 20px
+            padding: 40px
+            background:
+              repeat: no-repeat
+              position: 50%
+              color: rgba(0,0,0,.4)
+
+            &:hover
+              background-color: rgba(0,0,0,.6)
+
+        .previous
+          left: 0
+          top: 40%
+          text-align: left
+          text-indent: -99999px
+          a
+            background-image: image-url('glyphicons_inverted/glyphicons_210_left_arrow.png')
+
+        .next
+          right: 0
+          top: 40%
+          text-align: right
+          text-indent: 99999px
+          a
+            background-image: image-url('glyphicons_inverted/glyphicons_211_right_arrow.png')
 
       .stats
         @include stats("glyphicons_halflings")
