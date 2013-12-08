@@ -5,10 +5,15 @@ class ApplicationController < ActionController::Base
 
   attr_accessor :sharing_mode
 
+  before_filter :set_locale
+  def set_locale
+    I18n.locale = params[:locale] || (user_signed_in? ? current_user.locale : I18n.default_locale)
+  end
+
   before_filter :fetch_categories
   def fetch_categories
     @categories = Rails.cache.fetch([I18n.locale, :categories, :list], expires_in: 5.minutes) do
-      Category.order("name ASC").load
+      Category.all.sort_by(&:name)
     end
 
   # Handle a cache failure here, as it will impact entire site
@@ -32,11 +37,6 @@ class ApplicationController < ActionController::Base
     if $gabba.present?
       $gabba.identify_user(cookies[:__utma], cookies[:__utmz])
     end
-  end
-
-  before_filter :set_locale
-  def set_locale
-    I18n.locale = params[:locale] || (user_signed_in? ? current_user.locale : I18n.default_locale)
   end
 
   rescue_from CanCan::AccessDenied do |exception|
