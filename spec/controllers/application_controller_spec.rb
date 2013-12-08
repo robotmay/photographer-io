@@ -8,7 +8,7 @@ describe ApplicationController do
     before { Category.stub(:where) { [] } }
 
     it "cache failure shouldn't break the site" do
-      instance.fetch_categories.should eq([])
+      instance.send(:fetch_categories).should eq([])
     end
   end
 
