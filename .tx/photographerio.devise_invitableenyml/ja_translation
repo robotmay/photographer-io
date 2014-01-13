@@ -1,0 +1,17 @@
+ja:
+  devise:
+    invitations:
+      send_instructions: '招待メールは、 %{email}に送られました。'
+      invitation_token_invalid: '招待トークン'
+      updated: '貴方のパスワードは、無事設定されました。貴方は、サインインしています。'
+      no_invitations_remaining: "残っている招待状はありません"
+      invitation_removed: '貴方の招待状は、削除されました。'
+      new:
+        header: "招待状を送信"
+        submit_button: "招待状を送信"
+      edit:
+        header: "貴方のパスワードを設定"
+        submit_button: "自分のパスワードを設定"
+    mailer:
+      invitation_instructions:
+        subject: '友達が、貴方がPhotographer.io に参加するように招待しました'

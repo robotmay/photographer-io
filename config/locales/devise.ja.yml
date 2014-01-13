@@ -1,0 +1,56 @@
+ja:
+  devise:
+    confirmations:
+      confirmed: "貴方のアカウントは、無事確認されました。貴方は、サインインしています。"
+      send_instructions: "数分のうちに、貴方のアカウントを確認する方法についての説明を記述したEメールが送られます。"
+      send_paranoid_instructions: "貴方のEメールアドレスがデータベースにある場合、数分のうちに、貴方のアカウントを確認する方法についての説明を記述したEメールが送られます。"
+    failure:
+      already_authenticated: "既にサインインしています。"
+      inactive: "貴方のアカウントは、まだ有効化されていません。"
+      invalid: "不正なEメールまたはパスワード。"
+      invalid_token: "不正な認証トークン。"
+      locked: "貴方のアカウントはロックされています。"
+      not_found_in_database: "不正なEメールまたはパスワード。"
+      timeout: "貴方のセッションの有効期限が切れました。続けるためには、再度サインインして下さい。"
+      unauthenticated: "続けるには、サインインまたはサインアップする必要があります。"
+      unconfirmed: "続けるためには、貴方のアカウントを確認する必要があります。"
+    mailer:
+      confirmation_instructions:
+        subject: "確認の手引"
+      reset_password_instructions:
+        subject: "パスワードのリセットの手引"
+      unlock_instructions:
+        subject: "ロック解除の手引"
+    omniauth_callbacks:
+      failure: "\"%{reason}\"ですので、%{kind} で貴方を確認できませんでした。"
+      success: "無事 %{kind} アカウントで確認できました。"
+    passwords:
+      no_token: "パスワード・リセット・メール以外からこのページにはアクセスできません。もし、パスワード・リセット・メールから来られた場合は、用意された完全なURLを使用されたかどうかを確認して下さい。"
+      send_instructions: "数分のうちに、貴方のパスワードをリセットする方法についての説明を記述したEメールが送られます。"
+      send_paranoid_instructions: "貴方のEメールアドレスがデータベースにある場合、数分のうちに、貴方のEメールにパスワード回復リンクが送られます。"
+      updated: "貴方のパスワードは、無事変更されました。貴方は、サインインしています。"
+      updated_not_active: "貴方のパスワードは、無事変更されました。"
+    registrations:
+      destroyed: "さようなら！貴方のアカウントはキャンセルされました。もう一度お目にかかりたいです。"
+      signed_up: "ようこそ！無事さサインアップされました。"
+      signed_up_but_inactive: "無事サインアップ出来ました。しかし、貴方のアカウントは、まだ有効化されていませんので、サインイン出来ません。"
+      signed_up_but_locked: "無事サインアップ出来ました。しかし、貴方のアカウントは、ロックされいますので、サインイン出来ません。"
+      signed_up_but_unconfirmed: "確認リンクがついたメッセージが、貴方のEメールに送られました。貴方のアカウントを有効化するリンクを開いて下さい。"
+      update_needs_confirmation: "貴方のアカウントが無事更新されました。しかし、新しいEメールアドレスを確認する必要があります。貴方のEメールをチェックし、貴方の新しいEメールの確認作業を終わらせる確認リンクをクリックして下さい。"
+      updated: "貴方のアカウントが無事更新されました。"
+    sessions:
+      signed_in: "サイインしました。"
+      signed_out: "サインアウトしました。"
+    unlocks:
+      send_instructions: "数分のうちに、貴方のアカウントをロック解除する方法についての説明を記述したEメールが送られます。"
+      send_paranoid_instructions: "アカウントがある場合は、数分のうちに、ロック解除する方法についての説明を記述したEメールが送られます。"
+      unlocked: "貴方のカウントは、無事ロック解除されました。続けるためにはサインインして下さい。"
+  errors:
+    messages:
+      already_confirmed: "は、既に確認されています。サインインを試して下さい"
+      confirmation_period_expired: "は、%{period}以内に確認される必要があります。新しいものを要望して下さい。"
+      expired: "は、有効期限が切れました。新しいものを要望して下さい。"
+      not_found: "見つかりません"
+      not_locked: "はロックされていません。"
+      not_saved:
+        other: "%{count} エラーが、この %{resource} が保存することを邪魔しています:"

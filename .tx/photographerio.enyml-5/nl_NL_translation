@@ -28,6 +28,8 @@ nl_NL:
     twitter_account: "@photographer_io"
     github: "GitHub"
   privacy_policy: "https://www.iubenda.com/privacy-policy/288645"
+  previous: "Vorige"
+  next: "Volgende"
   locales:
     en: "Engels"
     es: "Español <abbr title='Beta'>*</abbr>"
@@ -297,6 +299,10 @@ nl_NL:
       favourites: "Favorieten"
       upload: "Upload"
       delete: "Verwijder deze foto"
+      logs: "Log bijwerken"
+      exit: >
+        Er zijn uploads in uitvoering, deze zullen worden onderbroken als je deze
+        pagina verlaat.
       dropzone: >
         Sleep je foto's naar deze pagina om ze te uploaden. Lees meer hierover in
         onze %{guidelines}.

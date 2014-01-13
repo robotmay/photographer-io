@@ -66,7 +66,7 @@ fr:
         show_copyright_info: >
           Voulez-vous afficher les informations de droits d'auteur, si elles existent,
           qui sont incluses dans les méta-données de votre photo? Elles peuvent contenir
-          des inforamtions personnelles telles que votre nom et la région dans laquelle
+          des informations personnelles telles que votre nom et la région dans laquelle
           vous résidez (ville/pays).
         category: >
           Sélectionner une catégorie en rapport avec votre photo aidera les autres
@@ -95,11 +95,11 @@ fr:
           mais peut être modifié sur chaque photo individuellement.
         show_location_data: >
           Voulez-vous montrer l'endroit où les photos ont été prises par défaut? Ceci
-          peut être modifié individuellement sur chauqe image.
+          peut être modifié individuellement sur chaque image.
         show_copyright_info: >
           Voulez-vous afficher les informations de droits d'auteur, si elles existent,
           qui sont incluses dans les méta-données de votre photo? Elles peuvent contenir
-          des inforamtions personnelles telles que votre nom et la région dans laquelle
+          des informations personnelles telles que votre nom et la région dans laquelle
           vous résidez (ville/pays).
         biography: >
           Votre biographie sear affichée sur votre page de profil. Aucun formattage
@@ -112,7 +112,7 @@ fr:
           Voulez-vous que les autres utilisateurs sachent que vous avez marqué leurs
           photos comme favorites?
         show_social_buttons: >
-          Voulez-vous voir les options de paratges vers les réseaux sociaux sous les
+          Voulez-vous voir les options de partages vers les réseaux sociaux sous les
           photos, càd Twitter, Facebook, Google etc?
 
           Ceci pourrait avoir des implications sur la vie privée.

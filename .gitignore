@@ -24,3 +24,4 @@
 /config/deploy.rb
 /coverage
 /playbooks
+.ruby-version
