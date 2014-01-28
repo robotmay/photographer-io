@@ -28,6 +28,11 @@ class NotificationsController < ApplicationController
     respond_with @notification do |f|
       f.html { redirect_to path }
     end
+
+  rescue ActiveRecord::RecordNotFound
+    respond_to do |f|
+      f.html { redirect_to root_path, alert: t("notifications.not_found") }
+    end
   end
 
   def mark_all_as_read

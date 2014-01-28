@@ -1,7 +1,7 @@
 class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :comment_thread, touch: true
-  has_many :notifications, as: :notifiable
+  has_many :notifications, as: :notifiable, dependent: :destroy
   has_many :reports, as: :reportable
 
   acts_as_tree dependent: :destroy
