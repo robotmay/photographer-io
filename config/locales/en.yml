@@ -469,6 +469,9 @@ en:
     title: "Notifications"
     none: "You have no notifications right now."
     mark_as_read: "Mark all as read"
+    not_found: >
+      That notification could not be found, it is possible that the event which
+      generated it has changed.
     email:
       subject: "Photographer.io: %{subject}"
       button: "View on Photographer.io"

@@ -82,6 +82,8 @@ Copy one of those files to .env and populate it:
 ##### S3 is used in development
 Due to the plugins used for handling uploads, S3 support is required even in development. It's not ideal, but you'll need to fill out those S3 keys in your .env file with details for your S3 bucket.
 
+In both development and production you will need to configure CORS correctly on Amazon. [See the README in the upload script we use for more details](https://github.com/waynehoover/s3_direct_upload).
+
 Now start it up with Foreman:
 
 `foreman start`

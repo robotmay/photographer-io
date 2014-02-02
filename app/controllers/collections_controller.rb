@@ -49,7 +49,7 @@ class CollectionsController < ApplicationController
     @collection = Collection.find(params[:id])
     authorize! :read, @collection
     track_view_for_collection(@collection)
-    @photographs = @collection.photographs.visible.page(params[:page])
+    @photographs = @collection.photographs.view_for(current_user).page(params[:page])
     respond_with @collection
   end
 
