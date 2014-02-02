@@ -19,6 +19,8 @@ fr:
     twitter_account: "@photographer_io"
     github: "GitHub"
   privacy_policy: "https://www.iubenda.com/privacy-policy/288645"
+  previous: "Précédent"
+  next: "Suivant"
   locales:
     en: "Anglais"
     nl_NL: "Néerlandais"
@@ -58,6 +60,7 @@ fr:
     dashboard: "Tableau de bord"
     seeking_feedback: "Photos qui cherchent une réaction"
     about: "À propos de nous"
+    license: "Explorer par licence"
   home:
     title: >
       Une nouvelle communauté pour partager vos photos.
@@ -315,6 +318,8 @@ fr:
         no_photos_selected: "Aucune photographie n'est sélectionnée."
         collections:
           succeeded: "Les collections de photographies ont été mises à jour avec succès."
+        delete:
+          succeeded: "Les photographies ont été effacées avec succès."
       destroy:
         succeeded: "Votre photographie a été effacée avec succès."
         failed: "Un problème est survenu lors de l'effacement de cette photographie."
@@ -400,6 +405,10 @@ fr:
       Afin de diminuer l'encombrement de la page, les boutons recommander et favorites
       ont été retirés de la barre latérale et sont à présent affichés lorsque vous
       survolez la photo.
+    share:
+      title: "Partager"
+      blurb: >
+        Partager cette photo grâce à l'URL suivante:
     edit: "Éditer cette photo"
     location: "Localisation"
     recommend: "recommender cette photographie"
@@ -476,9 +485,9 @@ fr:
         spiel:
           title: "Amenez vos amis et gagnez des récompenses !"
           body: |
-            Vous paaréciez Photographer.io? Propagez votre amour et amenez vos amis à nous rejoindre eux aussi!
+            Vous appréciez Photographer.io? Propagez votre amour et amenez vos amis à nous rejoindre eux aussi!
 
-            Pour chaque ami que vous recrutez vos gagnerez %{referral_bonus} envois supplémentaires de photos par mois.
+            Pour chaque ami que vous recrutez vous gagnerez %{referral_bonus} envois supplémentaires de photos par mois.
       edit:
         title: "Créez votre compte"
         accept: "Acceptez l'invitation et créez un compte"

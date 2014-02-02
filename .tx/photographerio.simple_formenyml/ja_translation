@@ -1,0 +1,124 @@
+ja:
+  simple_form:
+    'yes': 'はい'
+    'no': 'いいえ'
+    required:
+      text: '必須'
+      mark: '*'
+    error_notification:
+      default_message: "以下の問題を調査して下さい:"
+    labels:
+      collection:
+        visible: "このサイトで、このコレクションを公開しますか？"
+      comment_thread:
+        destroy: "このスレッドを削除"
+      user:
+        name: "名前"
+        location: "場所"
+        username: "ユーザ名"
+        password: "パスワード"
+        password_confirmation: "パスワードの確認"
+        avatar: "アバター"
+        biography: "略歴"
+        website_url: "貴方のウェブサイトURL"
+        show_location_data: "場所データを表示"
+        show_copyright_info: "著作権情報の表示"
+        show_nsfw_content: "NSFW内容を表示"
+        default_license: "標準ライセンス"
+        receive_notification_emails: "通知メールを受信"
+        notify_favourites: "お気に入りの通知"
+        show_social_buttons: "ソーシャル・ボタンを表示"
+        locale: "言語情報"
+        enable_comments_by_default: "標準でコメントを有効"
+        show_profile_background: "プロフィールを目立たないところに表示"
+        profile_background_photo_id: "プロフィール背景写真"
+    placeholders:
+      comment_thread:
+        subject: "例： この鳥は、何の種類ですか？； どのように自分の色を選んだの？"
+      user:
+        name: "貴方の名前、または、ニックネーム、例： Rupert B"
+        website_url: "http://yourgreatphotosite.com"
+        username: >
+          URLに使用されている固有の名前、例: rupert_bear
+    hints:
+      comment_thread:
+        subject: >
+          訪問者にどのようなテーマにコメントをしてもらいたいですか？これは、”この引出線はどうでしょうか？”から”この鳥の名前を教えて下さい！”まで、何でもできます
+      metadata:
+        keywords: >+
+          キーワードは、画像に関連したタグのカンマ区切りのリストです。例：自然, 鳥, クロウタドリ
+
+      photograph:
+        safe_for_work: >
+          仕事場から閲覧している男性をお助けします; 仕事場の環境に相応しく無いと思わるアダルトの内容が含まれる場合は、この写真を仕事場に妥当でないにチェックして下さい。
+        license: >+
+          標準で、貴方は貴方の写真の全ての権利を保有します。クリエイティブ・コモンズ・ライセンスを追加したい場合も、することが出来ます。
+
+        show_location_data: >
+          写真が撮られた場所を表示したいですか？貴方のアカウント設定で、標準設定を変更することが出来ます。
+        show_copyright_info: >+
+          著作権情報を表示しますか？もしある場合は、貴方の写真のメタデータに何が埋め込まれていますか？名前や居住エリア(市/国)などの個人情報が含まれてるかもしれません。
+
+        category: >+
+          貴方の写真に関連するカテゴリを設定することは、他の人が簡単に見つけやすくします。
+
+        enable_comments: >+
+          コメントを有効にした場合、少なくとも1つのテーマに回答するように設定する必要があります。公開にすると選択しない限り、貴方とコメントした人との内密なコメントになります。
+
+      user:
+        edit:
+          username: >+
+            貴方のユーザー名は、このサイトを通じて固有のユニークな識別子で、貴方のプロフィール・ページを示すURLに使用されます。例： https://www.photographer.io/u/rupert_bear
+            。他に存在しなく、小文字で、文字・数字・アンダースコアのみを用いることが出来ます。
+
+        username: >+
+          文字、数字、アンダースコアのみを用いることが出来ます。
+
+        show_nsfw_content: >+
+          仕事場に妥当でないとマークされた内容を表示しますか？これは、ヌード、暴力、または働く環境には相応しく無いその他の内容が含まれます。
+
+        default_license_id: >+
+          標準で、貴方は貴方の写真の全ての権利を保有します。クリエイティブ・コモンズ・ライセンスを追加したい場合も、することが出来ます。これは、貴方がアップロードした全ての新しい写真に標準として適用されます。しかし、各画像毎に変更することが出来ます。
+
+        show_location_data: >
+          標準で、写真が撮られた場所を表示したいですか？各画像毎に変更することが出来ます。
+        show_copyright_info: >+
+          著作権情報を表示しますか？もしある場合は、貴方の写真のメタデータに何が埋め込まれていますか？名前や居住エリア(市/国)などの個人情報が含まれてるかもしれません。
+
+        biography: >+
+          貴方の略歴は、貴方のプロフィール・ページに表示されます。現在、基本的な新規ラインのサポート以外の如何なるフォーマティングはサポートしていません。マークダウンは、もうすぐサポートされます。
+
+        receive_notification_emails: >+
+          新しい重要な通知をEメールで受信しますか？例： 新規コメント
+
+        notify_favourites: >
+          貴方がこれらの写真をお気に入りとした時、他の方に知らせますか？
+        show_social_buttons: >
+          写真の下にソーシャル共有オプション、例: Twitter, Facebook, Googleなどを表示しますか？
+
+          これは、プライバシー上の意味を持ちます。
+        locale: >
+          ご希望の言語を選んで下さい。もし、言語がない場合は、Photographer.io の翻訳を手伝ってみませんか？詳細は、<a href="https://github.com/afternoonrobot/photographer-io#translations">我々の
+          GitHub repository</a>を御覧下さい。
+        enable_comments_by_default: >
+          貴方がここで設定したコメント・スレッドを使用して、アップロードした全ての新しい写真に標準でコメントスレッドを有効にする。
+        default_comment_threads: >+
+          標準のコメントスレッドをここで貴方の写真に用いられるように設定。標準でコメントを有効にしなくても、標準にすることが出来ます。
+
+
+
+        show_profile_background: >
+          貴方の公開プロフィール・ページに背景として大きな写真を表示させたくない場合は、ここで無効化出来ます。
+        profile_background_photo_id: >+
+          貴方のプロフィール背景として、写真を選ぶことが出来ます。標準で、貴方がアップロードした公開写真から、ランダムになります。
+
+  helpers:
+    submit:
+      comment:
+        create: "コメント投稿"
+        update: "更新"
+      mass_edit:
+        create: "更新"
+      user:
+        update: "貴方のアカウント詳細を更新"
+        create: "アカウント作成"

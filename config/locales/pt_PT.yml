@@ -27,6 +27,8 @@ pt_PT:
     twitter_account: "@photographer_io"
     github: "GitHub"
   privacy_policy: "https://www.iubenda.com/privacy-policy/288645"
+  previous: "Anterior"
+  next: "Próximo"
   locales:
     en: "Inglês"
     es: "Espanhol <abbr title='Beta'>*</abbr>"
@@ -291,6 +293,9 @@ pt_PT:
       favourites: "Favoritos"
       upload: "Carregar"
       delete: "Apagar esta fotografia"
+      logs: "Anotações do processo"
+      exit: >
+        Existem carregamentos em execução que serão interrompidos se sair desta pagina.
       dropzone: >
         Pode arrastar e largar as suas imagens nesta página para carregar-las. Leia
         nas nossas %{guidelines}.
