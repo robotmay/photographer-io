@@ -45,7 +45,7 @@ module Iso
     config.assets.precompile += %w( custom.modernizr.js )
     config.i18n.fallbacks = [:en]
     config.middleware.use I18n::JS::Middleware
-    config.i18n.enforce_available_locales = false
+    config.i18n.enforce_available_locales = true
 
     if Puma.respond_to?(:cli_config)
       ::Iso.set_db_connection_pool_size! Puma.cli_config.options.fetch(:max_threads)
