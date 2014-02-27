@@ -75,7 +75,7 @@ gem 'omniauth-google-oauth2', github: 'murryivanoff/omniauth-google-oauth2'
 
 # images
 gem 'fog'
-gem 'dragonfly'
+gem 'dragonfly', '~> 0.9.15'
 gem 'mini_exiftool_vendored'
 gem 's3_direct_upload'
 
