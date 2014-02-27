@@ -61,9 +61,9 @@ gem 'keen'
 gem 'coveralls', require: false
 
 # auth
-gem 'devise'
-gem 'devise_invitable', '~> 1.3.4'
-gem 'devise-async'
+gem 'devise', '~> 3.0.0'
+gem 'devise_invitable', '~> 1.2.1'
+gem 'devise-async', '~> 0.8.0'
 gem 'cancan'
 
 # omniauth
