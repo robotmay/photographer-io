@@ -44,7 +44,7 @@ gem 'redis-objects'
 gem 'dalli'
 gem 'kgio'
 gem 'rack-cache'
-gem 'multi_fetch_fragments'
+gem 'multi_fetch_fragments', github: 'robotmay/multi_fetch_fragments'
 
 # services
 gem 'puma', '2.6.0'

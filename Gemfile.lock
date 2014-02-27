@@ -7,6 +7,12 @@ GIT
       omniauth-oauth2
 
 GIT
+  remote: git://github.com/robotmay/multi_fetch_fragments.git
+  revision: 284227cf2e34a95996576faf929328b8c44f3dca
+  specs:
+    multi_fetch_fragments (0.0.16)
+
+GIT
   remote: git://github.com/sporkrb/spork-rails.git
   revision: 0dd45e59d3237b4c8f9efc215b46d9c07072a95e
   specs:
@@ -212,7 +218,6 @@ GEM
       mini_exiftool (>= 1.6.0)
     mini_portile (0.5.2)
     minitest (4.7.5)
-    multi_fetch_fragments (0.0.17)
     multi_json (1.8.4)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -455,7 +460,7 @@ DEPENDENCIES
   link_to_active_state
   machinist
   mini_exiftool_vendored
-  multi_fetch_fragments
+  multi_fetch_fragments!
   newrelic_rpm
   oj
   omniauth-google-oauth2!
