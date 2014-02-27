@@ -7,13 +7,6 @@ GIT
       omniauth-oauth2
 
 GIT
-  remote: git://github.com/robotmay/sunspot-queue.git
-  revision: 32e922edb103a867507e7935065d90ebec2278de
-  specs:
-    sunspot-queue (0.10.0)
-      sunspot_rails (>= 1.3.0)
-
-GIT
   remote: git://github.com/sporkrb/spork-rails.git
   revision: 0dd45e59d3237b4c8f9efc215b46d9c07072a95e
   specs:
@@ -265,7 +258,6 @@ GEM
     postmark-rails (0.6.0)
       actionmailer (>= 3.0.0)
       postmark (~> 1.1.0)
-    pr_geohash (1.0.0)
     proxies (0.2.1)
     pry (0.9.12.6)
       coderay (~> 1.0)
@@ -315,8 +307,6 @@ GEM
       redis (>= 3.0.2)
     rest-client (1.6.7)
       mime-types (>= 1.16)
-    rsolr (1.0.9)
-      builder (>= 2.1.2)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -393,18 +383,6 @@ GEM
       json (~> 1.8.1)
       mime-types (~> 1.25)
       rest-client (~> 1.4)
-    sunspot (2.1.0)
-      pr_geohash (~> 1.0)
-      rsolr (~> 1.0.7)
-    sunspot_rails (2.1.0)
-      nokogiri
-      rails (>= 3)
-      sunspot (= 2.1.0)
-    sunspot_solr (2.1.0)
-    sunspot_with_kaminari (0.2.0)
-      kaminari (>= 0.14.0)
-      sunspot
-      sunspot_rails
     temple (0.6.7)
     term-ansicolor (1.3.0)
       tins (~> 1.0)
@@ -509,10 +487,6 @@ DEPENDENCIES
   slim (>= 1.3.0)
   spork-rails!
   stripe
-  sunspot-queue!
-  sunspot_rails
-  sunspot_solr
-  sunspot_with_kaminari
   thread
   timecop
   turbolinks

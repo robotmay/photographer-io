@@ -106,36 +106,6 @@ class Photograph < ActiveRecord::Base
   scope :for_month, -> (date_range) {
     where(created_at: date_range)
   }
-  
-  searchable do
-    text :title do |photo|
-      photo.metadata.title
-    end
-
-    text :description do |photo|
-      photo.metadata.description
-    end
-
-    string :keywords, multiple: true do |photo|
-      photo.metadata.keywords
-    end
-
-    text :creator_name do |photo|
-      photo.user.name
-    end
-
-    integer :user_id, references: User
-    integer :license_id, references: License
-    integer :category_id, references: Category
-    integer :collection_ids, references: Collection, multiple: true do |photo|
-      photo.collections.pluck(:id)
-    end
-    float :score
-    time :created_at
-    boolean :public, using: :public?
-    boolean :safe_for_work
-    boolean :ghost
-  end
 
   def favourites_count
     super || 0
