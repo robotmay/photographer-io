@@ -100,8 +100,6 @@ class PhotographsController < ApplicationController
   end
 
   def search
-    redirect_to photographs_path
-
     if search_params[:q].blank? && search_params[:keyword].blank?
       redirect_to(photographs_path) and return
     end
