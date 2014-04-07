@@ -62,6 +62,8 @@ class ApplicationController < ActionController::Base
 
   def set_locale
     I18n.locale = params[:locale] || (user_signed_in? ? current_user.locale : I18n.default_locale)
+  rescue I18n::InvalidLocale => ex
+    redirect_to url_for(locale: I18n.default_locale), alert: ex.message
   end
 
   def fetch_categories

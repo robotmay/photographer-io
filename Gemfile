@@ -9,9 +9,9 @@ def linux_only(require_as)
   RbConfig::CONFIG['host_os'] =~ /linux/ && require_as
 end
 
-ruby "2.0.0"
+ruby '2.0.0'
 
-gem 'rails', '4.0.2'
+gem 'rails', '4.0.3'
 gem 'sinatra', '>= 1.3.0', require: nil
 
 # deployment
@@ -36,10 +36,6 @@ gem 'pg'
 # search
 gem 'pg_search'
 gem 'pg_array_parser'
-gem 'sunspot_rails'
-gem 'sunspot_solr'
-gem 'sunspot-queue', github: 'robotmay/sunspot-queue'
-gem 'sunspot_with_kaminari'
 
 # redis
 gem 'redis-objects'
@@ -65,9 +61,9 @@ gem 'keen'
 gem 'coveralls', require: false
 
 # auth
-gem 'devise', '3.0.0.rc'
-gem 'devise_invitable', git: 'git://github.com/robotmay/devise_invitable.git', branch: 'rails4'
-gem 'devise-async'
+gem 'devise', '~> 3.0.0'
+gem 'devise_invitable', '~> 1.2.1'
+gem 'devise-async', '~> 0.8.0'
 gem 'cancan'
 
 # omniauth
@@ -75,20 +71,20 @@ gem 'omniauth-google-oauth2', github: 'murryivanoff/omniauth-google-oauth2'
 
 # images
 gem 'fog'
-gem 'dragonfly'
+gem 'dragonfly', '~> 0.9.15'
 gem 'mini_exiftool_vendored'
 gem 's3_direct_upload'
 
 # views
 gem 'slim', '>= 1.3.0'
-gem 'simple_form', '~> 3.0.0.beta1'
+gem 'simple_form', '~> 3.0.1'
 gem 'link_to_active_state'
 gem 'kaminari'
 gem 'redcarpet'
 
 # models
 gem 'friendly_id', '5.0.0.rc1'
-gem 'closure_tree', github: 'mceachen/closure_tree', branch: 'wip_rails4'
+gem 'closure_tree'
 
 # assets
 group :assets do
