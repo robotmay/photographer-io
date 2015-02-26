@@ -1,12 +1,15 @@
 # Photographer.io
 
-* [Photographer.io](https://www.photographer.io) is a photo sharing community.
-* Created by Robert May, Afternoon Robot Ltd.
-* Twitter: [@robotmay](https://twitter.com/robotmay) and [@photographer_io](https://twitter.com/photographer_io).
-* IRC: [#photographer-io on Freenode](irc://chat.freenode.net/photographer-io)
+* [Photographer.io] is an open-source photo sharing community, no longer in production.
+* Created by Robert May.
+* Twitter: [@robotmay](https://twitter.com/robotmay)
 
-## This readme is in progress
-If you have any questions don't hesitate to ask via Twitter or at <support@photographer.io>
+## No Longer Supported
+I ceased operating Photographer.io last year but the repo remains here for use by others or for reference. You are welcome to ask questions but my time for providing any support is limited these days, and the repo is likely quite out of date.
+
+Thanks to everyone who contributed and used Photographer.io.
+
+Rob
 
 ## Platform
 ### Languages Used
