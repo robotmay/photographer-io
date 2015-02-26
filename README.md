@@ -1,6 +1,6 @@
 # Photographer.io
 
-* [Photographer.io] is an open-source photo sharing community, no longer in production.
+* Photographer.io is an open-source photo sharing community, no longer in production.
 * Created by Robert May.
 * Twitter: [@robotmay](https://twitter.com/robotmay)
 
