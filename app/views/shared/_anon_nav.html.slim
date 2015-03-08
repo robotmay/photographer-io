@@ -32,18 +32,6 @@ nav id="layout-nav" class="top-bar"
 
               div class="row"
                 div class="large-12 columns"
-                  label= t("nav.search")
-                  = form_tag search_photographs_path, method: :get do
-                    div class="row collapse"
-                      div class="small-8 columns"
-                        = text_field_tag :q, params[:q]
-
-                      div class="small-4 columns"
-                        = submit_tag t("nav.search"), class: "button secondary"
-                  .clear
-
-              div class="row"
-                div class="large-12 columns"
                   label= t("nav.categories")
     
               div class="row"

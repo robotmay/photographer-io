@@ -75,6 +75,7 @@ head
           li= link_to t("social.github"), "https://github.com/afternoonrobot/photographer-io"
           li= link_to t("social.google_plus"), "https://plus.google.com/100673063979311454242"
           li= link_to t("social.twitter"), "https://twitter.com/photographer_io"
+          li= link_to t("closing.link"), "#", "data-reveal-id" => "closing-modal"
 
         ul class="inline-list"
           - t("locales").each do |key, name|
@@ -89,5 +90,20 @@ head
   = render partial: "shared/pubnub"
   = javascript_include_tag "application"
   == yield(:javascript)
+  
+  div id="closing-modal" class="reveal-modal expand"
+    header
+      a class="close-reveal-modal"
+        | &#215;
+      h3= t("closing.title")
+
+    section class="content"
+      = md t("closing.content")
+
+  - once :closing_modal do
+    javascript:
+      $(document).ready(function() {
+        $("#closing-modal").foundation('reveal', 'open');
+      });
 </body>
 

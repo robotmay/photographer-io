@@ -659,3 +659,39 @@ en:
 
   stories:
     notification: "%{text}"
+
+  closing:
+    link: "Photographer.io is shutting down"
+    title: "Photographer.io is shutting down on the 30th of April 2014"
+    content: >
+      It is with great regret that I must announce that Photographer.io is 
+      closing down on the 30th of April 2014. Unfortunately I no longer 
+      have the time or finances to maintain the site, which may have become 
+      apparent by the lack of improvements over the past 6 months. This is 
+      mostly due to a shift in my plans for the future and what I want to do 
+      with my spare time.
+
+
+      There was a time when I spent every evening working on the site, and it 
+      has taken me a long time to decide on what to do with it. I have tried 
+      to get back into the swing of developing it, but alas I haven't been able 
+      to do so. Over the past few months it has proven increasingly difficult 
+      to justify the cost of running the site, as I have other interests for 
+      which I need the money and I have been reluctant to run the site as a business.
+
+
+      On account of data privacy and photo ownership, I will not be handing 
+      control of the site over to anyone else and all data will be deleted 
+      shortly after the shutdown date. However I will continue to keep the 
+      repository on GitHub and accept pull-requests and other bugfixes, as 
+      I know that the software is used elsewhere and I will try to support 
+      those of you using it.
+
+
+      Thank you to everyone who has used this site and uploaded so many
+      wonderful photographs. I'm truly sorry for having to shut the site
+      down, and I wish I had been able to do more for all of you.
+
+
+      Best wishes,<br>
+      Robert May

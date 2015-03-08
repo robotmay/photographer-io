@@ -12,7 +12,7 @@ Iso::Application.routes.draw do
       collection do
         get :explore
         get :recommended
-        get :search
+        get :search, to: redirect("/%{locale}/photographs")
         get :random
         get :favourites
         get :following

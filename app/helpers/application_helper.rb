@@ -21,6 +21,9 @@ module ApplicationHelper
         current_user.seen[key] = true
         block.call
       end
+    elsif session[key].nil?
+      session[key] = true
+      block.call
     end
   end
 
